@@ -21,14 +21,15 @@ const enemies = {
 };
 
 const rooms = [
-    roomOne = new Room("room one", "this is room one", "../images/image1.jpg", items.roomOne[0], enemies.roomOne),
-    roomTwo = new Room("room two", "this is room twp", "../images/image2.jpg", items.roomTwo[0], enemies.roomTwo),
-    roomThree = new Room("room three", "this is room three", "../images/image3.jpg", items.roomThree[0], enemies.roomThree),
-    roomFour = new Room("room four", "this is room four", "../images/image4.jpg", items.roomFour[0], enemies.roomThree),
-    roomFive = new Room("room five", "this is room five", "../images/image5.jpg", items.roomFive[0], enemies.roomFour),
-    roomSix = new Room("room six", "this is room six", "../images/image6.jpg", items.roomSix[0], enemies.roomSix),
-    roomSeven = new Room("room seven", "this is room seven", "../images/image7.jpg", items.roomSeven[0], enemies.roomSeven),
-    roomEight = new Room("room eight", "this is room eight", "../images/image8.jpg", items.roomEight[0], enemies.roomEight)
+    roomOne = new Room("room one", "this is room one", "../images/roomOne.jpg", items.roomOne[0], enemies.roomOne),
+    roomTwo = new Room("room two", "this is room twp", "../images/roomTwo.jpg", items.roomTwo[0], enemies.roomTwo),
+    roomThree = new Room("room three", "this is room three", "../images/roomThree.jpg", items.roomThree[0], enemies.roomThree),
+    roomFour = new Room("room four", "this is room four", "../images/roomFour.jpg", items.roomFour[0], enemies.roomThree),
+    roomFive = new Room("room five", "this is room five", "../images/roomFive.jpg", items.roomFive[0], enemies.roomFour),
+    roomSix = new Room("room six", "this is room six", "../images/roomSix.jpg", items.roomSix[0], enemies.roomSix),
+    roomSeven = new Room("room seven", "this is room seven", "../images/roomSeven.jpg", items.roomSeven[0], enemies.roomSeven),
+    roomEight = new Room("room eight", "this is room eight", "../images/roomEight.jpg", items.roomEight[0], enemies.roomEight)
 ];
 
 rooms[0].displayName();
+rooms[0].displayImg();

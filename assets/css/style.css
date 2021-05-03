@@ -49,6 +49,11 @@ body {
     outline: 1px solid var(--clr-bg);
 }
 
+#room-img img {
+    width: 100%;
+    height: 100%;
+}
+
 #stats {
     grid-area: stats;
     outline: 1px solid var(--clr-bg);
