@@ -5,6 +5,7 @@ class Room {
         this.img = img;
         this.items = items;
         this.enemies = enemies;
+        this.canExit = false;
     }
     displayName() {
         let nameContainer = document.getElementById("room-name");
