@@ -34,7 +34,9 @@ My Milestone Project 2 from the Code Institute is a modern twist of the classic 
 
 - **User Stories**
 
-	- As a User, I want to be presented with a well structured game, so I can intuitively navigate and access the information I seek.
+	- As a User, I want to be presented with a well-structured game, where I can easily find all the information that I need.
+
+  - As a User, I want to be able to easily view information on how to play the game.
 
   - As a User, I want to be able to name my character similar to RPG games.
 
@@ -50,7 +52,7 @@ My Milestone Project 2 from the Code Institute is a modern twist of the classic 
 
   - As a User, I want a way to visualise how I am doing in the game, and how many more rooms are left till my character escapes.
 
-  - As a User, I want the game to give me feedback every time I choose correct actions that progress the story or raise my character's stats.
+  - As a User, I want to be able to contact the developer to offer feedback.
 
 ## Scope
 
