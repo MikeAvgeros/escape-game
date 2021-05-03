@@ -1,3 +1,5 @@
+let roomIndex = 0;
+
 const names = {
     roomOne: "Room 1",
     roomTwo: "Room 2",
@@ -21,14 +23,14 @@ const descriptions = {
 };
 
 const images = {
-    roomOne: "../images/roomOne.jpg",
-    roomTwo: "../images/roomTwo.jpg",
-    roomThree: "../images/roomThree.jpg",
-    roomFour: "../images/roomFour.jpg",
-    roomFive: "../images/roomFive.jpg",
-    roomSix: "../images/roomSix.jpg",
-    roomSeven: "../images/roomSeven.jpg",
-    roomEight: "../images/roomEight.jpg"
+    roomOne: "../assets/img/roomOne.jpg",
+    roomTwo: "../assets/img/roomTwo.jpg",
+    roomThree: "../assets/img/roomThree.jpg",
+    roomFour: "../assets/img/roomFour.jpg",
+    roomFive: "../assets/img/roomFive.jpg",
+    roomSix: "../assets/img/roomSix.jpg",
+    roomSeven: "../assets/img/roomSeven.jpg",
+    roomEight: "../assets/img/roomEight.jpg"
 };
 
 const items = {
@@ -71,6 +73,8 @@ function displayCurrentRoom(index) {
     currentRoom.displayImg();
 }
 
-let roomIndex = 0;
+function progressRoom() {
+    roomIndex++;
+}
 
 displayCurrentRoom(roomIndex);
