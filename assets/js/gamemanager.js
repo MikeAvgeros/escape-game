@@ -33,3 +33,4 @@ const rooms = [
 
 rooms[0].displayName();
 rooms[0].displayImg();
+rooms[0].displayDescription();
