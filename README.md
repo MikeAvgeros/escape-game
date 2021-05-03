@@ -11,8 +11,9 @@ This is a game I created as part of the Code Institute course for Milestone Proj
 - [Technologies Used](#technologies-used)
 - [Resources](#resources)
 - [Implementation](#implementation)
-  - [HTML & CSS](#html--css)
-  - [jQuery & Javascript](#jquery--javascript)
+  - [HTML](#html)
+  - [CSS](#css)
+  - [Javascript](#javascript)
 - [Testing](#testing)
   - [User Stories](#user-stories)
   - [Browser Compatibility](#browser-compatibility)
@@ -34,13 +35,22 @@ My Milestone Project 2 from the Code Institute is a modern twist of the classic 
 - **User Stories**
 
 	- As a User, I want to be presented with a well structured game, so I can intuitively navigate and access the information I seek.
-    - As a User, I want to be able to understand and enjoy the presented story.
-    - As a User, I want the displayed images to convey the emotion of the story.
-	- As a User, I want to be able to update my character's stats and weapons to help me beat the enemies.
-	- As a User, I want the UI to be consistent throughout the game, so it will be visually appealing and easy to play it.
-	- As a User, I want to have a way to save my progress, so I don't have to start the game from scratch every time.
-	- As a User, I want a way to visualise how I am doing in the game, and how many more rooms are left till my character escapes.
-	- As a User, I want the game to give me feedback every time I choose correct actions that progress the story or raise my character's stats.
+
+  - As a User, I want to be able to name my character similar to RPG games.
+
+  - As a User, I want to be able to understand and enjoy the presented story.
+
+  - As a User, I want the displayed images to convey the emotion of the story.
+
+  - As a User, I want to be able to update my character's stats and weapons to help me beat the enemies.
+
+  - As a User, I want the UI to be consistent throughout the game, so it will be visually appealing and easy to play it.
+
+  - As a User, I want to have a way to save my progress, so I don't have to start the game from scratch every time.
+
+  - As a User, I want a way to visualise how I am doing in the game, and how many more rooms are left till my character escapes.
+
+  - As a User, I want the game to give me feedback every time I choose correct actions that progress the story or raise my character's stats.
 
 ## Scope
 
@@ -67,6 +77,18 @@ I have designed the structure and skeleton of my game using Miro. You can view t
 ## JavaScript
 
 # Testing
+
+## User Stories
+
+## Browser Compatibility
+
+## Responsiveness
+
+## Form Validation
+
+## HTML Validation
+
+## CSS Validation
 
 # Future Features
 
