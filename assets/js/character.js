@@ -8,7 +8,7 @@ class Character {
         this.isDead = false;
     }
     takeDamage(amount) {
-        let damage = amount - this.defens;
+        let damage = amount - this.defense;
         if (damage < 0) {
             damage = 0;
         }
@@ -24,9 +24,9 @@ class Character {
 }
 
 class Enemy extends Character {
-    constructor(name, health, attack, defense, itemdrop) {
+    constructor(name, health, attack, defense, lootItem) {
         super(name, health, attack, defense);
-        this.itemdrop = itemdrop;
+        this.lootItem = lootItem;
     }
     lootEnemy() {
         // when enemy dies check if any items drop

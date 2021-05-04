@@ -32,6 +32,8 @@ This is a game I created as part of the Code Institute course for Milestone Proj
 
 My Milestone Project 2 from the Code Institute is a modern twist of the classic text adventure game. The story of the game will be displayed via text and images, whereas the players can view their stats and inventory with the use of icons and text. To progress through the rooms and finish the game, players will have to choose the right actions presented to them in the form of buttons. In order to make the game more interesting, the players will have to fight monsters and level up their skills and stats.
 
+I chose this type of game as it showcases a lot of object oriented concepts as well as being heavily interactive and data driven.
+
 - **User Stories**
 
 	- As a User, I want to be presented with a well-structured game, where I can easily find all the information that I need.

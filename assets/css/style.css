@@ -85,7 +85,7 @@ body {
     justify-content: space-evenly;
 }
 
-#btns button {
+#btns .button {
     cursor: pointer;
     border: 2px solid var(--clr-bg);
     border-radius: 10px;
