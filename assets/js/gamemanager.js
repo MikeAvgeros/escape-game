@@ -1,4 +1,5 @@
 let roomIndex = 0;
+let storyIndex = 0;
 
 const names = {
     roomOne: "Room 1",
@@ -12,15 +13,29 @@ const names = {
 };
 
 const descriptions = {
-    roomOne: "Room 1 description",
-    roomTwo: "Room 2 description",
-    roomThree: "Room 3 description",
-    roomFour: "Room 4 description",
-    roomFive: "Room 5 description",
-    roomSix: "Room 6 description",
-    roomSeven: "Room 7 description",
-    roomEight: "Room 8 description"
+    roomOne: "You wake up in a dark empty room tied firmly tied to a chair."
+}
+
+const storylines = {
+    roomOne: [
+            [
+                "You notice some broken glass on the floor next to you.", 
+                "You manage to cut the rope and break free. You see a door to your right.",
+                "You see some keys hidden behind the desk."
+            ],
+            [
+                "You try to break free but the rope is too tight",
+                "Doing nothing won't help you now",
+                "You try to exit the room but the door is locked.",
+                "You try to break the door but it's not possible."
+            ]
+        ]
 };
+
+const action = {
+    correct: 0,
+    wrong: 1
+}
 
 const images = {
     roomOne: "../assets/img/roomOne.jpg",
@@ -34,17 +49,17 @@ const images = {
 };
 
 const items = {
-    roomOne: [itemOne = new Item("name", "description", "img"), itemTwo = new Item("name", "description", "img")],
-    roomTwo: [itemOne = new Item("name", "description", "img"), itemTwo = new Item("name", "description", "img")],
-    roomThree: [itemOne = new Item("name", "description", "img"), itemTwo = new Item("name", "description", "img")],
-    roomFour: [itemOne = new Item("name", "description", "img"), itemTwo = new Item("name", "description", "img")],
-    roomFive: [itemOne = new Item("name", "description", "img"), itemTwo = new Item("name", "description", "img")],
-    roomSix: [itemOne = new Item("name", "description", "img"), itemTwo = new Item("name", "description", "img")],
-    roomSeven: [itemOne = new Item("name", "description", "img"), itemTwo = new Item("name", "description", "img")],
-    roomEight: [itemOne = new Item("name", "description", "img"), itemTwo = new Item("name", "description", "img")]
+    roomOne: new Item("name", "description", "img"),
+    roomTwo: new Item("name", "description", "img"),
+    roomThree: new Item("name", "description", "img"),
+    roomFour: new Item("name", "description", "img"), 
+    roomFive: new Item("name", "description", "img"), 
+    roomSix: new Item("name", "description", "img"), 
+    roomSeven: new Item("name", "description", "img"), 
+    roomEight: new Item("name", "description", "img")
 };
 
-const lootItem = {
+const lootItems = {
     roomOne: new Item("name", "description", "img"),
     roomTwo: new Item("name", "description", "img"),
     roomThree: new Item("name", "description", "img"),
@@ -56,32 +71,37 @@ const lootItem = {
 }
 
 const enemies = {
-    roomOne: new Enemy("enemyOne", "health", "attack", "defense", lootItem.roomOne),
-    roomTwo: new Enemy("enemyTwo", "health", "attack", "defense", lootItem.roomTwo),
-    roomThree: new Enemy("enemyThree", "health", "attack", "defense", lootItem.roomThree),
-    roomFour: new Enemy("enemyFour", "health", "attack", "defense", lootItem.roomFour),
-    roomFive: new Enemy("name", "health", "attack", "defense", lootItem.roomFive),
-    roomSix: new Enemy("name", "health", "attack", "defense", lootItem.roomSix),
-    roomSeven: new Enemy("name", "health", "attack", "defense", lootItem.roomSeven),
-    roomEight: new Enemy("name", "health", "attack", "defense", lootItem.roomEight)
+    roomOne: new Enemy("enemyOne", "health", "attack", "defense", lootItems.roomOne),
+    roomTwo: new Enemy("enemyTwo", "health", "attack", "defense", lootItems.roomTwo),
+    roomThree: new Enemy("enemyThree", "health", "attack", "defense", lootItems.roomThree),
+    roomFour: new Enemy("enemyFour", "health", "attack", "defense", lootItems.roomFour),
+    roomFive: new Enemy("name", "health", "attack", "defense", lootItems.roomFive),
+    roomSix: new Enemy("name", "health", "attack", "defense", lootItems.roomSix),
+    roomSeven: new Enemy("name", "health", "attack", "defense", lootItems.roomSeven),
+    roomEight: new Enemy("name", "health", "attack", "defense", lootItems.roomEight)
 };
 
 const rooms = [
-    roomOne = new Room(names.roomOne, descriptions.roomOne, images.roomOne, items.roomOne, enemies.roomOne),
-    roomTwo = new Room(names.roomTwo, descriptions.roomTwo, images.roomTwo, items.roomTwo, enemies.roomTwo),
-    roomThree = new Room(names.roomThree, descriptions.roomThree, images.roomThree, items.roomThree, enemies.roomThree),
-    roomFour = new Room(names.roomFour, descriptions.roomFour, images.roomFour, items.roomFour, enemies.roomThree),
-    roomFive = new Room(names.roomFive, descriptions.roomFive, images.roomFive, items.roomFive, enemies.roomFour),
-    roomSix = new Room(names.roomSix, descriptions.roomSix, images.roomSix, items.roomSix, enemies.roomSix),
-    roomSeven = new Room(names.roomSeven, descriptions.roomSeven, images.roomSeven, items.roomSeven, enemies.roomSeven),
-    roomEight = new Room(names.roomEight, descriptions.roomEight, images.roomEight, items.roomEight, enemies.roomEight)
+    roomOne = new Room(names.roomOne, descriptions.roomOne, storylines.roomOne, images.roomOne, items.roomOne, enemies.roomOne),
+    roomTwo = new Room(names.roomTwo, descriptions.roomOne, storylines.roomTwo, images.roomTwo, items.roomTwo, enemies.roomTwo),
+    roomThree = new Room(names.roomThree, descriptions.roomOne, storylines.roomThree, images.roomThree, items.roomThree, enemies.roomThree),
+    roomFour = new Room(names.roomFour, descriptions.roomOne, storylines.roomFour, images.roomFour, items.roomFour, enemies.roomThree),
+    roomFive = new Room(names.roomFive, descriptions.roomOne, storylines.roomFive, images.roomFive, items.roomFive, enemies.roomFour),
+    roomSix = new Room(names.roomSix, descriptions.roomOne, storylines.roomSix, images.roomSix, items.roomSix, enemies.roomSix),
+    roomSeven = new Room(names.roomSeven, descriptions.roomOne, storylines.roomSeven, images.roomSeven, items.roomSeven, enemies.roomSeven),
+    roomEight = new Room(names.roomEight, descriptions.roomOne, storylines.roomEight, images.roomEight, items.roomEight, enemies.roomEight)
 ];
 
-function displayCurrentRoom(index) {
-    currentRoom = rooms[index];
+function displayCurrentRoom(roomIndex) {
+    currentRoom = rooms[roomIndex];
     currentRoom.displayName();
     currentRoom.displayDescription();
     currentRoom.displayImg();
+}
+
+function displayCurrentStory(roomIndex, action, storyIndex) {
+    currentRoom = rooms[roomIndex];
+    currentRoom.displayStory(action, storyIndex);
 }
 
 function progressRoom() {
@@ -89,3 +109,6 @@ function progressRoom() {
 }
 
 displayCurrentRoom(roomIndex);
+
+//displayCurrentStory(roomIndex, action.correct, storyIndex);
+

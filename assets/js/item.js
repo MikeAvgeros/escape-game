@@ -5,19 +5,16 @@ class Item {
         this.img = img;
     }
     displayName() {
-        let nameContainer = document.getElementById();
+        const nameContainer = document.getElementById("room-name");
         nameContainer.innerHTML = `<h1>${this.name}</h1>`;
     }
     displayImg() {
-        let imgContainer = document.getElementById();
+        const imgContainer = document.getElementById("room-img");
         imgContainer.innerHTML = `<img src="${this.img}" alt="image of a ${this.name}"></img>`;
     }
     displayDescription() {
-        let descriptionContainer = document.getElementById();
+        const descriptionContainer = document.getElementById("room-description");
         descriptionContainer.innerHTML = `<p>${this.description}</p>`;
-    }
-    pickItem() {
-        // add item to your inventory and remove it from the room's list of items
     }
 }
 
