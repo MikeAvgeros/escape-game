@@ -8,12 +8,12 @@ class Room {
         this.enemy = enemy;
     }
 
-    displayName() {
+    showName() {
         const nameContainer = document.getElementById("room-name");
         nameContainer.innerHTML = `<h1>${this.name}</h1>`;
     }
     
-    displayImg() {
+    showImage() {
         const imgContainer = document.getElementById("room-img");
         imgContainer.innerHTML = `<img src="${this.img}" alt="image of ${this.name}"></img>`;
     }

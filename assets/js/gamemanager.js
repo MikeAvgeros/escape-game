@@ -1,7 +1,18 @@
 const textContainer = document.getElementById("room-description");
 const buttons = document.getElementsByClassName("action-button");
+
 let roomIndex = 0;
 let storyIndex = 0;
+
+function nextRoom() {
+    roomIndex++;
+    startGame(roomIndex, storyIndex); 
+}
+
+function nextStoryNode() {
+    storyIndex++;
+    startGame(roomIndex, storyIndex); 
+}
 
 const images = {
     roomOne: "../assets/img/roomOne.jpg",
@@ -15,11 +26,10 @@ const storyNodes = {
             actions: [
                 {
                     text: "Examine Room",
-                    nextText: 1
                 },
                 {
                     text: "Break Free",
-                    nextText: "You try to break free but the rope is too tight"
+                    response: "You try to break free but the rope is too tight"
                 }
             ]
         },
@@ -29,25 +39,23 @@ const storyNodes = {
             actions: [
                 {
                     text: "Take glass",
-                    nextText: 2
                 },
                 {
                     text: "Do nothing",
-                    nextText: "Doing nothing won't help you here. You need to escape"
+                    response: "Doing nothing won't help you here. You need to escape"
                 }
             ]
         },
         {
             id: 2,
-            text: "Your body falls on the floor and your hand reaches the a broke glass shard",
+            text: "Your body falls on the floor and your hand reaches a broken glass shard",
             actions: [
                 {
                     text: "Cut Rope",
-                    nextText: 3
                 },
                 {
                     text: "Kill Yourself",
-                    nextText: "You have died"
+                    response: "You have died"
                 }
             ]
         },
@@ -57,11 +65,10 @@ const storyNodes = {
             actions: [
                 {
                     text: "Open Door",
-                    nextText: "The door appears to be locked."
+                    response: "The door appears to be locked."
                 },
                 {
                     text: "Examine Room",
-                    nextText: 4
                 }
             ]
         },
@@ -71,12 +78,12 @@ const storyNodes = {
             actions: [
                 {
                     text: "Use Key",
-                    nextText: "You have successfully opened the door"
+                    response: "You have successfully opened the door"
                     // play a happy melody and progress to room 2
                 },
                 {
                     text: "Smash Door",
-                    nextText: "You try to smash the door but it doesn't work and you hurt yourself."
+                    response: "You try to smash the door but it doesn't work and you hurt yourself."
                     // reduce the life points from the player
                 }
             ]
@@ -100,43 +107,20 @@ const rooms = [
     roomOne = new Room("Room One", 1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne),
 ];
 
-function showText(roomIndex, storyIndex) {
+function startGame(roomIndex, storyIndex) {
     currentRoom = rooms[roomIndex];
-    currentRoom.displayName();
-    currentRoom.displayImg();
+    currentRoom.showName();
+    currentRoom.showImage();
     const storyNode = storyNodes[currentRoom.id].find(storyNode => storyNode.id === storyIndex);
     textContainer.innerHTML = `<p>${storyNode.text}</p>`;
     const actions = storyNode.actions;
-    const nextStoryIndex = ++storyIndex;
     for (let i=0; i<buttons.length; i++) {
         buttons[i].innerText = actions[i].text;
-        buttons[i].addEventListener("click", function() {
-            storyNode.actions[i].nextText === nextStoryIndex ? nextStoryNode() : 
-            typeof(storyNode.actions[i].nextText) === typeof(String()) ? textContainer.innerHTML = `<p>${storyNode.actions[i].nextText}</p>` : 
-            alert("Error");
+        buttons[i].addEventListener("click", () => {
+            storyNode.actions[i].hasOwnProperty("response") ? 
+            textContainer.innerHTML = `<p>${storyNode.actions[i].response}</p>` : nextStoryNode();
         })
     }
 }
 
-// function displayStoryNode(roomIndex, storyIndex) {
-//     currentRoom = rooms[roomIndex];
-//     currentRoom.displayName();
-//     currentRoom.displayImg();
-//     textContainer.innerHTML = `<p>${storyNodes[currentRoom.id][storyIndex].text}</p>`;
-//     let actions = storyNodes[currentRoom.id][storyIndex].actions;
-//     for (let i=0; i<buttons.length; i++) {
-//         buttons[i].innerText = actions[i].text;
-//     }
-// }
-
-function nextRoom() {
-    roomIndex++;
-    showText(roomIndex, storyIndex); 
-}
-
-function nextStoryNode() {
-    storyIndex++;
-    showText(roomIndex, storyIndex); 
-}
-
-showText(roomIndex, storyIndex); 
+startGame(roomIndex, storyIndex); 
