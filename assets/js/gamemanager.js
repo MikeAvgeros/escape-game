@@ -1,27 +1,16 @@
 const textContainer = document.getElementById("room-description");
 const buttons = document.getElementsByClassName("action-button");
-
 let roomIndex = 0;
 let storyIndex = 0;
 
-function nextRoom() {
-    roomIndex++;
-    showStory(roomIndex, storyIndex); 
-}
-
-function nextStoryNode() {
-    storyIndex++;
-    showStory(roomIndex, storyIndex); 
-}
-
 const images = {
-    roomOne: "../assets/img/roomOne.jpg",
+    roomOne: "../img/roomOne.jpg",
 };
 
 const storyNodes = {
     1: [
         {
-            id: 0,
+            id: 1,
             text: "You wake up in a dark empty room tied firmly to a chair.",
             actions: [
                 {
@@ -34,7 +23,7 @@ const storyNodes = {
             ]
         },
         {
-            id: 1,
+            id: 2,
             text: "You notice some broken glass on the floor next to you.",
             actions: [
                 {
@@ -47,8 +36,8 @@ const storyNodes = {
             ]
         },
         {
-            id: 2,
-            text: "Your body falls on the floor and your hand reaches a broken glass shard",
+            id: 3,
+            text: "Your body falls on the floor and your hand reaches the broken glass",
             actions: [
                 {
                     text: "Cut Rope",
@@ -60,7 +49,7 @@ const storyNodes = {
             ]
         },
         {
-            id: 3,
+            id: 4,
             text: "You manage to cut the rope and break free. You see a door to your right.",
             actions: [
                 {
@@ -73,12 +62,12 @@ const storyNodes = {
             ]
         },
         {
-            id: 4,
+            id: 5,
             text: "You see a rusty key in the corner of the room.",
             actions: [
                 {
                     text: "Use Key",
-                    response: "You have successfully opened the door"
+                    response: "You have successfully opened the door with the key"
                     // play a happy melody and progress to room 2
                 },
                 {
@@ -107,10 +96,15 @@ const rooms = [
     roomOne = new Room("Room One", 1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne),
 ];
 
-function showStory(roomIndex, storyIndex) {
+function showRoom(roomIndex) {
     currentRoom = rooms[roomIndex];
     currentRoom.showName();
     currentRoom.showImage();
+}
+
+function showStory(roomIndex, storyIndex) {
+    storyIndex++;
+    currentRoom = rooms[roomIndex];
     const storyNode = storyNodes[currentRoom.id].find(storyNode => storyNode.id === storyIndex);
     textContainer.innerHTML = `<p>${storyNode.text}</p>`;
     const actions = storyNode.actions;
@@ -118,12 +112,18 @@ function showStory(roomIndex, storyIndex) {
         buttons[i].innerText = actions[i].text;
         buttons[i].addEventListener("click", () => {
             storyNode.actions[i].hasOwnProperty("response") ? 
-            textContainer.innerHTML = `<p>${storyNode.actions[i].response}</p>` : nextStoryNode();
+            textContainer.innerHTML = `<p>${storyNode.actions[i].response}</p>` : showStory(roomIndex, storyIndex);
         })
     }
 }
 
 function startGame() {
+    showRoom(roomIndex);
+    showStory(roomIndex, storyIndex); 
+}
+
+function nextRoom() {
+    roomIndex++;
     showStory(roomIndex, storyIndex); 
 }
 
