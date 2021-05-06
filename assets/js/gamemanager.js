@@ -4,7 +4,7 @@ let roomIndex = 0;
 let storyIndex = 0;
 
 const images = {
-    roomOne: "../assets/img/roomOne.jpg"
+    roomOne: "../escape-game/assets/img/roomOne.jpg"
 };
 
 const storyNodes = {
