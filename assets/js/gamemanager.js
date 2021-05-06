@@ -6,12 +6,12 @@ let storyIndex = 0;
 
 function nextRoom() {
     roomIndex++;
-    startGame(roomIndex, storyIndex); 
+    showStory(roomIndex, storyIndex); 
 }
 
 function nextStoryNode() {
     storyIndex++;
-    startGame(roomIndex, storyIndex); 
+    showStory(roomIndex, storyIndex); 
 }
 
 const images = {
@@ -107,7 +107,7 @@ const rooms = [
     roomOne = new Room("Room One", 1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne),
 ];
 
-function startGame(roomIndex, storyIndex) {
+function showStory(roomIndex, storyIndex) {
     currentRoom = rooms[roomIndex];
     currentRoom.showName();
     currentRoom.showImage();
@@ -123,4 +123,8 @@ function startGame(roomIndex, storyIndex) {
     }
 }
 
-startGame(roomIndex, storyIndex); 
+function startGame() {
+    showStory(roomIndex, storyIndex); 
+}
+
+startGame();
