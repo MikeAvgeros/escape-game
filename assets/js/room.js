@@ -1,5 +1,6 @@
 class Room {
-    constructor(id, img, storyNode, items, enemies) {
+    constructor(name, id, img, storyNode, items, enemies) {
+        this.name = name;
         this.id = id;
         this.img = img;
         this.storyNode = storyNode;

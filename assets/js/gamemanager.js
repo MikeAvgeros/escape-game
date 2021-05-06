@@ -95,7 +95,7 @@ const enemies = {
 };
 
 const rooms = [
-    roomOne = new Room(1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne),
+    roomOne = new Room("Room One", 1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne),
 ];
 
 function displayStoryNode(roomIndex, storyIndex) {
