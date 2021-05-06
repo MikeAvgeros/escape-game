@@ -85,11 +85,11 @@ const storyNodes = {
 };
 
 const items = {
-    roomOne: new Item("key", "description", "img"),
+    roomOne: new Item("key", "img"),
 };
 
 const lootItems = {
-    roomOne: new Item("name", "description", "img"),
+    roomOne: new Item("name", "img"),
 }
 
 const enemies = {
@@ -100,7 +100,7 @@ const rooms = [
     roomOne = new Room("Room One", 1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne),
 ];
 
-function showStory(roomIndex, storyIndex) {
+function showText(roomIndex, storyIndex) {
     currentRoom = rooms[roomIndex];
     currentRoom.displayName();
     currentRoom.displayImg();
@@ -111,7 +111,9 @@ function showStory(roomIndex, storyIndex) {
     for (let i=0; i<buttons.length; i++) {
         buttons[i].innerText = actions[i].text;
         buttons[i].addEventListener("click", function() {
-            storyNode.actions[i].nextText === nextStoryIndex ? nextStoryNode() : textContainer.innerHTML = `<p>${storyNode.actions[1].nextText}</p>`
+            storyNode.actions[i].nextText === nextStoryIndex ? nextStoryNode() : 
+            typeof(storyNode.actions[i].nextText) === typeof(String()) ? textContainer.innerHTML = `<p>${storyNode.actions[i].nextText}</p>` : 
+            alert("Error");
         })
     }
 }
@@ -129,11 +131,12 @@ function showStory(roomIndex, storyIndex) {
 
 function nextRoom() {
     roomIndex++;
+    showText(roomIndex, storyIndex); 
 }
 
 function nextStoryNode() {
     storyIndex++;
-    showStory(roomIndex, storyIndex); 
+    showText(roomIndex, storyIndex); 
 }
 
-showStory(roomIndex, storyIndex); 
+showText(roomIndex, storyIndex); 
