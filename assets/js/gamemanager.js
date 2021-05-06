@@ -4,7 +4,7 @@ let roomIndex = 0;
 let storyIndex = 0;
 
 const images = {
-    roomOne: "../img/roomOne.jpg",
+    roomOne: "../assets/img/roomOne.jpg"
 };
 
 const storyNodes = {
@@ -81,19 +81,19 @@ const storyNodes = {
 };
 
 const items = {
-    roomOne: new Item("key", "img"),
+    roomOne: new Item("key", "img")
 };
 
 const lootItems = {
-    roomOne: new Item("name", "img"),
+    roomOne: new Item("name", "img")
 }
 
 const enemies = {
-    roomOne: new Enemy("enemyOne", "health", "attack", "defense", lootItems.roomOne),
+    roomOne: new Enemy("enemyOne", "health", "attack", "defense", lootItems.roomOne)
 };
 
 const rooms = [
-    roomOne = new Room("Room One", 1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne),
+    roomOne = new Room("Room One", 1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne)
 ];
 
 function showRoom(roomIndex) {
