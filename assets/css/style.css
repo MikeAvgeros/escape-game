@@ -72,6 +72,11 @@ body {
     outline: 1px solid var(--clr-bg);
 }
 
+#room-description p {
+    text-align: center;
+    padding-top: 10px;
+}
+
 #inventory {
     grid-area: inventory;
     outline: 1px solid var(--clr-bg);

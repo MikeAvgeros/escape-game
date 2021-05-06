@@ -1,3 +1,5 @@
+const textContainer = document.getElementById("room-description");
+const buttons = document.getElementsByClassName("action-button");
 let roomIndex = 0;
 let storyIndex = 0;
 
@@ -98,27 +100,40 @@ const rooms = [
     roomOne = new Room("Room One", 1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne),
 ];
 
-function displayStoryNode(roomIndex, storyIndex) {
+function showStory(roomIndex, storyIndex) {
     currentRoom = rooms[roomIndex];
     currentRoom.displayName();
     currentRoom.displayImg();
-    const textContainer = document.getElementById("room-description");
-    textContainer.innerHTML = `<p>${storyNodes[currentRoom.id][storyIndex].text}</p>`;
-    const buttons = document.getElementsByClassName("action-button");
-    let actions = storyNodes[currentRoom.id][storyIndex].actions;
+    const storyNode = storyNodes[currentRoom.id].find(storyNode => storyNode.id === storyIndex);
+    textContainer.innerHTML = `<p>${storyNode.text}</p>`;
+    const actions = storyNode.actions;
+    const nextStoryIndex = ++storyIndex;
     for (let i=0; i<buttons.length; i++) {
         buttons[i].innerText = actions[i].text;
+        buttons[i].addEventListener("click", function() {
+            storyNode.actions[i].nextText === nextStoryIndex ? nextStoryNode() : textContainer.innerHTML = `<p>${storyNode.actions[1].nextText}</p>`
+        })
     }
 }
+
+// function displayStoryNode(roomIndex, storyIndex) {
+//     currentRoom = rooms[roomIndex];
+//     currentRoom.displayName();
+//     currentRoom.displayImg();
+//     textContainer.innerHTML = `<p>${storyNodes[currentRoom.id][storyIndex].text}</p>`;
+//     let actions = storyNodes[currentRoom.id][storyIndex].actions;
+//     for (let i=0; i<buttons.length; i++) {
+//         buttons[i].innerText = actions[i].text;
+//     }
+// }
 
 function nextRoom() {
     roomIndex++;
 }
 
-function nextText() {
+function nextStoryNode() {
     storyIndex++;
+    showStory(roomIndex, storyIndex); 
 }
 
-displayStoryNode(roomIndex, storyIndex); 
-
-
+showStory(roomIndex, storyIndex); 
