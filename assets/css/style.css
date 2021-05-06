@@ -85,11 +85,16 @@ body {
     justify-content: space-evenly;
 }
 
-#btns .button {
+#btns .action-button {
     cursor: pointer;
     border: 2px solid var(--clr-bg);
     border-radius: 10px;
     height: 80%;
     width: 120px;
     align-self: center;
+}
+
+#btns .action-button:hover {
+    background:#333333;
+    color: #c4c4c4;
 }
