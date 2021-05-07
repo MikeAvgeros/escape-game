@@ -78,21 +78,13 @@ const storyNodes = {
         },
         {
             id: 6,
-            text: "You have successfully opened the door with the key",
-            actions: [
-                {
-                    text: ""
-                },
-                {
-                    text: ""
-                }
-            ]
+            text: "You have successfully opened the door with the key"
         }
     ],
     2: [
         {
             id: 1,
-            text: "You see a room full of skulls",
+            text: "You see a dark room full of skulls",
             actions: [
                 {
                     text: "Examine Room",
@@ -100,71 +92,6 @@ const storyNodes = {
                 {
                     text: "Go Back",
                     response: "The door behind you closes"
-                }
-            ]
-        },
-        {
-            id: 2,
-            text: "You notice some broken glass on the floor next to you.",
-            actions: [
-                {
-                    text: "Take glass",
-                },
-                {
-                    text: "Do nothing",
-                    response: "Doing nothing won't help you here. You need to escape"
-                }
-            ]
-        },
-        {
-            id: 3,
-            text: "Your body falls on the floor and your hand reaches the broken glass",
-            actions: [
-                {
-                    text: "Cut Rope",
-                },
-                {
-                    text: "Kill Yourself",
-                    response: "You have died"
-                }
-            ]
-        },
-        {
-            id: 4,
-            text: "You manage to cut the rope and break free. You see a door to your right.",
-            actions: [
-                {
-                    text: "Open Door",
-                    response: "The door appears to be locked."
-                },
-                {
-                    text: "Examine Room",
-                }
-            ]
-        },
-        {
-            id: 5,
-            text: "You see a rusty key in the corner of the room.",
-            actions: [
-                {
-                    text: "Use Key"
-                },
-                {
-                    text: "Smash Door",
-                    response: "You try to smash the door but it doesn't work and you hurt yourself."
-                    // reduce the life points from the player
-                }
-            ]
-        },
-        {
-            id: 6,
-            text: "You have successfully opened the door with the key",
-            actions: [
-                {
-                    text: ""
-                },
-                {
-                    text: ""
                 }
             ]
         }
@@ -216,8 +143,14 @@ function showStory(roomIndex, storyIndex) {
             });
         }
     }
-    else {
+    else if ((storyIndex == storyNodes[currentRoom.id].length)) {
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].innerText = "";
+        }
         nextRoom();
+    }
+    else {
+        alert("error");
     }
 }
 
@@ -228,12 +161,11 @@ function startGame() {
 
 function nextRoom() {
     setTimeout(function() {
-        console.log("called");
         roomIndex++;
         storyIndex = 0;
         showRoom(roomIndex);
         showStory(roomIndex, storyIndex); 
-    }, 1000);
+    }, 1500);
 }
 
 startGame();
