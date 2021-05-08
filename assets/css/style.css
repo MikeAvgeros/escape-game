@@ -72,7 +72,7 @@ body {
     outline: 1px solid var(--clr-bg);
 }
 
-#room-description p {
+#story-text {
     text-align: center;
     padding-top: 10px;
 }
@@ -97,6 +97,16 @@ body {
     height: 80%;
     width: 120px;
     align-self: center;
+}
+
+#btns .action-button.fade {
+    -webkit-animation: fade-effect 1s forwards ease-in-out;
+            animation: fade-effect 1s forwards ease-in-out;
+}
+
+@keyframes fade-effect {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
 }
 
 #btns .action-button:hover {
