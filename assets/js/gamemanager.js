@@ -1,8 +1,7 @@
 const textContainer = document.getElementById("room-description");
 const buttons = document.getElementsByClassName("action-button");
-
-let roomIndex = 0;
-let storyIndex = 0;
+const roomIndex = 0;
+const storyIndex = 1;
 
 const player = new Player("Mike", 100, 100, 100);
 
@@ -35,7 +34,7 @@ function getStoryNodes(player, items, enemies) {
                 text: `${player.name}, you wake up in a dark empty room tied firmly to a chair.`,
                 actions: [
                     {
-                        text: "Examine Room",
+                        text: "Examine Room"
                     },
                     {
                         text: "Break Free",
@@ -48,7 +47,7 @@ function getStoryNodes(player, items, enemies) {
                 text: `You notice a broken ${items.item2.name} on the floor next to you.`,
                 actions: [
                     {
-                        text: `Take ${items.item2.name}`,
+                        text: `Take ${items.item2.name}`
                     },
                     {
                         text: "Do nothing",
@@ -61,7 +60,7 @@ function getStoryNodes(player, items, enemies) {
                 text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}`,
                 actions: [
                     {
-                        text: "Cut Rope",
+                        text: "Cut Rope"
                     },
                     {
                         text: "Kill Yourself",
@@ -78,7 +77,7 @@ function getStoryNodes(player, items, enemies) {
                         response: "The door appears to be locked."
                     },
                     {
-                        text: "Examine Room",
+                        text: "Examine Room"
                     }
                 ]
             },
@@ -106,7 +105,7 @@ function getStoryNodes(player, items, enemies) {
                 text: "You see a dark room full of skulls",
                 actions: [
                     {
-                        text: "Examine Room",
+                        text: "Examine Room"
                     },
                     {
                         text: "Go Back",
@@ -119,7 +118,7 @@ function getStoryNodes(player, items, enemies) {
                 text: "You see a dark room full of skulls",
                 actions: [
                     {
-                        text: "Examine Room",
+                        text: "Examine Room"
                     },
                     {
                         text: "Go Back",
@@ -132,30 +131,26 @@ function getStoryNodes(player, items, enemies) {
 };
 
 function showRoom(roomIndex) {
-    currentRoom = rooms[roomIndex];
+    const currentRoom = rooms[roomIndex];
     currentRoom.showName();
     currentRoom.showImage();
 }
 
 function showStory(roomIndex, storyIndex) {
-    storyIndex++;
-    currentRoom = rooms[roomIndex];
+    const currentRoom = rooms[roomIndex];
     const storyNode = storyNodes[currentRoom.id].find(storyNode => storyNode.id === storyIndex);
     textContainer.innerHTML = `<p id="story-text">${storyNode.text}</p>`;
     const actions = storyNode.actions;
     if (storyIndex < storyNodes[currentRoom.id].length) {
         for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.add("fade");
+            fadeButtons(i);
             buttons[i].innerText = actions[i].text;
-            setTimeout(() => {
-                buttons[i].classList.remove("fade");
-            }, 1000);
             buttons[i].addEventListener("click", () => {
                 if (storyNode.actions[i].hasOwnProperty("response")) {
-                    textContainer.innerHTML = `<p>${storyNode.actions[i].response}</p>` 
+                    textContainer.innerHTML = `<p id="story-text">${storyNode.actions[i].response}</p>`;
                 }
                 else {
-                    showStory(roomIndex, storyIndex);
+                    progressStory(roomIndex, storyIndex);
                 }
             });
         }
@@ -169,6 +164,18 @@ function showStory(roomIndex, storyIndex) {
     else {
         alert("Error!!!");
     }
+}
+
+function fadeButtons(i) {
+    buttons[i].classList.add("fade");
+    setTimeout(() => {
+        buttons[i].classList.remove("fade");
+    }, 1000);
+}
+
+function progressStory(roomIndex, storyIndex) {
+    storyIndex++;
+    showStory(roomIndex, storyIndex);
 }
 
 function startGame() {
