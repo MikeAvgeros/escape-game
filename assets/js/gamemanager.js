@@ -1,122 +1,135 @@
 const textContainer = document.getElementById("room-description");
 const buttons = document.getElementsByClassName("action-button");
+
 let roomIndex = 0;
 let storyIndex = 0;
 
-const images = {
-    roomOne: "../escape-game/assets/img/graypaintedroom.jpg",
-    roomTwo: "../escape-game/assets/img/skullroom.jpg",
-};
-
-const storyNodes = {
-    1: [
-        {
-            id: 1,
-            text: "You wake up in a dark empty room tied firmly to a chair.",
-            actions: [
-                {
-                    text: "Examine Room",
-                },
-                {
-                    text: "Break Free",
-                    response: "You try to break free but the rope is too tight"
-                }
-            ]
-        },
-        {
-            id: 2,
-            text: "You notice some broken glass on the floor next to you.",
-            actions: [
-                {
-                    text: "Take glass",
-                },
-                {
-                    text: "Do nothing",
-                    response: "Doing nothing won't help you here. You need to escape"
-                }
-            ]
-        },
-        {
-            id: 3,
-            text: "Your body falls on the floor and your hand reaches the broken glass",
-            actions: [
-                {
-                    text: "Cut Rope",
-                },
-                {
-                    text: "Kill Yourself",
-                    response: "You have died"
-                }
-            ]
-        },
-        {
-            id: 4,
-            text: "You manage to cut the rope and break free. You see a door to your right.",
-            actions: [
-                {
-                    text: "Open Door",
-                    response: "The door appears to be locked."
-                },
-                {
-                    text: "Examine Room",
-                }
-            ]
-        },
-        {
-            id: 5,
-            text: "You see a rusty key in the corner of the room.",
-            actions: [
-                {
-                    text: "Use Key"
-                },
-                {
-                    text: "Smash Door",
-                    response: "You try to smash the door but it doesn't work and you hurt yourself."
-                    // reduce the life points from the player
-                }
-            ]
-        },
-        {
-            id: 6,
-            text: "You have successfully opened the door with the key"
-        }
-    ],
-    2: [
-        {
-            id: 1,
-            text: "You see a dark room full of skulls",
-            actions: [
-                {
-                    text: "Examine Room",
-                },
-                {
-                    text: "Go Back",
-                    response: "The door behind you closes"
-                }
-            ]
-        }
-    ]
-};
+const player = new Player("Mike", 100, 100, 100);
 
 const items = {
-    roomOne: new Item("key", "img"),
-    roomTwo: new Item("sword", "img")
+    key: new Item("key", "img"),
+    glass: new Item("glass", "img")
 };
 
-const lootItems = {
-    roomOne: new Item("name", "img"),
-    roomTwo: new Item("name", "img")
+const enemies = {
+    robot: new Character("robot", 50, 40, 20)
 }
 
-const enemies = {
-    roomOne: new Enemy("enemyOne", "health", "attack", "defense", lootItems.roomOne),
-    roomTwo: new Enemy("enemyOne", "health", "attack", "defense", lootItems.roomOne)
+const images = {
+    roomOne: "../assets/img/graypaintedroom.jpg",
+    roomTwo: "../assets/img/skullroom.jpg",
 };
 
 const rooms = [
-    roomOne = new Room("Gray Room", 1, images.roomOne, storyNodes.roomOne, items.roomOne, enemies.roomOne),
-    roomTwo = new Room("Skull Room", 2, images.roomTwo, storyNodes.roomTwo, items.roomTwo, enemies.roomTwo)
+    roomOne = new Room("Gray Room", images.roomOne, 1),
+    roomTwo = new Room("Skull Room", images.roomTwo, 2)
 ];
+
+const storyNodes = getStoryNodes(player, items, enemies);
+
+function getStoryNodes(player, items, enemies) {
+    return {
+        1: [
+            {
+                id: 1,
+                text:  `${player.name}, you wake up in a dark empty room tied firmly to a chair.`,
+                actions: [
+                    {
+                        text: "Examine Room",
+                    },
+                    {
+                        text: "Break Free",
+                        response: "You try to break free but the rope is too tight"
+                    }
+                ]
+            },
+            {
+                id: 2,
+                text: `You notice a broken ${items.glass.name} on the floor next to you.`,
+                actions: [
+                    {
+                        text: `Take ${items.glass.name}`,
+                    },
+                    {
+                        text: "Do nothing",
+                        response: "Doing nothing won't help you here. You need to escape"
+                    }
+                ]
+            },
+            {
+                id: 3,
+                text: "Your body falls on the floor and your hand reaches the broken glass",
+                actions: [
+                    {
+                        text: "Cut Rope",
+                    },
+                    {
+                        text: "Kill Yourself",
+                        response: "You can't kill yourself tied up in the chair"
+                    }
+                ]
+            },
+            {
+                id: 4,
+                text: "You manage to cut the rope and break free. You see a door to your right.",
+                actions: [
+                    {
+                        text: "Open Door",
+                        response: "The door appears to be locked."
+                    },
+                    {
+                        text: "Examine Room",
+                    }
+                ]
+            },
+            {
+                id: 5,
+                text: "You see a rusty key in the corner of the room.",
+                actions: [
+                    {
+                        text: "Use Key"
+                    },
+                    {
+                        text: "Smash Door",
+                        response: "You try to smash the door but it doesn't work and you hurt yourself."
+                    }
+                ]
+            },
+            {
+                id: 6,
+                text: "You have successfully opened the door with the key"
+            }
+        ],
+        2: [
+            {
+                id: 1,
+                text: "You see a dark room full of skulls",
+                actions: [
+                    {
+                        text: "Examine Room",
+                    },
+                    {
+                        text: "Go Back",
+                        response: `The door behind you closes and a ${enemies.robot.name} appears in front of you`
+                    }
+                ]
+            },
+            {
+                id: 2,
+                text: "You see a dark room full of skulls",
+                actions: [
+                    {
+                        text: "Examine Room",
+                    },
+                    {
+                        text: "Go Back",
+                        response: `The door behind you closes and a ${enemies.robot.name} appears in front of you`
+                    }
+                ]
+            }
+        ],
+    }
+};
 
 function showRoom(roomIndex) {
     currentRoom = rooms[roomIndex];
@@ -143,14 +156,14 @@ function showStory(roomIndex, storyIndex) {
             });
         }
     }
-    else if ((storyIndex == storyNodes[currentRoom.id].length)) {
+    else if (storyIndex == storyNodes[currentRoom.id].length) {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].innerText = "";
         }
         nextRoom();
     }
     else {
-        alert("error");
+        alert("Error!!!");
     }
 }
 
