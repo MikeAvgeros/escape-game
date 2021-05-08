@@ -143,16 +143,15 @@ function showStory(roomIndex, storyIndex) {
     const actions = storyNode.actions;
     if (storyIndex < storyNodes[currentRoom.id].length) {
         for (let i = 0; i < buttons.length; i++) {
-            fadeButtons(i);
             buttons[i].innerText = actions[i].text;
             buttons[i].addEventListener("click", () => {
-                if (storyNode.actions[i].hasOwnProperty("response")) {
-                    textContainer.innerHTML = `<p id="story-text">${storyNode.actions[i].response}</p>`;
+                if (actions[i].hasOwnProperty("response")) {
+                    textContainer.innerHTML = `<p id="story-text">${actions[i].response}</p>`;
+                    return;
                 }
-                else {
-                    progressStory(roomIndex, storyIndex);
-                }
+                progressStory(roomIndex, storyIndex);
             });
+            fadeButtons(i);
         }
     }
     else if (storyIndex == storyNodes[currentRoom.id].length) {
