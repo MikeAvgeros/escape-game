@@ -1,10 +1,6 @@
 const textContainer = document.getElementById("room-description");
 const buttons = document.getElementsByClassName("action-button");
 
-function log(value) {
-    return console.log(value);
-}
-
 let roomIndex = 0;
 let storyIndex = 1;
 
@@ -127,7 +123,7 @@ function getStoryNodes(player, items, enemies) {
                     },
                     {
                         text: "Go Back",
-                        response: `The door behind you closes and a ${enemies.robot.name} appears in front of you with ${enemies.robot.attack} attack points`
+                        response: `The door behind you closes and a ${enemies.robot.name} appears in front of you`
                     }
                 ]
             }
@@ -153,15 +149,12 @@ function showStory(roomIndex, storyIndex) {
             buttons[i].innerText = actions[i].text;
             buttons[i].removeEventListener("click", onClick[i]);
             onClick[i] = function() {
-                let index = i;  
-                log(actions[index]);
-                if (actions[index].hasOwnProperty("response")) {
-                    textContainer.innerHTML = `<p id="story-text">${actions[index].response}</p>`;
+                if (actions[i].hasOwnProperty("response")) {
+                    textContainer.innerHTML = `<p id="story-text">${actions[i].response}</p>`;
                     return;
-                } else {
-                    progressStory(roomIndex, storyIndex);
-                    fadeButtons();
                 }
+                progressStory(roomIndex, storyIndex);
+                fadeButtons();
             }
             buttons[i].addEventListener("click", onClick[i]);
         }
