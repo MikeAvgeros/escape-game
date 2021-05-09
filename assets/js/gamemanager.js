@@ -127,7 +127,7 @@ function getStoryNodes(player, items, enemies) {
                     },
                     {
                         text: "Go Back",
-                        response: `The door behind you closes and a ${enemies.robot.name} appears in front of you`
+                        response: `The door behind you closes and a ${enemies.robot.name} appears in front of you with ${enemies.robot.attack} attack points`
                     }
                 ]
             }
@@ -160,7 +160,7 @@ function showStory(roomIndex, storyIndex) {
                     return;
                 } else {
                     progressStory(roomIndex, storyIndex);
-                    fadeButtons(i);
+                    fadeButtons();
                 }
             }
             buttons[i].addEventListener("click", onClick[i]);
@@ -177,15 +177,13 @@ function showStory(roomIndex, storyIndex) {
     }
 }
 
-// function onClick() {
-
-// }
-
-function fadeButtons(i) {
-    buttons[i].classList.add("fade");
-    setTimeout(() => {
+function fadeButtons() {
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.add("fade");
+        setTimeout(() => {
         buttons[i].classList.remove("fade");
     }, 1000);
+    }
 }
 
 function progressStory(roomIndex, storyIndex) {
