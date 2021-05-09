@@ -69,12 +69,12 @@ body {
 
 #room-description {
     grid-area: text;
+    display: grid;
     outline: 1px solid var(--clr-bg);
 }
 
 #story-text {
-    text-align: center;
-    padding-top: 10px;
+    place-self: center center;
 }
 
 #inventory {

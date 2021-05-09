@@ -1,7 +1,12 @@
 const textContainer = document.getElementById("room-description");
 const buttons = document.getElementsByClassName("action-button");
-const roomIndex = 0;
-const storyIndex = 1;
+
+function log(value) {
+    return console.log(value);
+}
+
+let roomIndex = 0;
+let storyIndex = 1;
 
 const player = new Player("Mike", 100, 100, 100);
 
@@ -16,7 +21,7 @@ const enemies = {
 
 const images = {
     room1: "../assets/img/graypaintedroom.jpg",
-    room2: "../assets/img/skullroom.jpg",
+    room2: "../assets/img/skullroom.jpg"
 };
 
 const rooms = [
@@ -131,32 +136,39 @@ function getStoryNodes(player, items, enemies) {
 };
 
 function showRoom(roomIndex) {
-    const currentRoom = rooms[roomIndex];
+    let currentRoom = rooms[roomIndex];
     currentRoom.showName();
     currentRoom.showImage();
 }
 
+let onClick = [];
+
 function showStory(roomIndex, storyIndex) {
-    const currentRoom = rooms[roomIndex];
-    const storyNode = storyNodes[currentRoom.id].find(storyNode => storyNode.id === storyIndex);
+    let currentRoom = rooms[roomIndex];
+    let storyNode = storyNodes[currentRoom.id].find(storyNode => storyNode.id === storyIndex);
     textContainer.innerHTML = `<p id="story-text">${storyNode.text}</p>`;
-    const actions = storyNode.actions;
-    if (storyIndex < storyNodes[currentRoom.id].length) {
+    let actions = storyNode.actions;
+    if (storyNodes[currentRoom.id][storyIndex - 1].id < storyNodes[currentRoom.id].length) {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].innerText = actions[i].text;
-            buttons[i].addEventListener("click", () => {
-                if (actions[i].hasOwnProperty("response")) {
-                    textContainer.innerHTML = `<p id="story-text">${actions[i].response}</p>`;
+            buttons[i].removeEventListener("click", onClick[i]);
+            onClick[i] = function() {
+                let index = i;  
+                log(actions[index]);
+                if (actions[index].hasOwnProperty("response")) {
+                    textContainer.innerHTML = `<p id="story-text">${actions[index].response}</p>`;
                     return;
+                } else {
+                    progressStory(roomIndex, storyIndex);
+                    fadeButtons(i);
                 }
-                progressStory(roomIndex, storyIndex);
-            });
-            fadeButtons(i);
+            }
+            buttons[i].addEventListener("click", onClick[i]);
         }
     }
-    else if (storyIndex == storyNodes[currentRoom.id].length) {
+    else if (storyNodes[currentRoom.id][storyIndex - 1].id === storyNodes[currentRoom.id].length) {
         for (let i = 0; i < buttons.length; i++) {
-            buttons[i].innerText = "";
+            buttons[i].style.display = "none";
         }
         nextRoom();
     }
@@ -164,6 +176,10 @@ function showStory(roomIndex, storyIndex) {
         alert("Error!!!");
     }
 }
+
+// function onClick() {
+
+// }
 
 function fadeButtons(i) {
     buttons[i].classList.add("fade");
@@ -185,10 +201,13 @@ function startGame() {
 function nextRoom() {
     setTimeout(() => {
         roomIndex++;
-        storyIndex = 0;
+        storyIndex = 1;
         showRoom(roomIndex);
         showStory(roomIndex, storyIndex); 
-    }, 1500);
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].style.display = "initial";
+        }
+    }, 1000);
 }
 
 startGame();
