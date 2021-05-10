@@ -8,8 +8,8 @@ class Item {
         nameContainer.innerHTML = `<h1>${this.name}</h1>`;
     }
     showImage() {
-        const imgContainer = document.getElementById("room-img");
-        imgContainer.innerHTML = `<img src="${this.img}" alt="image of a ${this.name}"></img>`;
+        const inventory = document.getElementById("inventory");
+        inventory.innerHTML = `<img class="inventory-img" src="${this.img}" alt="image of a ${this.name}"></img>`;
     }
 }
 

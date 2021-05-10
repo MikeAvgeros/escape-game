@@ -8,7 +8,7 @@ const player = new Player("Mike", 100, 100, 100);
 
 const items = {
     item1: new Item("key", "img"),
-    item2: new Item("glass", "img")
+    item2: new Item("glass", "../escape-game/assets/img/skullroom.jpg")
 };
 
 const enemies = {
@@ -50,7 +50,8 @@ function getStoryNodes(player, items, enemies) {
                 actions: [
                     {
                         text: `Take ${items.item2.name}`,
-                        destination: 2
+                        destination: 2,
+                        image: items.item2
                     },
                     {
                         text: "Do nothing",
@@ -181,10 +182,9 @@ function showStory(roomId, storyId) {
                     }
                     textContainer.innerHTML = "";
                     nextRoom();
-                    break;
-                default:
-                    showStory(roomId, actions[i].destination);
-                    fadeButtons();
+            }
+            if (actions[i].hasOwnProperty("image")) {
+                actions[i].image.showImage();
             }
         }
         buttons[i].addEventListener("click", onClick[i]);
@@ -214,7 +214,7 @@ function nextRoom() {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].style.display = "initial";
         }
-    }, 1000);
+    }, 250);
 }
 
 startGame();
