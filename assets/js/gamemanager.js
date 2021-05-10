@@ -1,8 +1,8 @@
 const textContainer = document.getElementById("room-description");
 const buttons = document.getElementsByClassName("action-button");
 
-let roomIndex = 0;
-let storyIndex = 1;
+let roomId = 0;
+let storyId = 0;
 
 const player = new Player("Mike", 100, 100, 100);
 
@@ -16,8 +16,8 @@ const enemies = {
 }
 
 const images = {
-    room1: "../assets/img/graypaintedroom.jpg",
-    room2: "../assets/img/skullroom.jpg"
+    room1: "../escape-game/assets/img/graypaintedroom.jpg",
+    room2: "../escape-game/assets/img/skullroom.jpg"
 };
 
 const rooms = [
@@ -31,11 +31,12 @@ function getStoryNodes(player, items, enemies) {
     return {
         1: [
             {
-                id: 1,
+                id: 0,
                 text: `${player.name}, you wake up in a dark empty room tied firmly to a chair.`,
                 actions: [
                     {
-                        text: "Examine Room"
+                        text: "Examine Room",
+                        destination: 1
                     },
                     {
                         text: "Break Free",
@@ -44,11 +45,12 @@ function getStoryNodes(player, items, enemies) {
                 ]
             },
             {
-                id: 2,
+                id: 1,
                 text: `You notice a broken ${items.item2.name} on the floor next to you.`,
                 actions: [
                     {
-                        text: `Take ${items.item2.name}`
+                        text: `Take ${items.item2.name}`,
+                        destination: 2
                     },
                     {
                         text: "Do nothing",
@@ -57,11 +59,12 @@ function getStoryNodes(player, items, enemies) {
                 ]
             },
             {
-                id: 3,
+                id: 2,
                 text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}`,
                 actions: [
                     {
-                        text: "Cut Rope"
+                        text: "Cut Rope",
+                        destination: 3,
                     },
                     {
                         text: "Kill Yourself",
@@ -70,7 +73,7 @@ function getStoryNodes(player, items, enemies) {
                 ]
             },
             {
-                id: 4,
+                id: 3,
                 text: "You manage to cut the rope and break free. You see a door to your right.",
                 actions: [
                     {
@@ -78,16 +81,18 @@ function getStoryNodes(player, items, enemies) {
                         response: "The door appears to be locked."
                     },
                     {
-                        text: "Examine Room"
+                        text: "Examine Room",
+                        destination: 4
                     }
                 ]
             },
             {
-                id: 5,
+                id: 4,
                 text:`You see a rusty ${items.item1.name} in the corner of the room.`,
                 actions: [
                     {
-                        text: `Use the ${items.item1.name}`
+                        text: `Use the ${items.item1.name}`,
+                        destination: 5
                     },
                     {
                         text: "Smash Door",
@@ -96,17 +101,28 @@ function getStoryNodes(player, items, enemies) {
                 ]
             },
             {
-                id: 6,
-                text: "You have successfully opened the door!"
+                id: 5,
+                text: "You have successfully opened the door!",
+                actions: [
+                    {
+                        text: `Exit Room`,
+                        exit: 2
+                    },
+                    {
+                        text: "Stay Here",
+                        response: "Perhaps, it's best to move on."
+                    }
+                ]
             }
         ],
         2: [
             {
-                id: 1,
+                id: 0,
                 text: "You see a dark room full of skulls",
                 actions: [
                     {
-                        text: "Examine Room"
+                        text: "Examine Room",
+                        destination: 1
                     },
                     {
                         text: "Go Back",
@@ -115,7 +131,7 @@ function getStoryNodes(player, items, enemies) {
                 ]
             },
             {
-                id: 2,
+                id: 1,
                 text: "You see a dark room full of skulls",
                 actions: [
                     {
@@ -131,42 +147,47 @@ function getStoryNodes(player, items, enemies) {
     }
 };
 
-function showRoom(roomIndex) {
-    let currentRoom = rooms[roomIndex];
+function showRoom(roomId) {
+    let currentRoom = rooms[roomId];
     currentRoom.showName();
     currentRoom.showImage();
 }
 
 let onClick = [];
 
-function showStory(roomIndex, storyIndex) {
-    let currentRoom = rooms[roomIndex];
-    let storyNode = storyNodes[currentRoom.id].find(storyNode => storyNode.id === storyIndex);
+function showStory(roomId, storyId) {
+    let currentRoom = rooms[roomId];
+    let storyNode = storyNodes[currentRoom.id].find(storyNode => storyNode.id === storyId);
     textContainer.innerHTML = `<p id="story-text">${storyNode.text}</p>`;
     let actions = storyNode.actions;
-    if (storyNodes[currentRoom.id][storyIndex - 1].id < storyNodes[currentRoom.id].length) {
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].innerText = actions[i].text;
-            buttons[i].removeEventListener("click", onClick[i]);
-            onClick[i] = function() {
-                if (actions[i].hasOwnProperty("response")) {
+    if (storyNodes[currentRoom.id][storyId].id > storyNodes[currentRoom.id].length) {
+        return;
+    }
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].innerText = actions[i].text;
+        buttons[i].removeEventListener("click", onClick[i]);
+        onClick[i] = function() {
+            switch(true) {
+                case (actions[i].hasOwnProperty("response")):
                     textContainer.innerHTML = `<p id="story-text">${actions[i].response}</p>`;
-                    return;
-                }
-                progressStory(roomIndex, storyIndex);
-                fadeButtons();
+                    break;
+                case (actions[i].hasOwnProperty("destination")):
+                    showStory(roomId, actions[i].destination);
+                    fadeButtons();
+                    break;
+                case (actions[i].hasOwnProperty("exit")):
+                    for (let i = 0; i < buttons.length; i++) {
+                        buttons[i].style.display = "none";
+                    }
+                    textContainer.innerHTML = "";
+                    nextRoom();
+                    break;
+                default:
+                    showStory(roomId, actions[i].destination);
+                    fadeButtons();
             }
-            buttons[i].addEventListener("click", onClick[i]);
         }
-    }
-    else if (storyNodes[currentRoom.id][storyIndex - 1].id === storyNodes[currentRoom.id].length) {
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].style.display = "none";
-        }
-        nextRoom();
-    }
-    else {
-        alert("Error!!!");
+        buttons[i].addEventListener("click", onClick[i]);
     }
 }
 
@@ -179,22 +200,17 @@ function fadeButtons() {
     }
 }
 
-function progressStory(roomIndex, storyIndex) {
-    storyIndex++;
-    showStory(roomIndex, storyIndex);
-}
-
 function startGame() {
-    showRoom(roomIndex);
-    showStory(roomIndex, storyIndex); 
+    showRoom(roomId);
+    showStory(roomId, storyId); 
 }
 
 function nextRoom() {
     setTimeout(() => {
-        roomIndex++;
-        storyIndex = 1;
-        showRoom(roomIndex);
-        showStory(roomIndex, storyIndex); 
+        roomId++;
+        storyId = 0;
+        showRoom(roomId);
+        showStory(roomId, storyId); 
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].style.display = "initial";
         }
