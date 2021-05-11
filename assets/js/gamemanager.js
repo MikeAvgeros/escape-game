@@ -4,11 +4,11 @@ const buttons = document.getElementsByClassName("action-button");
 let roomId = 0;
 let storyId = 0;
 
-const player = new Player("Mike", 100, 100, 100);
+const player = new Player("Mike", 100, 50, 30);
 
 const items = {
     item1: new Item("key", "img"),
-    item2: new Item("glass", "../escape-game/assets/img/skullroom.jpg")
+    item2: new Item("glass", "../assets/img/skullroom.jpg")
 };
 
 const enemies = {
@@ -16,8 +16,8 @@ const enemies = {
 }
 
 const images = {
-    room1: "../escape-game/assets/img/graypaintedroom.jpg",
-    room2: "../escape-game/assets/img/skullroom.jpg"
+    room1: "../assets/img/graypaintedroom.jpg",
+    room2: "../assets/img/skullroom.jpg"
 };
 
 const rooms = [
@@ -127,7 +127,8 @@ function getStoryNodes(player, items, enemies) {
                     },
                     {
                         text: "Go Back",
-                        response: `The door behind you closes and a ${enemies.robot.name} appears in front of you`
+                        response: `The door behind you closes and a ${enemies.robot.name} appears in front of you`,
+                        damage: enemies.robot
                     }
                 ]
             },
@@ -140,7 +141,8 @@ function getStoryNodes(player, items, enemies) {
                     },
                     {
                         text: "Go Back",
-                        response: `The door behind you closes and a ${enemies.robot.name} appears in front of you`
+                        response: `The door behind you closes and a ${enemies.robot.name} attacked you`,
+                        damage: enemies.robot
                     }
                 ]
             }
@@ -156,7 +158,7 @@ function showRoom(roomId) {
 
 let onClick = [];
 
-function showStory(roomId, storyId) {
+function showStory(roomId, storyId, player) {
     let currentRoom = rooms[roomId];
     let storyNode = storyNodes[currentRoom.id].find(storyNode => storyNode.id === storyId);
     textContainer.innerHTML = `<p id="story-text">${storyNode.text}</p>`;
@@ -186,6 +188,9 @@ function showStory(roomId, storyId) {
             if (actions[i].hasOwnProperty("image")) {
                 actions[i].image.showImage();
             }
+            if (actions[i].hasOwnProperty("damage")) {
+                player.takeDamage(actions[i].damage.attack);
+            }
         }
         buttons[i].addEventListener("click", onClick[i]);
     }
@@ -202,7 +207,7 @@ function fadeButtons() {
 
 function startGame() {
     showRoom(roomId);
-    showStory(roomId, storyId); 
+    showStory(roomId, storyId, player); 
 }
 
 function nextRoom() {
@@ -210,7 +215,7 @@ function nextRoom() {
         roomId++;
         storyId = 0;
         showRoom(roomId);
-        showStory(roomId, storyId); 
+        showStory(roomId, storyId, player); 
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].style.display = "initial";
         }
