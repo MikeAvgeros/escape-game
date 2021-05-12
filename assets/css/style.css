@@ -21,39 +21,47 @@ body {
 }
 
 #game-wrapper {
-    background-color: var(--clr-secondary);
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
     width: 810px;
     height: 540px;
     display: grid;
-    grid-template-rows: 10% 50% 30% 10%;
+    grid-template-rows: 5% 10% 50% 20% 10% 5%;
     grid-template-columns: 70% 30%;
     grid-template-areas: 
+    "....  ........"
     "name  controls"
     "img      stats"
     "text inventory"
-    "btns inventory";
+    "btns inventory"
+    ".... .........";
+}
+
+#myVideo {
+    position: fixed;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 #room-name {
     grid-area: name;
-    outline: 1px solid var(--clr-bg);
+    color: red;
     display: grid;
     place-content: center center;
 }
 
 #game-controls {
     grid-area: controls;
-    outline: 1px solid var(--clr-bg);
     display: grid;
 }
 
 #room-img {
     grid-area: img;
-    outline: 1px solid var(--clr-bg);
 }
 
 #room-img img {
@@ -63,34 +71,31 @@ body {
 
 #stats {
     grid-area: stats;
-    outline: 1px solid var(--clr-bg);
     display: grid;
 }
 
 #room-description {
     grid-area: text;
     display: grid;
-    outline: 1px solid var(--clr-bg);
 }
 
 #story-text {
     place-self: center center;
+    color: var(--clr-secondary);
 }
 
 #inventory {
     grid-area: inventory;
-    outline: 1px solid var(--clr-bg);
     display: grid;
 }
 
 #inventory .inventory-img {
-    height: 20%;
-    width: 20%;
+    height: 25%;
+    width: 25%;
 }
 
 #btns {
     grid-area: btns;
-    outline: 1px solid var(--clr-bg);
     display: flex;
     justify-content: space-evenly;
 }
