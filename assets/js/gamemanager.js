@@ -3,26 +3,33 @@ const buttons = document.getElementsByClassName("action-button");
 
 let roomId;
 let storyId;
+let currentRoom;
+let currentStory;
+let actions;
 
 const player = new Player("Mike", 100, 50, 30);
 
+const itemImg = {
+    item2: "./assets/img/skullroom.jpg"
+}
+
 const items = {
     item1: new Item("key", "img"),
-    item2: new Item("glass", "../escape-game/assets/img/skullroom.jpg")
+    item2: new Item("glass", itemImg.item2)
 };
 
 const enemies = {
     robot: new Character("robot", 50, 40, 20)
 };
 
-const images = {
-    room1: "../escape-game/assets/img/graypaintedroom.jpg",
-    room2: "../escape-game/assets/img/skullroom.jpg"
+const roomImg = {
+    room1: "./assets/img/graypaintedroom.jpg",
+    room2: "./assets/img/skullroom.jpg"
 };
 
 const rooms = [
-    room1 = new Room("Gray Room", images.room1, 1),
-    room2 = new Room("Skull Room", images.room2, 2)
+    room1 = new Room("Gray Room", roomImg.room1, 1),
+    room2 = new Room("Skull Room", roomImg.room2, 2)
 ];
 
 const story = getStory(player, items, enemies);
@@ -150,26 +157,28 @@ function getStory(player, items, enemies) {
     }
 };
 
-function showRoom(roomId) {
-    let currentRoom = rooms[roomId];
+function loadScene(roomId, storyId) {
+    fadeButtons();
+    currentRoom = rooms[roomId];
     currentRoom.showName();
     currentRoom.showImage();
-}
-
-let onClick = [];
-
-function showStory(roomId, storyId, player) {
-    let currentRoom = rooms[roomId];
-    let currentStory = story[currentRoom.id].find(currentStory => currentStory.id === storyId);
+    currentStory = story[currentRoom.id].find(currentStory => currentStory.id === storyId);
     textContainer.innerHTML = `<p id="story-text">${currentStory.text}</p>`;
-    let actions = currentStory.actions;
+    actions = currentStory.actions;
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].innerText = actions[i].text;
+    }
     if (story[currentRoom.id][storyId].id > story[currentRoom.id].length) {
         alert("Something went wrong. Game restarted");
         startGame();
         return;
     }
+}
+
+let onClick = [];
+
+function handleClicks(player) {
     for (let i = 0; i < buttons.length; i++) {
-        buttons[i].innerText = actions[i].text;
         buttons[i].removeEventListener("click", onClick[i]);
         onClick[i] = function() {
             switch(true) {
@@ -177,8 +186,8 @@ function showStory(roomId, storyId, player) {
                     textContainer.innerHTML = `<p id="story-text">${actions[i].response}</p>`;
                     break;
                 case (actions[i].hasOwnProperty("destination")):
-                    showStory(roomId, actions[i].destination);
-                    fadeButtons();
+                    storyId = actions[i].destination;
+                    loadScene(roomId, storyId);
                     break;
                 case (actions[i].hasOwnProperty("exit")):
                     for (let i = 0; i < buttons.length; i++) {
@@ -213,16 +222,16 @@ function fadeButtons() {
 function startGame() {
     roomId = 0;
     storyId = 0;
-    showRoom(roomId);
-    showStory(roomId, storyId, player); 
+    loadScene(roomId, storyId);
+    handleClicks(player); 
 }
 
 function nextRoom() {
     setTimeout(() => {
         roomId++;
         storyId = 0;
-        showRoom(roomId);
-        showStory(roomId, storyId, player); 
+        loadScene(roomId, storyId);
+        handleClicks(player); 
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].style.display = "initial";
         }
