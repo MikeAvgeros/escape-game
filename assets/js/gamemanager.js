@@ -1,8 +1,8 @@
 const textContainer = document.getElementById("room-description");
 const buttons = document.getElementsByClassName("action-button");
 
-let roomId = 0;
-let storyId = 0;
+let roomId;
+let storyId;
 
 const player = new Player("Mike", 100, 50, 30);
 
@@ -164,6 +164,8 @@ function showStory(roomId, storyId, player) {
     textContainer.innerHTML = `<p id="story-text">${currentStory.text}</p>`;
     let actions = currentStory.actions;
     if (story[currentRoom.id][storyId].id > story[currentRoom.id].length) {
+        alert("Something went wrong. Game restarted");
+        startGame();
         return;
     }
     for (let i = 0; i < buttons.length; i++) {
@@ -209,6 +211,8 @@ function fadeButtons() {
 }
 
 function startGame() {
+    roomId = 0;
+    storyId = 0;
     showRoom(roomId);
     showStory(roomId, storyId, player); 
 }
