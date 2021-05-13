@@ -110,8 +110,8 @@ body {
 }
 
 #btns .action-button.fade {
-    -webkit-animation: fade-effect .5s forwards ease-in-out;
-            animation: fade-effect .5s forwards ease-in-out;
+    -webkit-animation: fade-effect 1s forwards ease-in-out;
+            animation: fade-effect 1s forwards ease-in-out;
 }
 
 @keyframes fade-effect {

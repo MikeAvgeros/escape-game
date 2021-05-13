@@ -57,8 +57,8 @@ function getStory(player, items, enemies) {
                 actions: [
                     {
                         text: `Take ${items.item2.name}`,
-                        destination: 2,
-                        image: items.item2
+                        destination: 2
+                        
                     },
                     {
                         text: "Do nothing",
@@ -71,6 +71,7 @@ function getStory(player, items, enemies) {
                 text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}`,
                 actions: [
                     {
+                        image: items.item2,
                         text: "Cut Rope",
                         destination: 3,
                     },
