@@ -1,4 +1,5 @@
 const textContainer = document.getElementById("room-description");
+const paragraph = document.createElement("p");
 const buttons = document.getElementsByClassName("action-button");
 
 let roomId;
@@ -32,9 +33,9 @@ const rooms = [
     room2 = new Room("Skull Room", roomImg.room2, 2)
 ];
 
-const story = getStory(player, items, enemies);
+const story = getStory();
 
-function getStory(player, items, enemies) {
+function getStory() {
     return {
         1: [
             {
@@ -47,7 +48,7 @@ function getStory(player, items, enemies) {
                     },
                     {
                         text: "Break Free",
-                        response: "You try to break free but the rope is too tight"
+                        response: "You try to break free but the rope is too tight."
                     }
                 ]
             },
@@ -62,13 +63,13 @@ function getStory(player, items, enemies) {
                     },
                     {
                         text: "Do nothing",
-                        response: "Doing nothing won't help you here. You need to escape"
+                        response: "Doing nothing won't help you here. You need to escape."
                     }
                 ]
             },
             {
                 id: 2,
-                text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}`,
+                text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}.`,
                 actions: [
                     {
                         image: items.item2,
@@ -77,7 +78,7 @@ function getStory(player, items, enemies) {
                     },
                     {
                         text: "Kill Yourself",
-                        response: "You can't kill yourself because you're tied up in the chair"
+                        response: "You can't kill yourself because you're tied up in the chair."
                     }
                 ]
             },
@@ -127,7 +128,7 @@ function getStory(player, items, enemies) {
         2: [
             {
                 id: 0,
-                text: "You see a dark room full of skulls",
+                text: "You see a dark room full of skulls.",
                 actions: [
                     {
                         text: "Examine Room",
@@ -135,7 +136,7 @@ function getStory(player, items, enemies) {
                     },
                     {
                         text: "Go Back",
-                        response: `The door behind you closes and a ${enemies.robot.name} attacks you`,
+                        response: `The door behind you closes and a ${enemies.robot.name} attacks you.`,
                         damage: enemies.robot
                     }
                 ]
@@ -158,13 +159,19 @@ function getStory(player, items, enemies) {
     }
 };
 
-function loadScene(roomId, storyId) {
+function loadScene() {
     fadeButtons();
     currentRoom = rooms[roomId];
     currentRoom.showName();
     currentRoom.showImage();
     currentStory = story[currentRoom.id].find(currentStory => currentStory.id === storyId);
-    textContainer.innerHTML = `<p id="story-text">${currentStory.text}</p>`;
+    textContainer.appendChild(paragraph);
+    paragraph.innerHTML = "";
+    for (let c = 0; c < currentStory.text.length; c++) {
+        setTimeout(function (char) {
+            return function () { paragraph.innerHTML += char; };
+        }(currentStory.text[c]), c * 50);
+    }
     actions = currentStory.actions;
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].innerText = actions[i].text;
@@ -178,13 +185,18 @@ function loadScene(roomId, storyId) {
 
 let onClick = [];
 
-function handleClicks(player) {
+function handleClicks() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].removeEventListener("click", onClick[i]);
         onClick[i] = function() {
             switch(true) {
                 case (actions[i].hasOwnProperty("response")):
-                    textContainer.innerHTML = `<p id="story-text">${actions[i].response}</p>`;
+                    paragraph.innerHTML = "";
+                    for (let c = 0; c < actions[i].response.length; c++) {
+                        setTimeout(function (char) {
+                            return function () { paragraph.innerHTML += char; };
+                        }(actions[i].response[c]), c * 50);
+                    }
                     break;
                 case (actions[i].hasOwnProperty("destination")):
                     storyId = actions[i].destination;
@@ -223,16 +235,16 @@ function fadeButtons() {
 function startGame() {
     roomId = 0;
     storyId = 0;
-    loadScene(roomId, storyId);
-    handleClicks(player); 
+    loadScene();
+    handleClicks(); 
 }
 
 function nextRoom() {
     setTimeout(() => {
         roomId++;
         storyId = 0;
-        loadScene(roomId, storyId);
-        handleClicks(player); 
+        loadScene();
+        handleClicks(); 
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].style.display = "initial";
         }
