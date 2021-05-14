@@ -33,130 +33,126 @@ const rooms = [
     room2 = new Room("Skull Room", roomImg.room2, 2)
 ];
 
-const story = getStory();
-
-function getStory() {
-    return {
-        1: [
-            {
-                id: 0,
-                text: `${player.name}, you wake up in a dark empty room tied firmly to a chair.`,
-                actions: [
-                    {
-                        text: "Examine Room",
-                        destination: 1
-                    },
-                    {
-                        text: "Break Free",
-                        response: "You try to break free but the rope is too tight."
-                    }
-                ]
-            },
-            {
-                id: 1,
-                text: `You notice a broken ${items.item2.name} on the floor next to you.`,
-                actions: [
-                    {
-                        text: `Take ${items.item2.name}`,
-                        destination: 2
-                        
-                    },
-                    {
-                        text: "Do nothing",
-                        response: "Doing nothing won't help you here. You need to escape."
-                    }
-                ]
-            },
-            {
-                id: 2,
-                text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}.`,
-                actions: [
-                    {
-                        image: items.item2,
-                        text: "Cut Rope",
-                        destination: 3,
-                    },
-                    {
-                        text: "Kill Yourself",
-                        response: "You can't kill yourself because you're tied up in the chair."
-                    }
-                ]
-            },
-            {
-                id: 3,
-                text: "You manage to cut the rope and break free. You see a door to your right.",
-                actions: [
-                    {
-                        text: "Open Door",
-                        response: "The door appears to be locked."
-                    },
-                    {
-                        text: "Examine Room",
-                        destination: 4
-                    }
-                ]
-            },
-            {
-                id: 4,
-                text:`You see a rusty ${items.item1.name} in the corner of the room.`,
-                actions: [
-                    {
-                        text: `Use the ${items.item1.name}`,
-                        destination: 5
-                    },
-                    {
-                        text: "Smash Door",
-                        response: "You try to smash the door but it doesn't work and you hurt yourself."
-                    }
-                ]
-            },
-            {
-                id: 5,
-                text: "You have successfully opened the door!",
-                actions: [
-                    {
-                        text: `Exit Room`,
-                        exit: 2
-                    },
-                    {
-                        text: "Stay Here",
-                        response: "Perhaps, it's best to move on."
-                    }
-                ]
-            }
-        ],
-        2: [
-            {
-                id: 0,
-                text: "You see a dark room full of skulls.",
-                actions: [
-                    {
-                        text: "Examine Room",
-                        destination: 1
-                    },
-                    {
-                        text: "Go Back",
-                        response: `The door behind you closes and a ${enemies.robot.name} attacks you.`,
-                        damage: enemies.robot
-                    }
-                ]
-            },
-            {
-                id: 1,
-                text: "You see a dark room full of skulls",
-                actions: [
-                    {
-                        text: "Attack",
-                        attack: enemies.robot
-                    },
-                    {
-                        text: "Run Away",
-                        response: "You can't run away"
-                    }
-                ]
-            }
-        ],
-    }
+const story = {
+    1: [
+        {
+            id: 0,
+            text: `${player.name}, you wake up in a dark empty room tied firmly to a chair.`,
+            actions: [
+                {
+                    text: "Examine Room",
+                    destination: 1
+                },
+                {
+                    text: "Break Free",
+                    response: "You try to break free but the rope is too tight."
+                }
+            ]
+        },
+        {
+            id: 1,
+            text: `You notice a broken ${items.item2.name} on the floor next to you.`,
+            actions: [
+                {
+                    text: `Take ${items.item2.name}`,
+                    destination: 2
+                    
+                },
+                {
+                    text: "Do nothing",
+                    response: "Doing nothing won't help you here. You need to escape."
+                }
+            ]
+        },
+        {
+            id: 2,
+            text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}.`,
+            actions: [
+                {
+                    image: items.item2,
+                    text: "Cut Rope",
+                    destination: 3,
+                },
+                {
+                    text: "Kill Yourself",
+                    response: "You can't kill yourself because you're tied up in the chair."
+                }
+            ]
+        },
+        {
+            id: 3,
+            text: "You manage to cut the rope and break free. You see a door to your right.",
+            actions: [
+                {
+                    text: "Open Door",
+                    response: "The door appears to be locked."
+                },
+                {
+                    text: "Examine Room",
+                    destination: 4
+                }
+            ]
+        },
+        {
+            id: 4,
+            text:`You see a rusty ${items.item1.name} in the corner of the room.`,
+            actions: [
+                {
+                    text: `Use the ${items.item1.name}`,
+                    destination: 5
+                },
+                {
+                    text: "Smash Door",
+                    response: "You try to smash the door but it doesn't work and you hurt yourself."
+                }
+            ]
+        },
+        {
+            id: 5,
+            text: "You have successfully opened the door!",
+            actions: [
+                {
+                    text: `Exit Room`,
+                    exit: 2
+                },
+                {
+                    text: "Stay Here",
+                    response: "Perhaps, it's best to move on."
+                }
+            ]
+        }
+    ],
+    2: [
+        {
+            id: 0,
+            text: "You see a dark room full of skulls.",
+            actions: [
+                {
+                    text: "Examine Room",
+                    destination: 1
+                },
+                {
+                    text: "Go Back",
+                    response: `The door behind you closes and a ${enemies.robot.name} attacks you.`,
+                    damage: enemies.robot
+                }
+            ]
+        },
+        {
+            id: 1,
+            text: "You see a dark room full of skulls",
+            actions: [
+                {
+                    text: "Attack",
+                    attack: enemies.robot
+                },
+                {
+                    text: "Run Away",
+                    response: "You can't run away"
+                }
+            ]
+        }
+    ],
 };
 
 function loadScene() {
