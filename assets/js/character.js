@@ -22,8 +22,8 @@ class Character {
 }
 
 class Player extends Character {
-    constructor(name, health, attack, defense, takeDamage) {
-        super(name, health, attack, defense, takeDamage);
+    constructor(name, health, attack, defense, takeDamage, checkIsDead) {
+        super(name, health, attack, defense, takeDamage, checkIsDead);
     }
     handleDeath() {
         // game ends 

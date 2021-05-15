@@ -9,13 +9,17 @@ class Item {
     }
     showImage() {
         const inventory = document.getElementById("inventory");
-        inventory.innerHTML = `<img class="inventory-img" src="${this.img}" alt="image of a ${this.name}"></img>`;
+        inventory.innerHTML += `<img id=${this.name} class="inventory-img" src="${this.img}" alt="image of a ${this.name}"></img>`;
+    }
+    deleteImage() {
+        const thisImage = document.getElementById( `${this.name}`);
+        thisImage.style.display = "none";
     }
 }
 
 class Weapon extends Item {
-    constructor(name, img, attack, defense) {
-        super(name, img);
+    constructor(name, img, showName, showImage, deleteImage, attack, defense) {
+        super(name, img, showName, showImage, deleteImage);
         this.attack = attack;
         this.defense = defense;
     }

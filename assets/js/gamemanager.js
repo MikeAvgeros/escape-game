@@ -1,5 +1,6 @@
 const textContainer = document.getElementById("room-description");
 const paragraph = document.createElement("p");
+textContainer.appendChild(paragraph);
 const buttons = document.getElementsByClassName("action-button");
 const roomImage = document.getElementById("room-img");
 
@@ -68,9 +69,9 @@ const story = {
         {
             id: 2,
             text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}.`,
+            showImage: items.item2,
             actions: [
                 {
-                    image: items.item2,
                     text: "Cut Rope",
                     destination: 3,
                 },
@@ -83,6 +84,7 @@ const story = {
         {
             id: 3,
             text: "You manage to cut the rope and break free. You see a door to your right.",
+            deleteImage: items.item2,
             actions: [
                 {
                     text: "Open Door",
@@ -162,7 +164,6 @@ function loadScene() {
     currentRoom.showName();
     currentRoom.showImage();
     currentStory = story[currentRoom.id].find(currentStory => currentStory.id === storyId);
-    textContainer.appendChild(paragraph);
     paragraph.innerHTML = "";
     for (let c = 0; c < currentStory.text.length; c++) {
         setTimeout(function (char) {
@@ -206,8 +207,11 @@ function handleClicks() {
                     textContainer.innerHTML = "";
                     nextRoom();
             }
-            if (actions[i].hasOwnProperty("image")) {
-                actions[i].image.showImage();
+            if (currentStory.hasOwnProperty("showImage")) {
+                currentStory.showImage.showImage();
+            }
+            if (currentStory.hasOwnProperty("deleteImage")) {
+                currentStory.deleteImage.deleteImage();
             }
             if (actions[i].hasOwnProperty("damage")) {
                 player.takeDamage(actions[i].damage.attack);
