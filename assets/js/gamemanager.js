@@ -37,7 +37,7 @@ const story = {
     1: [
         {
             id: 0,
-            text: `${player.name}, you wake up in a dark empty room tied firmly to a chair.`,
+            text: `${player.name}, you wake up in a dark empty room tied to a chair.`,
             actions: [
                 {
                     text: "Examine Room",
