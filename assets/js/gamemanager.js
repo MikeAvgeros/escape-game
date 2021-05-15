@@ -1,6 +1,7 @@
 const textContainer = document.getElementById("room-description");
 const paragraph = document.createElement("p");
 const buttons = document.getElementsByClassName("action-button");
+const roomImage = document.getElementById("room-img");
 
 let roomId;
 let storyId;
@@ -228,15 +229,24 @@ function fadeButtons() {
     }
 }
 
+function fadeImage() {
+    roomImage.classList.add("fade");
+        setTimeout(() => {
+            roomImage.classList.remove("fade");
+    }, 1000);
+}
+
 function startGame() {
     roomId = 0;
     storyId = 0;
     loadScene();
     handleClicks(); 
+    fadeImage();
 }
 
 function nextRoom() {
     setTimeout(() => {
+        fadeImage();
         roomId++;
         storyId = 0;
         loadScene();
