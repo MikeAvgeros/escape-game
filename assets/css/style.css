@@ -28,11 +28,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1000px;
+    width: 1080px;
     height: 100vh;
     display: grid;
-    grid-template-rows: 5% 10% 50% 20% 10% 5%;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 5% 10% 50% 15% 10% 10%;
+    grid-template-columns: 25% 50% 25%;
     grid-template-areas: 
     "....  ....  ........"
     "..... name  ........"
@@ -63,14 +63,13 @@ body {
 
 #room-img {
     grid-area: img;
-    border: 2px solid var(--red);
     border-radius: 8px;
-    box-shadow: inset 0 0 0.5em 0 var(--neon), 0 0 0.5em 0 var(--neon);
+    box-shadow: inset 0 0 0.5em 0 var(--red), 0 0 0.5em 0 var(--red);
 }
 
 #room-img img {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 #room-img.fade {
@@ -81,9 +80,9 @@ body {
 #stats {
     grid-area: stats;
     display: grid;
-    color: var(--pink);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.4), 0 0 0.45em var(--neon);
-    justify-self: center;
+    color: var(--red);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.2), 0 0 0.45em var(--neon);
+    text-align: center;
 }
 
 #room-description {
@@ -93,24 +92,23 @@ body {
 
 #room-description p {
     place-self: center center;
-    color: var(--pink);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.4), 0 0 0.45em var(--neon);
+    color: var(--red);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--neon);
     font-size: 1rem;
     letter-spacing: 1px;
-    padding: 1rem;
 }
 
 #inventory {
     grid-area: inventory;
     display: grid;
-    color: var(--pink);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.4), 0 0 0.45em var(--neon);
-    justify-self: center;
+    color: var(--red);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.2), 0 0 0.45em var(--neon);
+    text-align: center;
 }
 
 #inventory .inventory-img {
-    height: 25%;
     width: 25%;
+    height: auto;
 }
 
 #btns {
@@ -123,7 +121,7 @@ body {
     background-color: transparent;
     cursor: pointer;
     border: 2px solid var(--red);
-    color: var(--pink);
+    color: var(--red);
     border-radius: 10px;
     height: 80%;
     width: 120px;
