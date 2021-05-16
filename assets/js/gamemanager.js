@@ -9,6 +9,8 @@ let storyId;
 let currentRoom;
 let currentStory;
 let actions;
+let finishedTyping;
+let typeWriter;
 
 const player = new Player("Mike", 100, 50, 30);
 
@@ -164,12 +166,16 @@ function loadScene() {
     currentRoom.showName();
     currentRoom.showImage();
     currentStory = story[currentRoom.id].find(currentStory => currentStory.id === storyId);
-    paragraph.innerHTML = "";
-    for (let c = 0; c < currentStory.text.length; c++) {
-        setTimeout(function (char) {
-            return function () { paragraph.innerHTML += char; };
-        }(currentStory.text[c]), c * 50);
-    }
+    paragraph.textContent = "";
+    let c = 0;
+    typeWriter = setInterval(() => {
+        paragraph.textContent += currentStory.text.charAt(c++);
+        finishedTyping = false;
+        if (c > currentStory.text.length) {
+            finishedTyping = true;
+            clearInterval(typeWriter);
+        }
+    }, 50);
     actions = currentStory.actions;
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].innerText = actions[i].text;
@@ -189,22 +195,35 @@ function handleClicks() {
         onClick[i] = function() {
             switch(true) {
                 case (actions[i].hasOwnProperty("response")):
-                    paragraph.innerHTML = "";
-                    for (let c = 0; c < actions[i].response.length; c++) {
-                        setTimeout(function (char) {
-                            return function () { paragraph.innerHTML += char; };
-                        }(actions[i].response[c]), c * 50);
+                    paragraph.textContent = "";
+                    if (!finishedTyping) {
+                        clearInterval(typeWriter);
+                    } 
+                    let c = 0;
+                    typeWriter = setInterval(() => {
+                    paragraph.textContent += actions[i].response.charAt(c++);
+                    finishedTyping = false;
+                    if (c > actions[i].response.length) {
+                        finishedTyping = true;
+                        clearInterval(typeWriter);
                     }
+                    }, 50);
                     break;
                 case (actions[i].hasOwnProperty("destination")):
                     storyId = actions[i].destination;
-                    loadScene(roomId, storyId);
+                    if (finishedTyping) {
+                        loadScene(roomId, storyId);
+                    } 
+                    else {
+                        clearInterval(typeWriter);
+                        loadScene(roomId, storyId);
+                    }
                     break;
                 case (actions[i].hasOwnProperty("exit")):
                     for (let i = 0; i < buttons.length; i++) {
                         buttons[i].style.display = "none";
                     }
-                    textContainer.innerHTML = "";
+                    textContainer.textContainer = "";
                     nextRoom();
             }
             if (currentStory.hasOwnProperty("showImage")) {

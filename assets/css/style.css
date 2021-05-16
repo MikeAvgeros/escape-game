@@ -33,6 +33,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 1080px;
+    max-width: 90%;
     height: 100vh;
     display: grid;
     grid-template-rows: 5% 7.5% 50% 20% 10% 7.5%;
@@ -98,6 +99,7 @@ body {
 
 #room-description p {
     place-self: center center;
+    padding: 1rem;
     color: var(--cyan);
     font-size: 1rem;
     letter-spacing: 1px;
