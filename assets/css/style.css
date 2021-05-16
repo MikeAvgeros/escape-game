@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Tomorrow&display=swap');
 
 :root {
-    --black:  #050a0e;
-    --red: #ff003c;
-    --yellow: #fcee09; 
+    --black:  #010101;
+    --red: #fd0130;
+    --yellow: #ffee08; 
     --gray: #414141;
     --pink: #ff2a6d;
     --purple: #600078;
-    --cyan: #00f0ff;
-    --neon: hsl(317 100% 54%);
+    --cyan: #02D7F2;
     --ff-main: 'Orbitron', sans-serif;
     --ff-second: 'Tomorrow', sans-serif;
 }
@@ -72,6 +71,7 @@ body {
 #room-img {
     grid-area: image;
     background-color: var(--yellow);
+    
 }
 
 #room-img img {
