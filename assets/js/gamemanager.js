@@ -2,6 +2,7 @@ const textContainer = document.getElementById("room-description");
 const paragraph = document.createElement("p");
 const buttons = document.getElementsByClassName("action-button");
 const roomImage = document.getElementById("room-img");
+const roomName = document.getElementById("room-name");
 
 let roomId;
 let storyId;
@@ -234,8 +235,10 @@ function fadeButtons() {
 
 function fadeImage() {
     roomImage.classList.add("fade");
+    roomName.classList.add("fade");
         setTimeout(() => {
             roomImage.classList.remove("fade");
+            roomName.classList.remove("fade");
     }, 1000);
 }
 
