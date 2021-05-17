@@ -28,136 +28,162 @@ const enemies = {
 };
 
 const roomImg = {
-    room1: "./assets/img/graypaintedroom.jpg",
-    room2: "./assets/img/skullroom.jpg"
+    GrayRoom: "./assets/img/graypaintedroom.jpg",
+    SkullRoom: "./assets/img/skullroom.jpg"
 };
 
-const rooms = [
-    room1 = new Room("Gray Room", roomImg.room1, 1),
-    room2 = new Room("Skull Room", roomImg.room2, 2)
-];
+const rooms = {
+    GrayRoom: new Room("Gray Room", roomImg.GrayRoom, "GrayRoom"),
+    SkullRoom: new Room("Skull Room", roomImg.SkullRoom, "SkullRoom")
+};
+    
 
 const story = {
-    1: [
+    GrayRoom: [
         {
-            id: 0,
+            id: 1,
             text: `${player.name}, you wake up in a dark empty room tied to a chair.`,
             actions: [
                 {
                     text: "Examine Room",
-                    destination: 1
+                    destination: 2
                 },
                 {
                     text: "Break Free",
-                    response: "You try to break free but the rope is too tight."
-                }
-            ]
-        },
-        {
-            id: 1,
-            text: `You notice a broken ${items.item2.name} on the floor next to you.`,
-            actions: [
-                {
-                    text: `Take ${items.item2.name}`,
                     destination: 2
-                    
-                },
-                {
-                    text: "Do nothing",
-                    response: "Doing nothing won't help you here. You need to escape."
                 }
             ]
         },
         {
             id: 2,
-            text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}.`,
-            showImage: items.item2,
+            text: `You notice a broken ${items.item2.name} on the floor next to you.`,
             actions: [
                 {
-                    text: "Cut Rope",
-                    destination: 3,
+                    text: `Take ${items.item2.name}`,
+                    destination: 3
+                    
                 },
                 {
-                    text: "Kill Yourself",
-                    response: "You can't kill yourself because you're tied up in the chair."
+                    text: "Do nothing",
+                    destination: 3
                 }
             ]
         },
         {
             id: 3,
-            text: "You manage to cut the rope and break free. You see a door to your right.",
-            deleteImage: items.item2,
+            text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}.`,
             actions: [
                 {
-                    text: "Open Door",
-                    response: "The door appears to be locked."
+                    text: "Cut Rope",
+                    destination: 4
                 },
                 {
-                    text: "Examine Room",
+                    text: "Kill Yourself",
                     destination: 4
                 }
             ]
         },
         {
             id: 4,
-            text:`You see a rusty ${items.item1.name} in the corner of the room.`,
+            text: "You manage to cut the rope and break free. You see a door to your right.",
             actions: [
                 {
-                    text: `Use the ${items.item1.name}`,
+                    text: "Open Door",
                     destination: 5
                 },
                 {
-                    text: "Smash Door",
-                    response: "You try to smash the door but it doesn't work and you hurt yourself."
+                    text: "Examine Room",
+                    destination: 5
                 }
             ]
         },
         {
             id: 5,
-            text: "You have successfully opened the door!",
+            text:`You see a rusty ${items.item1.name} in the corner of the room.`,
             actions: [
                 {
-                    text: `Exit Room`,
-                    exit: 2
+                    text: `Use the ${items.item1.name}`,
+                    destination: 6
                 },
                 {
-                    text: "Stay Here",
-                    response: "Perhaps, it's best to move on."
-                }
-            ]
-        }
-    ],
-    2: [
-        {
-            id: 0,
-            text: "You see a dark room full of skulls.",
-            actions: [
-                {
-                    text: "Examine Room",
-                    destination: 1
-                },
-                {
-                    text: "Go Back",
-                    response: `The door behind you closes and a ${enemies.robot.name} attacks you.`,
-                    damage: enemies.robot
+                    text: "Smash Door",
+                    destination: 6
                 }
             ]
         },
         {
-            id: 1,
-            text: "You see a dark room full of skulls",
+            id: 6,
+            text: "You have successfully opened the door!",
             actions: [
                 {
-                    text: "Attack",
-                    attack: enemies.robot
+                    text: `Exit Room`,
+                    exit: rooms.SkullRoom.id
                 },
                 {
-                    text: "Run Away",
-                    response: "You can't run away"
+                    text: "Stay Here",
+                    exit: rooms.SkullRoom.id
                 }
             ]
         }
     ],
+    SkullRoom: [
+        {
+            id: 1,
+            text: "You see a dark room full of skulls.",
+            actions: [
+                {
+                    text: "Examine Room",
+                    destination: 2
+                },
+                {
+                    text: "Go Back",
+                    destination: 2
+                }
+            ]
+        },
+        {
+            id: 2,
+            text: "You see a dark room full of skulls",
+            actions: [
+                {
+                    text: "Attack",
+                    destination: 3
+                },
+                {
+                    text: "Run Away",
+                    destination: 3
+                }
+            ]
+        },
+        {
+            id: 3,
+            text: "You see a dark room full of skulls",
+            actions: [
+                {
+                    text: "Attack",
+                    destination: 4
+                },
+                {
+                    text: "Run Away",
+                    destination: 4
+                }
+            ]
+        },
+        {
+            id: 4,
+            text: "You see a dark room full of skulls",
+            actions: [
+                {
+                    text: "Attack",
+                    destination: 1
+                },
+                {
+                    text: "Run Away",
+                    destination: 1
+                }
+            ]
+        }
+    ]
 };
 
 function loadScene() {
@@ -166,7 +192,6 @@ function loadScene() {
     currentRoom.showName();
     currentRoom.showImage();
     currentStory = story[currentRoom.id].find(currentStory => currentStory.id === storyId);
-    paragraph.textContent = "";
     let c = 0;
     typeWriter = setInterval(() => {
         paragraph.textContent += currentStory.text.charAt(c++);
@@ -193,37 +218,17 @@ function handleClicks() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].removeEventListener("click", onClick[i]);
         onClick[i] = function() {
+            if (!finishedTyping) {
+                clearInterval(typeWriter);
+            } 
+            paragraph.textContent = "";
             switch(true) {
-                case (actions[i].hasOwnProperty("response")):
-                    paragraph.textContent = "";
-                    if (!finishedTyping) {
-                        clearInterval(typeWriter);
-                    } 
-                    let c = 0;
-                    typeWriter = setInterval(() => {
-                    paragraph.textContent += actions[i].response.charAt(c++);
-                    finishedTyping = false;
-                    if (c > actions[i].response.length) {
-                        finishedTyping = true;
-                        clearInterval(typeWriter);
-                    }
-                    }, 50);
-                    break;
                 case (actions[i].hasOwnProperty("destination")):
                     storyId = actions[i].destination;
-                    if (finishedTyping) {
-                        loadScene(roomId, storyId);
-                    } 
-                    else {
-                        clearInterval(typeWriter);
-                        loadScene(roomId, storyId);
-                    }
+                    loadScene(roomId, storyId);
                     break;
                 case (actions[i].hasOwnProperty("exit")):
-                    for (let i = 0; i < buttons.length; i++) {
-                        buttons[i].style.display = "none";
-                    }
-                    textContainer.textContainer = "";
+                    roomId = actions[i].exit;
                     nextRoom();
             }
             if (currentStory.hasOwnProperty("showImage")) {
@@ -262,8 +267,8 @@ function fadeImage() {
 }
 
 function startGame() {
-    roomId = 0;
-    storyId = 0;
+    roomId = rooms.GrayRoom.id;
+    storyId = 1;
     textContainer.appendChild(paragraph);
     loadScene();
     handleClicks(); 
@@ -274,13 +279,9 @@ function nextRoom() {
     setTimeout(() => {
         fadeImage();
         textContainer.appendChild(paragraph);
-        roomId++;
-        storyId = 0;
+        storyId = 1;
         loadScene();
         handleClicks(); 
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].style.display = "initial";
-        }
     }, 250);
 }
 

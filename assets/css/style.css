@@ -97,8 +97,12 @@ body {
     background-color: var(--red);
 }
 
-#inventory {
+#inventory i {
     cursor: pointer;
+}
+
+#inventory i:hover {
+    color: var(--cyan);
 }
 
 #room-name h1 {
