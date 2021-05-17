@@ -15,12 +15,12 @@ let typeWriter;
 const player = new Player("Mike", 100, 50, 30);
 
 const itemImg = {
-    item2: "./assets/img/skullroom.jpg"
+    2: "./assets/img/skullroom.jpg"
 }
 
 const items = {
-    item1: new Item("key", "img"),
-    item2: new Item("glass", itemImg.item2)
+    1: new Item("key", "img"),
+    2: new Item("glass", itemImg[2])
 };
 
 const enemies = {
@@ -28,18 +28,17 @@ const enemies = {
 };
 
 const roomImg = {
-    GrayRoom: "./assets/img/graypaintedroom.jpg",
-    SkullRoom: "./assets/img/skullroom.jpg"
+    1: "./assets/img/graypaintedroom.jpg",
+    2: "./assets/img/skullroom.jpg"
 };
 
 const rooms = {
-    GrayRoom: new Room("Gray Room", roomImg.GrayRoom, "GrayRoom"),
-    SkullRoom: new Room("Skull Room", roomImg.SkullRoom, "SkullRoom")
+    1: new Room("Gray Room", roomImg[1], 1),
+    2: new Room("Skull Room", roomImg[2], 2)
 };
     
-
 const story = {
-    GrayRoom: [
+    1: [
         {
             id: 1,
             text: `${player.name}, you wake up in a dark empty room tied to a chair.`,
@@ -56,10 +55,10 @@ const story = {
         },
         {
             id: 2,
-            text: `You notice a broken ${items.item2.name} on the floor next to you.`,
+            text: `You notice a broken ${items[2].name} on the floor next to you.`,
             actions: [
                 {
-                    text: `Take ${items.item2.name}`,
+                    text: `Take ${items[2].name}`,
                     destination: 3
                     
                 },
@@ -71,7 +70,7 @@ const story = {
         },
         {
             id: 3,
-            text: `Your body falls on the floor and your hand reaches the broken ${items.item2.name}.`,
+            text: `Your body falls on the floor and your hand reaches the broken ${items[2].name}.`,
             actions: [
                 {
                     text: "Cut Rope",
@@ -99,10 +98,10 @@ const story = {
         },
         {
             id: 5,
-            text:`You see a rusty ${items.item1.name} in the corner of the room.`,
+            text:`You see a rusty ${items[1].name} in the corner of the room.`,
             actions: [
                 {
-                    text: `Use the ${items.item1.name}`,
+                    text: `Use the ${items[1].name}`,
                     destination: 6
                 },
                 {
@@ -117,16 +116,16 @@ const story = {
             actions: [
                 {
                     text: `Exit Room`,
-                    exit: rooms.SkullRoom.id
+                    exit: 2
                 },
                 {
                     text: "Stay Here",
-                    exit: rooms.SkullRoom.id
+                    exit: 2
                 }
             ]
         }
     ],
-    SkullRoom: [
+    2: [
         {
             id: 1,
             text: "You see a dark room full of skulls.",
@@ -267,7 +266,7 @@ function fadeImage() {
 }
 
 function startGame() {
-    roomId = rooms.GrayRoom.id;
+    roomId = 1;
     storyId = 1;
     textContainer.appendChild(paragraph);
     loadScene();
