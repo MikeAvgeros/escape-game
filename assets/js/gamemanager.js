@@ -41,85 +41,99 @@ const story = {
     1: [
         {
             id: 1,
-            text: `${player.name}, you wake up in a dark empty room tied to a chair.`,
+            text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: "Examine Room",
+                    text: "Lorem",
                     destination: 2
                 },
                 {
-                    text: "Break Free",
-                    destination: 2
+                    text: "Ipsum",
+                    destination: 3
                 }
             ]
         },
         {
             id: 2,
-            text: `You notice a broken ${items[2].name} on the floor next to you.`,
+            text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: `Take ${items[2].name}`,
+                    text: "Lorem",
                     destination: 3
                     
                 },
                 {
-                    text: "Do nothing",
-                    destination: 3
+                    text: "Ipsum",
+                    destination: 4
                 }
             ]
         },
         {
             id: 3,
-            text: `Your body falls on the floor and your hand reaches the broken ${items[2].name}.`,
+            text: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: "Cut Rope",
+                    text: "Lorem",
                     destination: 4
                 },
                 {
-                    text: "Kill Yourself",
-                    destination: 4
+                    text: "Ipsum",
+                    destination: 5
                 }
             ]
         },
         {
             id: 4,
-            text: "You manage to cut the rope and break free. You see a door to your right.",
+            text: "4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: "Open Door",
+                    text: "Lorem",
                     destination: 5
                 },
                 {
-                    text: "Examine Room",
-                    destination: 5
+                    text: "Ipsum",
+                    destination: 6
                 }
             ]
         },
         {
             id: 5,
-            text:`You see a rusty ${items[1].name} in the corner of the room.`,
+            text: "5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: `Use the ${items[1].name}`,
+                    text: "Lorem",
                     destination: 6
                 },
                 {
-                    text: "Smash Door",
-                    destination: 6
+                    text: "Ipsum",
+                    destination: 7
                 }
             ]
         },
         {
             id: 6,
-            text: "You have successfully opened the door!",
+            text: "6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: `Exit Room`,
+                    text: "Lorem",
+                    exit: 7
+                },
+                {
+                    text: "Ipsum",
+                    exit: 1
+                }
+            ]
+        },
+        {
+            id: 7,
+            text: "7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
+            actions: [
+                {
+                    text: "Lorem",
                     exit: 2
                 },
                 {
-                    text: "Stay Here",
+                    text: "Ipsum",
                     exit: 2
                 }
             ]
@@ -128,57 +142,100 @@ const story = {
     2: [
         {
             id: 1,
-            text: "You see a dark room full of skulls.",
+            text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: "Examine Room",
+                    text: "Lorem",
                     destination: 2
                 },
                 {
-                    text: "Go Back",
-                    destination: 2
+                    text: "Ipsum",
+                    destination: 3
                 }
             ]
         },
         {
             id: 2,
-            text: "You see a dark room full of skulls",
+            text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: "Attack",
+                    text: "Lorem",
                     destination: 3
+                    
                 },
                 {
-                    text: "Run Away",
-                    destination: 3
+                    text: "Ipsum",
+                    destination: 4
                 }
             ]
         },
         {
             id: 3,
-            text: "You see a dark room full of skulls",
+            text: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: "Attack",
+                    text: "Lorem",
                     destination: 4
                 },
                 {
-                    text: "Run Away",
-                    destination: 4
+                    text: "Ipsum",
+                    destination: 5
                 }
             ]
         },
         {
             id: 4,
-            text: "You see a dark room full of skulls",
+            text: "4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
             actions: [
                 {
-                    text: "Attack",
-                    destination: 1
+                    text: "Lorem",
+                    destination: 5
                 },
                 {
-                    text: "Run Away",
-                    destination: 1
+                    text: "Ipsum",
+                    destination: 6
+                }
+            ]
+        },
+        {
+            id: 5,
+            text: "5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
+            actions: [
+                {
+                    text: "Lorem",
+                    destination: 6
+                },
+                {
+                    text: "Ipsum",
+                    destination: 7
+                }
+            ]
+        },
+        {
+            id: 6,
+            text: "6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
+            actions: [
+                {
+                    text: "Lorem",
+                    exit: 7
+                },
+                {
+                    text: "Ipsum",
+                    exit: 1
+                }
+            ]
+        },
+        {
+            id: 7,
+            text: "7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
+            actions: [
+                {
+                    text: "Lorem",
+                    exit: 1
+                },
+                {
+                    text: "Ipsum",
+                    exit: 1
                 }
             ]
         }
