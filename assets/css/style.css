@@ -10,6 +10,7 @@
     --cyan: #02D7F2;
     --ff-main: 'Orbitron', sans-serif;
     --ff-second: 'Tomorrow', sans-serif;
+    --width: 100%;
 }
 
 *, ::before, ::after {
@@ -17,6 +18,7 @@
     margin: 0;
     padding: 0;
     border: 0;
+    outline: 0;
 }
   
 body {
@@ -31,19 +33,19 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1080px;
+    width: 640px;
     max-width: 90%;
     height: 100vh;
     display: grid;
     grid-template-rows: 5% 7.5% 50% 20% 10% 7.5%;
-    grid-template-columns: 25% 20% 30% 25%;
+    grid-template-columns: 40% 60%;
     grid-template-areas: 
-    "....  ....  ..... ........."
-    "..... name  ..... ........."
-    "stats image image inventory"
-    "stats text  text  inventory"
-    "..... btns  btns  ........."
-    "....  ....  ....  .........";
+    "....  ....."
+    "name  stats"
+    "image image"
+    "text  text"
+    "btns  btns"
+    "....  ....";
 }
 
 #background {
@@ -64,30 +66,61 @@ body {
     clip-path: polygon(92% 0, 100% 30%, 100% 100%, 0 100%, 0 0);
 }
 
+#game-stats {
+    display: flex;
+    grid-area: stats;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#player-health {
+    width: 50%;
+    display: flex;
+}
+
+#game-stats i {
+    color: var(--yellow);
+    padding-right: 10px;
+}
+
+#health-bar {
+    border: 2.5px solid var(--yellow);
+    width: 75%;
+    height: 1rem;
+    border-radius: 8px;
+    align-self: center;
+}
+
+#health {
+    width: var(--width);
+    height: 100%;
+    background-color: var(--red);
+    border-radius: 5px;
+}
+
+#inventory {
+    cursor: pointer;
+}
+
 #room-name h1 {
     place-self: center center;
 }
 
 #room-img {
     grid-area: image;
+    display: grid;
     background-color: var(--yellow);
-    
 }
 
 #room-img img {
     width: 100%;
     max-height: 100%;
-    clip-path: inset(10px 5px round 10px);
+    clip-path: inset(10px 10px round 10px);
 }
 
 #room-img.fade, #room-name.fade {
     -webkit-animation: fade-effect 1s forwards ease-in-out;
             animation: fade-effect 1s forwards ease-in-out;
-}
-
-#stats {
-    grid-area: stats;
-    display: grid;
 }
 
 #room-description {
@@ -103,25 +136,6 @@ body {
     color: var(--cyan);
     font-size: 1rem;
     letter-spacing: 1px;
-}
-
-#inventory {
-    grid-area: inventory;
-    display: grid;
-}
-
-#inventory, #stats {
-    color: var(--cyan);
-}
-
-#inventory h2, #stats h2 {
-    padding-top: 10px;
-    text-align: center;
-}
-
-#inventory .inventory-img {
-    width: 25%;
-    height: auto;
 }
 
 #btns {
