@@ -86,16 +86,15 @@ body {
 #health-bar {
     border: 2.5px solid var(--yellow);
     width: 75%;
-    height: 1rem;
-    border-radius: 8px;
+    height: 1.5rem;
     align-self: center;
+    clip-path: polygon(90% 0, 100% 60%, 100% 100%, 0 100%, 0 0);
 }
 
 #health {
     width: var(--width);
     height: 100%;
     background-color: var(--red);
-    border-radius: 5px;
 }
 
 #inventory {
