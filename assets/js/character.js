@@ -1,7 +1,6 @@
 class Character {
     constructor(name, health, attack, defense) {
         this.name = name;
-        this.maxhealth = health;
         this.health = health;
         this.attack = attack;
         this.defense = defense;

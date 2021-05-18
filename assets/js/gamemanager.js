@@ -3,6 +3,7 @@ const paragraph = document.createElement("p");
 const buttons = document.getElementsByClassName("action-button");
 const roomImage = document.getElementById("room-img");
 const roomName = document.getElementById("room-name");
+const root = document.documentElement;
 
 let roomId;
 let storyId;
@@ -13,6 +14,14 @@ let finishedTyping;
 let typeWriter;
 
 const player = new Player("Mike", 100, 50, 30);
+
+const maxHealth = player.health;
+let healthBarWidth;
+
+function calculateHealthWidth() {
+    healthBarWidth = (player.health / maxHealth) * 100;
+    root.style.setProperty('--width', healthBarWidth + "%");
+}
 
 const itemImg = {
     2: "./assets/img/skullroom.jpg"
@@ -295,6 +304,8 @@ function handleClicks() {
             }
             if (actions[i].hasOwnProperty("damage")) {
                 player.takeDamage(actions[i].damage.attack);
+                calculateHealthWidth();
+                player.checkIsDead();
             }
             if (actions[i].hasOwnProperty("attack")) {
                 actions[i].attack.takeDamage(player.attack);
