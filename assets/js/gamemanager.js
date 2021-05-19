@@ -24,7 +24,7 @@ function calculateHealthWidth() {
 }
 
 const itemImg = {
-    2: "./assets/img/skullroom.jpg"
+    2: "./assets/img/1.jpg"
 }
 
 const items = {
@@ -37,8 +37,8 @@ const enemies = {
 };
 
 const roomImg = {
-    1: "./assets/img/graypaintedroom.jpg",
-    2: "./assets/img/skullroom.jpg"
+    1: "./assets/img/1.jpg",
+    2: "./assets/img/2.jpg"
 };
 
 const rooms = {
