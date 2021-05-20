@@ -125,7 +125,7 @@ const story = {
             actions: [
                 {
                     text: "Lorem",
-                    exit: 7
+                    destination: 7
                 },
                 {
                     text: "Ipsum",
@@ -226,7 +226,7 @@ const story = {
             actions: [
                 {
                     text: "Lorem",
-                    exit: 7
+                    destination: 7
                 },
                 {
                     text: "Ipsum",

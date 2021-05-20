@@ -62,7 +62,7 @@ body {
     letter-spacing: 1px;
     color: var(--cyan);
     border: 2.5px solid var(--yellow);
-    box-shadow: inset 0 0 1rem 0 var(--yellow), 0 0 1.5rem 0 var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
     /* clip-path: polygon(92% 0, 100% 30%, 100% 100%, 0 100%, 0 0); */
 }
 
@@ -85,7 +85,7 @@ body {
 
 #health-bar {
     border: 2.5px solid var(--yellow);
-    box-shadow: inset 0 0 1rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
     width: 75%;
     height: 1.5rem;
     align-self: center;
@@ -115,7 +115,7 @@ body {
     grid-area: image;
     display: grid;
     background-color: var(--yellow);
-    box-shadow: inset 0 0 1rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
 }
 
 #room-img img {
@@ -133,7 +133,7 @@ body {
     grid-area: text;
     display: grid;
     border: 2.5px solid var(--yellow);
-    box-shadow: inset 0 0 1rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
 }
 
 #room-description p {
@@ -150,13 +150,14 @@ body {
     display: flex;
     justify-content: space-evenly;
     border: 2.5px solid var(--yellow);
-    box-shadow: inset 0 0 1rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
 }
 
 #btns .action-button {
-    background-color: var(--yellow);
+    background: none;
+    border: 2.5px solid var(--yellow);
     cursor: pointer;
-    color: var(--black);
+    color: var(--cyan);
     height: 50%;
     width: 120px;
     align-self: center;
@@ -175,8 +176,7 @@ body {
 }
 
 #btns .action-button:hover {
-    background: var(--gray);
-    color: var(--cyan);
+    background: var(--red);
 }
 
 #footer {
@@ -197,7 +197,7 @@ body {
     font-weight: bolder;
     border: 2.5px solid var(--yellow);
     color: var(--cyan);
-    box-shadow: inset 0 0 1rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
 }
 
 #footer a {
@@ -209,7 +209,7 @@ body {
     width: 60px;
     color: var(--cyan);
     border: 2.5px solid var(--yellow);
-    box-shadow: inset 0 0 1rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
 }
 
 #contact:hover, #footer a:hover {
