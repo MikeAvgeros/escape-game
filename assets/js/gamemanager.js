@@ -12,6 +12,7 @@ let currentStory;
 let actions;
 let finishedTyping;
 let typeWriter;
+let inventory = [];
 
 const player = new Player("Mike", 100, 50, 30);
 
@@ -282,7 +283,7 @@ let onClick = [];
 function handleClicks() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].removeEventListener("click", onClick[i]);
-        onClick[i] = function() {
+        onClick[i] = () => {
             if (!finishedTyping) {
                 clearInterval(typeWriter);
             } 
@@ -296,11 +297,9 @@ function handleClicks() {
                     roomId = actions[i].exit;
                     nextRoom();
             }
-            if (currentStory.hasOwnProperty("showImage")) {
-                currentStory.showImage.showImage();
-            }
-            if (currentStory.hasOwnProperty("deleteImage")) {
-                currentStory.deleteImage.deleteImage();
+            if (currentStory.hasOwnProperty("item")) {
+                currentStory.item.showImage();
+                inventory.push(currentStory.item);
             }
             if (actions[i].hasOwnProperty("damage")) {
                 player.takeDamage(actions[i].damage.attack);
