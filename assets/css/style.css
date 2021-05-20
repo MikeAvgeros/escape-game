@@ -37,14 +37,16 @@ body {
     max-width: 90%;
     height: 100vh;
     display: grid;
-    grid-template-rows: 10% 7.5% 40% 22.5% 20%;
+    grid-template-rows: 10% 7.5% 40% 22.5% 5% 10% 5%;
     grid-template-columns: 25% 30% 5% 40%;
     grid-template-areas: 
     "....   .....  ...... ...."
     "name   stats  ...... ...."
     "image  image  ...... text"
     "image  image  ...... btns"
-    "footer footer footer footer";
+    "....   .....  ...... ...."
+    "footer footer footer footer"
+    "....   .....  ...... ....";
 }
 
 #background {
@@ -182,6 +184,9 @@ body {
 #footer {
     grid-area: footer;
     display: flex;
+    justify-content: space-between;
+    border: 2.5px solid var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
 }
 
 #contact {
@@ -190,26 +195,32 @@ body {
     align-self: center;
     background: none;
     cursor: pointer;
-    height: 40%;
+    height: 75%;
     width: 120px;
+    margin-left: 1rem;
     font-size: 1rem;
     letter-spacing: 1px;
     font-weight: bolder;
     border: 2.5px solid var(--yellow);
+    clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
     color: var(--cyan);
-    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
+}
+
+#socials {
+    display: flex;
+    margin-right: 1rem;
 }
 
 #footer a {
     display: grid;
     place-content: center center;
     align-self: center;
-    margin-left: 1rem;
-    height: 40%;
+    margin-left: 2rem;
+    height: 75%;
     width: 60px;
     color: var(--cyan);
     border: 2.5px solid var(--yellow);
-    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
+    clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
 }
 
 #contact:hover, #footer a:hover {
