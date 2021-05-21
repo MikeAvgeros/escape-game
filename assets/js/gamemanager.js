@@ -12,41 +12,31 @@ let currentStory;
 let actions;
 let finishedTyping;
 let typeWriter;
+let onClick = [];
 let inventory = [];
-
-const player = new Player("Mike", 100, 50, 30);
-
-const maxHealth = player.health;
 let healthBarWidth;
 
-function calculateHealthWidth() {
-    healthBarWidth = (player.health / maxHealth) * 100;
-    root.style.setProperty('--width', healthBarWidth + "%");
-}
+const player = new Player("Mike", 100, 50, 30);
+const maxHealth = player.health;
 
 const itemImg = {
     2: "./assets/img/1.jpg"
 }
-
 const items = {
     1: new Item("key", "img"),
     2: new Item("glass", itemImg[2])
 };
-
 const enemies = {
     robot: new Character("robot", 50, 40, 20)
 };
-
 const roomImg = {
     1: "./assets/img/1.jpg",
     2: "./assets/img/2.jpg"
 };
-
 const rooms = {
     1: new Room("Gray Room", roomImg[1], 1),
     2: new Room("Skull Room", roomImg[2], 2)
 };
-    
 const story = {
     1: [
         {
@@ -252,6 +242,11 @@ const story = {
     ]
 };
 
+function calculateHealthWidth() {
+    healthBarWidth = (player.health / maxHealth) * 100;
+    root.style.setProperty('--width', healthBarWidth + "%");
+}
+
 function loadScene() {
     fadeButtons();
     currentRoom = rooms[roomId];
@@ -278,8 +273,6 @@ function loadScene() {
     }
 }
 
-let onClick = [];
-
 function handleClicks() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].removeEventListener("click", onClick[i]);
@@ -288,7 +281,7 @@ function handleClicks() {
                 clearInterval(typeWriter);
             } 
             paragraph.textContent = "";
-            switch(true) {
+            switch (true) {
                 case (actions[i].hasOwnProperty("destination")):
                     storyId = actions[i].destination;
                     loadScene(roomId, storyId);
@@ -301,13 +294,14 @@ function handleClicks() {
                 currentStory.item.showImage();
                 inventory.push(currentStory.item);
             }
-            if (actions[i].hasOwnProperty("damage")) {
-                player.takeDamage(actions[i].damage.attack);
+            if (actions[i].hasOwnProperty("enemy")) {
+                player.takeDamage(actions[i].enemy.attack);
                 calculateHealthWidth();
                 player.checkIsDead();
             }
-            if (actions[i].hasOwnProperty("attack")) {
-                actions[i].attack.takeDamage(player.attack);
+            if (actions[i].hasOwnProperty("enemyAttacked")) {
+                actions[i].enemyAttacked.takeDamage(player.attack);
+                actions[i].enemyAttacked.checkIsDead();
             }
         }
         buttons[i].addEventListener("click", onClick[i]);

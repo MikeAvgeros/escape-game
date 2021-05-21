@@ -6,7 +6,7 @@ class Room {
     }
     showName() {
         const nameContainer = document.getElementById("room-name");
-        nameContainer.innerHTML = `<h1>${this.name}</h1>`;
+        nameContainer.innerHTML = `<h2>${this.name}</h2>`;
     }
     showImage() {
         const imgContainer = document.getElementById("room-img");

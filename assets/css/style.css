@@ -37,14 +37,14 @@ body {
     max-width: 90%;
     height: 100vh;
     display: grid;
-    grid-template-rows: 10% 7.5% 40% 22.5% 5% 10% 5%;
+    grid-template-rows: 12.5% 7.5% 40% 22.5% 5% 10% 2.5%;
     grid-template-columns: 25% 30% 5% 40%;
     grid-template-areas: 
-    "....   .....  ...... ...."
-    "name   stats  ...... ...."
-    "image  image  ...... text"
-    "image  image  ...... btns"
-    "....   .....  ...... ...."
+    "title  title  title   title"
+    "name   stats  ......  ....."
+    "image  image  ......   text"
+    "image  image  ......   btns"
+    "....   .....  ...... ......"
     "footer footer footer footer"
     "....   .....  ...... ....";
 }
@@ -58,14 +58,24 @@ body {
     min-height: 100%;
 }
 
+#game-title {
+    display: grid;
+    grid-area: title;
+}
+
+#game-title h1 {
+    color: var(--red);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    place-self: center center;
+    text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
+}
+
 #room-name {
     display: grid;
     grid-area: name;
-    letter-spacing: 1px;
-    color: var(--cyan);
     border: 2.5px solid var(--yellow);
     box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
-    /* clip-path: polygon(92% 0, 100% 30%, 100% 100%, 0 100%, 0 0); */
 }
 
 #game-stats {
@@ -91,7 +101,6 @@ body {
     width: 75%;
     height: 1.5rem;
     align-self: center;
-    /* clip-path: polygon(90% 0, 100% 60%, 100% 100%, 0 100%, 0 0); */
     clip-path: polygon(90% 0, 100% 60%, 100% 100%, 10% 100%, 0 60%, 0 0);
 }
 
@@ -109,8 +118,11 @@ body {
     color: var(--cyan);
 }
 
-#room-name h1 {
+#room-name h2 {
     place-self: center center;
+    color: var(--cyan);
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
 
 #room-img {
