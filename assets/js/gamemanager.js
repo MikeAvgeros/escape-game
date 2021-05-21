@@ -27,7 +27,7 @@ const items = {
     2: new Item("glass", itemImg[2])
 };
 const enemies = {
-    robot: new Character("robot", 50, 40, 20)
+    robot: new Character("robot", 60, 40, 20)
 };
 const roomImg = {
     1: "./assets/img/1.jpg",
@@ -56,6 +56,7 @@ const story = {
         {
             id: 2,
             text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
+            enemy: enemies.robot,
             actions: [
                 {
                     text: "Lorem",
@@ -294,14 +295,14 @@ function handleClicks() {
                 currentStory.item.showImage();
                 inventory.push(currentStory.item);
             }
-            if (actions[i].hasOwnProperty("enemy")) {
-                player.takeDamage(actions[i].enemy.attack);
+            if (currentStory.hasOwnProperty("enemy")) {
+                player.takeDamage(currentStory.enemy.attack);
                 calculateHealthWidth();
                 player.checkIsDead();
             }
-            if (actions[i].hasOwnProperty("enemyAttacked")) {
-                actions[i].enemyAttacked.takeDamage(player.attack);
-                actions[i].enemyAttacked.checkIsDead();
+            if (actions[i].hasOwnProperty("attackEnemy")) {
+                actions[i].attackEnemy.takeDamage(player.attack);
+                actions[i].attackEnemy.checkIsDead();
             }
         }
         buttons[i].addEventListener("click", onClick[i]);
