@@ -10,6 +10,7 @@ const overlay = document.getElementById("overlay");
 const form = document.getElementById("form");
 const myName = document.getElementById("player-name");
 const root = document.documentElement;
+const maxHealth = player.health;
 
 let roomId;
 let storyId;
@@ -21,7 +22,6 @@ let typeWriter;
 let onClick = [];
 let inventory = [];
 let healthBarWidth;
-const maxHealth = player.health;
 
 const roomImg = {
     1: "./assets/img/1.jpg",
@@ -86,6 +86,8 @@ function handleActionClicks() {
                 inventory.push(currentStory.item);
             }
             if (currentStory.hasOwnProperty("enemy")) {
+                currentStory.enemy.showImage();
+                currentStory.enemy.showName();
                 player.takeDamage(currentStory.enemy.attack);
                 calculateHealthWidth();
                 player.checkIsDead();
@@ -93,6 +95,9 @@ function handleActionClicks() {
             if (actions[i].hasOwnProperty("attackEnemy")) {
                 actions[i].attackEnemy.takeDamage(player.attack);
                 actions[i].attackEnemy.checkIsDead();
+            }
+            if (currentStory.hasOwnProperty("fadeImage")) {
+                fadeImage();
             }
         }
         buttons[i].addEventListener("click", onClick[i]);

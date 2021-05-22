@@ -8,8 +8,12 @@ const items = {
     testItem: new Item("testItem", itemImg.testItem),
 };
 
+const enemyImg = {
+    robot: "./assets/img/2.jpg"
+}
+
 const enemies = {
-    robot: new Character("robot", 60, 40, 20)
+    robot: new Character("robot", 60, 40, 20, enemyImg.robot)
 };
 
 function getStory() {
@@ -33,6 +37,7 @@ function getStory() {
                 id: 2,
                 text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
                 enemy: enemies.robot,
+                fadeImage: true,
                 actions: [
                     {
                         text: "Lorem",
@@ -63,6 +68,7 @@ function getStory() {
             {
                 id: 4,
                 text: "4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
+                fadeImage: true,
                 actions: [
                     {
                         text: "Lorem",
