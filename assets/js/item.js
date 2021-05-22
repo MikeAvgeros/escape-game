@@ -9,7 +9,7 @@ class Item {
     }
     showImage() {
         const inventory = document.getElementById("inventory");
-        inventory.innerHTML += `<img id=${this.name} class="inventory-img" src="${this.img}" alt="image of a ${this.name}"></img>`;
+        inventory.innerHTML += `<img loading="lazy" id=${this.name} class="inventory-img" src="${this.img}" alt="image of a ${this.name}"></img>`;
     }
     deleteImage() {
         const thisImage = document.getElementById( `${this.name}`);

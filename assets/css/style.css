@@ -240,3 +240,82 @@ body {
 #contact:hover, #footer a:hover {
     background-color: var(--red);
 }
+
+#modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: 0.25s ease-in-out;
+    border: 2.5px solid var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
+    background-color: var(--black);
+    z-index: 999;
+    width: 750px;
+    max-width: 80%;
+    height: 50vh;
+    overflow: hidden;
+    display: grid; 
+    color: var(--cyan);
+    justify-content: center;
+}
+
+#modal h1 {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+#start-game {
+    border: 2.5px solid var(--yellow);
+    background: none;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--cyan);
+    text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
+    clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+}
+
+#modal.close {
+    -webkit-animation: closeModal 0.5s forwards ease-in-out;
+            animation: closeModal 0.5s forwards ease-in-out;
+}
+
+@-webkit-keyframes closeModal {
+    0% {transform: translate(-50%, -50%) scale(1);}
+    100% {transform: translate(-50%, -50%) scale(0);}
+}
+
+@keyframes closeModal {
+    0% {transform: translate(-50%, -50%) scale(1);}
+    100% {transform: translate(-50%, -50%) scale(0);}
+}
+
+#overlay {
+    pointer-events: all;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black);
+    opacity: 1;
+    pointer-events: none;
+    transition: 0.25s ease-in-out;
+}
+
+#overlay.close {
+    -webkit-animation: overlay 0.25s forwards ease-in-out;
+            animation: overlay 0.25s forwards ease-in-out;
+}
+
+@-webkit-keyframes overlay {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes overlay {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}

@@ -5,6 +5,9 @@ const paragraph = document.createElement("p");
 const buttons = document.getElementsByClassName("action-button");
 const roomImage = document.getElementById("room-img");
 const roomName = document.getElementById("room-name");
+const modal = document.getElementById("modal");
+const overlay = document.getElementById("overlay");
+const startButton = document.getElementById("start-game");
 const root = document.documentElement;
 
 let roomId;
@@ -132,4 +135,8 @@ function changeRoom() {
     }, 250);
 }
 
-startGame();
+startButton.addEventListener("click", () => {
+    startGame();
+    modal.classList.contains("close")? modal.classList.remove("close"): modal.classList.add("close");
+    overlay.classList.contains("close")? overlay.classList.remove("close"): overlay.classList.add("close");
+});
