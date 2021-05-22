@@ -1,8 +1,9 @@
-export const player = new Player("Mike", 100, 50, 30);
+export const player = new Player("", 100, 50, 30);
 
 const itemImg = {
     testItem: "./assets/img/1.jpg"
 }
+
 const items = {
     testItem: new Item("testItem", itemImg.testItem),
 };

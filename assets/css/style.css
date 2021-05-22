@@ -263,7 +263,7 @@ body {
     text-align: center;
     padding-top: 1rem;
     color: var(--red);
-    text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
+    text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
     letter-spacing: 2px;
 }
 
@@ -275,7 +275,7 @@ body {
     letter-spacing: 1px;
 }
 
-#name {
+#player-name {
     height: 2.5rem;
 }
 
