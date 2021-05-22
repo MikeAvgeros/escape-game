@@ -256,25 +256,75 @@ body {
     height: 50vh;
     overflow: hidden;
     display: grid; 
-    color: var(--cyan);
     justify-content: center;
 }
 
 #modal h1 {
     text-align: center;
     padding-top: 1rem;
+    color: var(--red);
+    text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
+    letter-spacing: 2px;
+}
+
+#modal p {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--cyan);
+    text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
+    letter-spacing: 1px;
+}
+
+#name {
+    height: 2.5rem;
+}
+
+#name label {
+    font-size: 1rem;
+    color: var(--cyan);
+    text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
+    letter-spacing: 1px;
+}
+
+#name input {
+    background: none;
+    border: 2.5px solid var(--yellow);
+    color: var(--cyan);
+    text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
+    padding-left: .25rem;
+}
+
+#name ::placeholder {
+    align-self: center;
+    color: var(--cyan);
 }
 
 #start-game {
+    display: grid;
+    justify-self: center;
+}
+
+#start-game button {
+    display: grid;
+    justify-self: center;
     border: 2.5px solid var(--yellow);
     background: none;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     padding: 1rem;
     font-size: 1rem;
+    width: 60%;
     cursor: pointer;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+    letter-spacing: 1px;
+}
+
+#start-game button:hover,
+#name input:hover,
+#start-game button:focus,
+#name input:focus {
+    background-color: var(--red);
 }
 
 #modal.close {
@@ -293,7 +343,6 @@ body {
 }
 
 #overlay {
-    pointer-events: all;
     position: fixed;
     top: 0;
     left: 0;
