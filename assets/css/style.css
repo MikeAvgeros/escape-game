@@ -8,8 +8,8 @@
     --pink: #ff2a6d;
     --purple: #600078;
     --cyan: #02D7F2;
-    --ff-main: 'Orbitron', sans-serif;
-    --ff-second: 'Tomorrow', sans-serif;
+    --ff-primary: 'Tomorrow', sans-serif;
+    --ff-secondary: 'Orbitron', sans-serif;
     --width: 100%;
 }
 
@@ -25,7 +25,7 @@ body {
     width: 100%;
     display: grid;
     background-color: var(--black);
-    font-family: var(--ff-second);
+    font-family: var(--ff-primary);
 }
 
 #game-wrapper {
@@ -101,7 +101,8 @@ body {
     width: 75%;
     height: 1.5rem;
     align-self: center;
-    clip-path: polygon(90% 0, 100% 60%, 100% 100%, 10% 100%, 0 60%, 0 0);
+    -webkit-clip-path: polygon(90% 0, 100% 60%, 100% 100%, 10% 100%, 0 60%, 0 0);
+            clip-path: polygon(90% 0, 100% 60%, 100% 100%, 10% 100%, 0 60%, 0 0);
 }
 
 #health {
@@ -149,7 +150,8 @@ body {
 #room-img img {
     width: 100%;
     height: 100%;
-    clip-path: inset(2.5px 2.5px round 10px);
+    -webkit-clip-path: inset(2.5px 2.5px round 10px);
+            clip-path: inset(2.5px 2.5px round 10px);
 }
 
 #room-img.fade, #room-name.fade {
@@ -192,12 +194,18 @@ body {
     width: 120px;
     align-self: center;
     font-size: 1rem;
-    clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+    -webkit-clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+            clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
 }
 
 #btns .action-button.fade {
     -webkit-animation: fade-effect 1s forwards ease-in-out;
             animation: fade-effect 1s forwards ease-in-out;
+}
+
+@-webkit-keyframes fade-effect {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 @keyframes fade-effect {
@@ -230,7 +238,8 @@ body {
     letter-spacing: 1px;
     font-weight: bolder;
     border: 2.5px solid var(--yellow);
-    clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+    -webkit-clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+            clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
     color: var(--cyan);
 }
 
@@ -248,7 +257,8 @@ body {
     width: 60px;
     color: var(--cyan);
     border: 2.5px solid var(--yellow);
-    clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+    -webkit-clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+            clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
 }
 
 #contact:hover, #footer a:hover {
@@ -308,6 +318,26 @@ body {
     padding-left: .25rem;
 }
 
+#name ::-webkit-input-placeholder {
+    color: var(--cyan);
+    font-size: .8rem;
+}
+
+#name ::-moz-placeholder {
+    color: var(--cyan);
+    font-size: .8rem;
+}
+
+#name :-ms-input-placeholder {
+    color: var(--cyan);
+    font-size: .8rem;
+}
+
+#name ::-ms-input-placeholder {
+    color: var(--cyan);
+    font-size: .8rem;
+}
+
 #name ::placeholder {
     color: var(--cyan);
     font-size: .8rem;
@@ -330,7 +360,8 @@ body {
     cursor: pointer;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
-    clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+    -webkit-clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
+            clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
     letter-spacing: 1px;
 }
 
@@ -346,6 +377,11 @@ body {
             animation: closeModal 0.5s forwards ease-in-out;
 }
 
+#modal.close.open {
+    -webkit-animation: openModal 0.5s forwards ease-in-out;
+            animation: openModal 0.5s forwards ease-in-out;
+}
+
 @-webkit-keyframes closeModal {
     0% {transform: translate(-50%, -50%) scale(1);}
     100% {transform: translate(-50%, -50%) scale(0);}
@@ -354,6 +390,16 @@ body {
 @keyframes closeModal {
     0% {transform: translate(-50%, -50%) scale(1);}
     100% {transform: translate(-50%, -50%) scale(0);}
+}
+
+@-webkit-keyframes openModal {
+    0% {transform: translate(-50%, -50%) scale(0);}
+    100% {transform: translate(-50%, -50%) scale(1);}
+}
+
+@keyframes openModal {
+    0% {transform: translate(-50%, -50%) scale(0);}
+    100% {transform: translate(-50%, -50%) scale(1);}
 }
 
 #overlay {
@@ -369,16 +415,31 @@ body {
 }
 
 #overlay.close {
-    -webkit-animation: overlay 0.25s forwards ease-in-out;
-            animation: overlay 0.25s forwards ease-in-out;
+    -webkit-animation: closeOverlay 0.25s forwards ease-in-out;
+            animation: closeOverlay 0.25s forwards ease-in-out;
 }
 
-@-webkit-keyframes overlay {
+#overlay.close.open {
+    -webkit-animation: openOverlay 0.25s forwards ease-in-out;
+            animation: openOverlay 0.25s forwards ease-in-out;
+}
+
+@-webkit-keyframes closeOverlay {
     0% {opacity: 1;}
     100% {opacity: 0;}
 }
 
-@keyframes overlay {
+@keyframes closeOverlay {
     0% {opacity: 1;}
     100% {opacity: 0;}
+}
+
+@-webkit-keyframes openOverlay {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes openOverlay {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
