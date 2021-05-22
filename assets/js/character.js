@@ -33,8 +33,18 @@ class Player extends Character {
     constructor(name, health, attack, defense, takeDamage, checkIsDead) {
         super(name, health, attack, defense, takeDamage, checkIsDead);
     }
-    handleDeath() {
-        // game ends 
+    gameOver() {
+        const modal = document.getElementById("modal");
+        const overlay = document.getElementById("overlay");
+        modal.classList.contains("open")? modal.classList.remove("open"): modal.classList.add("open");
+        overlay.classList.contains("open")? overlay.classList.remove("open"): overlay.classList.add("open");
+        modal.innerHTML = `
+        <h1>GAME OVER</h1> 
+        <p>Press New Game to restart</p>
+        <div id="start-game">
+            <button>New Game</button>
+        </div>
+        `;
     }
     handleWeapon() {
         // update the stats based on the weapon function

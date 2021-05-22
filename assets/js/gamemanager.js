@@ -91,6 +91,9 @@ function handleActionClicks() {
                 player.takeDamage(currentStory.enemy.attack);
                 calculateHealthWidth();
                 player.checkIsDead();
+                if (player.isDead) {
+                    player.gameOver();
+                }
             }
             if (actions[i].hasOwnProperty("attackEnemy")) {
                 actions[i].attackEnemy.takeDamage(player.attack);
