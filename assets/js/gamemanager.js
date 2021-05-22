@@ -1,3 +1,5 @@
+import {player, story} from './story.js';
+
 const textContainer = document.getElementById("room-description");
 const paragraph = document.createElement("p");
 const buttons = document.getElementsByClassName("action-button");
@@ -15,232 +17,16 @@ let typeWriter;
 let onClick = [];
 let inventory = [];
 let healthBarWidth;
-
-const player = new Player("Mike", 100, 50, 30);
 const maxHealth = player.health;
 
-const itemImg = {
-    2: "./assets/img/1.jpg"
-}
-const items = {
-    1: new Item("key", "img"),
-    2: new Item("glass", itemImg[2])
-};
-const enemies = {
-    robot: new Character("robot", 60, 40, 20)
-};
 const roomImg = {
     1: "./assets/img/1.jpg",
     2: "./assets/img/2.jpg"
 };
+
 const rooms = {
     1: new Room("Gray Room", roomImg[1], 1),
     2: new Room("Skull Room", roomImg[2], 2)
-};
-const story = {
-    1: [
-        {
-            id: 1,
-            text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 2
-                },
-                {
-                    text: "Ipsum",
-                    destination: 3
-                }
-            ]
-        },
-        {
-            id: 2,
-            text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            enemy: enemies.robot,
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 3
-                    
-                },
-                {
-                    text: "Ipsum",
-                    destination: 4
-                }
-            ]
-        },
-        {
-            id: 3,
-            text: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 4
-                },
-                {
-                    text: "Ipsum",
-                    destination: 5
-                }
-            ]
-        },
-        {
-            id: 4,
-            text: "4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 5
-                },
-                {
-                    text: "Ipsum",
-                    destination: 6
-                }
-            ]
-        },
-        {
-            id: 5,
-            text: "5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 6
-                },
-                {
-                    text: "Ipsum",
-                    destination: 7
-                }
-            ]
-        },
-        {
-            id: 6,
-            text: "6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 7
-                },
-                {
-                    text: "Ipsum",
-                    exit: 1
-                }
-            ]
-        },
-        {
-            id: 7,
-            text: "7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    exit: 2
-                },
-                {
-                    text: "Ipsum",
-                    exit: 2
-                }
-            ]
-        }
-    ],
-    2: [
-        {
-            id: 1,
-            text: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 2
-                },
-                {
-                    text: "Ipsum",
-                    destination: 3
-                }
-            ]
-        },
-        {
-            id: 2,
-            text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 3
-                    
-                },
-                {
-                    text: "Ipsum",
-                    destination: 4
-                }
-            ]
-        },
-        {
-            id: 3,
-            text: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 4
-                },
-                {
-                    text: "Ipsum",
-                    destination: 5
-                }
-            ]
-        },
-        {
-            id: 4,
-            text: "4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 5
-                },
-                {
-                    text: "Ipsum",
-                    destination: 6
-                }
-            ]
-        },
-        {
-            id: 5,
-            text: "5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 6
-                },
-                {
-                    text: "Ipsum",
-                    destination: 7
-                }
-            ]
-        },
-        {
-            id: 6,
-            text: "6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    destination: 7
-                },
-                {
-                    text: "Ipsum",
-                    exit: 1
-                }
-            ]
-        },
-        {
-            id: 7,
-            text: "7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-            actions: [
-                {
-                    text: "Lorem",
-                    exit: 1
-                },
-                {
-                    text: "Ipsum",
-                    exit: 1
-                }
-            ]
-        }
-    ]
 };
 
 function calculateHealthWidth() {
@@ -249,6 +35,7 @@ function calculateHealthWidth() {
 }
 
 function loadScene() {
+    paragraph.textContent = "";
     fadeButtons();
     currentRoom = rooms[roomId];
     currentRoom.showName();
@@ -274,14 +61,13 @@ function loadScene() {
     }
 }
 
-function handleClicks() {
+function handleActionClicks() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].removeEventListener("click", onClick[i]);
         onClick[i] = () => {
             if (!finishedTyping) {
                 clearInterval(typeWriter);
             } 
-            paragraph.textContent = "";
             switch (true) {
                 case (actions[i].hasOwnProperty("destination")):
                     storyId = actions[i].destination;
@@ -289,7 +75,7 @@ function handleClicks() {
                     break;
                 case (actions[i].hasOwnProperty("exit")):
                     roomId = actions[i].exit;
-                    nextRoom();
+                    changeRoom();
             }
             if (currentStory.hasOwnProperty("item")) {
                 currentStory.item.showImage();
@@ -332,17 +118,17 @@ function startGame() {
     storyId = 1;
     textContainer.appendChild(paragraph);
     loadScene();
-    handleClicks(); 
+    handleActionClicks(); 
     fadeImage();
 }
 
-function nextRoom() {
+function changeRoom() {
     setTimeout(() => {
         fadeImage();
         textContainer.appendChild(paragraph);
         storyId = 1;
         loadScene();
-        handleClicks(); 
+        handleActionClicks(); 
     }, 250);
 }
 
