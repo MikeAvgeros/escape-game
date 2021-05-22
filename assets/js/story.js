@@ -17,7 +17,7 @@ function getStory() {
         1: [
             {
                 id: 1,
-                text: `1 ${player.name} Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!`,
+                text: `1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!`,
                 actions: [
                     {
                         text: "Lorem",

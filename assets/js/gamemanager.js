@@ -8,7 +8,7 @@ const roomName = document.getElementById("room-name");
 const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 const form = document.getElementById("form");
-const name = document.getElementById("player-name");
+const myName = document.getElementById("player-name");
 const root = document.documentElement;
 
 let roomId;
@@ -138,7 +138,8 @@ function changeRoom() {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    player.name = name.value;
+    player.name = myName.value;
+    player.showName();
     startGame();
     modal.classList.contains("close")? modal.classList.remove("close"): modal.classList.add("close");
     overlay.classList.contains("close")? overlay.classList.remove("close"): overlay.classList.add("close");

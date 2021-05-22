@@ -30,4 +30,8 @@ class Player extends Character {
     handleWeapon() {
         // update the stats based on the weapon function
     }
+    showName() {
+        const nameContainer = document.getElementById("my-name");
+        nameContainer.innerHTML = `<p>Player: ${this.name}</p>`;
+    }
 }
