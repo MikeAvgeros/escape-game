@@ -1,3 +1,5 @@
+/* jshint esversion: 8 */
+
 class Item {
     constructor(name, img) {
         this.name = name;

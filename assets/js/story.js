@@ -1,3 +1,5 @@
+/* jshint esversion: 8 */
+
 export const player = new Player("", 100, 50, 30);
 
 const itemImg = {

@@ -1,3 +1,5 @@
+/* jshint esversion: 8 */
+
 import {player, story} from './story.js';
 
 const textContainer = document.getElementById("room-description");
@@ -107,7 +109,7 @@ function handleActionClicks() {
             if (currentStory.hasOwnProperty("fadeImage")) {
                 fadeImage();
             }
-        }
+        };
         buttons[i].addEventListener("click", onClick[i]);
     }
 }
@@ -115,10 +117,12 @@ function handleActionClicks() {
 function fadeButtons() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.add("fade");
-        setTimeout(() => {
-        buttons[i].classList.remove("fade");
-    }, 1000);
     }
+    setTimeout(() => {
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("fade");
+        }
+    }, 1000);
 }
 
 function fadeImage() {
@@ -154,14 +158,17 @@ form.addEventListener("submit", (event) => {
     player.name = myName.value;
     player.showName();
     startGame();
-    modal.classList.contains("close")? modal.classList.remove("close"): modal.classList.add("close");
-    overlay.classList.contains("close")? overlay.classList.remove("close"): overlay.classList.add("close");
+    if (!modal.classList.contains("close")) {
+        modal.classList.add("close");
+    }
+    if (!overlay.classList.contains("close")) {
+        overlay.classList.add("close");
+    }
 });
 
 function newGameButton() {
     const newGame = document.getElementById("restart");
     newGame.addEventListener("click", () => {
-        console.log("boom")
         if (modal.classList.contains("open")) {
             modal.classList.remove("open");
         } 

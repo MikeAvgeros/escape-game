@@ -1,3 +1,5 @@
+/* jshint esversion: 8 */
+
 class Character {
     constructor(name, health, attack, defense, img) {
         this.name = name;
@@ -36,8 +38,8 @@ class Player extends Character {
     gameOver() {
         const modal = document.getElementById("modal");
         const overlay = document.getElementById("overlay");
-        modal.classList.contains("open")? modal.classList.remove("open"): modal.classList.add("open");
-        overlay.classList.contains("open")? overlay.classList.remove("open"): overlay.classList.add("open");
+        modal.classList.add("open");
+        overlay.classList.add("open");
         modal.innerHTML = `
         <h1>GAME OVER</h1> 
         <p>Press New Game to restart</p>

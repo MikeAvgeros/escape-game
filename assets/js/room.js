@@ -1,3 +1,5 @@
+/* jshint esversion: 8 */
+
 class Room {
     constructor(name, img, id) {
         this.name = name;
