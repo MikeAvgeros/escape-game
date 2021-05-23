@@ -85,6 +85,11 @@ function handleActionClicks() {
                 currentStory.item.showImage();
                 inventory.push(currentStory.item);
             }
+            if (currentStory.hasOwnProperty("requiredItem")) {
+                if (!inventory.contains(currentStory.requiredItem)) {
+                    gameOver();
+                }
+            }
             if (currentStory.hasOwnProperty("enemy")) {
                 currentStory.enemy.showImage();
                 currentStory.enemy.showName();
@@ -92,7 +97,7 @@ function handleActionClicks() {
                 calculateHealthWidth();
                 player.checkIsDead();
                 if (player.isDead) {
-                    player.gameOver();
+                    gameOver();
                 }
             }
             if (actions[i].hasOwnProperty("attackEnemy")) {
@@ -152,3 +157,26 @@ form.addEventListener("submit", (event) => {
     modal.classList.contains("close")? modal.classList.remove("close"): modal.classList.add("close");
     overlay.classList.contains("close")? overlay.classList.remove("close"): overlay.classList.add("close");
 });
+
+function newGameButton() {
+    const newGame = document.getElementById("restart");
+    newGame.addEventListener("click", () => {
+        console.log("boom")
+        if (modal.classList.contains("open")) {
+            modal.classList.remove("open");
+        } 
+        if (overlay.classList.contains("open")) {
+            overlay.classList.remove("open");
+        } 
+        if (!finishedTyping) {
+            clearInterval(typeWriter);
+            paragraph.textContent = "";
+        } 
+        startGame();
+    });
+}
+
+function gameOver() {
+    player.gameOver();
+    newGameButton();
+}

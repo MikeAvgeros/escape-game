@@ -41,8 +41,8 @@ class Player extends Character {
         modal.innerHTML = `
         <h1>GAME OVER</h1> 
         <p>Press New Game to restart</p>
-        <div id="start-game">
-            <button>New Game</button>
+        <div id="new-game">
+            <button id="restart">New Game</button>
         </div>
         `;
     }
