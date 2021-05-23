@@ -54,6 +54,7 @@ function getStory() {
                 id: 3,
                 item: items.testItem,
                 text: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
+                fadeImage: true,
                 actions: [
                     {
                         text: "Lorem",
@@ -68,7 +69,6 @@ function getStory() {
             {
                 id: 4,
                 text: "4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-                fadeImage: true,
                 actions: [
                     {
                         text: "Lorem",

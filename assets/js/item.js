@@ -8,7 +8,7 @@ class Item {
         nameContainer.innerHTML = `<h1>${this.name}</h1>`;
     }
     showImage() {
-        const inventory = document.getElementById("inventory");
+        const inventory = document.getElementById("inventory-modal");
         inventory.innerHTML += `<img loading="lazy" id=${this.name} class="inventory-img" src="${this.img}" alt="image of a ${this.name}"></img>`;
     }
     deleteImage() {

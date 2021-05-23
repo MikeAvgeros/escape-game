@@ -119,6 +119,10 @@ body {
     color: var(--cyan);
 }
 
+#inventory-modal {
+    display: none;
+}
+
 #room-name h2 {
     place-self: center center;
     color: var(--cyan);
