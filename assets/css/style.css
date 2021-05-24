@@ -457,3 +457,8 @@ body {
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+
+#my-name p {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}

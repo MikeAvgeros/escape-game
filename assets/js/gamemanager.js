@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 
-import {player, story} from './story.js';
+import {player, getStory} from './story.js';
 
 const textContainer = document.getElementById("room-description");
 const paragraph = document.createElement("p");
@@ -24,6 +24,7 @@ let typeWriter;
 let onClick = [];
 let inventory = [];
 let healthBarWidth;
+let story;
 
 const roomImg = {
     1: "./assets/img/1.jpg",
@@ -157,7 +158,9 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     player.name = myName.value;
     player.showName();
+    story = getStory(player);
     startGame();
+    console.log(story);
     if (!modal.classList.contains("close")) {
         modal.classList.add("close");
     }

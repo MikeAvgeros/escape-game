@@ -18,12 +18,12 @@ const enemies = {
     robot: new Character("robot", 60, 40, 20, enemyImg.robot)
 };
 
-function getStory() {
+export function getStory(player) {
     return {
         1: [
             {
                 id: 1,
-                text: `1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!`,
+                text: `${player.name} 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!`,
                 actions: [
                     {
                         text: "Lorem",
@@ -228,5 +228,3 @@ function getStory() {
         ]
     };
 }
-
-export const story = getStory();
