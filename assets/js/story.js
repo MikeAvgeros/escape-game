@@ -15,7 +15,7 @@ const enemyImg = {
 }
 
 const enemies = {
-    robot: new Character("robot", 60, 40, 20, enemyImg.robot)
+    robot: new Character("Robot", 60, 40, 20, enemyImg.robot)
 };
 
 export function getStory(player) {

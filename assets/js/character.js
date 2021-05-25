@@ -48,8 +48,10 @@ class Player extends Character {
         </div>
         `;
     }
-    handleWeapon() {
-        // update the stats based on the weapon function
+    handleWeapon(health, attack, defense) {
+        this.health += health;
+        this.attack += attack;
+        this.defense += defense;
     }
     showName() {
         const nameContainer = document.getElementById("my-name");

@@ -32,8 +32,8 @@ const roomImg = {
 };
 
 const rooms = {
-    1: new Room("Gray Room", roomImg[1], 1),
-    2: new Room("Skull Room", roomImg[2], 2)
+    1: new Room("Room One", roomImg[1], 1),
+    2: new Room("Room Two", roomImg[2], 2)
 };
 
 function calculateHealthWidth() {
