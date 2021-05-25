@@ -107,6 +107,9 @@ function handleActionClicks() {
                 actions[i].attackEnemy.takeDamage(player.attack);
                 actions[i].attackEnemy.checkIsDead();
             }
+            if (actions[i].hasOwnProperty("weapon")) {
+                player.handleWeapon(actions[i].weapon.health, actions[i].weapon.attack, actions[i].weapon.defense)
+            }
             if (currentStory.hasOwnProperty("fadeImage")) {
                 fadeImage();
             }
