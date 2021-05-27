@@ -465,15 +465,14 @@ body {
     letter-spacing: 1px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 810px) {
     #game-wrapper {
         max-width: 60%;
-        grid-template-rows: 2.5% 7.5% 20% 20% 25% 12.5% 10% 2.5%;
-        grid-template-columns: 50% 50%;
+        grid-template-rows: 2.5% 7.5% 45% 20% 12.5% 10% 2.5%;
+        grid-template-columns: 40% 60%;
         grid-template-areas: 
         ".....  ....."
         "rname  stats"
-        "image  image"
         "image  image"
         "text   text"
         "btns   btns"
@@ -485,6 +484,10 @@ body {
         display: none;
     }
 
+    #room-name h2 {
+        font-size: 1.5rem;
+    }
+
     #room-description {
         border-top: none;
     }
@@ -493,6 +496,10 @@ body {
         margin-top: 0;
         border-top: none;
         border-bottom: none;
+    }
+
+    #btns .action-button {
+        height: 60%;
     }
 
     #footer {
@@ -509,7 +516,7 @@ body {
     }
 }
 
-@media (max-width: 698px) {
+@media (max-width: 710px) {
     #game-wrapper {
         max-width: 70%;
     }
@@ -521,19 +528,19 @@ body {
     }
 }
 
-@media (max-width: 528px) {
+@media (max-width: 545px) {
     #game-wrapper {
         max-width: 90%;
     }
 }
 
-@media (max-width: 445px) {
+@media (max-width: 475px) {
     #game-wrapper {
         max-width: 95%;
     }
 }
 
-@media (max-width: 395px) {
+@media (max-width: 445px) {
     #game-wrapper {
         max-width: 99%;
     }
