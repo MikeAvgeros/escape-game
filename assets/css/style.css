@@ -528,5 +528,13 @@ body {
 }
 
 @media (max-width: 445px) {
+    #game-wrapper {
+        max-width: 95%;
+    }
+}
 
+@media (max-width: 395px) {
+    #game-wrapper {
+        max-width: 99%;
+    }
 }
