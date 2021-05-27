@@ -53,8 +53,8 @@ class Player extends Character {
         this.attack += attack;
         this.defense += defense;
     }
-    showName() {
-        const nameContainer = document.getElementById("my-name");
-        nameContainer.innerHTML = `<p>Player: ${this.name}</p>`;
-    }
+    // showName() {
+    //     const nameContainer = document.getElementById("my-name");
+    //     nameContainer.innerHTML = `<p>Player: ${this.name}</p>`;
+    // }
 }

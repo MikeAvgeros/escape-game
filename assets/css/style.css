@@ -33,15 +33,15 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 980px;
-    max-width: 90%;
+    width: 960px;
+    max-width: 95%;
     height: 100vh;
     display: grid;
     grid-template-rows: 12.5% 7.5% 40% 22.5% 5% 10% 2.5%;
     grid-template-columns: 25% 30% 5% 40%;
     grid-template-areas: 
     "title  title  title   title"
-    "rname  stats  ...... myname"
+    "rname  stats  ......  ....."
     "image  image  ......   text"
     "image  image  ......   btns"
     ".....  .....  ...... ......"
@@ -76,6 +76,7 @@ body {
     grid-area: rname;
     border: 2.5px solid var(--yellow);
     box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
+    border-bottom: none;
 }
 
 #game-stats {
@@ -130,7 +131,7 @@ body {
     letter-spacing: 1px;
 }
 
-#my-name {
+/* #my-name {
     display: grid;
     grid-area: myname;
     justify-content: start;
@@ -142,7 +143,7 @@ body {
     font-size: 1rem;
     letter-spacing: 1px;
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
-}
+} */
 
 #room-img {
     grid-area: image;
@@ -173,6 +174,7 @@ body {
 #room-description p {
     place-self: center center;
     text-align: center;
+    padding: 1rem;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     font-size: 1rem;
@@ -461,4 +463,70 @@ body {
 #my-name p {
     font-size: 1rem;
     letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    #game-wrapper {
+        max-width: 60%;
+        grid-template-rows: 2.5% 7.5% 20% 20% 25% 12.5% 10% 2.5%;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: 
+        ".....  ....."
+        "rname  stats"
+        "image  image"
+        "image  image"
+        "text   text"
+        "btns   btns"
+        "footer footer"
+        "...... ......";
+    } 
+
+    #game-title {
+        display: none;
+    }
+
+    #room-description {
+        border-top: none;
+    }
+
+    #btns {
+        margin-top: 0;
+        border-top: none;
+        border-bottom: none;
+    }
+
+    #footer {
+        justify-content: space-evenly;
+    }
+
+    #contact {
+        font-size: smaller;
+        padding: .25rem;
+    }
+
+    #socials {
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 698px) {
+    #game-wrapper {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 598px) {
+    #game-wrapper {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 528px) {
+    #game-wrapper {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 445px) {
+
 }

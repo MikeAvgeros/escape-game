@@ -160,10 +160,9 @@ function changeRoom() {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     player.name = myName.value;
-    player.showName();
+    // player.showName();
     story = getStory(player);
     startGame();
-    console.log(story);
     if (!modal.classList.contains("close")) {
         modal.classList.add("close");
     }
