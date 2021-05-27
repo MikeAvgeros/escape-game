@@ -11,6 +11,7 @@ const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 const form = document.getElementById("form");
 const myName = document.getElementById("player-name");
+const contact = document.getElementById("contact");
 const root = document.documentElement;
 const maxHealth = player.health;
 
@@ -192,3 +193,28 @@ function gameOver() {
     player.gameOver();
     newGameButton();
 }
+
+contact.addEventListener("click", () => {
+    modal.classList.add("open");
+    overlay.classList.add("open");
+    modal.innerHTML = `
+    <h1>Contact Us</h1>
+    <form onsubmit="return sendMail(this);" method="POST">
+        <div>
+            <label for="name">Name<span class="required-icon"></span></label>
+            <input class="contact-inout" type="text" name="name" id="name" placeholder="Enter your name" required>
+        </div>
+        <div>
+            <label for="email">Email<span class="required-icon"></span></label>
+            <input class="contact-input" type="email" name="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div>
+            <label for="description">Message<span class="required-icon">*</span></label>
+            <textarea class="contact-input" name="description" id="description" rows="6" placeholder="Enter your message" required></textarea>
+        </div>
+        <div>
+            <button class="contact-btn" type="submit" aria-label="Submit the contact form">Send</button>
+        </div>
+    </form>
+    `;
+});
