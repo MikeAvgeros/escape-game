@@ -200,20 +200,20 @@ contact.addEventListener("click", () => {
     modal.innerHTML = `
     <h1>Contact Us</h1>
     <form onsubmit="return sendMail(this);" method="POST">
-        <div>
+        <div class="contact-input">
             <label for="name">Name<span class="required-icon"></span></label>
-            <input class="contact-input" type="text" name="name" id="name" placeholder="Enter your name" required>
+            <input type="text" name="name" id="name" placeholder="Enter your name" required>
         </div>
-        <div>
+        <div class="contact-input">
             <label for="email">Email<span class="required-icon"></span></label>
-            <input class="contact-input" type="email" name="email" id="email" placeholder="Enter your email" required>
+            <input type="email" name="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="contact-input">
+            <label for="description">Message<span class="required-icon"></span></label>
+            <textarea name="description" id="description" rows="6" placeholder="Enter your message" required></textarea>
         </div>
         <div>
-            <label for="description">Message<span class="required-icon">*</span></label>
-            <textarea class="contact-input" name="description" id="description" rows="6" placeholder="Enter your message" required></textarea>
-        </div>
-        <div>
-            <button class="contact-btn" type="submit" aria-label="Submit the contact form">Send</button>
+            <button class="contact-btn" type="submit" aria-label="Submit the contact form">Submit</button>
         </div>
     </form>
     `;

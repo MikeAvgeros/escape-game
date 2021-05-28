@@ -282,7 +282,7 @@ body {
     z-index: 999;
     width: 750px;
     max-width: 80%;
-    height: 50vh;
+    height: 60vh;
     overflow: hidden;
     display: grid; 
     place-content: center center;
@@ -316,12 +316,36 @@ body {
     letter-spacing: 1px;
 }
 
+.contact-input label {
+    font-size: 1rem;
+    color: var(--cyan);
+    text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
+    letter-spacing: 1px;
+    padding-bottom: .5rem;
+}
+
 #name input {
     background: none;
     border: 2.5px solid var(--yellow);
     color: var(--cyan);
     font-size: 1rem;
     padding-left: .25rem;
+}
+
+.contact-input input, .contact-input textarea {
+    background: none;
+    border: 2.5px solid var(--yellow);
+    color: var(--cyan);
+    font-size: 1rem;
+    height: 120%;
+    width: 150%;
+}
+
+.contact-input {
+    display: grid;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-right: 7.5vw;
 }
 
 #name ::-webkit-input-placeholder {
@@ -354,7 +378,7 @@ body {
     justify-self: center;
 }
 
-#start-game button, #new-game button {
+#start-game button, #new-game button, .contact-btn {
     display: grid;
     justify-self: center;
     place-content: center center;
@@ -371,6 +395,11 @@ body {
     letter-spacing: 1px;
 }
 
+.contact-btn {
+    padding: .75rem;
+    margin-top: 2rem;
+}
+
 #start-game button {
     width: 50%;
 }
@@ -383,7 +412,9 @@ body {
 #start-game button:hover,
 #new-game button:hover,
 #start-game button:focus,
-#new-game button:focus {
+#new-game button:focus,
+.contact-btn:hover,
+.contact-btn:focus {
     background-color: var(--red);
 }
 
