@@ -199,7 +199,7 @@ contact.addEventListener("click", () => {
     overlay.classList.add("open");
     modal.innerHTML = `
     <h1>Contact Us</h1>
-    <form onsubmit="return sendMail(this);" method="POST">
+    <form id="contact-form" onsubmit="return sendMail(this);" method="POST">
         <div class="contact-input">
             <label for="name">Name<span class="required-icon"></span></label>
             <input type="text" name="name" id="name" placeholder="Enter your name" required>

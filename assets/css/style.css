@@ -332,20 +332,44 @@ body {
     padding-left: .25rem;
 }
 
+#contact-form {
+    display: grid;
+    width: 150%;
+    justify-self: center;
+}
+
 .contact-input input, .contact-input textarea {
     background: none;
     border: 2.5px solid var(--yellow);
     color: var(--cyan);
     font-size: 1rem;
-    height: 120%;
-    width: 150%;
+    height: 120%; 
+}
+
+.contact-input input::-webkit-input-placeholder, .contact-input textarea::-webkit-input-placeholder {
+    padding-left: .25rem;
+}
+
+.contact-input input::-moz-placeholder, .contact-input textarea::-moz-placeholder {
+    padding-left: .25rem;
+}
+
+.contact-input input:-ms-input-placeholder, .contact-input textarea:-ms-input-placeholder {
+    padding-left: .25rem;
+}
+
+.contact-input input::-ms-input-placeholder, .contact-input textarea::-ms-input-placeholder {
+    padding-left: .25rem;
+}
+
+.contact-input input::placeholder, .contact-input textarea::placeholder {
+    padding-left: .25rem;
 }
 
 .contact-input {
     display: grid;
     padding-top: .25rem;
     padding-bottom: .25rem;
-    padding-right: 7.5vw;
 }
 
 #name ::-webkit-input-placeholder {
