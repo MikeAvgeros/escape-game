@@ -161,7 +161,7 @@ function changeRoom() {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     player.name = myName.value;
-    // player.showName();
+    player.showStats();
     story = getStory(player);
     startGame();
     if (!modal.classList.contains("close")) {
@@ -202,7 +202,7 @@ contact.addEventListener("click", () => {
     <form onsubmit="return sendMail(this);" method="POST">
         <div>
             <label for="name">Name<span class="required-icon"></span></label>
-            <input class="contact-inout" type="text" name="name" id="name" placeholder="Enter your name" required>
+            <input class="contact-input" type="text" name="name" id="name" placeholder="Enter your name" required>
         </div>
         <div>
             <label for="email">Email<span class="required-icon"></span></label>
