@@ -28,11 +28,11 @@ This is a game I created as part of the Code Institute course for Milestone Proj
 
 # User Experience Design - UX
 
-## Strategy
+## Strategy Plane
 
-My Milestone Project 2 from the Code Institute is a modern twist of the classic text adventure game. The story of the game will be displayed via text and images, whereas the players can view their stats and inventory with the use of icons and text. To progress through the rooms and finish the game, players will have to choose the right actions presented to them in the form of buttons. In order to make the game more interesting, the players will have to fight monsters and level up their skills and stats.
+My Milestone Project 2 from the Code Institute is a modern twist of the classic text-based choose your own adventure game. The story of the game will be displayed via text and images, whereas the players can view their stats and inventory with the use of icons and images. To progress through the levels and finish the game, players will have to choose the right action presented to them in the form of buttons. In order to make the game more interesting, players will have to fight enemies and level up their stats with items and weapons they can pick.
 
-I chose this type of game as it showcases a lot of object oriented concepts as well as being heavily interactive and data driven.
+I chose this type of game as it showcases a lot of object oriented design patterns and concepts as well as being heavily interactive and data driven.
 
 - **User Stories**
 
@@ -56,7 +56,9 @@ I chose this type of game as it showcases a lot of object oriented concepts as w
 
   - As a User, I want to be able to contact the developer to offer feedback.
 
-## Scope
+## Scope Plane
+
+This project is an MVP with a short story and minimal feature to showcase the style 
 
 ## Structure & Skeleton
 

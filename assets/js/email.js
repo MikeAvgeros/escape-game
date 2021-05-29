@@ -1,6 +1,11 @@
 /* jshint esversion: 8 */
 
+const modal = document.getElementById("modal");
+const overlay = document.getElementById("overlay");
+
 function sendMail(contactForm) {
+    modal.classList.remove("open");
+    overlay.classList.remove("open");
     emailjs.send("gmail", "ms2", {
         "from_name": contactForm.name.value,
         "from_email": contactForm.email.value,
@@ -8,7 +13,7 @@ function sendMail(contactForm) {
     })
     .then(
         function() {
-            alert("Thank you for getting in touch! I'll get back to you shortly.");
+            alert("Thank you for getting in touch!");
         },
         function(error) {
         console.log('FAILED...', error);
