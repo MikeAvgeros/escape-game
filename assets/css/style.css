@@ -424,6 +424,19 @@ body {
     margin-top: 2rem;
 }
 
+#contact-heading {
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+}
+
+#close-btn {
+    cursor: pointer;
+    color: var(--yellow);
+    font-size: 2rem;
+    transform: translateX(15vw);
+}
+
 #start-game button {
     width: 50%;
 }

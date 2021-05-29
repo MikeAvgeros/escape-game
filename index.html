@@ -7,6 +7,13 @@
     <title>Escape</title>
     <!-- CSS LINK -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- EMAILJS LINK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+        (function() {
+        emailjs.init("user_29WTPFgCm9JgR2Bb2Yzxl");
+        })();
+    </script>
 </head>
 <body>
     <video autoplay muted loop id="background">
@@ -65,12 +72,5 @@
     <script src="assets/js/character.js"></script>
     <script src="assets/js/room.js"></script>
     <script type="module" src="assets/js/gamemanager.js"></script>
-    <!-- EMAILJS LINK -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init("user_29WTPFgCm9JgR2Bb2Yzxl");
-        })();
-    </script>
 </body>
 </html>
