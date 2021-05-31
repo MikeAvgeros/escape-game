@@ -56,7 +56,7 @@ class Player extends Character {
     showStats() {
         const statsContainer = document.getElementById("my-stats");
         statsContainer.innerHTML = `
-        <p><i class="fas fa-user-circle"></i>${this.name}</p>
+        <p>Name: ${this.name}</p>
         <p>Attack: ${this.attack}</p>
         <p>Defense: ${this.defense}</p>
         `;

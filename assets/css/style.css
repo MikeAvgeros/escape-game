@@ -95,13 +95,15 @@ body {
 #game-stats i {
     color: var(--yellow);
     padding-right: 10px;
+    align-self: center;
+    font-size: clamp(1.25rem, .9rem + 1vw, 2rem); 
 }
 
 #health-bar {
     border: 2.5px solid var(--yellow);
     box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
     width: 100%;
-    height: 1.5rem;
+    height: clamp(1rem, .9rem + 1vw, 1.5rem); 
     align-self: center;
     -webkit-clip-path: polygon(90% 0, 100% 60%, 100% 100%, 10% 100%, 0 60%, 0 0);
             clip-path: polygon(90% 0, 100% 60%, 100% 100%, 10% 100%, 0 60%, 0 0);
@@ -121,22 +123,10 @@ body {
 
 #my-stats p {
     color: var(--cyan);
-    font-size: .8rem;
+    font-size: clamp(.7rem, .6rem + .7vw, .9rem); 
     letter-spacing: 1px;
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
 }
-
-/* #inventory i {
-    cursor: pointer;
-}
-
-#inventory i:hover {
-    color: var(--cyan);
-}
-
-#inventory-modal {
-    display: none;
-} */
 
 #room-name h2 {
     place-self: center center;
@@ -241,7 +231,7 @@ body {
     height: 75%;
     width: 60px;
     margin-left: 1rem;
-    font-size: 1rem;
+    font-size: clamp(1.25rem, 1rem + 1vw, 2rem); 
     letter-spacing: 1px;
     font-weight: bolder;
     border: 2.5px solid var(--yellow);
@@ -255,7 +245,7 @@ body {
     margin-right: 1rem;
 }
 
-#footer a {
+#socials a {
     display: grid;
     place-content: center center;
     align-self: center;
@@ -263,6 +253,7 @@ body {
     height: 75%;
     width: 60px;
     color: var(--cyan);
+    font-size: clamp(1.25rem, 1rem + 1vw, 2rem);  
     border: 2.5px solid var(--yellow);
     -webkit-clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
             clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
@@ -529,11 +520,6 @@ body {
     100% {opacity: 1;}
 }
 
-#my-name p {
-    font-size: 1rem;
-    letter-spacing: 1px;
-}
-
 @media (max-width: 810px) {
     #game-wrapper {
         max-width: 60%;
@@ -574,15 +560,6 @@ body {
     #footer {
         justify-content: space-evenly;
     }
-
-    #contact {
-        font-size: smaller;
-        padding: .5rem;
-    }
-
-    #socials {
-        font-size: smaller;
-    }
 }
 
 @media (max-width: 710px) {
@@ -613,22 +590,30 @@ body {
     #game-wrapper {
         max-width: 99%;
     }
-}
 
-@media (max-width: 375px) {
     #room-description p {
         font-size: smaller;
     }
 
     #room-name h2 {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     #btns .action-button {
         font-size: smaller;
     }
+}
 
-    #my-stats p {
-        font-size: smaller;
+@media (max-width: 375px) {
+    #room-name h2 {
+        font-size: 1rem;
+    }
+
+    #contact {
+        padding: 1rem;
+    }
+
+    #socials a {
+        margin-left: 1rem;
     }
 }
