@@ -96,7 +96,7 @@ body {
     color: var(--yellow);
     padding-right: 10px;
     align-self: center;
-    font-size: clamp(1.25rem, .9rem + 1vw, 2rem); 
+    font-size: clamp(1.5rem, 1rem + 1vw, 2rem); 
 }
 
 #health-bar {
@@ -254,7 +254,8 @@ body {
 }
 
 #socials {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
     margin-right: 1rem;
 }
 
