@@ -12,6 +12,7 @@ const overlay = document.getElementById("overlay");
 const form = document.getElementById("form");
 const myName = document.getElementById("player-name");
 const contact = document.getElementById("contact");
+const playerInfo = document.getElementById("player-info");
 const root = document.documentElement;
 const maxHealth = player.health;
 
@@ -161,7 +162,6 @@ function changeRoom() {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     player.name = myName.value;
-    player.showStats();
     story = getStory(player);
     startGame();
     if (!modal.classList.contains("close")) {
@@ -198,7 +198,7 @@ contact.addEventListener("click", () => {
     modal.classList.add("open");
     overlay.classList.add("open");
     modal.innerHTML = `
-    <div id="contact-heading">
+    <div id="heading">
         <h1>Contact Us</h1>
         <span id="close-btn">&times;</span>
     </div>
@@ -227,3 +227,6 @@ contact.addEventListener("click", () => {
     });
 });
 
+playerInfo.addEventListener("click", () => {
+    player.showStats();
+});

@@ -3,19 +3,19 @@
 export const player = new Player("", 100, 50, 30);
 
 const itemImg = {
-    testItem: "./assets/img/1.jpg"
+    card: "./assets/img/1.jpg"
 }
 
 const items = {
-    testItem: new Item("testItem", itemImg.testItem),
+    card: new Item("card", itemImg.card),
 };
 
 const enemyImg = {
-    robot: "./assets/img/2.jpg"
+    thief: "./assets/img/2.jpg"
 }
 
 const enemies = {
-    robot: new Character("Robot", 60, 40, 20, enemyImg.robot)
+    thief: new Character("Thief", 60, 40, 20, enemyImg.thief)
 };
 
 export function getStory(player) {
@@ -23,7 +23,7 @@ export function getStory(player) {
         1: [
             {
                 id: 1,
-                text: `You step off the bus on your way home after a long day at work. At the bus stop, an old man approaches you and says ${player.name} give me some money. What do you do?`,
+                text: `You step off the bus on your way home after a long day at work. At the bus stop, an old man approaches you and asks if you can give him some money. What do you do?`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -122,7 +122,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: "The old man takes a liking at you and gives you a card with an address on it. What do you do?",
+                text: `The old man takes a liking at you and gives you a card with an address on it and a note saying for ${player.name}. What do you do?`,
                 actions: [
                     {
                         text: "Ignore it and walk home",

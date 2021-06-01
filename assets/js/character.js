@@ -54,11 +54,24 @@ class Player extends Character {
         this.defense += defense;
     }
     showStats() {
-        const statsContainer = document.getElementById("my-stats");
-        statsContainer.innerHTML = `
-        <p>Name: ${this.name}</p>
-        <p>Attack: ${this.attack}</p>
-        <p>Defense: ${this.defense}</p>
+        const modal = document.getElementById("modal");
+        const overlay = document.getElementById("overlay");
+        modal.innerHTML = `
+        <div id="heading">
+            <h1>Player Stats</h1>
+            <span id="close-btn">&times;</span>
+        </div>
+        <br>
+        <p>Player Name: ${this.name}</p>
+        <p>Attack Points: ${this.attack}</p>
+        <p>Defense Points: ${this.defense}</p>
         `;
+        modal.classList.add("open");
+        overlay.classList.add("open");
+        const closeContact = document.getElementById("close-btn");
+        closeContact.addEventListener("click", () => {
+            modal.classList.remove("open");
+            overlay.classList.remove("open");
+        });
     }
 }

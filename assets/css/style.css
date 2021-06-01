@@ -115,18 +115,31 @@ body {
     background-color: var(--red);
 }
 
-#my-stats {
+#player-info, #inventory-info {
+    cursor: pointer;
+}
+
+#player-info:hover, #inventory-info:hover {
+    color: var(--cyan);
+}
+
+/* #my-stats {
     display: grid;
+    grid-auto-flow: column;
     grid-area: mystats;
     padding-bottom: 1rem;
 }
 
-#my-stats p {
+#my-stats i {
+    cursor: pointer;
+} */
+
+/* #my-stats p {
     color: var(--cyan);
     font-size: clamp(.7rem, .6rem + .7vw, .9rem); 
     letter-spacing: 1px;
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
-}
+} */
 
 #room-name h2 {
     place-self: center center;
@@ -417,7 +430,7 @@ body {
     margin-top: 2rem;
 }
 
-#contact-heading {
+#heading {
     display: grid;
     grid-auto-flow: column;
     width: 100%;
