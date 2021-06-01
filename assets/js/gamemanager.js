@@ -13,6 +13,7 @@ const form = document.getElementById("form");
 const myName = document.getElementById("player-name");
 const contact = document.getElementById("contact");
 const playerInfo = document.getElementById("player-info");
+const inventoryInfo = document.getElementById("inventory-info");
 const root = document.documentElement;
 const maxHealth = player.health;
 
@@ -87,7 +88,6 @@ function handleActionClicks() {
                     changeRoom();
             }
             if (currentStory.hasOwnProperty("item")) {
-                currentStory.item.showImage();
                 inventory.push(currentStory.item);
             }
             if (currentStory.hasOwnProperty("requiredItem")) {
@@ -229,4 +229,36 @@ contact.addEventListener("click", () => {
 
 playerInfo.addEventListener("click", () => {
     player.showStats();
+});
+
+inventoryInfo.addEventListener("click", () => {
+    modal.classList.add("open");
+    overlay.classList.add("open");
+    let list = document.createElement("ul");
+    let listItems = "";
+    for (let item of inventory) {
+        listItems += `<li>${item.name}</li>`;
+    }
+    if (inventory.length > 0) {
+        list.innerHTML = listItems;
+    }
+    else {
+        list.innerHTML = 
+        `
+        <p>There are no items in your list</p>
+        `;
+    }
+    modal.innerHTML = 
+    `
+    <div id="heading">
+        <h1>Items List</h1>
+        <span id="close-btn">&times;</span>
+    </div>
+    `;
+    modal.appendChild(list);
+    const closeContact = document.getElementById("close-btn");
+    closeContact.addEventListener("click", () => {
+        modal.classList.remove("open");
+        overlay.classList.remove("open");
+    });
 });

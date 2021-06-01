@@ -286,17 +286,18 @@ body {
     box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
     background-color: var(--black);
     z-index: 999;
-    width: 750px;
+    width: 640px;
     max-width: 80%;
-    height: 60vh;
+    height: auto;
     overflow: hidden;
     display: grid; 
-    place-content: center center;
+    place-content: start center;
 }
 
 #modal h1 {
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
     color: var(--red);
     text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
     letter-spacing: 2px;
@@ -304,11 +305,21 @@ body {
 
 #modal p {
     text-align: center;
-    padding: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
     font-size: 1rem;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     letter-spacing: 1px;
+}
+
+#modal ul li {
+    color: var(--cyan);
+    font-size: 1rem;
+    text-align: center;
+    list-style: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem
 }
 
 #player-name {
@@ -415,7 +426,8 @@ body {
     border: 2.5px solid var(--yellow);
     background: none;
     margin-top: 2.5rem;
-    padding: 1rem;
+    margin-bottom: 2rem;
+    padding: .75rem;
     font-size: 1rem;
     cursor: pointer;
     color: var(--cyan);
@@ -440,7 +452,7 @@ body {
     cursor: pointer;
     color: var(--yellow);
     font-size: 2rem;
-    transform: translateX(15vw);
+    transform: translateX(12.5vw);
 }
 
 #start-game button {
