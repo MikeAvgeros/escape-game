@@ -103,6 +103,10 @@ function handleActionClicks() {
             if (actions[i].hasOwnProperty("attackEnemy")) {
                 actions[i].attackEnemy.takeDamage(player.attack);
                 actions[i].attackEnemy.checkIsDead();
+                if (actions[i].attackEnemy.isDead) {
+                    storyId++;
+                    loadScene(roomId, storyId);
+                }
             }
             if (actions[i].hasOwnProperty("weapon")) {
                 player.handleWeapon(actions[i].weapon.health, actions[i].weapon.attack, actions[i].weapon.defense)
@@ -211,7 +215,7 @@ contact.addEventListener("click", () => {
             <textarea name="message" id="message" rows="6" placeholder="Enter your message" required></textarea>
         </div>
         <div>
-            <button class="contact-btn" type="submit" aria-label="Submit the contact form">Submit</button>
+            <button id="contact-btn" type="submit" aria-label="Submit the contact form">Submit</button>
         </div>
     </form>
     `;

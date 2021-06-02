@@ -83,6 +83,7 @@ export function getStory(player) {
             {
                 id: 4,
                 text: `A shadowy figure jumps at you and throws you to the ground. "Give me your money", he says.`,
+                enemy: enemies.thief,
                 actions: [
                     {
                         text: "Give him money",
@@ -138,7 +139,8 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `The old man takes a liking at you and gives you a card with an address on it and a note saying for ${player.name}. What do you do?`,
+                text: `The old man takes a liking at you and gives you a card with an address on it. What do you do?`,
+                item: items.card,
                 actions: [
                     {
                         text: "Ignore it and walk home",

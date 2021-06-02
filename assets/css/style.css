@@ -121,24 +121,6 @@ body {
     color: var(--cyan);
 }
 
-/* #my-stats {
-    display: grid;
-    grid-auto-flow: column;
-    grid-area: mystats;
-    padding-bottom: 1rem;
-}
-
-#my-stats i {
-    cursor: pointer;
-} */
-
-/* #my-stats p {
-    color: var(--cyan);
-    font-size: clamp(.7rem, .6rem + .7vw, .9rem); 
-    letter-spacing: 1px;
-    text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
-} */
-
 #room-name h2 {
     place-self: center center;
     color: var(--cyan);
@@ -322,7 +304,7 @@ body {
 }
 
 #player-name {
-    height: 2.5rem;
+    height: 2rem;
 }
 
 #my-name {
@@ -349,7 +331,8 @@ body {
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     letter-spacing: 1px;
-    padding-bottom: .5rem;
+    padding-bottom: .25rem;
+    padding-top: .25rem;
 }
 
 #contact-form {
@@ -363,26 +346,7 @@ body {
     border: 2.5px solid var(--yellow);
     color: var(--cyan);
     font-size: 1rem;
-    height: 120%; 
-}
-
-.contact-input input::-webkit-input-placeholder, .contact-input textarea::-webkit-input-placeholder {
-    padding-left: .25rem;
-}
-
-.contact-input input::-moz-placeholder, .contact-input textarea::-moz-placeholder {
-    padding-left: .25rem;
-}
-
-.contact-input input:-ms-input-placeholder, .contact-input textarea:-ms-input-placeholder {
-    padding-left: .25rem;
-}
-
-.contact-input input::-ms-input-placeholder, .contact-input textarea::-ms-input-placeholder {
-    padding-left: .25rem;
-}
-
-.contact-input input::placeholder, .contact-input textarea::placeholder {
+    height: 125%; 
     padding-left: .25rem;
 }
 
@@ -392,57 +356,27 @@ body {
     padding-bottom: .25rem;
 }
 
-#name ::-webkit-input-placeholder {
-    color: var(--cyan);
-    font-size: .8rem;
-}
-
-#name ::-moz-placeholder {
-    color: var(--cyan);
-    font-size: .8rem;
-}
-
-#name :-ms-input-placeholder {
-    color: var(--cyan);
-    font-size: .8rem;
-}
-
-#name ::-ms-input-placeholder {
-    color: var(--cyan);
-    font-size: .8rem;
-}
-
-#name ::placeholder {
-    color: slategray;
-    font-size: .8rem;
-}
-
-#start-game, #new-game {
+#start-container {
     display: grid;
     justify-self: center;
 }
 
-#start-game button, #new-game button, .contact-btn {
+#start-game, #contact-btn {
     display: grid;
     justify-self: center;
     place-content: center center;
     border: 2.5px solid var(--yellow);
+    font-size: 1rem;
     background: none;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     padding: .75rem;
-    font-size: 1rem;
     cursor: pointer;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     -webkit-clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
             clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
     letter-spacing: 1px;
-}
-
-.contact-btn {
-    padding: .75rem;
-    margin-top: 2rem;
 }
 
 #heading {
@@ -458,21 +392,10 @@ body {
     transform: translateX(12.5vw);
 }
 
-#start-game button {
-    width: 50%;
-}
-
-#new-game button {
-    width: 100%;
-    height: 50%;
-}
-
-#start-game button:hover,
-#new-game button:hover,
-#start-game button:focus,
-#new-game button:focus,
-.contact-btn:hover,
-.contact-btn:focus {
+#start-game:hover,
+#start-game:focus,
+#contact-btn:hover,
+#contact-btn:focus {
     background-color: var(--red);
 }
 
