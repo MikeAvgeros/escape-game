@@ -15,7 +15,7 @@ const enemyImg = {
 }
 
 const enemies = {
-    thief: new Character("Thief", 60, 40, 20, enemyImg.thief)
+    thief: new Character("Thief", 80, 40, 20, enemyImg.thief)
 };
 
 export function getStory(player) {
@@ -27,11 +27,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Play",
-                        exit: 2
+                        nextRoom: 2
                     },
                     {
                         text: "Exit",
-                        destination: 1
+                        storyNode: 1
                     }
                 ]
             }
@@ -43,11 +43,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore him",
-                        destination: 2
+                        storyNode: 2
                     },
                     {
                         text: "Give him money",
-                        destination: 3
+                        storyNode: 3
                     }
                 ]
             },
@@ -57,12 +57,12 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Start running",
-                        destination: 5
+                        storyNode: 5
                         
                     },
                     {
                         text: "Look to your right",
-                        destination: 4
+                        storyNode: 4
                     }
                 ]
             },
@@ -72,11 +72,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore him",
-                        destination: 2
+                        storyNode: 2
                     },
                     {
                         text: "Turn back",
-                        destination: 6
+                        storyNode: 6
                     }
                 ]
             },
@@ -87,11 +87,13 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Give him money",
-                        destination: 7
+                        storyNode: 7
                     },
                     {
-                        text: "Fight back",
-                        destination: 9
+                        text: "Attack him",
+                        attackEnemy: enemies.thief,
+                        storyNode: 9,
+                        storyNodeAfterKill: 10
                     }
                 ]
             },
@@ -101,11 +103,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Give him money",
-                        destination: 7
+                        storyNode: 7
                     },
                     {
                         text: "Fight back",
-                        destination: 9
+                        storyNode: 9
                     }
                 ]
             },
@@ -115,11 +117,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Walk home",
-                        exit: 2
+                        nextRoom: 2
                     },
                     {
                         text: "Thank the old man",
-                        destination: 8
+                        storyNode: 8
                     }
                 ]
             },
@@ -129,11 +131,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Chase the mugger",
-                        exit: 3
+                        nextRoom: 3
                     },
                     {
                         text: "Walk home",
-                        exit: 2
+                        nextRoom: 2
                     }
                 ]
             },
@@ -144,25 +146,42 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore it and walk home",
-                        exit: 2
+                        nextRoom: 2
                     },
                     {
                         text: "Go to that address",
-                        exit: 4
+                        nextRoom: 4
                     }
                 ]
             },
             {
                 id: 9,
-                text: "You attacked the mugger.",
+                text: "You attacked the mugger but he is still standing and attacked you back. What do you do?",
+                enemy: enemies.thief,
                 actions: [
                     {
                         text: "Attack again",
-                        destination: 9
+                        attackEnemy: enemies.thief,
+                        storyNode: 9,
+                        storyNodeAfterKill: 10
                     },
                     {
                         text: "Run away",
-                        exit: 2
+                        nextRoom: 2
+                    }
+                ]
+            },
+            {
+                id: 10,
+                text: "You have successfully killed the attacker. What do you want to do next?",
+                actions: [
+                    {
+                        text: "Walk home",
+                        nextRoom: 2
+                    },
+                    {
+                        text: "Run away",
+                        nextRoom: 2
                     }
                 ]
             }

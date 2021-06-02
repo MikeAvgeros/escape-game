@@ -74,21 +74,25 @@ function handleActionClicks() {
                 clearInterval(typeWriter);
             } 
             switch (true) {
-                case (actions[i].hasOwnProperty("destination")):
-                    storyId = actions[i].destination;
+                case (actions[i].hasOwnProperty("storyNode") && !actions[i].hasOwnProperty("attackEnemy")):
+                    storyId = actions[i].storyNode;
                     loadScene(roomId, storyId);
-                    break;
-                case (actions[i].hasOwnProperty("exit")):
-                    roomId = actions[i].exit;
+                break;
+                case (actions[i].hasOwnProperty("attackEnemy") && actions[i].hasOwnProperty("storyNode")):
+                    actions[i].attackEnemy.takeDamage(player.attack);
+                    actions[i].attackEnemy.checkIsDead();
+                    if (actions[i].attackEnemy.isDead) {
+                        storyId = actions[i].storyNodeAfterKill;
+                        loadScene(roomId, storyId);
+                    }
+                    else {
+                        storyId = actions[i].storyNode;
+                        loadScene(roomId, storyId);
+                    }
+                break;
+                case (actions[i].hasOwnProperty("nextRoom")):
+                    roomId = actions[i].nextRoom;
                     changeRoom();
-            }
-            if (currentStory.hasOwnProperty("item")) {
-                inventory.push(currentStory.item);
-            }
-            if (currentStory.hasOwnProperty("requiredItem")) {
-                if (!inventory.contains(currentStory.requiredItem)) {
-                    gameOver();
-                }
             }
             if (currentStory.hasOwnProperty("enemy")) {
                 currentStory.enemy.showImage();
@@ -100,12 +104,12 @@ function handleActionClicks() {
                     gameOver();
                 }
             }
-            if (actions[i].hasOwnProperty("attackEnemy")) {
-                actions[i].attackEnemy.takeDamage(player.attack);
-                actions[i].attackEnemy.checkIsDead();
-                if (actions[i].attackEnemy.isDead) {
-                    storyId++;
-                    loadScene(roomId, storyId);
+            if (currentStory.hasOwnProperty("item")) {
+                inventory.push(currentStory.item);
+            }
+            if (currentStory.hasOwnProperty("requiredItem")) {
+                if (!inventory.contains(currentStory.requiredItem)) {
+                    gameOver();
                 }
             }
             if (actions[i].hasOwnProperty("weapon")) {
