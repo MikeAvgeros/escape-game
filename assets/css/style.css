@@ -4,9 +4,7 @@
     --black:  #010101;
     --red: #fd0130;
     --yellow: #ffee08; 
-    --gray: #414141;
     --pink: #ff2a6d;
-    --purple: #600078;
     --cyan: #02D7F2;
     --ff-primary: 'Tomorrow', sans-serif;
     --ff-secondary: 'Orbitron', sans-serif;
@@ -327,11 +325,23 @@ body {
     height: 2.5rem;
 }
 
-#name label {
+#my-name {
+    text-align: center;
+}
+
+#my-name label {
     font-size: 1rem;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     letter-spacing: 1px;
+}
+
+#my-name input {
+    background: none;
+    border: 2.5px solid var(--yellow);
+    color: var(--cyan);
+    font-size: 1rem;
+    padding-left: .25rem;
 }
 
 .contact-input label {
@@ -340,14 +350,6 @@ body {
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     letter-spacing: 1px;
     padding-bottom: .5rem;
-}
-
-#name input {
-    background: none;
-    border: 2.5px solid var(--yellow);
-    color: var(--cyan);
-    font-size: 1rem;
-    padding-left: .25rem;
 }
 
 #contact-form {

@@ -23,6 +23,22 @@ export function getStory(player) {
         1: [
             {
                 id: 1,
+                text: `Welcome ${player.name}! To play the game, you need to choose an action from the buttons below. Be careful as some choices may lead to your player's untimely death. Are you ready?`,
+                actions: [
+                    {
+                        text: "Play",
+                        exit: 2
+                    },
+                    {
+                        text: "Exit",
+                        destination: 1
+                    }
+                ]
+            }
+        ],
+        2: [
+            {
+                id: 1,
                 text: `You step off the bus on your way home after a long day at work. At the bus stop, an old man approaches you and asks if you can give him some money. What do you do?`,
                 actions: [
                     {
@@ -145,107 +161,6 @@ export function getStory(player) {
                     {
                         text: "Run away",
                         exit: 2
-                    }
-                ]
-            }
-        ],
-        2: [
-            {
-                id: 10,
-                text: "The old man bums you to death.",
-                actions: [
-                    {
-                        text: "Enjoy it",
-                        destination: 2
-                    },
-                    {
-                        text: "Enjoy it",
-                        destination: 3
-                    }
-                ]
-            },
-            {
-                id: 2,
-                text: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-                actions: [
-                    {
-                        text: "Lorem",
-                        destination: 3
-                        
-                    },
-                    {
-                        text: "Ipsum",
-                        destination: 4
-                    }
-                ]
-            },
-            {
-                id: 3,
-                text: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-                actions: [
-                    {
-                        text: "Lorem",
-                        destination: 4
-                    },
-                    {
-                        text: "Ipsum",
-                        destination: 5
-                    }
-                ]
-            },
-            {
-                id: 4,
-                text: "4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-                actions: [
-                    {
-                        text: "Lorem",
-                        destination: 5
-                    },
-                    {
-                        text: "Ipsum",
-                        destination: 6
-                    }
-                ]
-            },
-            {
-                id: 5,
-                text: "5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-                actions: [
-                    {
-                        text: "Lorem",
-                        destination: 6
-                    },
-                    {
-                        text: "Ipsum",
-                        destination: 7
-                    }
-                ]
-            },
-            {
-                id: 6,
-                text: "6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-                actions: [
-                    {
-                        text: "Lorem",
-                        destination: 7
-                    },
-                    {
-                        text: "Ipsum",
-                        exit: 1
-                    }
-                ]
-            },
-            {
-                id: 7,
-                text: "7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, eum!",
-                actions: [
-                    {
-                        text: "Lorem",
-                        exit: 1
-                    },
-                    {
-                        text: "Ipsum",
-                        exit: 1
                     }
                 ]
             }

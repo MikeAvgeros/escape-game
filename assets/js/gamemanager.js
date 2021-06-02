@@ -30,13 +30,13 @@ let healthBarWidth;
 let story;
 
 const roomImg = {
-    1: "./assets/img/1.jpg",
-    2: "./assets/img/2.jpg"
+    1: "./assets/img/2.jpg",
+    2: "./assets/img/1.jpg"
 };
 
 const rooms = {
-    1: new Room("Room One", roomImg[1], 1),
-    2: new Room("Room Two", roomImg[2], 2)
+    1: new Room("Introduction", roomImg[1], 1),
+    2: new Room("Bus Stop", roomImg[2], 2)
 };
 
 function calculateHealthWidth() {
@@ -63,11 +63,6 @@ function loadScene() {
     actions = currentStory.actions;
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].innerText = actions[i].text;
-    }
-    if (story[currentRoom.id][storyId].id > story[currentRoom.id].length) {
-        alert("Something went wrong. Game restarted");
-        startGame();
-        return;
     }
 }
 
