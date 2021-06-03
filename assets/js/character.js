@@ -23,7 +23,7 @@ class Character {
     }
     showImage() {
         const imgContainer = document.getElementById("room-img");
-        imgContainer.innerHTML = `<img loading="lazy" src="${this.img}" alt="image of ${this.name}"></img>`;
+        imgContainer.innerHTML = `<img loading="lazy" src="${this.img}" alt="image of ${this.name}">`;
     }
     showName() {
         const nameContainer = document.getElementById("room-name");
@@ -63,6 +63,7 @@ class Player extends Character {
         </div>
         <br>
         <p>Player Name: ${this.name}</p>
+        <p>Health Points: ${this.health}</p>
         <p>Attack Points: ${this.attack}</p>
         <p>Defense Points: ${this.defense}</p>
         `;

@@ -293,13 +293,20 @@ body {
     letter-spacing: 1px;
 }
 
-#modal ul li {
+#modal ol {
+    justify-self: center;
+}
+
+#modal ol li {
     color: var(--cyan);
-    font-size: 1rem;
-    text-align: center;
-    list-style: none;
+    font-size: 1.25rem;
     padding-top: 1rem;
-    padding-bottom: 1rem
+    padding-bottom: 1.5rem;
+}
+
+#modal ol li img {
+    transform: translateX(1vw) translateY(1vw);
+    border-radius: 8px;
 }
 
 #player-name {

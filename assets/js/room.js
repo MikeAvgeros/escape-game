@@ -12,6 +12,6 @@ class Room {
     }
     showImage() {
         const imgContainer = document.getElementById("room-img");
-        imgContainer.innerHTML = `<img loading="lazy" src="${this.img}" alt="image of ${this.name}"></img>`;
+        imgContainer.innerHTML = `<img loading="lazy" src="${this.img}" alt="image of ${this.name}">`;
     }
 }

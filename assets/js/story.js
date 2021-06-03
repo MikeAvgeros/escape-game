@@ -7,7 +7,7 @@ const itemImg = {
 }
 
 const items = {
-    card: new Item("card", itemImg.card),
+    card: new Item("a card with an address on it", itemImg.card),
 };
 
 const enemyImg = {
@@ -141,7 +141,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `The old man takes a liking at you and gives you a card with an address on it. What do you do?`,
+                text: `The old man takes a liking at you and gives you ${items.card.name}. What do you do?`,
                 item: items.card,
                 actions: [
                     {

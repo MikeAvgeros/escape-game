@@ -237,10 +237,10 @@ playerInfo.addEventListener("click", () => {
 inventoryInfo.addEventListener("click", () => {
     modal.classList.add("open");
     overlay.classList.add("open");
-    let list = document.createElement("ul");
+    let list = document.createElement("ol");
     let listItems = "";
     for (let item of inventory) {
-        listItems += `<li>${item.name}</li>`;
+        listItems += `<li><span>${item.name}</span><span><img loading="lazy" src="${item.img}" width="45" height="45" alt="image of ${item.name}"></span></li>`;
     }
     if (inventory.length > 0) {
         list.innerHTML = listItems;
