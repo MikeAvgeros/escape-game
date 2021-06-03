@@ -93,6 +93,16 @@ function handleActionClicks() {
                 case (actions[i].hasOwnProperty("nextRoom")):
                     roomId = actions[i].nextRoom;
                     changeRoom();
+                break;
+                case (actions[i].hasOwnProperty("reload")):
+                    fadeButtons();
+                    setTimeout(() => {
+                        location.reload();
+                    }, 50); 
+                break;
+                default:
+                    storyId = actions[i].storyNode;
+                    loadScene(roomId, storyId);
             }
             if (currentStory.hasOwnProperty("enemy")) {
                 currentStory.enemy.showImage();
