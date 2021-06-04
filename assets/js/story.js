@@ -23,7 +23,10 @@ export function getStory(player) {
         1: [
             {
                 id: 1,
-                text: `Welcome ${player.name}! To play the game, you need to choose an action from the buttons below. Be careful as some choices may lead to your player's untimely death. Are you ready to play or would you like to learn more?`,
+                text: `Welcome ${player.name}! To play the game, you need to choose an action from the 2 buttons below. 
+                Each choice will lead to a different outcome.
+                Be careful as some choices may lead to your untimely death. 
+                Are you ready to play or would you like to learn more?`,
                 actions: [
                     {
                         text: "Play",
@@ -39,7 +42,7 @@ export function getStory(player) {
                 id: 2,
                 text: `You can view your stats by clicking on the info icon above the image. 
                 A live display of your health points is displayed on the bar next to the info icon. 
-                You can open your item list to view items you have collected by clicking on the bag icon.`,
+                You can open your item list to view any items you have collected by clicking on the bag icon.`,
                 actions: [
                     {
                         text: "Play",
