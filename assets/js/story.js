@@ -24,7 +24,7 @@ export function getStory(player) {
             {
                 id: 1,
                 text: `Welcome ${player.name}! To play the game, you need to choose an action from the 2 buttons below. 
-                Each choice will lead to a different outcome.
+                Each choice will lead to a different outcome in the story.
                 Be careful as some choices may lead to your untimely death. 
                 Are you ready to play or would you like to learn more?`,
                 actions: [
@@ -34,7 +34,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Learn",
-                        storyNode: 2
+                        nextScene: 2
                     }
                 ]
             },
@@ -49,8 +49,8 @@ export function getStory(player) {
                         nextRoom: 2
                     },
                     {
-                        text: "Quit",
-                        reload: true
+                        text: "Repeat",
+                        nextScene: 1
                     }
                 ]
             }
@@ -58,75 +58,125 @@ export function getStory(player) {
         2: [
             {
                 id: 1,
-                text: `You step off the bus on your way home after a long day at work. At the bus stop, an old man approaches you and asks if you can give him some money. What do you do?`,
+                text: `The year is 2054 and gene-editing has allowed humans to evolve beyond the physical limitations of their bodies.
+                BioTech, a large corporation owned by the central government, controls 90% of all gene-editing operations in the entire world.
+                The headquarters of BioTech are in Cyber City, the money and technology capital of the world.
+                You are ${player.name}, a security guard at BioTech, born and bred in Cyber City.`,
                 actions: [
                     {
-                        text: "Ignore him",
-                        storyNode: 2
+                        text: "Continue story",
+                        nextScene: 2
                     },
                     {
-                        text: "Give him money",
-                        storyNode: 3
+                        text: "Quit game",
+                        reload: true
                     }
                 ]
             },
             {
                 id: 2,
-                text: "Disheartened, the old man walks away. As you carry on walking, you see a shift in the shadows to your right. What do you do?",
+                text: `You had a long day at work and it's getting late. 
+                "It's best if you leave and go to rest. Tomorrow will be a tough day. 
+                The CEO is visiting HQ and tensions with protesters are rising. 
+                I guess not everyone appreciates what we do here." your colleague says with a worrying tone`,
                 actions: [
                     {
-                        text: "Start running",
-                        storyNode: 5
-                        
+                        text: "Go home",
+                        nextRoom: 3
                     },
                     {
-                        text: "Look to your right",
-                        storyNode: 4
+                        text: "Stay at work",
+                        nextScene: 3
                     }
                 ]
             },
             {
                 id: 3,
-                text: "The man warns you to turn back. He tells you that there is danger ahead and you should turn back. What do you do?",
+                text: "Another hour passes at work and you hear in the news about the protests against bio-enhanced humans. Suddenly, the lights go off.",
+                actions: [
+                    {
+                        text: "Go check",
+                        nextRoom: 3
+                    },
+                    {
+                        text: "Ask your colleague to check",
+                        nextScene: 3
+                    }
+                ]
+            }
+        ],
+        3: [
+            {
+                id: 1,
+                text: `You step off the bus on your way home. At the bus stop, an old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
                 actions: [
                     {
                         text: "Ignore him",
-                        storyNode: 2
+                        nextScene: 2
+                    },
+                    {
+                        text: "Give him money",
+                        nextScene: 3
+                    }
+                ]
+            },
+            {
+                id: 2,
+                text: "The old man walks away. As you carry on walking, you see a shift in the shadows to your right. You feel something is not right.",
+                actions: [
+                    {
+                        text: "Start running",
+                        nextScene: 5
+                        
+                    },
+                    {
+                        text: "Look to your right",
+                        nextScene: 4
+                    }
+                ]
+            },
+            {
+                id: 3,
+                text: "The man warns you to turn back. He tells you there is danger ahead. Someone who knows where you work, wants to steal your keycard.",
+                actions: [
+                    {
+                        text: "Ignore him",
+                        nextScene: 2
                     },
                     {
                         text: "Turn back",
-                        storyNode: 6
+                        nextScene: 6
                     }
                 ]
             },
             {
                 id: 4,
-                text: `A shadowy figure jumps at you and throws you to the ground. "Give me your money", he says.`,
+                text: `A shadowy figure jumps at you and throws you to the ground. "Give me your wallet and keycard", he says.`,
                 enemy: enemies.thief,
                 actions: [
                     {
-                        text: "Give him money",
-                        storyNode: 7
+                        text: "Do what he says",
+                        nextScene: 7
                     },
                     {
                         text: "Attack him",
                         attackEnemy: enemies.thief,
-                        storyNode: 9,
+                        nextScene: 9,
                         storyNodeAfterKill: 10
                     }
                 ]
             },
             {
                 id: 5,
-                text: `As you start to run, the old man trips you with his staff and you fall to the floor and hurt yourself. A shadowy figure jumps at you and says "Give me your money"`,
+                text: `As you start to run, a shadowy figure blasts you to the floor with a sonic gun. He comes at you and says "Give me your wallet and keycard"`,
                 actions: [
                     {
-                        text: "Give him money",
-                        storyNode: 7
+                        text: "Do what he says",
+                        nextScene: 7
                     },
                     {
-                        text: "Fight back",
-                        storyNode: 9
+                        text: "Attack him",
+                        nextScene: 9
                     }
                 ]
             },
@@ -140,16 +190,16 @@ export function getStory(player) {
                     },
                     {
                         text: "Thank the old man",
-                        storyNode: 8
+                        nextScene: 8
                     }
                 ]
             },
             {
                 id: 7,
-                text: "The mugger punches you in the face and takes your money and leaves you on the ground, bleeding. What do you do?",
+                text: "The thief punches you in the face and takes your wallet and keycard and leaves you on the ground.",
                 actions: [
                     {
-                        text: "Chase the mugger",
+                        text: "Chase the thief",
                         nextRoom: 3
                     },
                     {
@@ -181,7 +231,7 @@ export function getStory(player) {
                     {
                         text: "Attack again",
                         attackEnemy: enemies.thief,
-                        storyNode: 9,
+                        nextScene: 9,
                         storyNodeAfterKill: 10
                     },
                     {

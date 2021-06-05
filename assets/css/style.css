@@ -57,19 +57,6 @@ body {
     min-height: 100%;
 }
 
-/* #game-title {
-    display: grid;
-    grid-area: title;
-}
-
-#game-title h1 {
-    color: var(--red);
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    place-self: center center;
-    text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
-} */
-
 #room-name {
     display: grid;
     grid-area: rname;
@@ -143,8 +130,8 @@ body {
 }
 
 #room-img.fade, #room-name.fade {
-    -webkit-animation: fade-effect 1s forwards ease-in-out;
-            animation: fade-effect 1s forwards ease-in-out;
+    -webkit-animation: fade-effect .5s forwards ease-in-out;
+            animation: fade-effect .5s forwards ease-in-out;
 }
 
 #room-description {
@@ -193,8 +180,8 @@ body {
 }
 
 #btns .action-button.fade {
-    -webkit-animation: fade-effect 1s forwards ease-in-out;
-            animation: fade-effect 1s forwards ease-in-out;
+    -webkit-animation: fade-effect .5s forwards ease-in-out;
+            animation: fade-effect .5s forwards ease-in-out;
 }
 
 @-webkit-keyframes fade-effect {
@@ -411,13 +398,13 @@ body {
 }
 
 #modal.close {
-    -webkit-animation: closeModal 0.5s forwards ease-in-out;
-            animation: closeModal 0.5s forwards ease-in-out;
+    -webkit-animation: closeModal 0.25s forwards ease-in-out;
+            animation: closeModal 0.25s forwards ease-in-out;
 }
 
 #modal.close.open {
-    -webkit-animation: openModal 0.5s forwards ease-in-out;
-            animation: openModal 0.5s forwards ease-in-out;
+    -webkit-animation: openModal 0.25s forwards ease-in-out;
+            animation: openModal 0.25s forwards ease-in-out;
 }
 
 @-webkit-keyframes closeModal {

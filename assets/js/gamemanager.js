@@ -35,9 +35,20 @@ const roomImg = {
 };
 
 const rooms = {
-    1: new Room("Introduction", roomImg[1], 1),
-    2: new Room("Bus Stop", roomImg[2], 2)
+    1: new Room("Tutorial", roomImg[1], 1),
+    2: new Room("BioTech", roomImg[2], 2)
 };
+
+window.onload = checkIfNotFirstTime;
+
+function checkIfNotFirstTime() {
+    if (player.name.length > 0 ) {
+        modal.classList.add("close");
+        overlay.classList.add("close");
+        story = getStory(player);
+        startGame();
+    }
+}
 
 function calculateHealthWidth() {
     healthBarWidth = (player.health / maxHealth) * 100;
@@ -74,11 +85,11 @@ function handleActionClicks() {
                 clearInterval(typeWriter);
             } 
             switch (true) {
-                case (actions[i].hasOwnProperty("storyNode") && !actions[i].hasOwnProperty("attackEnemy")):
-                    storyId = actions[i].storyNode;
+                case (actions[i].hasOwnProperty("nextScene") && !actions[i].hasOwnProperty("attackEnemy")):
+                    storyId = actions[i].nextScene;
                     loadScene(roomId, storyId);
                 break;
-                case (actions[i].hasOwnProperty("attackEnemy") && actions[i].hasOwnProperty("storyNode")):
+                case (actions[i].hasOwnProperty("attackEnemy") && actions[i].hasOwnProperty("nextScene")):
                     actions[i].attackEnemy.takeDamage(player.attack);
                     actions[i].attackEnemy.checkIsDead();
                     if (actions[i].attackEnemy.isDead) {
@@ -86,7 +97,7 @@ function handleActionClicks() {
                         loadScene(roomId, storyId);
                     }
                     else {
-                        storyId = actions[i].storyNode;
+                        storyId = actions[i].nextScene;
                         loadScene(roomId, storyId);
                     }
                 break;
@@ -101,7 +112,7 @@ function handleActionClicks() {
                     }, 50); 
                 break;
                 default:
-                    storyId = actions[i].storyNode;
+                    storyId = actions[i].nextScene;
                     loadScene(roomId, storyId);
             }
             if (currentStory.hasOwnProperty("enemy")) {
@@ -141,7 +152,7 @@ function fadeButtons() {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("fade");
         }
-    }, 1000);
+    }, 500);
 }
 
 function fadeImage() {
@@ -150,7 +161,7 @@ function fadeImage() {
         setTimeout(() => {
             roomImage.classList.remove("fade");
             roomName.classList.remove("fade");
-    }, 1000);
+    }, 500);
 }
 
 function startGame() {
@@ -168,7 +179,6 @@ function changeRoom() {
         textContainer.appendChild(paragraph);
         storyId = 1;
         loadScene();
-        handleActionClicks(); 
     }, 250);
 }
 
