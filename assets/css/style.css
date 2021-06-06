@@ -354,12 +354,12 @@ body {
     padding-bottom: .25rem;
 }
 
-#start-container {
+#start-container, #new-game {
     display: grid;
     justify-self: center;
 }
 
-#start-game, #contact-btn {
+#start-game, #contact-btn, #restart {
     display: grid;
     justify-self: center;
     place-content: center center;
@@ -392,6 +392,8 @@ body {
 
 #start-game:hover,
 #start-game:focus,
+#restart:hover,
+#restart:focus,
 #contact-btn:hover,
 #contact-btn:focus {
     background-color: var(--red);

@@ -103,14 +103,14 @@ export function getStory(player) {
                     },
                     {
                         text: "Do nothing",
-                        nextScene: 6
+                        nextScene: 11
                     }
                 ]
             },
             {
                 id: 4,
                 text: `You go to the basement to check what's going on. 
-                It appears that someone has tempered with the system and destroyed the backup generator.
+                It appears that someone has tampered with the system and destroyed the backup generator.
                 You then hear a noise from the adjacent room.`,
                 actions: [
                     {
@@ -148,11 +148,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Call for help",
-                        nextScene: 9
+                        nextScene: 12
                     },
                     {
                         text: "Stay silent",
-                        nextScene: 9
+                        nextScene: 11
                     }
                 ]
             },
@@ -162,11 +162,27 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "We have an intruder",
-                        nextScene: 9
+                        nextScene: 8
                     },
                     {
                         text: "Everything is fine",
-                        nextScene: 9
+                        nextScene: 11
+                    }
+                ]
+            },
+            {
+                id: 8,
+                text: `You immediately call the police and explain the situation. 
+                The police arrives at the scene shortly after and apprehends the suspects. 
+                It appears they were part of an anti-enhancement organization who wanted to sabotage BioTech.`,
+                actions: [
+                    {
+                        text: "Go home",
+                        nextRoom: 3
+                    },
+                    {
+                        text: "Stay at work",
+                        response: "It's probably a good idea to go home after everything that happened."
                     }
                 ]
             },
@@ -193,12 +209,31 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go home",
-                        nextRoom: 2
+                        nextRoom: 3
                     },
                     {
                         text: "Stay at work",
-                        response: "It's probably a good idea to go home.",
-                        nextRoom: 2
+                        response: "It's probably a good idea to go home after everything that happened."
+                    }
+                ]
+            },
+            {
+                id: 11,
+                text: `Intruders manage to sneak into the building undetected and killed all the guards. 
+                They stormed into the lab and destroyed all the research. It's game over...`,
+                gameOver: true
+            },
+            {
+                id: 12,
+                text: `Another security guards comes to the rescue. He unties you and says "What is going on? Shall we call for backup?".`,
+                actions: [
+                    {
+                        text: "We have an intruder",
+                        nextScene: 8
+                    },
+                    {
+                        text: "Everything is fine",
+                        nextScene: 11
                     }
                 ]
             }

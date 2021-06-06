@@ -78,7 +78,11 @@ function loadScene() {
         }
     }, 50);
     actions = currentStory.actions;
-    displayActions();
+    if (currentStory.hasOwnProperty("gameOver")) {
+        displayGameOver();
+    } else {
+        displayActions();
+    }
 }
 
 function displayActions() {
@@ -97,6 +101,14 @@ function displayDamage() {
         setTimeout(displayDamage, 100); 
      } else {
         calculateHealthWidth();
+     }
+}
+
+function displayGameOver() {
+    if(!finishedTyping) {
+        setTimeout(displayGameOver, 100); 
+     } else {
+        gameOver();
      }
 }
 
@@ -127,6 +139,10 @@ function handleActionClicks() {
                         loadScene(roomId, storyId);
                     }
                 break;
+                case(actions[i].hasOwnProperty("response")):
+                    paragraph.textContent = "";
+                    paragraph.textContent = actions[i].response;
+                break;
                 case (actions[i].hasOwnProperty("nextRoom")):
                     roomId = actions[i].nextRoom;
                     finishedTyping = false;
@@ -151,7 +167,7 @@ function handleActionClicks() {
                 displayDamage();
                 player.checkIsDead();
                 if (player.isDead) {
-                    gameOver();
+                    displayGameOver();
                 }
             }
             if (currentStory.hasOwnProperty("item")) {
@@ -159,7 +175,7 @@ function handleActionClicks() {
             }
             if (currentStory.hasOwnProperty("requiredItem")) {
                 if (!inventory.contains(currentStory.requiredItem)) {
-                    gameOver();
+                    displayGameOver();
                 }
             }
             if (actions[i].hasOwnProperty("weapon")) {
