@@ -3,11 +3,13 @@
 export const player = new Player("", 100, 50, 30);
 
 const itemImg = {
+    vest: "./assets/img/1.jpg",
     card: "./assets/img/1.jpg"
 }
 
 const items = {
-    card: new Item("a card with an address on it", itemImg.card),
+    vest: new Item("bullet-proof vest", itemImg.vest),
+    card: new Item("strange card with an address on it", itemImg.card),
 };
 
 const enemyImg = {
@@ -77,7 +79,7 @@ export function getStory(player) {
                 id: 2,
                 text: `You had a long day at work and it's getting late. 
                 Your colleague looks at you and says
-                "Hey ${player.name}, it's best if you leave and go to rest. Tomorrow will be a tough day. 
+                "Hey ${player.name}, you look tired, you should go home. Tomorrow will be a tough day. 
                 The CEO is visiting HQ and tensions with the protesters are rising. 
                 I guess not everyone appreciates what we do here."`,
                 actions: [
@@ -93,17 +95,33 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `Another hour passes at work. Everything seems normal. 
+                text: `You decide to stay at work. Another hour passes at work. Everything seems normal. 
                 You watch the news and hear about the protests against bio-enhanced humans. 
                 All of a sudden, all the lights in the building go off. The phones are unresponsive.`,
                 actions: [
                     {
                         text: "Go check",
-                        nextScene: 4
+                        nextScene: 13
                     },
                     {
                         text: "Do nothing",
                         nextScene: 11
+                    }
+                ]
+            },
+            {
+                id: 13,
+                text: `Your colleague says "Hey ${player.name}, you should wear a vest in case anything goes wrong.
+                It will protect you."`,
+                actions: [
+                    {
+                        text: "Wear it",
+                        item: items.vest,
+                        nextScene: 4
+                    },
+                    {
+                        text: "Leave it",
+                        nextScene: 4
                     }
                 ]
             },
@@ -125,8 +143,23 @@ export function getStory(player) {
             },
             {
                 id: 5,
-                text: `As you are inspecting the room, a man jumps at you and throws to you the ground. 
-                "Give me the keycard to the lab" he shouts.`,
+                text: `As you are inspecting the room, a man shoots 2 bullets at you.
+                `,
+                requiredItem: items.vest,
+                requiredItemScene: 14,
+                actions: [
+                    {
+                        text: ""
+                    },
+                    {
+                        text:""
+                    }
+                ]
+            },
+            {
+                id: 14,
+                text: `The bullets luckily hit your vest and throw you to the ground.
+                The attacker puches you and shouts "Give me the keycard to the lab."`,
                 enemy: enemies.thief,
                 actions: [
                     {
@@ -359,7 +392,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `The old man takes a liking at you and gives you ${items.card.name}. 
+                text: `The old man takes a liking at you and gives you a ${items.card.name}. 
                 He tells you that your company is in danger and you can find answers in this place.`,
                 item: items.card,
                 actions: [
@@ -407,7 +440,7 @@ export function getStory(player) {
             {
                 id: 11,
                 text: `You managed to find the old man. 
-                You ask him for answers and he gives you ${items.card.name}. 
+                You ask him for answers and he gives you a ${items.card.name}. 
                 He tells you that your company is in danger and you can find answers in this place.`,
                 item: items.card,
                 actions: [

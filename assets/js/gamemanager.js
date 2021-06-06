@@ -82,10 +82,28 @@ function loadScene() {
         }
     }, 50);
     actions = currentStory.actions;
+    if (currentStory.hasOwnProperty("requiredItemScene")) {
+        if (!inventory.includes(currentStory.requiredItem)) {
+            displayGameOver();
+        } else {
+            displayNextScene();
+        }
+    }
     if (currentStory.hasOwnProperty("gameOver")) {
         displayGameOver();
     } else {
         displayActions();
+    }
+    if (currentStory.hasOwnProperty("enemy")) {
+        currentStory.enemy.showImage();
+        currentStory.enemy.showName();
+        fadeImage();
+        player.takeDamage(currentStory.enemy.attack);
+        displayDamage();
+        player.checkIsDead();
+        if (player.isDead) {
+            displayGameOver();
+        }
     }
 }
 
@@ -103,17 +121,27 @@ function displayActions() {
 function displayDamage() {
     if(!finishedTyping) {
         setTimeout(displayDamage, 100); 
-     } else {
+    } else {
         calculateHealthWidth();
-     }
+    }
 }
 
 function displayGameOver() {
     if(!finishedTyping) {
         setTimeout(displayGameOver, 100); 
-     } else {
+    } else {
         gameOver();
-     }
+    }
+}
+
+function displayNextScene() {
+    if(!finishedTyping) {
+        setTimeout(displayNextScene, 100); 
+    } else {
+        storyId = currentStory.requiredItemScene;
+        finishedTyping = false;
+        loadScene(roomId, storyId);
+    }
 }
 
 function handleActionClicks() {
@@ -124,6 +152,18 @@ function handleActionClicks() {
                 clearInterval(typeWriter);
             } 
             switch (true) {
+                case (actions[i].hasOwnProperty("item") && actions[i].hasOwnProperty("nextScene")):
+                    inventory.push(actions[i].item);
+                    storyId = actions[i].nextScene;
+                    finishedTyping = false;
+                    loadScene(roomId, storyId);
+                break;
+                case (actions[i].hasOwnProperty("weapon") && actions[i].hasOwnProperty("nextScene")):
+                    player.handleWeapon(actions[i].weapon.health, actions[i].weapon.attack, actions[i].weapon.defense);
+                    storyId = actions[i].nextScene;
+                    finishedTyping = false;
+                    loadScene(roomId, storyId);
+                break;
                 case (actions[i].hasOwnProperty("nextScene") && !actions[i].hasOwnProperty("attackEnemy")):
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
@@ -136,6 +176,7 @@ function handleActionClicks() {
                         storyId = actions[i].nextSceneAfterKill;
                         finishedTyping = false;
                         loadScene(roomId, storyId);
+                        fadeImage();
                     }
                     else {
                         storyId = actions[i].nextScene;
@@ -171,30 +212,6 @@ function handleActionClicks() {
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
                     loadScene(roomId, storyId);
-            }
-            if (currentStory.hasOwnProperty("enemy")) {
-                currentStory.enemy.showImage();
-                currentStory.enemy.showName();
-                player.takeDamage(currentStory.enemy.attack);
-                displayDamage();
-                player.checkIsDead();
-                if (player.isDead) {
-                    displayGameOver();
-                }
-            }
-            if (currentStory.hasOwnProperty("item")) {
-                inventory.push(currentStory.item);
-            }
-            if (currentStory.hasOwnProperty("requiredItem")) {
-                if (!inventory.contains(currentStory.requiredItem)) {
-                    displayGameOver();
-                }
-            }
-            if (actions[i].hasOwnProperty("weapon")) {
-                player.handleWeapon(actions[i].weapon.health, actions[i].weapon.attack, actions[i].weapon.defense)
-            }
-            if (currentStory.hasOwnProperty("fadeImage")) {
-                fadeImage();
             }
         };
         buttons[i].addEventListener("click", onClick[i]);
