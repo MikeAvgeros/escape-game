@@ -37,7 +37,7 @@ const roomImg = {
 
 const rooms = {
     1: new Room("Tutorial", roomImg[1], 1),
-    2: new Room("BioTech", roomImg[2], 2),
+    2: new Room("BioTech HQ", roomImg[2], 2),
     3: new Room("Bus Stop", roomImg[3], 3)
 };
 
@@ -141,7 +141,15 @@ function handleActionClicks() {
                 break;
                 case(actions[i].hasOwnProperty("response")):
                     paragraph.textContent = "";
-                    paragraph.textContent = actions[i].response;
+                    let c = 0;
+                    typeWriter = setInterval(() => {
+                        paragraph.textContent += actions[i].response.charAt(c++);
+                        finishedTyping = false;
+                        if (c > currentStory.text.length) {
+                            finishedTyping = true;
+                            clearInterval(typeWriter);
+                        }
+                    }, 50);
                 break;
                 case (actions[i].hasOwnProperty("nextRoom")):
                     roomId = actions[i].nextRoom;

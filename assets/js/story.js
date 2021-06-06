@@ -188,7 +188,7 @@ export function getStory(player) {
             },
             {
                 id: 9,
-                text: "You attacked the man but he is still standing and attacked you again. What do you do?",
+                text: "You attack the man but he is still standing and he attacks you again.",
                 enemy: enemies.thief,
                 actions: [
                     {
@@ -205,7 +205,10 @@ export function getStory(player) {
             },
             {
                 id: 10,
-                text: "You have successfully killed the attacker. The police arrive at the scene and you explained what happened. What do you want to do next?",
+                text: `You have successfully killed the attacker. 
+                The police arrive at the scene and you explained what happened. 
+                It appears he was part of an anti-enhancement organization who wanted to sabotage BioTech.
+                What do you want to do next?`,
                 actions: [
                     {
                         text: "Go home",
@@ -220,7 +223,7 @@ export function getStory(player) {
             {
                 id: 11,
                 text: `Intruders manage to sneak into the building undetected and killed all the guards. 
-                They stormed into the lab and destroyed all the research. It's game over...`,
+                They stormed into the lab and destroyed all the research.`,
                 gameOver: true
             },
             {
