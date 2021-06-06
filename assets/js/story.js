@@ -59,8 +59,8 @@ export function getStory(player) {
             {
                 id: 1,
                 text: `The year is 2054 and gene-editing has allowed humans to evolve beyond the physical limitations of their bodies.
-                BioTech, a large corporation owned by the central government, controls 90% of all gene-editing operations in the entire world.
-                The headquarters of BioTech are in Cyber City, the money and technology capital of the world.
+                BioTech, a large corporation owned by the government, controls 90% of all bio-hacking operations in the entire world.
+                The headquarters of BioTech are in Cyber City, the financial capital of the world.
                 You are ${player.name}, a security guard at BioTech, born and bred in Cyber City.`,
                 actions: [
                     {
@@ -76,9 +76,10 @@ export function getStory(player) {
             {
                 id: 2,
                 text: `You had a long day at work and it's getting late. 
+                Your colleague looks at you and says
                 "It's best if you leave and go to rest. Tomorrow will be a tough day. 
-                The CEO is visiting HQ and tensions with protesters are rising. 
-                I guess not everyone appreciates what we do here." your colleague says with a worrying tone`,
+                The CEO is visiting HQ and tensions with the protesters are rising. 
+                I guess not everyone appreciates what we do here."`,
                 actions: [
                     {
                         text: "Go home",
@@ -92,15 +93,48 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: "Another hour passes at work and you hear in the news about the protests against bio-enhanced humans. Suddenly, the lights go off.",
+                text: `Another hour passes at work. Everything seems quiet. 
+                You watch the news and hear about the protests against bio-enhanced humans. 
+                All of a sudden, the lights in the building go off.`,
                 actions: [
                     {
                         text: "Go check",
-                        nextRoom: 3
+                        nextScene: 4
                     },
                     {
-                        text: "Ask your colleague to check",
-                        nextScene: 3
+                        text: "Do nothing",
+                        nextScene: 6
+                    }
+                ]
+            },
+            {
+                id: 4,
+                text: `You go to the basement to check the power generator. 
+                It appears that someone has cut the cables and destroyed the backup generator.
+                You then hear a noise from the adjacent room.`,
+                actions: [
+                    {
+                        text: "Go check",
+                        nextScene: 5
+                    },
+                    {
+                        text: "Return to your post",
+                        nextScene: 6
+                    }
+                ]
+            },
+            {
+                id: 5,
+                text: `As you are inspecting the room, a man with a face mask jumps at you and throws to you the ground. "Give me your keycard to the lab" he says.`,
+                enemy: enemies.thief,
+                actions: [
+                    {
+                        text: "Attack him",
+                        nextScene: 5
+                    },
+                    {
+                        text: "Do what he says",
+                        nextScene: 6
                     }
                 ]
             }
@@ -137,7 +171,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: "The man warns you to turn back. He tells you there is danger ahead. Someone who knows where you work, wants to steal your keycard.",
+                text: "The man warns you to turn back. He tells you there is danger ahead. Someone who knows where you work, wants to steal your keycard to the lab.",
                 actions: [
                     {
                         text: "Ignore him",
@@ -151,7 +185,7 @@ export function getStory(player) {
             },
             {
                 id: 4,
-                text: `A shadowy figure jumps at you and throws you to the ground. "Give me your wallet and keycard", he says.`,
+                text: `A shadowy figure jumps at you and throws you to the ground. "Give me your work keycard", he says.`,
                 enemy: enemies.thief,
                 actions: [
                     {

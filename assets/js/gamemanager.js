@@ -22,7 +22,7 @@ let storyId;
 let currentRoom;
 let currentStory;
 let actions;
-let finishedTyping;
+let finishedTyping = false;
 let typeWriter;
 let onClick = [];
 let inventory = [];
@@ -57,6 +57,9 @@ function calculateHealthWidth() {
 
 function loadScene() {
     paragraph.textContent = "";
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].innerText = "";
+    }
     fadeButtons();
     currentRoom = rooms[roomId];
     currentRoom.showName();
@@ -72,8 +75,16 @@ function loadScene() {
         }
     }, 50);
     actions = currentStory.actions;
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].innerText = actions[i].text;
+    displayActions();
+}
+
+function displayActions() {
+    if(!finishedTyping) {
+       setTimeout(displayActions, 100); 
+    } else {
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].innerText = actions[i].text;
+        }
     }
 }
 
@@ -87,6 +98,7 @@ function handleActionClicks() {
             switch (true) {
                 case (actions[i].hasOwnProperty("nextScene") && !actions[i].hasOwnProperty("attackEnemy")):
                     storyId = actions[i].nextScene;
+                    finishedTyping = false;
                     loadScene(roomId, storyId);
                 break;
                 case (actions[i].hasOwnProperty("attackEnemy") && actions[i].hasOwnProperty("nextScene")):
@@ -94,25 +106,30 @@ function handleActionClicks() {
                     actions[i].attackEnemy.checkIsDead();
                     if (actions[i].attackEnemy.isDead) {
                         storyId = actions[i].storyNodeAfterKill;
+                        finishedTyping = false;
                         loadScene(roomId, storyId);
                     }
                     else {
                         storyId = actions[i].nextScene;
+                        finishedTyping = false;
                         loadScene(roomId, storyId);
                     }
                 break;
                 case (actions[i].hasOwnProperty("nextRoom")):
                     roomId = actions[i].nextRoom;
+                    finishedTyping = false;
                     changeRoom();
                 break;
                 case (actions[i].hasOwnProperty("reload")):
                     fadeButtons();
+                    finishedTyping = false;
                     setTimeout(() => {
                         location.reload();
                     }, 50); 
                 break;
                 default:
                     storyId = actions[i].nextScene;
+                    finishedTyping = false;
                     loadScene(roomId, storyId);
             }
             if (currentStory.hasOwnProperty("enemy")) {
@@ -264,8 +281,7 @@ inventoryInfo.addEventListener("click", () => {
     }
     if (inventory.length > 0) {
         list.innerHTML = listItems;
-    }
-    else {
+    } else {
         list.innerHTML = 
         `
         <p>There are no items in your list</p>
