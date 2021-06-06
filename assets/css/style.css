@@ -248,6 +248,11 @@ body {
     background-color: var(--red);
 }
 
+#contact:active, #footer a:active {
+    -webkit-animation: wiggle .25s;
+            animation: wiggle .25s;
+}
+
 #modal {
     position: absolute;
     top: 50%;
@@ -399,6 +404,14 @@ body {
     background-color: var(--red);
 }
 
+#start-game:active,
+#restart:active,
+#contact-btn:active,
+#btns .action-button:active {
+    -webkit-animation: wiggle .25s;
+            animation: wiggle .25s;
+}
+
 #modal.close {
     -webkit-animation: closeModal 0.25s forwards ease-in-out;
             animation: closeModal 0.25s forwards ease-in-out;
@@ -427,6 +440,22 @@ body {
 @keyframes openModal {
     0% {transform: translate(-50%, -50%) scale(0);}
     100% {transform: translate(-50%, -50%) scale(1);}
+}
+
+@-webkit-keyframes wiggle {
+    0% {transform: scale(1);}
+    25% {transform: scale(.9);}
+    50% {transform: scale(.8);}
+    75% {transform: scale(.9);}
+    100% {transform: scale(1);}
+}
+  
+@keyframes wiggle {
+    0% {transform: scale(1);}
+    25% {transform: scale(.9);}
+    50% {transform: scale(.8);}
+    75% {transform: scale(.9);}
+    100% {transform: scale(1);}
 }
 
 #overlay {
@@ -484,10 +513,6 @@ body {
         "btns   btns"
         "footer footer";
     } 
-
-    /* #game-title {
-        display: none;
-    } */
 
     #room-name h2 {
         font-size: 1.5rem;
