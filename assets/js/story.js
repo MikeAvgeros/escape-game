@@ -335,7 +335,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Walk home",
-                        nextRoom: 2
+                        response: "I should probably thank the old man."
                     },
                     {
                         text: "Thank the old man",
@@ -349,11 +349,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Chase the thief",
-                        nextRoom: 3
+                        nextRoom: 5
                     },
                     {
-                        text: "Walk home",
-                        nextRoom: 2
+                        text: "Find the old man",
+                        nextScene: 11
                     }
                 ]
             },
@@ -386,7 +386,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Run away",
-                        nextRoom: 2
+                        nextScene: 12
                     }
                 ]
             },
@@ -396,14 +396,54 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Walk home",
-                        nextRoom: 2
+                        response: "I should probably find the old man. He knew something about my attacker."
                     },
                     {
-                        text: "Run away",
-                        nextRoom: 2
+                        text: "Find the old man",
+                        nextScene: 11
+                    }
+                ]
+            },
+            {
+                id: 11,
+                text: `You managed to find the old man. 
+                You ask him for answers and he gives you ${items.card.name}. 
+                He tells you that your company is in danger and you can find answers in this place.`,
+                item: items.card,
+                actions: [
+                    {
+                        text: "Ignore it and walk home",
+                        response: "If he is right, I shouldn't ignore it. It could jeopardice our operation."
+                    },
+                    {
+                        text: "Go to that address",
+                        nextRoom: 4
+                    }
+                ]
+            },
+            {
+                id: 12,
+                text: `You managed to escape the attacker. As you walk, the old man appears in front of you again.
+                You ask him for answers and he gives you ${items.card.name}. 
+                He tells you that your company is in danger and you can find answers in this place.`,
+                item: items.card,
+                actions: [
+                    {
+                        text: "Ignore it and walk home",
+                        response: "If he is right, I shouldn't ignore it. It could jeopardice our operation."
+                    },
+                    {
+                        text: "Go to that address",
+                        nextRoom: 4
                     }
                 ]
             }
+        ],
+        4: [
+
+        ],
+        5: [
+
         ]
     };
 }
