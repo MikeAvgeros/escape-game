@@ -8,8 +8,8 @@ const itemImg = {
 }
 
 const items = {
-    vest: new Item("bullet-proof vest", itemImg.vest),
-    card: new Item("strange card with an address on it", itemImg.card),
+    vest: new Item("bulletproof vest", itemImg.vest),
+    card: new Item("membership card with an address on it", itemImg.card),
 };
 
 const enemyImg = {
@@ -60,8 +60,8 @@ export function getStory(player) {
         2: [
             {
                 id: 1,
-                text: `The year is 2054 and gene-editing has allowed humans to evolve beyond the physical limitations of their bodies.
-                BioTech, a large corporation owned by the government, controls 90% of all bio-hacking operations.
+                text: `The year is 2054 and bio hacking has allowed humans to evolve beyond the physical limitations of their bodies.
+                BioTech, a large corporation owned by the government, controls 90% of all gene editing operations.
                 The headquarters are in Cyber City, the financial capital of the world.
                 You are a security guard at BioTech HQ, born and bred in Cyber City.`,
                 actions: [
@@ -111,7 +111,7 @@ export function getStory(player) {
             },
             {
                 id: 13,
-                text: `Your colleague says "Hey ${player.name}, you should wear a vest in case anything goes wrong.
+                text: `Your colleague says "Hey ${player.name}, you should wear a ${items.vest.name} in case anything goes wrong.
                 It will protect you."`,
                 actions: [
                     {

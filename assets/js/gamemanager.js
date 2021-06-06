@@ -82,17 +82,19 @@ function loadScene() {
         }
     }, 50);
     actions = currentStory.actions;
-    if (currentStory.hasOwnProperty("requiredItemScene")) {
-        if (!inventory.includes(currentStory.requiredItem)) {
+    switch (true) {
+        case (currentStory.hasOwnProperty("requiredItemScene")):
+            if (!inventory.includes(currentStory.requiredItem)) {
+                displayGameOver();
+            } else {
+                displayNextScene();
+            }
+        break;
+        case (currentStory.hasOwnProperty("gameOver")):
             displayGameOver();
-        } else {
-            displayNextScene();
-        }
-    }
-    if (currentStory.hasOwnProperty("gameOver")) {
-        displayGameOver();
-    } else {
-        displayActions();
+        break;
+        default:
+            displayActions();
     }
     if (currentStory.hasOwnProperty("enemy")) {
         currentStory.enemy.showImage();
@@ -152,24 +154,19 @@ function handleActionClicks() {
                 clearInterval(typeWriter);
             } 
             switch (true) {
-                case (actions[i].hasOwnProperty("item") && actions[i].hasOwnProperty("nextScene")):
+                case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("item")):
                     inventory.push(actions[i].item);
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
                     loadScene(roomId, storyId);
                 break;
-                case (actions[i].hasOwnProperty("weapon") && actions[i].hasOwnProperty("nextScene")):
+                case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("weapon")):
                     player.handleWeapon(actions[i].weapon.health, actions[i].weapon.attack, actions[i].weapon.defense);
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
                     loadScene(roomId, storyId);
                 break;
-                case (actions[i].hasOwnProperty("nextScene") && !actions[i].hasOwnProperty("attackEnemy")):
-                    storyId = actions[i].nextScene;
-                    finishedTyping = false;
-                    loadScene(roomId, storyId);
-                break;
-                case (actions[i].hasOwnProperty("attackEnemy") && actions[i].hasOwnProperty("nextScene")):
+                case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("attackEnemy")):
                     actions[i].attackEnemy.takeDamage(player.attack);
                     actions[i].attackEnemy.checkIsDead();
                     if (actions[i].attackEnemy.isDead) {
@@ -183,6 +180,11 @@ function handleActionClicks() {
                         finishedTyping = false;
                         loadScene(roomId, storyId);
                     }
+                break;
+                case (actions[i].hasOwnProperty("nextScene")):
+                    storyId = actions[i].nextScene;
+                    finishedTyping = false;
+                    loadScene(roomId, storyId);
                 break;
                 case(actions[i].hasOwnProperty("response")):
                     paragraph.textContent = "";
