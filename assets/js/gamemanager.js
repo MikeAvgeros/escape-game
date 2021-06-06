@@ -30,13 +30,15 @@ let healthBarWidth;
 let story;
 
 const roomImg = {
-    1: "./assets/img/2.jpg",
-    2: "./assets/img/1.jpg"
+    1: "./assets/img/tutorial.jpg",
+    2: "./assets/img/biotech.jpg",
+    3: "./assets/img/busstop.jpg",
 };
 
 const rooms = {
     1: new Room("Tutorial", roomImg[1], 1),
-    2: new Room("BioTech", roomImg[2], 2)
+    2: new Room("BioTech", roomImg[2], 2),
+    3: new Room("Bus Stop", roomImg[3], 3)
 };
 
 window.onload = checkIfNotFirstTime;
@@ -59,6 +61,7 @@ function loadScene() {
     paragraph.textContent = "";
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].innerText = "";
+        buttons[i].style.pointerEvents = "none";
     }
     fadeButtons();
     currentRoom = rooms[roomId];
@@ -84,8 +87,17 @@ function displayActions() {
     } else {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].innerText = actions[i].text;
+            buttons[i].style.pointerEvents = "auto";
         }
     }
+}
+
+function displayDamage() {
+    if(!finishedTyping) {
+        setTimeout(displayDamage, 100); 
+     } else {
+        calculateHealthWidth();
+     }
 }
 
 function handleActionClicks() {
@@ -105,7 +117,7 @@ function handleActionClicks() {
                     actions[i].attackEnemy.takeDamage(player.attack);
                     actions[i].attackEnemy.checkIsDead();
                     if (actions[i].attackEnemy.isDead) {
-                        storyId = actions[i].storyNodeAfterKill;
+                        storyId = actions[i].nextSceneAfterKill;
                         finishedTyping = false;
                         loadScene(roomId, storyId);
                     }
@@ -136,7 +148,7 @@ function handleActionClicks() {
                 currentStory.enemy.showImage();
                 currentStory.enemy.showName();
                 player.takeDamage(currentStory.enemy.attack);
-                calculateHealthWidth();
+                displayDamage();
                 player.checkIsDead();
                 if (player.isDead) {
                     gameOver();

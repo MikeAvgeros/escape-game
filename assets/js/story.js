@@ -59,9 +59,9 @@ export function getStory(player) {
             {
                 id: 1,
                 text: `The year is 2054 and gene-editing has allowed humans to evolve beyond the physical limitations of their bodies.
-                BioTech, a large corporation owned by the government, controls 90% of all bio-hacking operations in the entire world.
-                The headquarters of BioTech are in Cyber City, the financial capital of the world.
-                You are ${player.name}, a security guard at BioTech, born and bred in Cyber City.`,
+                BioTech, a large corporation owned by the government, controls 90% of all bio-hacking operations.
+                The headquarters are in Cyber City, the financial capital of the world.
+                You are a security guard at BioTech HQ, born and bred in Cyber City.`,
                 actions: [
                     {
                         text: "Continue story",
@@ -77,7 +77,7 @@ export function getStory(player) {
                 id: 2,
                 text: `You had a long day at work and it's getting late. 
                 Your colleague looks at you and says
-                "It's best if you leave and go to rest. Tomorrow will be a tough day. 
+                "Hey ${player.name}, it's best if you leave and go to rest. Tomorrow will be a tough day. 
                 The CEO is visiting HQ and tensions with the protesters are rising. 
                 I guess not everyone appreciates what we do here."`,
                 actions: [
@@ -93,9 +93,9 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `Another hour passes at work. Everything seems quiet. 
+                text: `Another hour passes at work. Everything seems normal. 
                 You watch the news and hear about the protests against bio-enhanced humans. 
-                All of a sudden, the lights in the building go off.`,
+                All of a sudden, all the lights in the building go off. The phones are unresponsive.`,
                 actions: [
                     {
                         text: "Go check",
@@ -109,8 +109,8 @@ export function getStory(player) {
             },
             {
                 id: 4,
-                text: `You go to the basement to check the power generator. 
-                It appears that someone has cut the cables and destroyed the backup generator.
+                text: `You go to the basement to check what's going on. 
+                It appears that someone has tempered with the system and destroyed the backup generator.
                 You then hear a noise from the adjacent room.`,
                 actions: [
                     {
@@ -119,22 +119,86 @@ export function getStory(player) {
                     },
                     {
                         text: "Return to your post",
-                        nextScene: 6
+                        nextScene: 7
                     }
                 ]
             },
             {
                 id: 5,
-                text: `As you are inspecting the room, a man with a face mask jumps at you and throws to you the ground. "Give me your keycard to the lab" he says.`,
+                text: `As you are inspecting the room, a man jumps at you and throws to you the ground. 
+                "Give me the keycard to the lab" he shouts.`,
                 enemy: enemies.thief,
                 actions: [
                     {
                         text: "Attack him",
-                        nextScene: 5
+                        attackEnemy: enemies.thief,
+                        nextScene: 9,
+                        nextSceneAfterKill: 10
                     },
                     {
                         text: "Do what he says",
                         nextScene: 6
+                    }
+                ]
+            },
+            {
+                id: 6,
+                text: `"Please spare my life. I have a family." you say and give him what he wants. 
+                He then proceeds to tie you with handcuffs to the door as he storms towards the lab.`,
+                actions: [
+                    {
+                        text: "Call for help",
+                        nextScene: 9
+                    },
+                    {
+                        text: "Stay silent",
+                        nextScene: 9
+                    }
+                ]
+            },
+            {
+                id: 7,
+                text: `You return to your post. Your colleague says "What is going on? Shall we call for backup?"`,
+                actions: [
+                    {
+                        text: "We have an intruder",
+                        nextScene: 9
+                    },
+                    {
+                        text: "Everything is fine",
+                        nextScene: 9
+                    }
+                ]
+            },
+            {
+                id: 9,
+                text: "You attacked the man but he is still standing and attacked you again. What do you do?",
+                enemy: enemies.thief,
+                actions: [
+                    {
+                        text: "Attack again",
+                        attackEnemy: enemies.thief,
+                        nextScene: 9,
+                        nextSceneAfterKill: 10
+                    },
+                    {
+                        text: "Run away",
+                        nextRoom: 2
+                    }
+                ]
+            },
+            {
+                id: 10,
+                text: "You have successfully killed the attacker. The police arrive at the scene and you explained what happened. What do you want to do next?",
+                actions: [
+                    {
+                        text: "Go home",
+                        nextRoom: 2
+                    },
+                    {
+                        text: "Stay at work",
+                        response: "It's probably a good idea to go home.",
+                        nextRoom: 2
                     }
                 ]
             }
@@ -196,7 +260,7 @@ export function getStory(player) {
                         text: "Attack him",
                         attackEnemy: enemies.thief,
                         nextScene: 9,
-                        storyNodeAfterKill: 10
+                        nextSceneAfterKill: 10
                     }
                 ]
             },
@@ -266,7 +330,7 @@ export function getStory(player) {
                         text: "Attack again",
                         attackEnemy: enemies.thief,
                         nextScene: 9,
-                        storyNodeAfterKill: 10
+                        nextSceneAfterKill: 10
                     },
                     {
                         text: "Run away",
