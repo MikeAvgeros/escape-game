@@ -224,7 +224,15 @@ export function getStory(player) {
                 id: 11,
                 text: `Intruders manage to sneak into the building undetected and killed all the guards. 
                 They stormed into the lab and destroyed all the research.`,
-                gameOver: true
+                gameOver: true,
+                actions: [
+                    {
+                        text: ""
+                    },
+                    {
+                        text:""
+                    }
+                ]
             },
             {
                 id: 12,
@@ -244,7 +252,8 @@ export function getStory(player) {
         3: [
             {
                 id: 1,
-                text: `You step off the bus on your way home. At the bus stop, an old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
+                text: `You step off the bus on your way home. 
+                At the bus stop, an old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -258,7 +267,9 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: "The old man walks away. As you carry on walking, you see a shift in the shadows to your right. You feel something is not right.",
+                text: `The old man walks away. 
+                As you carry on walking, you see a shift in the shadows to your right. 
+                You feel something is not right.`,
                 actions: [
                     {
                         text: "Start running",
@@ -273,7 +284,9 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: "The man warns you to turn back. He tells you there is danger ahead. Someone who knows where you work, wants to steal your keycard to the lab.",
+                text: `The man warns you to turn back. 
+                He tells you there is danger ahead. 
+                Someone who knows where you work, wants to steal your keycard to the lab.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -304,7 +317,7 @@ export function getStory(player) {
             },
             {
                 id: 5,
-                text: `As you start to run, a shadowy figure blasts you to the floor with a sonic gun. He comes at you and says "Give me your wallet and keycard"`,
+                text: `As you start to run, a shadowy figure blasts you to the floor with a pulse gun. He comes at you and shouts "Give me your wallet and keycard"`,
                 actions: [
                     {
                         text: "Do what he says",
@@ -346,12 +359,13 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `The old man takes a liking at you and gives you ${items.card.name}. What do you do?`,
+                text: `The old man takes a liking at you and gives you ${items.card.name}. 
+                He tells you that your company is in danger and you can find answers in this place.`,
                 item: items.card,
                 actions: [
                     {
                         text: "Ignore it and walk home",
-                        nextRoom: 2
+                        response: "If he is right, I shouldn't ignore it. It could jeopardice our operation."
                     },
                     {
                         text: "Go to that address",
