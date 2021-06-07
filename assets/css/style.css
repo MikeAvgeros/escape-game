@@ -505,9 +505,10 @@ body {
 @media (max-width: 810px) {
     #game-wrapper {
         max-width: 60%;
-        grid-template-rows: 7.5% 45% 25% 12.5% 10%;
+        grid-template-rows: 2.5% 7.5% 42.5% 25% 12.5% 10%;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
+        ".....  ....."
         "rname  stats"
         "image  image"
         "text   text"
@@ -561,6 +562,10 @@ body {
     #game-wrapper {
         max-width: 95%;
     }
+
+    #modal {
+        max-width: 90%;
+    }
 }
 
 @media (max-width: 445px) {
@@ -578,6 +583,14 @@ body {
 }
 
 @media (max-width: 375px) {
+    #modal {
+        max-width: 95%;
+    }
+
+    #player-name {
+        width: 75%;
+    }
+
     #room-name h2 {
         font-size: 1rem;
     }
