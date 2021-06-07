@@ -85,7 +85,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `You decide to stay at work. Another hour passes at work. Everything seems normal. You watch the news and hear about the protests against bio-enhanced humans. All of a sudden, all the lights in the building go off. The phones are unresponsive.`,
+                text: `You decide to stay at work. Another hour passes. Everything seems normal. You watch the news and hear about the protests against bio-enhanced humans. All of a sudden, all the lights in the building go off. The phones are unresponsive.`,
                 actions: [
                     {
                         text: "Go check",
@@ -128,7 +128,7 @@ export function getStory(player) {
             },
             {
                 id: 5,
-                text: `As you are inspecting the room, a man shoots 2 bullets at you.
+                text: `As you are inspecting the room, an unidentified person fires 2 bullets at you.
                 `,
                 requiredItem: items.vest,
                 requiredItemScene: 14,
@@ -143,7 +143,7 @@ export function getStory(player) {
             },
             {
                 id: 14,
-                text: `The bullets luckily hit your vest and throw you to the ground. The intruder puches you and shouts "Give me the keycard to the lab."`,
+                text: `The bullets luckily hit your vest and only throw you to the ground. The intruder appears and attacks you. He shouts "Give me the keycard to the lab or else I'll kill you."`,
                 enemy: enemies.intruder,
                 actions: [
                     {
