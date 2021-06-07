@@ -113,6 +113,7 @@ function displayActions() {
     if(!finishedTyping) {
        setTimeout(displayActions, 100); 
     } else {
+        fadeButtons();
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].innerText = actions[i].text;
             buttons[i].style.pointerEvents = "auto";

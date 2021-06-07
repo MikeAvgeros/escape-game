@@ -13,11 +13,13 @@ const items = {
 };
 
 const enemyImg = {
-    thief: "./assets/img/2.jpg"
+    intruder: "./assets/img/intruder.jpg",
+    thief: "./assets/img/thief.jpg"
 }
 
 const enemies = {
-    thief: new Character("Thief", 80, 40, 20, enemyImg.thief)
+    intruder: new Character("Intruder", 50, 40, 20, enemyImg.intruder),
+    thief: new Character("Thief", 50, 40, 20, enemyImg.thief)
 };
 
 export function getStory(player) {
@@ -25,10 +27,7 @@ export function getStory(player) {
         1: [
             {
                 id: 1,
-                text: `Welcome ${player.name}! To play the game, you need to choose an action from the 2 buttons below. 
-                Each choice will lead to a different outcome in the story.
-                Be careful as some choices may lead to your untimely death. 
-                Are you ready to play or would you like to learn more?`,
+                text: `Welcome ${player.name}! To play the game, you need to choose an action from the 2 buttons below. Each choice will lead to a different outcome in the story. Be careful as some choices may lead to your untimely death. Are you ready to play or would you like to learn more?`,
                 actions: [
                     {
                         text: "Play",
@@ -42,9 +41,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `You can view your stats by clicking on the info icon above the image. 
-                A live display of your health points is displayed on the bar next to the info icon. 
-                You can open your item list to view any items you have collected by clicking on the bag icon.`,
+                text: `You can view your stats by clicking on the info icon above the image. A live display of your health points is displayed on the bar next to the info icon. You can open your item list to view any items you have collected by clicking on the bag icon.`,
                 actions: [
                     {
                         text: "Play",
@@ -60,10 +57,7 @@ export function getStory(player) {
         2: [
             {
                 id: 1,
-                text: `The year is 2054 and bio hacking has allowed humans to evolve beyond the physical limitations of their bodies.
-                BioTech, a large corporation owned by the government, controls 90% of all gene editing operations.
-                The headquarters are in Cyber City, the financial capital of the world.
-                You are a security guard at BioTech HQ, born and bred in Cyber City.`,
+                text: `The year is 2054 and bio hacking has allowed humans to evolve beyond the physical limitations of their bodies. BioTech, a large corporation owned by the government, controls 90% of all gene editing operations. The headquarters are in Cyber City, the financial capital of the world. You are a security guard at BioTech HQ, born and bred in Cyber City.`,
                 actions: [
                     {
                         text: "Continue story",
@@ -77,11 +71,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `You had a long day at work and it's getting late. 
-                Your colleague looks at you and says
-                "Hey ${player.name}, you look tired, you should go home. Tomorrow will be a tough day. 
-                The CEO is visiting HQ and tensions with the protesters are rising. 
-                I guess not everyone appreciates what we do here."`,
+                text: `You had a long day at work and it's getting late. Your colleague looks at you and says "Hey ${player.name}, you look tired, you should go home. Tomorrow will be a tough day. The CEO is visiting HQ and tensions with the protesters are rising. I guess not everyone appreciates what we do here."`,
                 actions: [
                     {
                         text: "Go home",
@@ -95,9 +85,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `You decide to stay at work. Another hour passes at work. Everything seems normal. 
-                You watch the news and hear about the protests against bio-enhanced humans. 
-                All of a sudden, all the lights in the building go off. The phones are unresponsive.`,
+                text: `You decide to stay at work. Another hour passes at work. Everything seems normal. You watch the news and hear about the protests against bio-enhanced humans. All of a sudden, all the lights in the building go off. The phones are unresponsive.`,
                 actions: [
                     {
                         text: "Go check",
@@ -111,8 +99,7 @@ export function getStory(player) {
             },
             {
                 id: 13,
-                text: `Your colleague says "Hey ${player.name}, you should wear a ${items.vest.name} in case anything goes wrong.
-                It will protect you."`,
+                text: `Your colleague says "Hey ${player.name}, you should wear a ${items.vest.name} in case anything goes wrong. It will protect you."`,
                 actions: [
                     {
                         text: "Wear it",
@@ -127,9 +114,7 @@ export function getStory(player) {
             },
             {
                 id: 4,
-                text: `You go to the basement to check what's going on. 
-                It appears that someone has tampered with the system and destroyed the backup generator.
-                You then hear a noise from the adjacent room.`,
+                text: `You go to the basement to check what's going on. It appears that someone has tampered with the system and destroyed the backup generator. You then hear a noise from the adjacent room.`,
                 actions: [
                     {
                         text: "Go check",
@@ -158,13 +143,12 @@ export function getStory(player) {
             },
             {
                 id: 14,
-                text: `The bullets luckily hit your vest and throw you to the ground.
-                The attacker puches you and shouts "Give me the keycard to the lab."`,
-                enemy: enemies.thief,
+                text: `The bullets luckily hit your vest and throw you to the ground. The intruder puches you and shouts "Give me the keycard to the lab."`,
+                enemy: enemies.intruder,
                 actions: [
                     {
                         text: "Attack him",
-                        attackEnemy: enemies.thief,
+                        attackEnemy: enemies.intruder,
                         nextScene: 9,
                         nextSceneAfterKill: 10
                     },
@@ -176,8 +160,7 @@ export function getStory(player) {
             },
             {
                 id: 6,
-                text: `"Please spare my life. I have a family." you say and give him what he wants. 
-                He then proceeds to tie you with handcuffs to the door as he storms towards the lab.`,
+                text: `"Please spare my life. I have a family." you say and give him what he wants. He then proceeds to tie you with handcuffs to the door as he storms towards the lab.`,
                 actions: [
                     {
                         text: "Call for help",
@@ -205,9 +188,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `You immediately call the police and explain the situation. 
-                The police arrives at the scene shortly after and apprehends the suspects. 
-                It appears they were part of an anti-enhancement organization who wanted to sabotage BioTech.`,
+                text: `You immediately call the police and explain the situation. The police arrives at the scene shortly after and apprehends the suspects. It appears they were part of an anti-enhancement organization who wanted to sabotage BioTech.`,
                 actions: [
                     {
                         text: "Go home",
@@ -221,12 +202,12 @@ export function getStory(player) {
             },
             {
                 id: 9,
-                text: "You attack the man but he is still standing and he attacks you again.",
-                enemy: enemies.thief,
+                text: "You attack the intruder but he is still standing and he attacks you again.",
+                enemy: enemies.intruder,
                 actions: [
                     {
                         text: "Attack again",
-                        attackEnemy: enemies.thief,
+                        attackEnemy: enemies.intruder,
                         nextScene: 9,
                         nextSceneAfterKill: 10
                     },
@@ -238,10 +219,7 @@ export function getStory(player) {
             },
             {
                 id: 10,
-                text: `You have successfully killed the attacker. 
-                The police arrive at the scene and you explained what happened. 
-                It appears he was part of an anti-enhancement organization who wanted to sabotage BioTech.
-                What do you want to do next?`,
+                text: `You have successfully apprehended the intruder. The police arrive at the scene and you explained what happened. It appears he was part of an anti-enhancement organization who wanted to sabotage BioTech. What do you want to do next?`,
                 actions: [
                     {
                         text: "Go home",
@@ -255,8 +233,7 @@ export function getStory(player) {
             },
             {
                 id: 11,
-                text: `Intruders manage to sneak into the building undetected and killed all the guards. 
-                They stormed into the lab and destroyed all the research.`,
+                text: `Intruders manage to sneak into the building undetected and killed all the guards. They stormed into the lab and destroyed all the research.`,
                 gameOver: true,
                 actions: [
                     {
@@ -285,8 +262,7 @@ export function getStory(player) {
         3: [
             {
                 id: 1,
-                text: `You step off the bus on your way home. 
-                At the bus stop, an old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
+                text: `You step off the bus on your way home. At the bus stop, an old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -300,9 +276,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `The old man walks away. 
-                As you carry on walking, you see a shift in the shadows to your right. 
-                You feel something is not right.`,
+                text: `The old man walks away. As you carry on walking, you see a shift in the shadows to your right. You feel something is not right.`,
                 actions: [
                     {
                         text: "Start running",
@@ -317,9 +291,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `The man warns you to turn back. 
-                He tells you there is danger ahead. 
-                Someone who knows where you work, wants to steal your keycard to the lab.`,
+                text: `The man warns you to turn back. He tells you there is danger ahead. Someone who knows where you work, wants to steal your keycard to the lab. They plan to attack tonight.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -333,7 +305,7 @@ export function getStory(player) {
             },
             {
                 id: 4,
-                text: `A shadowy figure jumps at you and throws you to the ground. "Give me your work keycard", he says.`,
+                text: `A shadowy figure jumps at you and throws you to the ground. "Give me your wallet and keycard", he shouts.`,
                 enemy: enemies.thief,
                 actions: [
                     {
@@ -392,8 +364,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `The old man takes a liking at you and gives you a ${items.card.name}. 
-                He tells you that your company is in danger and you can find answers in this place.`,
+                text: `The old man takes a liking at you and gives you a ${items.card.name}. He tells you that your BioTech is in danger and you can find answers in this place.`,
                 item: items.card,
                 actions: [
                     {
@@ -408,7 +379,7 @@ export function getStory(player) {
             },
             {
                 id: 9,
-                text: "You attacked the mugger but he is still standing and attacked you back. What do you do?",
+                text: "You attack the thief but he is still standing and he attacks you again. What do you do?",
                 enemy: enemies.thief,
                 actions: [
                     {
@@ -425,7 +396,7 @@ export function getStory(player) {
             },
             {
                 id: 10,
-                text: "You have successfully killed the attacker. What do you want to do next?",
+                text: "You have successfully disabled the thief. The police have arrived and apprehend him. What do you want to do next?",
                 actions: [
                     {
                         text: "Walk home",
@@ -439,9 +410,7 @@ export function getStory(player) {
             },
             {
                 id: 11,
-                text: `You managed to find the old man. 
-                You ask him for answers and he gives you a ${items.card.name}. 
-                He tells you that your company is in danger and you can find answers in this place.`,
+                text: `You managed to find the old man. You ask him for answers and he gives you a ${items.card.name}. He tells you that BioTech is in danger and you can find answers in this place.`,
                 item: items.card,
                 actions: [
                     {
@@ -456,9 +425,7 @@ export function getStory(player) {
             },
             {
                 id: 12,
-                text: `You managed to escape the attacker. As you walk, the old man appears in front of you again.
-                You ask him for answers and he gives you ${items.card.name}. 
-                He tells you that your company is in danger and you can find answers in this place.`,
+                text: `You managed to escape the attacker. As you walk, the old man appears in front of you again. You ask him for answers and he gives you ${items.card.name}. He tells you that your company is in danger and you can find answers in this place.`,
                 item: items.card,
                 actions: [
                     {

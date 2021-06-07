@@ -302,6 +302,7 @@ body {
 }
 
 #modal ol li img {
+    display: none;
     transform: translateX(1vw) translateY(.5vw);
     border-radius: 8px;
 }
