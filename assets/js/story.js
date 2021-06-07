@@ -262,7 +262,7 @@ export function getStory(player) {
         3: [
             {
                 id: 1,
-                text: `You step off the bus on your way home. At the bus stop, an old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
+                text: `You've decided to leave work. You are about to take the bus home. At the bus stop, an old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -276,7 +276,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `The old man walks away. As you carry on walking, you see a shift in the shadows to your right. You feel something is not right.`,
+                text: `Disheartened, the old man walks away. As you carry on walking, you see a shift in the shadows to your right. You feel something is not right.`,
                 actions: [
                     {
                         text: "Start running",
@@ -291,7 +291,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `The man warns you to turn back. He tells you there is danger ahead. Someone who knows where you work, wants to steal your keycard to the lab. They plan to attack tonight.`,
+                text: `The man warns you to turn back. He tells you there is danger ahead. Someone who knows where you work, wants to steal your keycard to the lab. They plan to attack BioTech tonight.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -331,6 +331,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Attack him",
+                        attackEnemy: enemies.thief,
                         nextScene: 9
                     }
                 ]
@@ -443,7 +444,15 @@ export function getStory(player) {
             {
                 id: 13,
                 text: `You take the card and you decide to go to that address to find out what is going on and who wants to attack BioTech.`,
-                nextRoom: 4
+                nextRoom: 4,
+                actions: [
+                    {
+                        text: ""
+                    },
+                    {
+                        text: ""
+                    }
+                ]
             }
         ],
         4: [
