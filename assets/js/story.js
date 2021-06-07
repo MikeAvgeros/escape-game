@@ -413,7 +413,6 @@ export function getStory(player) {
             {
                 id: 11,
                 text: `You managed to find the old man. You ask him for answers and he gives you a ${items.card.name}. He tells you that BioTech is in danger and you can find answers in this place.`,
-                item: items.card,
                 actions: [
                     {
                         text: "Ignore it",
@@ -456,7 +455,74 @@ export function getStory(player) {
             }
         ],
         4: [
-
+            {
+                id: 1,
+                text: `You arrived at the location shown at the card. It's a nightclub for enhanced individuals. What shall you do with the card?`,
+                actions: [
+                    {
+                        text: "Keep it",
+                        nextScene: 2
+                    },
+                    {
+                        text: "Throw it",
+                        nextScene: 2,
+                        removedItem: items.card
+                    }
+                ]
+            },
+            {
+                id: 2,
+                text: `You get to the entrance. The bouncer looks at you and says "I've never seen you again in here. You don't look enhanced. Are you a member?".`,
+                actions: [
+                    {
+                        text: "Yes",
+                        nextScene: 3
+                    },
+                    {
+                        text: "No",
+                        nextScene: 4
+                    }
+                ]
+            },
+            {
+                id: 3,
+                text: `"Ok then, follow me" the bouncer says. He takes you to the back entrance of the nightclub. Another person looks at you suspiciously and asks for the member's card.`,
+                requiredItem: items.card,
+                requiredItemScene: 5,
+                actions: [
+                    {
+                        text: ""
+                    },
+                    {
+                        text:""
+                    }
+                ]
+            },
+            {
+                id: 4,
+                text: `"This is a member's only club. Get out of here" the bouncer says.`,
+                gameOver: true,
+                actions: [
+                    {
+                        text: ""
+                    },
+                    {
+                        text:""
+                    }
+                ]
+            },
+            {
+                id: 5,
+                text: `You enter the nightclub. You notice it is filled with enhanced individuals, a lot of them wanted criminals. At the bar, you see a face that you recognise.`,
+                actions: [
+                    {
+                        text: "Say hi"
+                    },
+                    {
+                        text: "Look for info"
+                    }
+                ]
+            }
         ],
         5: [
 

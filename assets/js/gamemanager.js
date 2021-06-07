@@ -195,6 +195,15 @@ function handleActionClicks() {
                         loadScene(roomId, storyId);
                     }
                 break;
+                case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("removedItem")):
+                    console.log(actions[i].removedItem.name);
+                    inventory = inventory.filter((item) => {
+                        return item.name !== actions[i].removedItem.name;
+                    });
+                    storyId = actions[i].nextScene;
+                    finishedTyping = false;
+                    loadScene(roomId, storyId);
+                break;
                 case (actions[i].hasOwnProperty("nextScene")):
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
