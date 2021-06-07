@@ -99,7 +99,7 @@ export function getStory(player) {
             },
             {
                 id: 13,
-                text: `Your colleague says "Hey ${player.name}, you should wear a ${items.vest.name} in case anything goes wrong. It will protect you."`,
+                text: `Your colleague says "You should wear a ${items.vest.name} in case anything goes wrong. It will protect you."`,
                 actions: [
                     {
                         text: "Wear it",
@@ -323,6 +323,7 @@ export function getStory(player) {
             {
                 id: 5,
                 text: `As you start to run, a shadowy figure blasts you to the floor with a pulse gun. He comes at you and shouts "Give me your wallet and keycard"`,
+                enemy: enemies.thief,
                 actions: [
                     {
                         text: "Do what he says",
@@ -365,15 +366,15 @@ export function getStory(player) {
             {
                 id: 8,
                 text: `The old man takes a liking at you and gives you a ${items.card.name}. He tells you that your BioTech is in danger and you can find answers in this place.`,
-                item: items.card,
                 actions: [
                     {
-                        text: "Ignore it and walk home",
+                        text: "Ignore it",
                         response: "If he is right, I shouldn't ignore it. It could jeopardice our operation."
                     },
                     {
-                        text: "Go to that address",
-                        nextRoom: 4
+                        text: "Take the card",
+                        item: items.card,
+                        nextScene: 13
                     }
                 ]
             },
@@ -414,29 +415,35 @@ export function getStory(player) {
                 item: items.card,
                 actions: [
                     {
-                        text: "Ignore it and walk home",
+                        text: "Ignore it",
                         response: "If he is right, I shouldn't ignore it. It could jeopardice our operation."
                     },
                     {
-                        text: "Go to that address",
-                        nextRoom: 4
+                        text: "Take the card",
+                        item: items.card,
+                        nextScene: 13
                     }
                 ]
             },
             {
                 id: 12,
                 text: `You managed to escape the attacker. As you walk, the old man appears in front of you again. You ask him for answers and he gives you ${items.card.name}. He tells you that your company is in danger and you can find answers in this place.`,
-                item: items.card,
                 actions: [
                     {
-                        text: "Ignore it and walk home",
+                        text: "Ignore it",
                         response: "If he is right, I shouldn't ignore it. It could jeopardice our operation."
                     },
                     {
-                        text: "Go to that address",
-                        nextRoom: 4
+                        text: "Take the card",
+                        item: items.card,
+                        nextScene: 13
                     }
                 ]
+            },
+            {
+                id: 13,
+                text: `You take the card and you decide to go to that address to find out what is going on and who wants to attack BioTech.`,
+                nextRoom: 4
             }
         ],
         4: [

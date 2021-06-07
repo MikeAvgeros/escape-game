@@ -93,6 +93,9 @@ function loadScene() {
         case (currentStory.hasOwnProperty("gameOver")):
             displayGameOver();
         break;
+        case (currentStory.hasOwnProperty("nextRoom")):
+            displayNextRoom();
+        break;
         default:
             displayActions();
     }
@@ -144,6 +147,16 @@ function displayNextScene() {
         storyId = currentStory.requiredItemScene;
         finishedTyping = false;
         loadScene(roomId, storyId);
+    }
+}
+
+function displayNextRoom() {
+    if(!finishedTyping) {
+        setTimeout(displayNextRoom, 100); 
+    } else {
+        roomId = currentStory.nextRoom;
+        finishedTyping = false;
+        changeRoom();
     }
 }
 
