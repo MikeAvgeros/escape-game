@@ -128,10 +128,11 @@ export function getStory(player) {
             },
             {
                 id: 5,
-                text: `As you are inspecting the room, an unidentified person fires 2 bullets at you.
+                text: `As you are inspecting the room, an intruder appears, takes out his gun and fires 2 bullets at you.
                 `,
                 requiredItem: items.vest,
                 requiredItemScene: 14,
+                enemy: enemies.intruder,
                 actions: [
                     {
                         text: ""
@@ -143,7 +144,7 @@ export function getStory(player) {
             },
             {
                 id: 14,
-                text: `The bullets luckily hit your vest and only throw you to the ground. The intruder appears and attacks you. He shouts "Give me the keycard to the lab or else I'll kill you."`,
+                text: `The bullets luckily hit your vest and only throw you to the ground. The intruder leaves the gun and starts punching you. He shouts "Give me the keycard to the lab or else I'll kill you."`,
                 enemy: enemies.intruder,
                 actions: [
                     {

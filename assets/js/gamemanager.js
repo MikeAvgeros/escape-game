@@ -82,6 +82,17 @@ function loadScene() {
         }
     }, 50);
     actions = currentStory.actions;
+    if (currentStory.hasOwnProperty("enemy")) {
+        currentStory.enemy.showImage();
+        currentStory.enemy.showName();
+        fadeImage();
+        player.takeDamage(currentStory.enemy.attack);
+        displayDamage();
+        player.checkIsDead();
+        if (player.isDead) {
+            displayGameOver();
+        }
+    }
     switch (true) {
         case (currentStory.hasOwnProperty("requiredItemScene")):
             if (!inventory.includes(currentStory.requiredItem)) {
@@ -98,17 +109,6 @@ function loadScene() {
         break;
         default:
             displayActions();
-    }
-    if (currentStory.hasOwnProperty("enemy")) {
-        currentStory.enemy.showImage();
-        currentStory.enemy.showName();
-        fadeImage();
-        player.takeDamage(currentStory.enemy.attack);
-        displayDamage();
-        player.checkIsDead();
-        if (player.isDead) {
-            displayGameOver();
-        }
     }
 }
 
