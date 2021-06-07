@@ -196,7 +196,6 @@ function handleActionClicks() {
                     }
                 break;
                 case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("removedItem")):
-                    console.log(actions[i].removedItem.name);
                     inventory = inventory.filter((item) => {
                         return item.name !== actions[i].removedItem.name;
                     });
