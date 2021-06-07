@@ -535,6 +535,10 @@ body {
         border-bottom: none;
     }
 
+    #btns .action-button:hover {
+        background: none;
+    }
+
     #footer {
         justify-content: space-evenly;
     }
