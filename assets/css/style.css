@@ -535,7 +535,7 @@ body {
         border-bottom: none;
     }
 
-    #btns .action-button:hover {
+    #btns .action-button:hover, #btns .action-button:active {
         background: none;
     }
 
