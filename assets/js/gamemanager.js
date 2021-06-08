@@ -86,13 +86,15 @@ function loadScene() {
     if (currentStory.hasOwnProperty("enemy")) {
         currentStory.enemy.showImage();
         currentStory.enemy.showName();
-        fadeImage();
         player.takeDamage(currentStory.enemy.attack);
         displayDamage();
         player.checkIsDead();
         if (player.isDead) {
             displayGameOver();
         }
+    }
+    if (currentStory.hasOwnProperty("fadeImage")) {
+        fadeImage();
     }
     switch (true) {
         case (currentStory.hasOwnProperty("requiredItemScene")):

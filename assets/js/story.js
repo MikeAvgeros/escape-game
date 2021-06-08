@@ -133,6 +133,7 @@ export function getStory(player) {
                 requiredItem: items.vest,
                 requiredItemScene: 14,
                 enemy: enemies.intruder,
+                fadeImage: true,
                 actions: [
                     {
                         text: ""
@@ -308,6 +309,7 @@ export function getStory(player) {
                 id: 4,
                 text: `A shadowy figure jumps at you and throws you to the ground. "Give me your wallet and keycard", he shouts.`,
                 enemy: enemies.thief,
+                fadeImage: true,
                 actions: [
                     {
                         text: "Do what he says",
@@ -325,6 +327,7 @@ export function getStory(player) {
                 id: 5,
                 text: `As you start to run, a shadowy figure blasts you to the floor with a pulse gun. He comes at you and shouts "Give me your wallet and keycard"`,
                 enemy: enemies.thief,
+                fadeImage: true,
                 actions: [
                     {
                         text: "Do what he says",
