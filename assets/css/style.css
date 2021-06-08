@@ -166,6 +166,7 @@ body {
 
 #btns .action-button {
     background: none;
+    opacity: 0;
     border: 2.5px solid var(--yellow);
     cursor: pointer;
     color: var(--cyan);
@@ -179,9 +180,34 @@ body {
             clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
 }
 
-#btns .action-button.fade {
-    -webkit-animation: fade-effect .5s forwards ease-in-out;
-            animation: fade-effect .5s forwards ease-in-out;
+#btns .action-button.fadeout {
+    -webkit-animation: fade-out .25s forwards ease-in-out;
+            animation: fade-out .25s forwards ease-in-out;
+}
+
+@-webkit-keyframes fade-out {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes fade-out {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+#btns .action-button.fadein {
+    -webkit-animation: fade-in .5s forwards ease-in-out;
+            animation: fade-in .5s forwards ease-in-out;
+}
+
+@-webkit-keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 @-webkit-keyframes fade-effect {
@@ -249,8 +275,8 @@ body {
 }
 
 #contact:active, #footer a:active {
-    -webkit-animation: wiggle .25s;
-            animation: wiggle .25s;
+    -webkit-animation: wiggle .5s;
+            animation: wiggle .5s;
 }
 
 #modal {
@@ -407,10 +433,9 @@ body {
 
 #start-game:active,
 #restart:active,
-#contact-btn:active,
-#btns .action-button:active {
-    -webkit-animation: wiggle .25s;
-            animation: wiggle .25s;
+#contact-btn:active {
+    -webkit-animation: wiggle .5s;
+            animation: wiggle .5s;
 }
 
 #modal.close {
@@ -535,7 +560,12 @@ body {
         border-bottom: none;
     }
 
-    #btns .action-button:hover, #btns .action-button:active {
+    #btns .action-button:hover, #btns .action-button:focus,
+    #start-game:hover, #start-game:focus,
+    #restart:hover, #restart:focus,
+    #contact-btn:hover, #contact-btn:focus,
+    #contact:hover, #contact:focus,
+    #footer a:hover, #footer a:focus {
         background: none;
     }
 

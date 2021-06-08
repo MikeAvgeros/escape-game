@@ -64,10 +64,11 @@ function calculateHealthWidth() {
 function loadScene() {
     paragraph.textContent = "";
     for (let i = 0; i < buttons.length; i++) {
-        buttons[i].innerText = "";
-        buttons[i].style.pointerEvents = "none";
+        setTimeout(() => {
+            buttons[i].innerText = "";
+            buttons[i].style.pointerEvents = "none";
+        }, 500);
     }
-    fadeButtons();
     currentRoom = rooms[roomId];
     currentRoom.showName();
     currentRoom.showImage();
@@ -116,7 +117,7 @@ function displayActions() {
     if(!finishedTyping) {
        setTimeout(displayActions, 100); 
     } else {
-        fadeButtons();
+        fadeInButtons();
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].innerText = actions[i].text;
             buttons[i].style.pointerEvents = "auto";
@@ -144,6 +145,7 @@ function displayNextScene() {
     if(!finishedTyping) {
         setTimeout(displayNextScene, 100); 
     } else {
+        fadeOutButtons();
         storyId = currentStory.requiredItemScene;
         finishedTyping = false;
         loadScene(roomId, storyId);
@@ -154,6 +156,7 @@ function displayNextRoom() {
     if(!finishedTyping) {
         setTimeout(displayNextRoom, 100); 
     } else {
+        fadeOutButtons();
         roomId = currentStory.nextRoom;
         finishedTyping = false;
         changeRoom();
@@ -172,12 +175,14 @@ function handleActionClicks() {
                     inventory.push(actions[i].item);
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
+                    fadeOutButtons();
                     loadScene(roomId, storyId);
                 break;
                 case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("weapon")):
                     player.handleWeapon(actions[i].weapon.health, actions[i].weapon.attack, actions[i].weapon.defense);
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
+                    fadeOutButtons();
                     loadScene(roomId, storyId);
                 break;
                 case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("attackEnemy")):
@@ -186,12 +191,14 @@ function handleActionClicks() {
                     if (actions[i].attackEnemy.isDead) {
                         storyId = actions[i].nextSceneAfterKill;
                         finishedTyping = false;
-                        loadScene(roomId, storyId);
+                        fadeOutButtons();
                         fadeImage();
+                        loadScene(roomId, storyId);
                     }
                     else {
                         storyId = actions[i].nextScene;
                         finishedTyping = false;
+                        fadeOutButtons();
                         loadScene(roomId, storyId);
                     }
                 break;
@@ -201,11 +208,13 @@ function handleActionClicks() {
                     });
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
+                    fadeOutButtons();
                     loadScene(roomId, storyId);
                 break;
                 case (actions[i].hasOwnProperty("nextScene")):
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
+                    fadeOutButtons();
                     loadScene(roomId, storyId);
                 break;
                 case(actions[i].hasOwnProperty("response")):
@@ -223,10 +232,10 @@ function handleActionClicks() {
                 case (actions[i].hasOwnProperty("nextRoom")):
                     roomId = actions[i].nextRoom;
                     finishedTyping = false;
+                    fadeOutButtons();
                     changeRoom();
                 break;
                 case (actions[i].hasOwnProperty("reload")):
-                    fadeButtons();
                     finishedTyping = false;
                     setTimeout(() => {
                         location.reload();
@@ -235,6 +244,7 @@ function handleActionClicks() {
                 default:
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
+                    fadeOutButtons();
                     loadScene(roomId, storyId);
             }
         };
@@ -242,15 +252,18 @@ function handleActionClicks() {
     }
 }
 
-function fadeButtons() {
+function fadeOutButtons() {
     for (let i = 0; i < buttons.length; i++) {
-        buttons[i].classList.add("fade");
+        buttons[i].classList.remove("fadein");
+        buttons[i].classList.add("fadeout");
     }
-    setTimeout(() => {
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove("fade");
-        }
-    }, 500);
+}
+
+function fadeInButtons() {
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("fadeout");
+        buttons[i].classList.add("fadein");
+    }
 }
 
 function fadeImage() {
