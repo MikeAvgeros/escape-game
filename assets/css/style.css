@@ -275,8 +275,8 @@ body {
 }
 
 #contact:active, #footer a:active {
-    -webkit-animation: wiggle .5s;
-            animation: wiggle .5s;
+    -webkit-animation: wiggle .25s;
+            animation: wiggle .25s;
 }
 
 #modal {
@@ -434,8 +434,8 @@ body {
 #start-game:active,
 #restart:active,
 #contact-btn:active {
-    -webkit-animation: wiggle .5s;
-            animation: wiggle .5s;
+    -webkit-animation: wiggle .25s;
+            animation: wiggle .25s;
 }
 
 #modal.close {
