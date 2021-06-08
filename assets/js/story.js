@@ -75,7 +75,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go home",
-                        nextRoom: 3
+                        response: "I should probably stay here for another hour. I could use the extra money plus I don't want to leave Stefan by himself. I have a bad feeling."
                     },
                     {
                         text: "Stay at work",
