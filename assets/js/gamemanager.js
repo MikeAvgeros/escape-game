@@ -63,12 +63,12 @@ function calculateHealthWidth() {
 
 function loadScene() {
     paragraph.textContent = "";
-    for (let i = 0; i < buttons.length; i++) {
-        setTimeout(() => {
+    setTimeout(() => {
+        for (let i = 0; i < buttons.length; i++) {
             buttons[i].innerText = "";
             buttons[i].style.pointerEvents = "none";
-        }, 500);
-    }
+        }
+    }, 500);
     currentRoom = rooms[roomId];
     currentRoom.showName();
     currentRoom.showImage();
