@@ -504,7 +504,7 @@ export function getStory(player) {
             },
             {
                 id: 4,
-                text: `"This is a member's only club. Get out of here" the bouncer says.`,
+                text: `"This is a member's only club. You do not belong here." the bouncer says.`,
                 gameOver: true,
                 actions: [
                     {
@@ -517,13 +517,39 @@ export function getStory(player) {
             },
             {
                 id: 5,
-                text: `You enter the nightclub. You notice it is filled with enhanced individuals, a lot of them wanted criminals. At the bar, you see a face that you recognise.`,
+                text: `You enter the nightclub. You notice it is filled with enhanced individuals, a lot of them wanted criminals. At the bar, you see a familiar face. It's your neighbour, Samantha. "She's strange but she may have some info".`,
                 actions: [
                     {
-                        text: "Say hi"
+                        text: "Say hi",
+                        nextScene: 6
                     },
                     {
-                        text: "Look for info"
+                        text: "Look for info",
+                        nextScene: 7
+                    }
+                ]
+            },
+            {
+                id: 6,
+                text: `"I didn't expect to see you at a place like this, ${player.name}" Samantha says.`,
+                actions: [
+                    {
+                        text: "I need info"
+                    },
+                    {
+                        text: "I came for a drink"
+                    }
+                ]
+            },
+            {
+                id: 7,
+                text: `You go around the club and you ask if anyone knows about the anti-enhancement protests and an impeding attack at BioTech. A strange looking guy approaches you and asks "Who are you? What do you know about BioTech?"`,
+                actions: [
+                    {
+                        text: "I work there"
+                    },
+                    {
+                        text: "Who are you?"
                     }
                 ]
             }

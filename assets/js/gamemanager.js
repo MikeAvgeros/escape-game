@@ -373,7 +373,7 @@ inventoryInfo.addEventListener("click", () => {
     let list = document.createElement("ol");
     let listItems = "";
     for (let item of inventory) {
-        listItems += `<li><span>${item.name}</span><span><img loading="lazy" src="${item.img}" width="48" height="36" alt="image of ${item.name}"></span></li>`;
+        listItems += `<li>${item.name}</li>`;
     }
     if (inventory.length > 0) {
         list.innerHTML = listItems;
