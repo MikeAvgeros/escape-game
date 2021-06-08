@@ -419,7 +419,7 @@ body {
     cursor: pointer;
     color: var(--yellow);
     font-size: 2rem;
-    transform: translateX(12.5vw);
+    transform: translateX(12.5vw) translateY(2vh);
 }
 
 #start-game:hover,
@@ -639,5 +639,13 @@ body {
 
     #socials a {
         margin-left: 1rem;
+    }
+
+    #contact-form {
+        width: 135%;
+    }
+
+    #close-btn {
+        transform: translateX(10vw) translateY(2vh);
     }
 }
