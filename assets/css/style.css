@@ -541,7 +541,7 @@ body {
     #game-wrapper {
         height: 110vh;
         max-width: 55%;
-        grid-template-rows: 10vh 7.5vh 45vh 25vh 10.5vh 9.5vh 2.5vh;
+        grid-template-rows: 12vh 7.5vh 45vh 25vh 10.5vh 10vh;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
         ".....  ....."
@@ -549,8 +549,7 @@ body {
         "image  image"
         "text   text"
         "btns   btns"
-        "footer footer"
-        "...... ......";
+        "footer footer";
     } 
 
     #room-name h2 {
