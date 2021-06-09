@@ -524,7 +524,7 @@ body {
 @media (max-width: 810px) {
     #game-wrapper {
         max-width: 60%;
-        grid-template-rows: 2.5% 7.5% 42.5% 25% 12.5% 10%;
+        grid-template-rows: 2.5% 7.5% 45% 25% 10% 10%;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
         ".....  ....."
@@ -552,6 +552,10 @@ body {
         margin-top: 0;
         border-top: none;
         border-bottom: none;
+    }
+
+    #btns .action-button {
+        height: 80%;
     }
 
     #btns .action-button:hover, #btns .action-button:focus,
