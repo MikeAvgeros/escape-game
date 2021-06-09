@@ -48,11 +48,6 @@ class Player extends Character {
         </div>
         `;
     }
-    handleWeapon(health, attack, defense) {
-        this.health += health;
-        this.attack += attack;
-        this.defense += defense;
-    }
     showStats() {
         const modal = document.getElementById("modal");
         const overlay = document.getElementById("overlay");

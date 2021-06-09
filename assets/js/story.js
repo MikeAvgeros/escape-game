@@ -2,15 +2,14 @@
 
 export const player = new Player("", 100, 50, 30);
 
-const itemImg = {
-    vest: "./assets/img/1.jpg",
-    card: "./assets/img/1.jpg"
-}
-
 const items = {
-    vest: new Item("bulletproof vest", itemImg.vest),
-    card: new Item("membership card with an address on it", itemImg.card),
+    vest: new Item("bulletproof vest"),
+    card: new Item("membership card with an address on it"),
 };
+
+const weapons = {
+    spray: new Weapon("bio healing spray", 30, 0, 0)
+}
 
 const enemyImg = {
     intruder: "./assets/img/intruder.jpg",
@@ -215,7 +214,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Run away",
-                        nextRoom: 2
+                        nextScene: 7
                     }
                 ]
             },
@@ -225,7 +224,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go home",
-                        nextRoom: 3
+                        nextScene: 15
                     },
                     {
                         text: "Stay at work",
@@ -257,6 +256,21 @@ export function getStory(player) {
                     {
                         text: "Everything is fine",
                         nextScene: 11
+                    }
+                ]
+            },
+            {
+                id: 15,
+                text: `Before I leave I should probably do something about my wounds. I should add some ${weapons.spray.name}.`,
+                actions: [
+                    {
+                        text: "Add spray",
+                        weapon: weapons.spray,
+                        nextRoom: 3
+                    },
+                    {
+                        text: "Don't add spray",
+                        nextRoom: 3
                     }
                 ]
             }

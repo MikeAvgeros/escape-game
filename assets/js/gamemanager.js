@@ -181,7 +181,8 @@ function handleActionClicks() {
                     loadScene(roomId, storyId);
                 break;
                 case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("weapon")):
-                    player.handleWeapon(actions[i].weapon.health, actions[i].weapon.attack, actions[i].weapon.defense);
+                    actions[i].weapon.updateStats(player);
+                    calculateHealthWidth();
                     storyId = actions[i].nextScene;
                     finishedTyping = false;
                     fadeOutButtons();
@@ -230,6 +231,14 @@ function handleActionClicks() {
                             clearInterval(typeWriter);
                         }
                     }, 50);
+                break;
+                case (actions[i].hasOwnProperty("nextRoom") && actions[i].hasOwnProperty("weapon")):
+                    actions[i].weapon.updateStats(player);
+                    calculateHealthWidth();
+                    roomId = actions[i].nextRoom;
+                    finishedTyping = false;
+                    fadeOutButtons();
+                    changeRoom();
                 break;
                 case (actions[i].hasOwnProperty("nextRoom")):
                     roomId = actions[i].nextRoom;
