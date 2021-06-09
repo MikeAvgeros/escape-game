@@ -33,10 +33,10 @@ body {
     transform: translate(-50%, -50%);
     width: 980px;
     max-width: 95%;
-    height: 100vh;
+    height: auto;
     overflow: hidden;
     display: grid;
-    grid-template-rows: 10% 7.5% 40% 22.5% 5% 10% 5%;
+    grid-template-rows: 7.5vh 7.5vh 40vh 22.5vh 7.5vh 10vh 5vh;
     grid-template-columns: 25% 30% 5% 40%;
     grid-template-areas: 
     "...... ...... ...... ......"
@@ -521,10 +521,25 @@ body {
     100% {opacity: 1;}
 }
 
+@media (max-width: 1024px) {
+    #game-wrapper {
+        grid-template-rows: 10vh 7.5vh 35vh 20vh 7.5vh 10vh 10vh;
+        grid-template-columns: 25% 30% 5% 40%;
+        grid-template-areas: 
+        "...... ...... ...... ......"
+        "rname  stats  ......  ....."
+        "image  image  ......   text"
+        "image  image  ......   btns"
+        ".....  .....  ...... ......"
+        "footer footer footer footer"
+        "...... ...... ...... ......";
+    }
+}
+
 @media (max-width: 840px) {
     #game-wrapper {
         max-width: 55%;
-        grid-template-rows: 2.5% 7.5% 45% 25% 11% 9%;
+        grid-template-rows: 5vh 7.5vh 45vh 25vh 10vh 10vh 2.5vh;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
         ".....  ....."
@@ -532,7 +547,8 @@ body {
         "image  image"
         "text   text"
         "btns   btns"
-        "footer footer";
+        "footer footer"
+        "...... ......";
     } 
 
     #room-name h2 {

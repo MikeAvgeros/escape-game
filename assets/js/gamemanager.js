@@ -137,8 +137,9 @@ function displayDamage() {
 
 function displayGameOver() {
     if(!finishedTyping) {
-        setTimeout(displayGameOver, 100); 
+        setTimeout(displayGameOver, 600); 
     } else {
+        finishedTyping = false;
         gameOver();
     }
 }

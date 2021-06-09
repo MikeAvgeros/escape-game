@@ -74,7 +74,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go home",
-                        response: "I should probably stay here for another hour. I could use the extra money plus I don't want to leave Stefan by himself. I have a bad feeling."
+                        response: `${player.name}: "I should probably stay here for another hour. I could use the extra money plus I don't want to leave Stefan by himself. I have a bad feeling."`
                     },
                     {
                         text: "Stay at work",
@@ -93,21 +93,6 @@ export function getStory(player) {
                     {
                         text: "Do nothing",
                         nextScene: 11
-                    }
-                ]
-            },
-            {
-                id: 13,
-                text: `Your colleague says "You should wear a ${items.vest.name} in case anything goes wrong. It will protect you."`,
-                actions: [
-                    {
-                        text: "Wear it",
-                        item: items.vest,
-                        nextScene: 4
-                    },
-                    {
-                        text: "Leave it",
-                        nextScene: 4
                     }
                 ]
             },
@@ -139,23 +124,6 @@ export function getStory(player) {
                     },
                     {
                         text:""
-                    }
-                ]
-            },
-            {
-                id: 14,
-                text: `The bullets luckily hit your vest and only throw you to the ground. The intruder leaves the gun and starts punching you. He shouts "Give me the keycard to the lab or else I'll kill you."`,
-                enemy: enemies.intruder,
-                actions: [
-                    {
-                        text: "Attack him",
-                        attackEnemy: enemies.intruder,
-                        nextScene: 9,
-                        nextSceneAfterKill: 10
-                    },
-                    {
-                        text: "Do what he says",
-                        nextScene: 6
                     }
                 ]
             },
@@ -197,7 +165,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Stay at work",
-                        response: "It's probably a good idea to go home after everything that happened."
+                        response: `${player.name}: "It's probably a good idea to go home after everything that happened."`
                     }
                 ]
             },
@@ -228,13 +196,13 @@ export function getStory(player) {
                     },
                     {
                         text: "Stay at work",
-                        response: "It's probably a good idea to go home after everything that happened."
+                        response: `${player.name}: "It's probably a good idea to go home after everything that happened."`
                     }
                 ]
             },
             {
                 id: 11,
-                text: `Intruders manage to sneak into the building undetected and killed all the guards. They stormed into the lab and destroyed all the research.`,
+                text: `The intruders manage to sneak into the building undetected and one by one killed all the guards. They stormed into the lab and destroyed all the research. BioTech is finished.`,
                 gameOver: true,
                 actions: [
                     {
@@ -256,6 +224,38 @@ export function getStory(player) {
                     {
                         text: "Everything is fine",
                         nextScene: 11
+                    }
+                ]
+            },
+            {
+                id: 13,
+                text: `Your colleague says "You should wear a ${items.vest.name} in case anything goes wrong. It will protect you."`,
+                actions: [
+                    {
+                        text: "Wear it",
+                        item: items.vest,
+                        nextScene: 4
+                    },
+                    {
+                        text: "Leave it",
+                        nextScene: 4
+                    }
+                ]
+            },
+            {
+                id: 14,
+                text: `The bullets luckily hit your vest and only throw you to the ground. The intruder leaves the gun and starts punching you. He shouts "Give me the keycard to the lab or else I'll kill you."`,
+                enemy: enemies.intruder,
+                actions: [
+                    {
+                        text: "Attack him",
+                        attackEnemy: enemies.intruder,
+                        nextScene: 9,
+                        nextSceneAfterKill: 10
+                    },
+                    {
+                        text: "Do what he says",
+                        nextScene: 6
                     }
                 ]
             },
@@ -360,7 +360,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Walk home",
-                        response: "I should probably thank the old man."
+                        response: `${player.name}: "I should probably thank the old man."`
                     },
                     {
                         text: "Thank the old man",
@@ -388,7 +388,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore it",
-                        response: "If he is right, I shouldn't ignore it. It could jeopardice our operation."
+                        response: `${player.name}: "If he is right, I shouldn't ignore it. It could jeopardice our operation."`
                     },
                     {
                         text: "Take the card",
@@ -420,7 +420,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Walk home",
-                        response: "I should probably find the old man. He knew something about my attacker."
+                        response: `${player.name}: "I should probably find the old man. He knew something about my attacker."`
                     },
                     {
                         text: "Find the old man",
@@ -434,7 +434,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore it",
-                        response: "If he is right, I shouldn't ignore it. It could jeopardice our operation."
+                        response: `${player.name}: "If he is right, I shouldn't ignore it. It could jeopardice our operation."`
                     },
                     {
                         text: "Take the card",
@@ -449,7 +449,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore it",
-                        response: "If he is right, I shouldn't ignore it. It could jeopardice our operation."
+                        response: `${player.name}: "If he is right, I shouldn't ignore it. It could jeopardice our operation."`
                     },
                     {
                         text: "Take the card",
