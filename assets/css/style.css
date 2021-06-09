@@ -413,7 +413,7 @@ body {
     cursor: pointer;
     color: var(--yellow);
     font-size: 2rem;
-    transform: translateX(12.5vw) translateY(2vh);
+    transform: translateX(calc(5rem + 5vw)) translateY(1vh);
 }
 
 #start-game:hover,
@@ -608,6 +608,10 @@ body {
     #btns .action-button {
         font-size: .9rem;
     }
+
+    #close-btn {
+        transform: translateX(10vw) translateY(1vh);
+    }
 }
 
 @media (max-width: 375px) {
@@ -637,9 +641,5 @@ body {
 
     #contact-form {
         width: 135%;
-    }
-
-    #close-btn {
-        transform: translateX(10vw) translateY(2vh);
     }
 }
