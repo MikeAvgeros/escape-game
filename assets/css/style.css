@@ -521,7 +521,7 @@ body {
     100% {opacity: 1;}
 }
 
-@media (max-width: 810px) {
+@media (max-width: 840px) {
     #game-wrapper {
         max-width: 55%;
         grid-template-rows: 2.5% 7.5% 45% 25% 11% 9%;
@@ -584,15 +584,15 @@ body {
     }
 }
 
-@media (max-width: 710px) {
+@media (max-width: 740px) {
     #game-wrapper {
-        max-width: 60%;
+        max-width: 65%;
     }
 }
 
 @media (max-width: 598px) {
     #game-wrapper {
-        max-width: 70%;
+        max-width: 75%;
     }
 
     #close-btn {
@@ -602,7 +602,7 @@ body {
 
 @media (max-width: 545px) {
     #game-wrapper {
-        max-width: 80%;
+        max-width: 85%;
     }
 }
 
