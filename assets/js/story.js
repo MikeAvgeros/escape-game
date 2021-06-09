@@ -74,7 +74,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go home",
-                        response: `${player.name}: "I should probably stay here for another hour. I could use the extra money plus I don't want to leave Stefan by himself. I have a bad feeling."`
+                        response: `${player.name}'s inner voice: "I should probably stay here for another hour. I could use the extra money plus I don't want to leave Stefan by himself. I have a bad feeling."`
                     },
                     {
                         text: "Stay at work",
@@ -165,7 +165,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Stay at work",
-                        response: `${player.name}: "It's probably a good idea to go home after everything that happened."`
+                        response: `${player.name}'s inner voice: "It's probably a good idea to go home after everything that happened."`
                     }
                 ]
             },
@@ -196,7 +196,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Stay at work",
-                        response: `${player.name}: "It's probably a good idea to go home after everything that happened."`
+                        response: `${player.name}'s inner voice: "It's probably a good idea to go home after everything that happened."`
                     }
                 ]
             },
@@ -360,7 +360,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Walk home",
-                        response: `${player.name}: "I should probably thank the old man."`
+                        response: `${player.name}'s inner voice: "I should probably thank the old man."`
                     },
                     {
                         text: "Thank the old man",
@@ -388,7 +388,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore it",
-                        response: `${player.name}: "If he is right, I shouldn't ignore it. It could jeopardice our operation."`
+                        response: `${player.name}'s inner voice: "If he is right, I shouldn't ignore it. It could jeopardice our operation."`
                     },
                     {
                         text: "Take the card",
@@ -420,7 +420,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Walk home",
-                        response: `${player.name}: "I should probably find the old man. He knew something about my attacker."`
+                        response: `${player.name}'s inner voice: "I should probably find the old man. He knew something about my attacker."`
                     },
                     {
                         text: "Find the old man",
@@ -434,7 +434,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore it",
-                        response: `${player.name}: "If he is right, I shouldn't ignore it. It could jeopardice our operation."`
+                        response: `${player.name}'s inner voice: "If he is right, I shouldn't ignore it. It could jeopardice our operation."`
                     },
                     {
                         text: "Take the card",
@@ -449,7 +449,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore it",
-                        response: `${player.name}: "If he is right, I shouldn't ignore it. It could jeopardice our operation."`
+                        response: `${player.name}'s inner voice: "If he is right, I shouldn't ignore it. It could jeopardice our operation."`
                     },
                     {
                         text: "Take the card",

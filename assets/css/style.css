@@ -618,7 +618,7 @@ body {
     }
 
     #close-btn {
-        transform: translateX(10vw) translateY(1vh);
+        transform: translateX(15vw) translateY(1vh);
     }
 }
 
