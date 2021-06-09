@@ -21,6 +21,7 @@
   
 body {
     width: 100%;
+    height: auto;
     display: grid;
     background-color: var(--black);
     font-family: var(--ff-primary);
@@ -33,7 +34,7 @@ body {
     transform: translate(-50%, -50%);
     width: 980px;
     max-width: 95%;
-    height: auto;
+    height: 100vh;
     overflow: hidden;
     display: grid;
     grid-template-rows: 7.5vh 7.5vh 40vh 22.5vh 7.5vh 10vh 5vh;
@@ -538,8 +539,9 @@ body {
 
 @media (max-width: 840px) {
     #game-wrapper {
+        height: 110vh;
         max-width: 55%;
-        grid-template-rows: 5vh 7.5vh 45vh 25vh 10vh 10vh 2.5vh;
+        grid-template-rows: 10vh 7.5vh 45vh 25vh 10.5vh 9.5vh 2.5vh;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
         ".....  ....."
