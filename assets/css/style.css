@@ -523,7 +523,7 @@ body {
 
 @media (max-width: 810px) {
     #game-wrapper {
-        max-width: 60%;
+        max-width: 50%;
         grid-template-rows: 2.5% 7.5% 45% 25% 11% 9%;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
@@ -578,17 +578,21 @@ body {
     #footer {
         justify-content: space-evenly;
     }
+
+    #contact {
+        padding: 1rem;
+    }
 }
 
 @media (max-width: 710px) {
     #game-wrapper {
-        max-width: 70%;
+        max-width: 60%;
     }
 }
 
 @media (max-width: 598px) {
     #game-wrapper {
-        max-width: 80%;
+        max-width: 70%;
     }
 
     #close-btn {
@@ -598,7 +602,7 @@ body {
 
 @media (max-width: 545px) {
     #game-wrapper {
-        max-width: 90%;
+        max-width: 80%;
     }
 }
 
@@ -623,8 +627,12 @@ body {
 }
 
 @media (max-width: 375px) {
-    #modal {
+    #game-wrapper {
         max-width: 100%;
+    }
+
+    #modal {
+        max-width: 95%;
     }
 
     #player-name {
@@ -637,10 +645,6 @@ body {
 
     #room-description p {
         font-size: .85rem;
-    }
-
-    #contact {
-        padding: 1rem;
     }
 
     #socials a {
