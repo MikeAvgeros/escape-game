@@ -302,6 +302,7 @@ body {
     text-align: center;
     padding-top: 2rem;
     padding-bottom: 1rem;
+    font-size: 2rem;
     color: var(--red);
     text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
     letter-spacing: 2px;
@@ -323,7 +324,7 @@ body {
 
 #modal ol li {
     color: var(--cyan);
-    font-size: 1.25rem;
+    font-size: 1rem;
     padding-top: 1rem;
     padding-bottom: 1.5rem;
 }
@@ -556,6 +557,10 @@ body {
         font-size: 1.5rem;
     }
 
+    #modal h1 {
+        font-size: 1.75rem;
+    }
+
     #room-description {
         border-top: none;
     }
@@ -636,6 +641,10 @@ body {
 @media (max-width: 445px) {
     #room-name h2 {
         font-size: 1.25rem;
+    }
+
+    #modal h1 {
+        font-size: 1.5rem;
     }
 
     #btns .action-button {
