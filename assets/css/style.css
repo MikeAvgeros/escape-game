@@ -578,6 +578,10 @@ body {
     #game-wrapper {
         max-width: 80%;
     }
+
+    #close-btn {
+        transform: translateX(10vw) translateY(1vh);
+    }
 }
 
 @media (max-width: 545px) {
@@ -607,10 +611,6 @@ body {
 
     #btns .action-button {
         font-size: .9rem;
-    }
-
-    #close-btn {
-        transform: translateX(10vw) translateY(1vh);
     }
 }
 
