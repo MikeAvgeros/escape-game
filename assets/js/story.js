@@ -4,7 +4,7 @@ export const player = new Player("", 100, 50, 30);
 
 const items = {
     vest: new Item("bulletproof vest"),
-    card: new Item("membership card with an address on it"),
+    card: new Item("membership card"),
 };
 
 const weapons = {
@@ -307,7 +307,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `The man warns you to turn back. He tells you there is danger ahead. Someone who knows where you work, wants to steal your keycard to the lab. They plan to attack BioTech tonight.`,
+                text: `The man warns you to turn back. He tells you there is great danger ahead. Someone who knows where you work, wants to steal your keycard to the lab. They plan to attack BioTech tonight.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -384,7 +384,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `The old man takes a liking at you and gives you a ${items.card.name}. He tells you that your BioTech is in danger and you can find answers in this place.`,
+                text: `The old man takes a liking at you and gives you a ${items.card.name} with an address on it. He tells you that BioTech is in danger and you can find answers in this place.`,
                 actions: [
                     {
                         text: "Ignore it",
