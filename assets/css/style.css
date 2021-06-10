@@ -524,7 +524,7 @@ body {
 
 @media (max-width: 1024px) {
     #game-wrapper {
-        grid-template-rows: 10vh 7.5vh 35vh 20vh 7.5vh 10vh 10vh;
+        grid-template-rows: 10% 7.5% 35% 20% 7.5% 10% 10%;
         grid-template-columns: 25% 30% 5% 40%;
         grid-template-areas: 
         "...... ...... ...... ......"
