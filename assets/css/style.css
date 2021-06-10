@@ -541,7 +541,7 @@ body {
     #game-wrapper {
         max-width: 55%;
         height: 100%;
-        grid-template-rows: 5% 7.5% 40% 27.5% 10% 10%;
+        grid-template-rows: 2% 7.5% 40% 27.5% 11% 10% 2%;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
         ".....  ....."
@@ -549,7 +549,8 @@ body {
         "image  image"
         "text   text"
         "btns   btns"
-        "footer footer";
+        "footer footer"
+        "...... ......";
     } 
 
     #room-name h2 {
@@ -617,7 +618,7 @@ body {
     }
 
     #close-btn {
-        transform: translateX(15vw) translateY(1vh);
+        transform: translateX(17.5vw) translateY(1vh);
     }
 }
 
@@ -678,5 +679,9 @@ body {
 
     #contact-form {
         width: 135%;
+    }
+
+    #close-btn {
+        transform: translateX(15vw) translateY(1vh);
     }
 }
