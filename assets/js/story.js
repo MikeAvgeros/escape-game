@@ -582,10 +582,11 @@ export function getStory(player) {
                         nextScene: 7
                     }
                 ]
+            },
+            {
+                id: 9,
+                text: "His name is Jack. He runs an auto-repair shops for mechs. Be careful though."
             }
-        ],
-        5: [
-
         ]
     };
 }

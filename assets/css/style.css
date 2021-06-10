@@ -323,7 +323,7 @@ body {
 
 #modal ol li {
     color: var(--cyan);
-    font-size: 1rem;
+    font-size: 1.25rem;
     padding-top: 1rem;
     padding-bottom: 1.5rem;
 }
@@ -560,6 +560,10 @@ body {
 
     #modal h1 {
         font-size: 1.75rem;
+    }
+
+    #modal ol li {
+        font-size: 1rem;
     }
 
     #room-description {
