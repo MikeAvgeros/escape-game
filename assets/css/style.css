@@ -524,6 +524,7 @@ body {
 
 @media (max-width: 1024px) {
     #game-wrapper {
+        max-width: 95%;
         grid-template-rows: 10% 7.5% 35% 20% 7.5% 10% 10%;
         grid-template-columns: 25% 30% 5% 40%;
         grid-template-areas: 
