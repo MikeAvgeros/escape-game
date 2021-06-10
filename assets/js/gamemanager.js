@@ -336,7 +336,17 @@ function newGameButton() {
 }
 
 function gameOver() {
-    player.gameOver();
+    const modal = document.getElementById("modal");
+    const overlay = document.getElementById("overlay");
+    modal.classList.add("open");
+    overlay.classList.add("open");
+    modal.innerHTML = `
+    <h1>GAME OVER</h1> 
+    <p>Press New Game to restart</p>
+    <div id="new-game">
+        <button id="restart">New Game</button>
+    </div>
+    `;
     newGameButton();
 }
 
