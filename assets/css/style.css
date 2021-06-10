@@ -540,7 +540,7 @@ body {
 
 @media (max-width: 840px) {
     #game-wrapper {
-        max-width: 55%;
+        max-width: 50%;
         height: 100%;
         grid-template-rows: .5% 7.5% 40% 30% 11.5% 10% .5%;
         grid-template-columns: 40% 60%;
@@ -609,13 +609,13 @@ body {
 
 @media (max-width: 740px) {
     #game-wrapper {
-        max-width: 65%;
+        max-width: 60%;
     }
 }
 
 @media (max-width: 598px) {
     #game-wrapper {
-        max-width: 75%;
+        max-width: 70%;
     }
 
     #close-btn {
@@ -625,13 +625,13 @@ body {
 
 @media (max-width: 545px) {
     #game-wrapper {
-        max-width: 85%;
+        max-width: 80%;
     }
 }
 
 @media (max-width: 475px) {
     #game-wrapper {
-        max-width: 95%;
+        max-width: 90%;
     }
 
     #modal {
