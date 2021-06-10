@@ -99,6 +99,7 @@ function loadScene() {
     switch (true) {
         case (currentStory.hasOwnProperty("requiredItemScene")):
             if (!inventory.includes(currentStory.requiredItem)) {
+                player.health = 0;
                 displayGameOver();
             } else {
                 displayNextScene();
@@ -174,52 +175,55 @@ function handleActionClicks() {
                 clearInterval(typeWriter);
             } 
             switch (true) {
-                case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("item")):
-                    inventory.push(actions[i].item);
-                    storyId = actions[i].nextScene;
-                    finishedTyping = false;
-                    fadeOutButtons();
-                    loadScene(roomId, storyId);
-                break;
-                case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("weapon")):
-                    actions[i].weapon.updateStats(player);
-                    calculateHealthWidth();
-                    storyId = actions[i].nextScene;
-                    finishedTyping = false;
-                    fadeOutButtons();
-                    loadScene(roomId, storyId);
-                break;
-                case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("attackEnemy")):
-                    actions[i].attackEnemy.takeDamage(player.attack);
-                    actions[i].attackEnemy.checkIsDead();
-                    if (actions[i].attackEnemy.isDead) {
-                        storyId = actions[i].nextSceneAfterKill;
-                        finishedTyping = false;
-                        fadeOutButtons();
-                        fadeImage();
-                        loadScene(roomId, storyId);
-                    }
-                    else {
-                        storyId = actions[i].nextScene;
-                        finishedTyping = false;
-                        fadeOutButtons();
-                        loadScene(roomId, storyId);
-                    }
-                break;
-                case (actions[i].hasOwnProperty("nextScene") && actions[i].hasOwnProperty("removedItem")):
-                    inventory = inventory.filter((item) => {
-                        return item.name !== actions[i].removedItem.name;
-                    });
-                    storyId = actions[i].nextScene;
-                    finishedTyping = false;
-                    fadeOutButtons();
-                    loadScene(roomId, storyId);
-                break;
                 case (actions[i].hasOwnProperty("nextScene")):
-                    storyId = actions[i].nextScene;
-                    finishedTyping = false;
-                    fadeOutButtons();
-                    loadScene(roomId, storyId);
+                    switch (true) {
+                        case (actions[i].hasOwnProperty("item")):
+                            inventory.push(actions[i].item);
+                            storyId = actions[i].nextScene;
+                            finishedTyping = false;
+                            fadeOutButtons();
+                            loadScene(roomId, storyId);
+                        break;
+                        case (actions[i].hasOwnProperty("weapon")):
+                            actions[i].weapon.updateStats(player);
+                            calculateHealthWidth();
+                            storyId = actions[i].nextScene;
+                            finishedTyping = false;
+                            fadeOutButtons();
+                            loadScene(roomId, storyId);
+                        break;
+                        case (actions[i].hasOwnProperty("attackEnemy")):
+                            actions[i].attackEnemy.takeDamage(player.attack);
+                            actions[i].attackEnemy.checkIsDead();
+                            if (actions[i].attackEnemy.isDead) {
+                                storyId = actions[i].nextSceneAfterKill;
+                                finishedTyping = false;
+                                fadeOutButtons();
+                                fadeImage();
+                                loadScene(roomId, storyId);
+                            }
+                            else {
+                                storyId = actions[i].nextScene;
+                                finishedTyping = false;
+                                fadeOutButtons();
+                                loadScene(roomId, storyId);
+                            }
+                        break;
+                        case (actions[i].hasOwnProperty("removedItem")):
+                            inventory = inventory.filter((item) => {
+                                return item.name !== actions[i].removedItem.name;
+                            });
+                            storyId = actions[i].nextScene;
+                            finishedTyping = false;
+                            fadeOutButtons();
+                            loadScene(roomId, storyId);
+                        break;
+                        default:
+                            storyId = actions[i].nextScene;
+                            finishedTyping = false;
+                            fadeOutButtons();
+                            loadScene(roomId, storyId);
+                    }
                 break;
                 case(actions[i].hasOwnProperty("response")):
                     paragraph.textContent = "";
@@ -233,19 +237,22 @@ function handleActionClicks() {
                         }
                     }, 50);
                 break;
-                case (actions[i].hasOwnProperty("nextRoom") && actions[i].hasOwnProperty("weapon")):
-                    actions[i].weapon.updateStats(player);
-                    calculateHealthWidth();
-                    roomId = actions[i].nextRoom;
-                    finishedTyping = false;
-                    fadeOutButtons();
-                    changeRoom();
-                break;
                 case (actions[i].hasOwnProperty("nextRoom")):
-                    roomId = actions[i].nextRoom;
-                    finishedTyping = false;
-                    fadeOutButtons();
-                    changeRoom();
+                    switch (true) {
+                        case (actions[i].hasOwnProperty("weapon")):
+                            actions[i].weapon.updateStats(player);
+                            calculateHealthWidth();
+                            roomId = actions[i].nextRoom;
+                            finishedTyping = false;
+                            fadeOutButtons();
+                            changeRoom();
+                        break;
+                        default:
+                            roomId = actions[i].nextRoom;
+                            finishedTyping = false;
+                            fadeOutButtons();
+                            changeRoom();
+                    } 
                 break;
                 case (actions[i].hasOwnProperty("reload")):
                     finishedTyping = false;
@@ -331,6 +338,8 @@ function newGameButton() {
             clearInterval(typeWriter);
             paragraph.textContent = "";
         } 
+        player.health = 100;
+        calculateHealthWidth();
         startGame();
     });
 }
