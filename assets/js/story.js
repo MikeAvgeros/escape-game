@@ -576,10 +576,12 @@ export function getStory(player) {
                 text: `You go around the club and you ask if anyone knows about the anti-enhancement protests and an impeding attack at BioTech. A strange looking guy approaches you and asks "Who are you? What do you know about BioTech?"`,
                 actions: [
                     {
-                        text: "I work there"
+                        text: "I work there",
+                        nextScene: 12
                     },
                     {
-                        text: "Who are you?"
+                        text: "Who are you?",
+                        nextScene: 13
                     }
                 ]
             },
@@ -592,14 +594,24 @@ export function getStory(player) {
                         nextScene: 9
                     },
                     {
-                        text: "Leave her",
+                        text: "Leave",
                         nextScene: 7
                     }
                 ]
             },
             {
                 id: 9,
-                text: "His name is Jack. He runs an auto-repair shops for mechs. Be careful though."
+                text: "His name is Jack. He runs an auto-repair shops for mechs. Be careful though, he doesn't trust BioTech so do not tell him where you work.",
+                actions: [
+                    {
+                        text: "Where is he?",
+                        nextScene: 10
+                    },
+                    {
+                        text: "Leave",
+                        nextScene: 7
+                    }
+                ]
             }
         ]
     };
