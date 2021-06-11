@@ -4,7 +4,7 @@ export const player = new Player("", 100, 50, 30);
 
 const items = {
     vest: new Item("bulletproof vest"),
-    card: new Item("membership card"),
+    card: new Item("membership card")
 };
 
 const weapons = {
@@ -258,7 +258,7 @@ export function getStory(player) {
             },
             {
                 id: 14,
-                text: `The bullets luckily hit your vest and only throw you to the ground with minor wounds. The intruder leaves the gun and starts punching you. He shouts "Give me the keycard to the lab or else I'll kill you."`,
+                text: `The bullets luckily hit your vest and only throw you to the ground with minor wounds. The intruder leaves the gun and starts punching you. He shouts "Give me the keycard to the lab or else you are dead."`,
                 enemy: enemies.intruder,
                 actions: [
                     {
@@ -601,7 +601,7 @@ export function getStory(player) {
             },
             {
                 id: 9,
-                text: "His name is Jack. He runs an auto-repair shops for mechs. Be careful though, he doesn't trust BioTech so do not tell him where you work.",
+                text: "His name is Jack. He runs an auto-repair shop for mechs. Be careful though, he doesn't trust BioTech so do not tell him you work there.",
                 actions: [
                     {
                         text: "Where is he?",

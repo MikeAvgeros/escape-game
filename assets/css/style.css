@@ -130,8 +130,8 @@ body {
 }
 
 #room-img.fade, #room-name.fade {
-    -webkit-animation: fade-effect .5s forwards ease-in-out;
-            animation: fade-effect .5s forwards ease-in-out;
+    -webkit-animation: fade-effect 1s forwards ease-in-out;
+            animation: fade-effect 1s forwards ease-in-out;
 }
 
 #room-description {
@@ -142,12 +142,6 @@ body {
 }
 
 #room-description p {
-    /* place-self: center center;
-    text-align: center;
-    text-align: justify;
-    -webkit-hyphens: auto;
-          -ms-hyphens: auto;
-    hyphens: auto; */
     padding: 1rem;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
