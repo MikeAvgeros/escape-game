@@ -47,6 +47,20 @@ export function getStory(player) {
                         nextRoom: 2
                     },
                     {
+                        text: "Learn more",
+                        nextScene: 3
+                    }
+                ]
+            },
+            {
+                id: 3,
+                text: `You can contact the developer by clicking on the message icon and completing the form. You can also view their Github, LinkedIn and Facebook profile by clicking on the relevant icons. You can find these icons on the page's footer. Would you like to play the game or repeat the tutorial?`,
+                actions: [
+                    {
+                        text: "Play game",
+                        nextRoom: 2
+                    },
+                    {
                         text: "Repeat tutorial",
                         nextScene: 1
                     }
