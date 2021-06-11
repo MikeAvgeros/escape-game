@@ -292,7 +292,7 @@ export function getStory(player) {
         3: [
             {
                 id: 1,
-                text: `You decided to leave work. You are about to take the bus home. At the bus stop, an weird-looking old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
+                text: `You decided to leave work. You are about to take the bus home. At the bus stop, a weird-looking old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -321,7 +321,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `The man warns you to turn back. He tells you there is great danger ahead. Someone who knows where you work, wants to steal your keycard to the lab. He plans to attack BioTech tonight and you are his way in.`,
+                text: `The old man warns you to turn back. He tells you there is great danger ahead. Someone who knows where you work, wants to steal your keycard to the lab. He plans to attack BioTech tonight and you are his way in.`,
                 actions: [
                     {
                         text: "Ignore him",
