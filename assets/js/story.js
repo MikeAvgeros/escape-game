@@ -29,11 +29,11 @@ export function getStory(player) {
                 text: `Welcome ${player.name}! To play the game, you need to follow the story and choose your desired action when prompted. Each choice will lead to a different outcome in the story. Be careful as some choices may lead to your untimely death. Are you ready to play or would you like to learn more?`,
                 actions: [
                     {
-                        text: "Play",
+                        text: "Play game",
                         nextRoom: 2
                     },
                     {
-                        text: "Learn",
+                        text: "Learn more",
                         nextScene: 2
                     }
                 ]
