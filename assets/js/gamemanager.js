@@ -45,17 +45,6 @@ const rooms = {
     5: new Room("Hideout", roomImg[5], 5)
 };
 
-window.onload = checkIfNotFirstTime;
-
-function checkIfNotFirstTime() {
-    if (player.name.length > 0 ) {
-        modal.classList.add("close");
-        overlay.classList.add("close");
-        story = getStory(player);
-        startGame();
-    }
-}
-
 function calculateHealthWidth() {
     healthBarWidth = (player.health / maxHealth) * 100;
     root.style.setProperty('--width', healthBarWidth + "%");
@@ -305,10 +294,10 @@ function startGame() {
 
 function changeRoom() {
     setTimeout(() => {
-        fadeImage();
         textContainer.appendChild(paragraph);
         storyId = 1;
         loadScene();
+        fadeImage();
     }, 250);
 }
 
