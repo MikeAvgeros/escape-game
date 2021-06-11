@@ -26,7 +26,7 @@ export function getStory(player) {
         1: [
             {
                 id: 1,
-                text: `Welcome ${player.name}! To play the game, you need to choose an action from the 2 buttons below. Each choice will lead to a different outcome in the story. Be careful as some choices may lead to your untimely death. Are you ready to play or would you like to learn more?`,
+                text: `Welcome ${player.name}! To play the game, you need to follow the story and choose your desired action when prompted. Each choice will lead to a different outcome in the story. Be careful as some choices may lead to your untimely death. Are you ready to play or would you like to learn more?`,
                 actions: [
                     {
                         text: "Play",
@@ -40,14 +40,14 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `You can view your stats by clicking on the info icon above the image. A live display of your health points is displayed on the bar next to the info icon. You can open your item list to view any items you have collected by clicking on the bag icon.`,
+                text: `You can view your stats by clicking on the info icon above the image. You can see your health bar next to the info icon. Pay attention to it as it could lead to a game over. You can open your item list anytime to view any items you have collected along the way by clicking on the bag icon on top of the image.`,
                 actions: [
                     {
-                        text: "Play",
+                        text: "Play game",
                         nextRoom: 2
                     },
                     {
-                        text: "Repeat",
+                        text: "Repeat tutorial",
                         nextScene: 1
                     }
                 ]
