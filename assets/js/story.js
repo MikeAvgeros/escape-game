@@ -84,7 +84,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `You had a long day at work and it's getting late. Your colleague looks at you and says "Hey ${player.name}, you look tired, you should go home. Tomorrow will be a tough day. The CEO is visiting HQ and tensions with the protesters are rising. I guess not everyone appreciates what we do here." But, you have a bad feeling. Something is not right.`,
+                text: `You had a long day at work and it's getting late. Your colleague looks at you and says "Hey ${player.name}, you look tired, you should go home. Tomorrow will be a tough day. The CEO is visiting HQ and tensions with the protesters are rising. I guess not everyone appreciates what we do here." But, you have a bad feeling. Something is not right. What do you want to do?`,
                 actions: [
                     {
                         text: "Go home",

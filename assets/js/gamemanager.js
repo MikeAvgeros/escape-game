@@ -315,7 +315,7 @@ function fadeImage() {
         setTimeout(() => {
             roomImage.classList.remove("fade");
             roomName.classList.remove("fade");
-    }, 500);
+    }, 1000);
 }
 
 // starts the game. sets roomid and storyid to 1, which is the starting point
@@ -383,8 +383,12 @@ function newGameButton() {
 //handles the gameover popup
 
 function gameOver() {
-    modal.classList.add("open");
-    overlay.classList.add("open");
+    if (!modal.classList.contains("open")) {
+        modal.classList.add("open");
+    }
+    if (!overlay.classList.contains("open")) {
+        overlay.classList.add("open");
+    }
     modal.innerHTML = `
     <h1>GAME OVER</h1> 
     <p>Press New Game to restart</p>
@@ -398,8 +402,12 @@ function gameOver() {
 // displays the modals and changes the innerHTML to display the contact form
 
 contact.addEventListener("click", () => {
-    modal.classList.add("open");
-    overlay.classList.add("open");
+    if (!modal.classList.contains("open")) {
+        modal.classList.add("open");
+    }
+    if (!overlay.classList.contains("open")) {
+        overlay.classList.add("open");
+    }
     modal.innerHTML = `
     <div id="heading">
         <h1>Contact Us</h1>
@@ -425,8 +433,12 @@ contact.addEventListener("click", () => {
     `;
     const closeContact = document.getElementById("close-btn");
     closeContact.addEventListener("click", () => {
-        modal.classList.remove("open");
-        overlay.classList.remove("open");
+        if (modal.classList.contains("open")) {
+            modal.classList.remove("open");
+        } 
+        if (overlay.classList.contains("open")) {
+            overlay.classList.remove("open");
+        } 
     });
 });
 
@@ -439,8 +451,12 @@ playerInfo.addEventListener("click", () => {
 //handles opening the items list and show all the items
 
 inventoryInfo.addEventListener("click", () => {
-    modal.classList.add("open");
-    overlay.classList.add("open");
+    if (!modal.classList.contains("open")) {
+        modal.classList.add("open");
+    }
+    if (!overlay.classList.contains("open")) {
+        overlay.classList.add("open");
+    }
     let list = document.createElement("ol");
     let listItems = "";
     for (let item of inventory) {
@@ -464,7 +480,11 @@ inventoryInfo.addEventListener("click", () => {
     modal.appendChild(list);
     const closeContact = document.getElementById("close-btn");
     closeContact.addEventListener("click", () => {
-        modal.classList.remove("open");
-        overlay.classList.remove("open");
+        if (modal.classList.contains("open")) {
+            modal.classList.remove("open");
+        } 
+        if (overlay.classList.contains("open")) {
+            overlay.classList.remove("open");
+        } 
     });
 });
