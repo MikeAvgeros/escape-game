@@ -2,6 +2,8 @@
 
 import {player, getStory} from './story.js';
 
+// all my global variables
+
 const textContainer = document.getElementById("room-description");
 const paragraph = document.createElement("p");
 const buttons = document.getElementsByClassName("action-button");
@@ -29,6 +31,11 @@ let inventory = [];
 let healthBarWidth;
 let story;
 
+/**
+ * the rooms are basically the chapters of the story. 
+ * They take a name, which displays at the top, an image and an id, which is used for when you change a room.
+ */
+
 const roomImg = {
     1: "./assets/img/tutorial.jpg",
     2: "./assets/img/biotech.jpg",
@@ -45,10 +52,17 @@ const rooms = {
     5: new Room("Hideout", roomImg[5], 5)
 };
 
+// changes the width property of the red background on the health bar
+
 function calculateHealthWidth() {
     healthBarWidth = (player.health / maxHealth) * 100;
     root.style.setProperty('--width', healthBarWidth + "%");
 }
+
+/**
+ * Loads the content of each story node from the story.js file. It displays the text, images and actions.
+ * It also checks for any special keywords that I have added in the properties using if statements and displays relevant results.
+ */
 
 function loadScene() {
     paragraph.textContent = "";
@@ -105,6 +119,8 @@ function loadScene() {
     }
 }
 
+//handles showing the buttons with the corresponding actions
+
 function displayActions() {
     if(!finishedTyping) {
        setTimeout(displayActions, 100); 
@@ -117,6 +133,8 @@ function displayActions() {
     }
 }
 
+//displays the player's health points in the health bar
+
 function displayDamage() {
     if(!finishedTyping) {
         setTimeout(displayDamage, 100); 
@@ -124,6 +142,8 @@ function displayDamage() {
         calculateHealthWidth();
     }
 }
+
+// displays the gameover popup
 
 function displayGameOver() {
     if(!finishedTyping) {
@@ -133,6 +153,8 @@ function displayGameOver() {
         gameOver();
     }
 }
+
+// displays the next scene in the story.js file
 
 function displayNextScene() {
     if(!finishedTyping) {
@@ -145,6 +167,8 @@ function displayNextScene() {
     }
 }
 
+//displays the room in the story.js file
+
 function displayNextRoom() {
     if(!finishedTyping) {
         setTimeout(displayNextRoom, 100); 
@@ -155,6 +179,11 @@ function displayNextRoom() {
         changeRoom();
     }
 }
+
+/**
+ * Registers the player's choice and displays a result depending on the properties of that action in my story.js file. 
+ * That is being achieved using a large switch statement which checks the properties for keywords.
+ */
 
 function handleActionClicks() {
     for (let i = 0; i < buttons.length; i++) {
@@ -260,6 +289,8 @@ function handleActionClicks() {
     }
 }
 
+// fades out the buttons
+
 function fadeOutButtons() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("fadein");
@@ -267,12 +298,16 @@ function fadeOutButtons() {
     }
 }
 
+// fades in the buttons
+
 function fadeInButtons() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("fadeout");
         buttons[i].classList.add("fadein");
     }
 }
+
+// fades the image
 
 function fadeImage() {
     roomImage.classList.add("fade");
@@ -283,6 +318,8 @@ function fadeImage() {
     }, 500);
 }
 
+// starts the game. sets roomid and storyid to 1, which is the starting point
+
 function startGame() {
     roomId = 1;
     storyId = 1;
@@ -292,6 +329,8 @@ function startGame() {
     fadeImage();
 }
 
+//changes room. sets story id to 1 so that you start at the beginning of the room
+
 function changeRoom() {
     setTimeout(() => {
         textContainer.appendChild(paragraph);
@@ -300,6 +339,12 @@ function changeRoom() {
         fadeImage();
     }, 250);
 }
+
+/**
+ * set the player's name based on the player's input.
+ * retrieves the story from story.js and assigns it to the story variable including the player's name and starts the game
+ * closes the modal and overlay
+ */
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -313,6 +358,8 @@ form.addEventListener("submit", (event) => {
         overlay.classList.add("close");
     }
 });
+
+// updates the health bar and starts a new game when clicked 
 
 function newGameButton() {
     const newGame = document.getElementById("restart");
@@ -333,9 +380,9 @@ function newGameButton() {
     });
 }
 
+//handles the gameover popup
+
 function gameOver() {
-    const modal = document.getElementById("modal");
-    const overlay = document.getElementById("overlay");
     modal.classList.add("open");
     overlay.classList.add("open");
     modal.innerHTML = `
@@ -347,6 +394,8 @@ function gameOver() {
     `;
     newGameButton();
 }
+
+// displays the modals and changes the innerHTML to display the contact form
 
 contact.addEventListener("click", () => {
     modal.classList.add("open");
@@ -381,9 +430,13 @@ contact.addEventListener("click", () => {
     });
 });
 
+// handles opening the stats and show all the info
+
 playerInfo.addEventListener("click", () => {
     player.showStats();
 });
+
+//handles opening the items list and show all the items
 
 inventoryInfo.addEventListener("click", () => {
     modal.classList.add("open");
