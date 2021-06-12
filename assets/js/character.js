@@ -23,7 +23,7 @@ class Character {
     }
     showImage() {
         const imgContainer = document.getElementById("room-img");
-        imgContainer.innerHTML = `<img loading="lazy" src="${this.img}" alt="image of ${this.name}">`;
+        imgContainer.style.background = `url(${this.img}) no-repeat center center/cover`;
     }
     showName() {
         const nameContainer = document.getElementById("room-name");

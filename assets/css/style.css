@@ -33,7 +33,7 @@ body {
     transform: translate(-50%, -50%);
     width: 960px;
     max-width: 100%;
-    height: 100%;
+    min-height: 100%;
     overflow: hidden;
     display: grid;
     grid-template-rows: 7.5% 7.5% 40% 22.5% 7.5% 10% 5%;
@@ -118,15 +118,8 @@ body {
 #room-img {
     grid-area: image;
     display: grid;
-    background-color: var(--yellow);
+    border: 2.5px solid var(--yellow);
     box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
-}
-
-#room-img img {
-    width: 100%;
-    height: 100%;
-    -webkit-clip-path: inset(2.5px 2.5px round 10px);
-            clip-path: inset(2.5px 2.5px round 10px);
 }
 
 #room-img.fade, #room-name.fade {
@@ -139,6 +132,7 @@ body {
     display: grid;
     border: 2.5px solid var(--yellow);
     box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
+    overflow: hidden;
 }
 
 #room-description p {
@@ -165,7 +159,7 @@ body {
     cursor: pointer;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
-    height: 60%;
+    min-height: 60%;
     width: 120px;
     align-self: center;
     letter-spacing: 1px;
@@ -224,6 +218,7 @@ body {
     justify-content: space-between;
     border: 2.5px solid var(--yellow);
     box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
+    overflow: hidden;
 }
 
 #contact {
@@ -232,8 +227,8 @@ body {
     align-self: center;
     background: none;
     cursor: pointer;
-    height: 75%;
-    width: 60px;
+    min-height: 75%;
+    min-width: 60px;
     margin-left: 1rem;
     font-size: clamp(1.25rem, 1rem + 1vw, 2rem); 
     letter-spacing: 1px;
@@ -255,8 +250,8 @@ body {
     place-content: center center;
     align-self: center;
     margin-left: 2rem;
-    height: 75%;
-    width: 60px;
+    min-height: 75%;
+    min-width: 60px;
     color: var(--cyan);
     font-size: clamp(1.25rem, 1rem + 1vw, 2rem);  
     border: 2.5px solid var(--yellow);
