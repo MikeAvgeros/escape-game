@@ -331,8 +331,8 @@ function flashIcon(icon) {
 // starts the game. sets roomid and storyid to 1, which is the starting point
 
 function startGame() {
-    roomId = 2;
-    storyId = 3;
+    roomId = 1;
+    storyId = 1;
     textContainer.appendChild(paragraph);
     loadScene();
     handleActionClicks(); 
