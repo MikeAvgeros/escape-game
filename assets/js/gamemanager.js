@@ -283,6 +283,13 @@ function handleActionClicks() {
                             fadeOutButtons();
                             changeRoom();
                         break;
+                        case(actions[i].hasOwnProperty("escapedEnemy")):
+                            anotherParagraph.textContent = "";
+                            roomId = actions[i].nextRoom;
+                            finishedTyping = false;
+                            fadeOutButtons();
+                            changeRoom();
+                        break;
                         default:
                             roomId = actions[i].nextRoom;
                             finishedTyping = false;

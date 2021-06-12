@@ -312,7 +312,6 @@ export function getStory(player) {
                     {
                         text: "Start running",
                         nextScene: 5
-                        
                     },
                     {
                         text: "Look to your right",
@@ -365,6 +364,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Do what he says",
+                        escapedEnemy: true,
                         nextScene: 7
                     }
                 ]
@@ -386,10 +386,12 @@ export function getStory(player) {
             {
                 id: 7,
                 text: "The thief punches you in the face and takes your wallet and keycard and leaves you on the ground.",
+                enemy: enemies.thief,
                 actions: [
                     {
-                        text: "Chase the thief",
-                        response: `The thief quickly disappears in the shadows without a trace. "I should probably ask the old man for answers" you think.`
+                        text: "Follow the thief",
+                        escapedEnemy: true,
+                        nextRoom: 5
                     },
                     {
                         text: "Find the old man",
@@ -662,14 +664,14 @@ export function getStory(player) {
         5: [
             {
                 id: 1,
-                text: "You arrived at the hideout. A scrappy old junkyard full of broken bio hacking tools and machinery. As you approach carefully, you hear someone coming your way.",
+                text: "You have found their hideout. A scrappy old junkyard full of broken bio hacking tools and machinery. As you approach carefully, you hear someone coming your way.",
                 actions: [
                     {
                         text: "Hide",
                         nextScene: 2
                     },
                     {
-                        text: "Confront them",
+                        text: "Show",
                         nextScene: 3
                     }
                 ]
@@ -677,6 +679,10 @@ export function getStory(player) {
             {
                 id: 2,
                 text: "You decide to hide behind some "
+            },
+            {
+                id: 3,
+                text: `A gang member finds you. "What are you doing here" he says`
             }
 
         ]
