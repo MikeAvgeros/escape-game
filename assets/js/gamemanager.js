@@ -415,15 +415,15 @@ contact.addEventListener("click", () => {
     </div>
     <form id="contact-form" onsubmit="return sendMail(this);" method="POST">
         <div class="contact-input">
-            <label for="name">Name<span class="required-icon"></span></label>
+            <label for="name" aria-label="Enter your name">Name<span class="required-icon"></span></label>
             <input type="text" name="name" id="name" placeholder="Enter your name" required>
         </div>
         <div class="contact-input">
-            <label for="email">Email<span class="required-icon"></span></label>
+            <label for="email" aria-label="Enter your email">Email<span class="required-icon"></span></label>
             <input type="email" name="email" id="email" placeholder="Enter your email" required>
         </div>
         <div class="contact-input">
-            <label for="message">Message<span class="required-icon"></span></label>
+            <label for="message" aria-label="Enter your message">Message<span class="required-icon"></span></label>
             <textarea name="message" id="message" rows="6" placeholder="Enter your message" required></textarea>
         </div>
         <div>
@@ -474,7 +474,7 @@ inventoryInfo.addEventListener("click", () => {
     `
     <div id="heading">
         <h1>Items List</h1>
-        <span id="close-btn">&times;</span>
+        <span id="close-btn" aria-label="Close modal">&times;</span>
     </div>
     `;
     modal.appendChild(list);
