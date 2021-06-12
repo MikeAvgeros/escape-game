@@ -47,7 +47,7 @@ const roomImg = {
 
 const rooms = {
     1: new Room("Tutorial", roomImg[1], 1),
-    2: new Room("BioTech HQ", roomImg[2], 2),
+    2: new Room("GenTech HQ", roomImg[2], 2),
     3: new Room("Bus Stop", roomImg[3], 3),
     4: new Room("Night Club", roomImg[4], 4),
     5: new Room("Hideout", roomImg[5], 5)

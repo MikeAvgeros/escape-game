@@ -70,7 +70,7 @@ export function getStory(player) {
         2: [
             {
                 id: 1,
-                text: `The year is 2054 and bio hacking has allowed humans to evolve beyond the physical limitations of their bodies. BioTech, a large corporation owned by the government, controls 90% of all gene editing operations. The headquarters are in Cyber City, the financial capital of the world. You are a security guard at BioTech HQ, born and bred in Cyber City.`,
+                text: `The year is 2054 and bio hacking has allowed humans to evolve beyond the physical limitations of their bodies. GenTech, a large corporation owned by the government, controls 90% of all gene editing operations. The headquarters are in Cyber City, the financial capital of the world. You are a security guard at GenTech HQ, born and bred in Cyber City.`,
                 actions: [
                     {
                         text: "Continue story",
@@ -171,7 +171,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `You immediately call the police and explain the situation. The police arrives at the scene shortly after and apprehends the intruders. It appears they were part of an anti-enhancement organization who wanted to sabotage BioTech.`,
+                text: `You immediately call the police and explain the situation. The police arrives at the scene shortly after and apprehends the intruders. It appears they were part of an anti-enhancement organization who wanted to sabotage GenTech.`,
                 actions: [
                     {
                         text: "Go home",
@@ -202,7 +202,7 @@ export function getStory(player) {
             },
             {
                 id: 10,
-                text: `You have successfully apprehended the intruder and his gang. The police arrive at the scene and you explained what happened. It appears they were part of an anti-enhancement organization who wanted to sabotage BioTech. What do you want to do next?`,
+                text: `You have successfully apprehended the intruder and his gang. The police arrive at the scene and you explained what happened. It appears they were part of an anti-enhancement organization who wanted to sabotage GenTech. What do you want to do next?`,
                 actions: [
                     {
                         text: "Go home",
@@ -216,7 +216,7 @@ export function getStory(player) {
             },
             {
                 id: 11,
-                text: `The intruders manage to sneak into the building undetected and one by one killed all the guards. They stormed into the lab and destroyed all the research. BioTech is finished.`,
+                text: `The intruders manage to sneak into the building undetected and one by one killed all the guards. They stormed into the lab and destroyed all the research. GenTech is finished.`,
                 gameOver: true,
                 actions: [
                     {
@@ -321,7 +321,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `The old man warns you to turn back. He tells you there is great danger ahead. Someone who knows where you work, wants to steal your keycard to the lab. He plans to attack BioTech tonight and you are his way in.`,
+                text: `The old man warns you to turn back. He tells you there is great danger ahead. Someone who knows where you work, wants to steal your keycard to the lab. He plans to attack GenTech tonight and you are his way in.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -398,7 +398,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `The old man takes a liking at you and gives you a ${items.card.name} with an address on it. He tells you that BioTech is in danger and you can find answers in this place.`,
+                text: `The old man takes a liking at you and gives you a ${items.card.name} with an address on it. He tells you that GenTech is in danger and you can find answers in this place.`,
                 actions: [
                     {
                         text: "Ignore it",
@@ -430,11 +430,11 @@ export function getStory(player) {
             },
             {
                 id: 10,
-                text: `You have successfully disabled the thief and you have ${player.health} life points left. The police swiftly arrive at the end and apprehend him. "BioTech will burn to the ground" he says. What do you want to do next?`,
+                text: `You have successfully disabled the thief and you have ${player.health} life points left. The police swiftly arrive at the end and apprehend him. "GenTech will burn to the ground" he says. What do you want to do next?`,
                 actions: [
                     {
                         text: "Walk home",
-                        response: `${player.name}'s inner voice: "I should probably find the old man. He knew something about my attacker and his connection to BioTech."`
+                        response: `${player.name}'s inner voice: "I should probably find the old man. He knew something about my attacker and his connection to GenTech."`
                     },
                     {
                         text: "Find the old man",
@@ -444,7 +444,7 @@ export function getStory(player) {
             },
             {
                 id: 11,
-                text: `You managed to find the old man. You ask him for answers. He looks at you with a cold stare and gives you a ${items.card.name} with an address on it. He tells you that BioTech is in danger and you can find answers in this location.`,
+                text: `You managed to find the old man. You ask him for answers. He looks at you with a cold stare and gives you a ${items.card.name} with an address on it. He tells you that GenTech is in danger and you can find answers in this location.`,
                 actions: [
                     {
                         text: "Ignore it",
@@ -474,7 +474,7 @@ export function getStory(player) {
             },
             {
                 id: 13,
-                text: `You take the ${items.card} and you decide to go to that address to find out what is going on and who wants to attack BioTech and why.`,
+                text: `You take the ${items.card} and you decide to go to that address to find out what is going on and who wants to attack GenTech and why.`,
                 nextRoom: 4,
                 actions: [
                     {
@@ -532,7 +532,7 @@ export function getStory(player) {
             },
             {
                 id: 4,
-                text: `"This is a member's only club. You do not belong here." the bouncer says.`,
+                text: `"This is a member's only club. You do not belong here. Are you one of them?" the bouncer shouts. He then grabs you with his bionic arm and stabs you.`,
                 gameOver: true,
                 actions: [
                     {
@@ -573,46 +573,92 @@ export function getStory(player) {
             },
             {
                 id: 7,
-                text: `You go around the club and you ask if anyone knows about the anti-enhancement protests and an impeding attack at BioTech. A strange looking guy approaches you and asks "Who are you? What do you know about BioTech?"`,
+                text: `You go around the club and you ask if anyone knows about the anti-enhancement protests and an impeding attack at GenTech. A strange looking guy approaches you and asks "Who are you? What do you know about GenTech?"`,
                 actions: [
                     {
                         text: "I work there",
-                        nextScene: 12
+                        nextScene: 11
                     },
                     {
                         text: "Who are you?",
-                        nextScene: 13
+                        nextScene: 12
                     }
                 ]
             },
             {
                 id: 8,
-                text: `You play a dangerous game ${player.name}. BioTech is not what you think they are. They are hiding many secrets, secrets that could end the world. I can't tell you anything else but I know someone who would.`,
+                text: `You play a dangerous game ${player.name}. GenTech is not what you think they are. They are hiding many secrets, secrets that could end the world. I can't give you any information but I know someone who would.`,
                 actions: [
                     {
                         text: "Who is it?",
                         nextScene: 9
                     },
                     {
-                        text: "Leave",
+                        text: "Walk away",
                         nextScene: 7
                     }
                 ]
             },
             {
                 id: 9,
-                text: "His name is Jack. He runs an auto-repair shop for mechs. Be careful though, he doesn't trust BioTech so do not tell him you work there.",
+                text: "His name is Jack. He runs an auto-repair shop for mechs. Be careful though, he doesn't trust GenTech so do not tell him you work there.",
                 actions: [
                     {
                         text: "Where is he?",
                         nextScene: 10
                     },
                     {
-                        text: "Leave",
+                        text: "Walk away",
                         nextScene: 7
                     }
                 ]
+            },
+            {
+                id: 10,
+                text: "He likes to play hide and seek in his little hideout with his gang. When you get there, just tell him Samantha sent you his way. He trusts me. Or at least I think he does.",
+                actions: [
+                    {
+                        text: "Find Jack",
+                        nextRoom: 5
+                    },
+                    {
+                        text: "Stay in the club",
+                        nextScene: 7
+                    }
+                ]
+            },
+            {
+                id: 11,
+                text: "Hmm, so you are GenTech's lackey, huh? All I know is that there's a storm coming. A shadow organization wants to take down GenTech. They fear the future. My wife would have lost her life if it wasn't for GenTech. I'll give you the address of their hideout.",
+                actions: [
+                    {
+                        text: "Find the hideout",
+                        nextRoom: 5
+                    },
+                    {
+                        text: "Find Samantha",
+                        nextScene: 6
+                    }
+                ]
+            },
+            {
+                id: 12,
+                text: `"Who I am is none of your business." the man says with an angry look on his face. Two other dangerous-looking men come his way.`,
+                actions: [
+                    {
+                        text: "I work there",
+                        nextScene: 11
+                    },
+                    {
+                        text: "Find Samantha",
+                        nextScene: 6
+                    }
+                ]
+
             }
+        ],
+        5: [
+
         ]
     };
 }
