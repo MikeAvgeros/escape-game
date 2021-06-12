@@ -196,6 +196,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Run away",
+                        escapedEnemy: true,
                         nextScene: 7
                     }
                 ]
@@ -340,14 +341,14 @@ export function getStory(player) {
                 fadeImage: true,
                 actions: [
                     {
-                        text: "Do what he says",
-                        nextScene: 7
-                    },
-                    {
                         text: "Attack him",
                         attackEnemy: enemies.thief,
                         nextScene: 9,
                         nextSceneAfterKill: 10
+                    },
+                    {
+                        text: "Do what he says",
+                        nextScene: 7
                     }
                 ]
             },
@@ -358,13 +359,13 @@ export function getStory(player) {
                 fadeImage: true,
                 actions: [
                     {
-                        text: "Do what he says",
-                        nextScene: 7
-                    },
-                    {
                         text: "Attack him",
                         attackEnemy: enemies.thief,
                         nextScene: 9
+                    },
+                    {
+                        text: "Do what he says",
+                        nextScene: 7
                     }
                 ]
             },
@@ -424,6 +425,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Run away",
+                        escapedEnemy: true,
                         nextScene: 12
                     }
                 ]
@@ -658,6 +660,24 @@ export function getStory(player) {
             }
         ],
         5: [
+            {
+                id: 1,
+                text: "You arrived at the hideout. A scrappy old junkyard full of broken bio hacking tools and machinery. As you approach carefully, you hear someone coming your way.",
+                actions: [
+                    {
+                        text: "Hide",
+                        nextScene: 2
+                    },
+                    {
+                        text: "Confront them",
+                        nextScene: 3
+                    }
+                ]
+            },
+            {
+                id: 2,
+                text: "You decide to hide behind some "
+            }
 
         ]
     };

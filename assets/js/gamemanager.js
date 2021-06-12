@@ -236,6 +236,14 @@ function handleActionClicks() {
                                 loadScene(roomId, storyId);
                             }
                         break;
+                        case (actions[i].hasOwnProperty("escapedEnemy")):
+                            anotherParagraph.textContent = "";
+                            storyId = actions[i].nextScene;
+                            finishedTyping = false;
+                            fadeOutButtons();
+                            fadeImage();
+                            loadScene(roomId, storyId);
+                        break;
                         case (actions[i].hasOwnProperty("removedItem")):
                             flashIcon(inventoryInfo);
                             inventory = inventory.filter((item) => {
