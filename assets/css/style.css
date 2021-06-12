@@ -77,6 +77,11 @@ body {
     display: flex;
 }
 
+#health-icon.flash {
+    -webkit-animation: flash 1s forwards ease-in-out;
+            animation: flash 1s forwards ease-in-out;
+}
+
 #game-stats i {
     color: var(--yellow);
     padding-right: 10px;
@@ -102,6 +107,11 @@ body {
 
 #player-info, #inventory-info {
     cursor: pointer;
+}
+
+#inventory-info.flash {
+    -webkit-animation: flash 1s forwards ease-in-out;
+            animation: flash 1s forwards ease-in-out;
 }
 
 #player-info:hover, #inventory-info:hover {
@@ -206,6 +216,18 @@ body {
 @keyframes fade-effect {
     0% {opacity: 0;}
     100% {opacity: 1;}
+}
+
+@-webkit-keyframes flash {
+    0% {color: inherit;}
+    50% {color: white;}
+    100% {color: inherit;}
+}
+
+@keyframes flash {
+    0% {color: inherit;}
+    50% {color: white;}
+    100% {color: inherit;}
 }
 
 #btns .action-button:hover {

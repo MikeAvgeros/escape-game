@@ -14,6 +14,7 @@ const overlay = document.getElementById("overlay");
 const form = document.getElementById("form");
 const myName = document.getElementById("player-name");
 const contact = document.getElementById("contact");
+const playerHealth = document.getElementById("health-icon");
 const playerInfo = document.getElementById("player-info");
 const inventoryInfo = document.getElementById("inventory-info");
 const root = document.documentElement;
@@ -139,6 +140,7 @@ function displayDamage() {
     if(!finishedTyping) {
         setTimeout(displayDamage, 100); 
     } else {
+        flashIcon(playerHealth);
         calculateHealthWidth();
     }
 }
@@ -197,6 +199,7 @@ function handleActionClicks() {
                     switch (true) {
                         case (actions[i].hasOwnProperty("item")):
                             inventory.push(actions[i].item);
+                            flashIcon(inventoryInfo);
                             storyId = actions[i].nextScene;
                             finishedTyping = false;
                             fadeOutButtons();
@@ -318,11 +321,18 @@ function fadeImage() {
     }, 1000);
 }
 
+function flashIcon(icon) {
+    icon.classList.add("flash");
+        setTimeout(() => {
+            icon.classList.remove("flash");
+    }, 1000);
+}
+
 // starts the game. sets roomid and storyid to 1, which is the starting point
 
 function startGame() {
-    roomId = 1;
-    storyId = 1;
+    roomId = 2;
+    storyId = 3;
     textContainer.appendChild(paragraph);
     loadScene();
     handleActionClicks(); 
