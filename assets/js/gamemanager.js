@@ -1,11 +1,14 @@
 /* jshint esversion: 8 */
 
+// importing the function getStory and variable player from story.js 
+
 import {player, getStory} from './story.js';
 
 // all my global variables
 
 const textContainer = document.getElementById("room-description");
 const paragraph = document.createElement("p");
+const anotherParagraph = document.createElement("p");
 const buttons = document.getElementsByClassName("action-button");
 const roomImage = document.getElementById("room-img");
 const roomName = document.getElementById("room-name");
@@ -35,7 +38,7 @@ let story;
 /**
  * the rooms are basically the chapters of the story. 
  * They take a name, which displays at the top, an image and an id, which is used for when you change a room.
- */
+*/
 
 const roomImg = {
     1: "./assets/img/tutorial.jpg",
@@ -63,7 +66,7 @@ function calculateHealthWidth() {
 /**
  * Loads the content of each story node from the story.js file. It displays the text, images and actions.
  * It also checks for any special keywords that I have added in the properties using if statements and displays relevant results.
- */
+*/
 
 function loadScene() {
     paragraph.textContent = "";
@@ -90,6 +93,7 @@ function loadScene() {
     if (currentStory.hasOwnProperty("enemy")) {
         currentStory.enemy.showImage();
         currentStory.enemy.showName();
+        currentStory.enemy.showHealth(anotherParagraph);
         player.takeDamage(currentStory.enemy.attack);
         displayDamage();
         player.checkIsDead();
@@ -185,7 +189,7 @@ function displayNextRoom() {
 /**
  * Registers the player's choice and displays a result depending on the properties of that action in my story.js file. 
  * That is being achieved using a large switch statement which checks the properties for keywords.
- */
+*/
 
 function handleActionClicks() {
     for (let i = 0; i < buttons.length; i++) {
@@ -215,8 +219,10 @@ function handleActionClicks() {
                         break;
                         case (actions[i].hasOwnProperty("attackEnemy")):
                             actions[i].attackEnemy.takeDamage(player.attack);
+                            actions[i].attackEnemy.showHealth(anotherParagraph);
                             actions[i].attackEnemy.checkIsDead();
                             if (actions[i].attackEnemy.isDead) {
+                                anotherParagraph.textContent = "";
                                 storyId = actions[i].nextSceneAfterKill;
                                 finishedTyping = false;
                                 fadeOutButtons();
@@ -231,6 +237,7 @@ function handleActionClicks() {
                             }
                         break;
                         case (actions[i].hasOwnProperty("removedItem")):
+                            flashIcon(inventoryInfo);
                             inventory = inventory.filter((item) => {
                                 return item.name !== actions[i].removedItem.name;
                             });
@@ -321,6 +328,8 @@ function fadeImage() {
     }, 1000);
 }
 
+// creates a flassing effect on the icon
+
 function flashIcon(icon) {
     icon.classList.add("flash");
         setTimeout(() => {
@@ -333,7 +342,9 @@ function flashIcon(icon) {
 function startGame() {
     roomId = 1;
     storyId = 1;
+    anotherParagraph.setAttribute("id", "enemy-stats");
     textContainer.appendChild(paragraph);
+    textContainer.appendChild(anotherParagraph);
     loadScene();
     handleActionClicks(); 
     fadeImage();
@@ -343,7 +354,6 @@ function startGame() {
 
 function changeRoom() {
     setTimeout(() => {
-        textContainer.appendChild(paragraph);
         storyId = 1;
         loadScene();
         fadeImage();
@@ -354,7 +364,7 @@ function changeRoom() {
  * set the player's name based on the player's input.
  * retrieves the story from story.js and assigns it to the story variable including the player's name and starts the game
  * closes the modal and overlay
- */
+*/
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();

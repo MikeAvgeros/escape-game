@@ -17,8 +17,8 @@ const enemyImg = {
 }
 
 const enemies = {
-    intruder: new Character("Intruder", 50, 40, 20, enemyImg.intruder),
-    thief: new Character("Thief", 50, 40, 20, enemyImg.thief)
+    intruder: new Character("Intruder", 70, 40, 20, enemyImg.intruder),
+    thief: new Character("Thief", 70, 40, 20, enemyImg.thief)
 };
 
 export function getStory(player) {
@@ -275,7 +275,7 @@ export function getStory(player) {
             },
             {
                 id: 15,
-                text: `Before I leave, I should probably do something about my wounds. I should use some ${weapons.spray.name} to heal my wounds.`,
+                text: `Before I leave, I should probably do something about my wounds. I should use some ${weapons.spray.name} to heal my wounds and add ${weapons.spray.health} points to my health.`,
                 actions: [
                     {
                         text: "Use the spray",
@@ -430,7 +430,7 @@ export function getStory(player) {
             },
             {
                 id: 10,
-                text: `You have successfully disabled the thief and you have ${player.health} life points left. The police swiftly arrive at the end and apprehend him. "GenTech will burn to the ground" he says. What do you want to do next?`,
+                text: `You have successfully disabled the thief and called the police. The police arrive swiftly and apprehend him. "GenTech will burn to the ground" he says as he's being taken. What do you want to do next?`,
                 actions: [
                     {
                         text: "Walk home",

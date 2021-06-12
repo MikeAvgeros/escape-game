@@ -29,6 +29,9 @@ class Character {
         const nameContainer = document.getElementById("room-name");
         nameContainer.innerHTML = `<h2>${this.name}</h2>`;
     }
+    showHealth(paragraph) {
+        paragraph.textContent = `${this.name}'s Health: ${this.health}`;
+    }
 }
 
 class Player extends Character {

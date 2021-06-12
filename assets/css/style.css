@@ -153,6 +153,15 @@ body {
     letter-spacing: 1px;
 }
 
+#room-description #enemy-stats {
+    display: grid;
+    place-self: end center;
+    color: var(--red);
+    text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
 #btns {
     grid-area: btns;
     margin-top: 15%;
@@ -582,7 +591,11 @@ body {
     }
 
     #room-description p {
-        padding-top: .5rem;
+        padding: .5rem;
+        font-size: .9rem;
+    }
+
+    #room-description #enemy-stats {
         font-size: .9rem;
     }
 
