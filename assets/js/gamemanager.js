@@ -393,7 +393,7 @@ function gameOver() {
     <h1>GAME OVER</h1> 
     <p>Press New Game to restart</p>
     <div id="new-game">
-        <button id="restart">New Game</button>
+        <button id="restart" aria-label="Restart the game">New Game</button>
     </div>
     `;
     newGameButton();
@@ -411,7 +411,7 @@ contact.addEventListener("click", () => {
     modal.innerHTML = `
     <div id="heading">
         <h1>Contact Us</h1>
-        <span id="close-btn">&times;</span>
+        <span id="close-btn" aria-label="Close modal" >&times;</span>
     </div>
     <form id="contact-form" onsubmit="return sendMail(this);" method="POST">
         <div class="contact-input">

@@ -30,24 +30,24 @@
         <div id="room-description"></div>
         <div id="game-stats">
             <div id="player-health">
-                <i class="fas fa-heartbeat"></i>
+                <i class="fas fa-heartbeat" aria-label="Heartbeat icon"></i>
                 <div id="health-bar">
                     <div id="health"></div>
                 </div>
             </div>
-            <i id="player-info" class="fas fa-info-circle"></i>
-            <i id="inventory-info" class="fas fa-briefcase"></i>
+            <i class="fas fa-info-circle" id="player-info" aria-label="Player stats icon"></i>
+            <i class="fas fa-briefcase" id="inventory-info" aria-label="Items list icon"></i>
         </div>
         <div id="btns">
-            <button class="action-button"></button>
-            <button class="action-button"></button>
+            <button class="action-button" aria-label="Choose option 1" ></button>
+            <button class="action-button" aria-label="Choose option 2" ></button>
         </div>
         <div id="footer">
-            <button id="contact"><i class="fas fa-envelope"></i></button>
+            <button aria-label="Open contact form" id="contact"><i class="fas fa-envelope"></i></button>
             <div id="socials">
-                <a href="http://facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-                <a href="http://github.com" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                <a href="http://linkedin.com" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                <a href="http://facebook.com" aria-label="Go to Facebook page" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                <a href="http://github.com" aria-label="Go to GitHub page" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="http://linkedin.com" aria-label="Go to LinkedIn page" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
             </div> 
         </div>
     </div>
@@ -56,11 +56,11 @@
         <p>A text-based choose your own adventure game</p>
         <form id="form">
             <div id="my-name">
-                <label for="player-name">Name:<span class="required-icon"></span></label>
+                <label for="player-name" aria-label="Enter your name">Name:<span class="required-icon"></span></label>
                 <input type="text" name="name" id="player-name" placeholder="Enter your name..." required>
             </div>
             <div id="start-container">
-                <button id="start-game">Start Game</button>
+                <button id="start-game" aria-label="Start the game">Start Game</button>
             </div>
         </form>
     </div>
