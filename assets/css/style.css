@@ -121,7 +121,7 @@ body {
 #room-name h2 {
     place-self: center center;
     color: var(--cyan);
-    font-size: 1.75rem;
+    font-size: clamp(1rem, 1rem + .5vw, 1.75rem); 
     letter-spacing: 1px;
 }
 
@@ -178,7 +178,7 @@ body {
     cursor: pointer;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
-    min-height: 60%;
+    min-height: 65%;
     width: 120px;
     align-self: center;
     letter-spacing: 1px;
@@ -321,7 +321,7 @@ body {
     text-align: center;
     padding-top: 2rem;
     padding-bottom: 1rem;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 1rem + 1vw, 1.8rem);
     color: var(--red);
     text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
     letter-spacing: 2px;
@@ -556,31 +556,29 @@ body {
         "footer footer footer footer"
         "...... ...... ...... ......";
     }
+
+    #btns {
+        margin-top: 12.5%;
+    }
+
+    #btns .action-button {
+        min-height: 70%;
+    }
 }
 
 @media (max-width: 840px) {
     #game-wrapper {
         max-width: 50%;
         height: 100%;
-        grid-template-rows: .5% 7.5% 40% 30% 11.5% 10% .5%;
+        grid-template-rows: 7.5% 40% 30.5% 11.5% 10.5%;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
-        ".....  ....."
         "rname  stats"
         "image  image"
         "text   text"
         "btns   btns"
-        "footer footer"
-        "...... ......";
+        "footer footer";
     } 
-
-    #room-name h2 {
-        font-size: 1.5rem;
-    }
-
-    #modal h1 {
-        font-size: 1.75rem;
-    }
 
     #modal ol li {
         font-size: 1rem;
@@ -606,15 +604,15 @@ body {
     }
 
     #btns .action-button {
-        height: 75%;
+        min-height: 75%;
     }
 
     #contact {
-        height: 80%;
+        min-height: 75%;
     }
 
     #socials a {
-        height: 80%;
+        min-height: 75%;
     }
 
     #btns .action-button:hover, #btns .action-button:focus,
@@ -628,10 +626,6 @@ body {
 
     #footer {
         justify-content: space-evenly;
-    }
-
-    #contact {
-        padding: 1rem;
     }
 }
 
@@ -668,14 +662,6 @@ body {
 }
 
 @media (max-width: 445px) {
-    #room-name h2 {
-        font-size: 1.25rem;
-    }
-
-    #modal h1 {
-        font-size: 1.5rem;
-    }
-
     #btns .action-button {
         font-size: .9rem;
     }
@@ -692,10 +678,6 @@ body {
 
     #player-name {
         width: 75%;
-    }
-
-    #room-name h2 {
-        font-size: 1rem;
     }
 
     #room-description p {
