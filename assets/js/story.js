@@ -510,7 +510,7 @@ export function getStory(player) {
         4: [
             {
                 id: 1,
-                text: `You arrive at the location shown at the card. It's a nightclub for enhanced individuals. This part of town is very dodgy. What shall you do with the card?`,
+                text: `You arrive at the location shown in the card. It's a nightclub for enhanced individuals. This part of town is very dodgy. What shall you do with the card?`,
                 actions: [
                     {
                         text: "Keep it",
@@ -541,19 +541,20 @@ export function getStory(player) {
                 id: 3,
                 text: `"Ok then, follow me" the bouncer says. He takes you to the back entrance of the nightclub. Another person looks at you suspiciously and asks for the member's card.`,
                 requiredItem: items.card,
-                requiredItemScene: 5,
                 actions: [
                     {
-                        text: ""
+                        text: "Show the card",
+                        nextScene: 5
                     },
                     {
-                        text:""
+                        text:"I don't have it",
+                        nextScene: 4
                     }
                 ]
             },
             {
                 id: 4,
-                text: `"This is a member's only club. You do not belong here. Are you one of them?" the bouncer shouts. He then grabs you with his bionic arm and stabs you.`,
+                text: `"This is a member's only club. You do not belong here. Are you one of them?" the bouncer shouts. He then grabs you with his bionic arm and stabs you. `,
                 gameOver: true,
                 actions: [
                     {

@@ -105,12 +105,24 @@ function loadScene() {
         fadeImage();
     }
     switch (true) {
-        case (currentStory.hasOwnProperty("requiredItemScene")):
-            if (!inventory.includes(currentStory.requiredItem)) {
-                player.health = 0;
-                displayGameOver();
-            } else {
-                displayNextScene();
+        case (currentStory.hasOwnProperty("requiredItem")):
+            switch (true) {
+                case (!currentStory.hasOwnProperty("requiredItemScene")):
+                    if (!inventory.includes(currentStory.requiredItem)) {
+                        player.health = 0;
+                        displayGameOver(); 
+                    } else {
+                        displayActions();
+                    }
+                break;
+                case (currentStory.hasOwnProperty("requiredItemScene")):
+                    if (!inventory.includes(currentStory.requiredItem)) {
+                        player.health = 0;
+                        displayGameOver();
+                    } else {
+                        displayNextScene();
+                    }
+                break;
             }
         break;
         case (currentStory.hasOwnProperty("gameOver")):
