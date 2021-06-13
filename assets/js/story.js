@@ -219,7 +219,8 @@ export function getStory(player) {
             },
             {
                 id: 11,
-                text: `The intruders manage to sneak into the building undetected and one by one killed all the guards. They stormed into the lab and destroyed all the research. GenTech is finished.`,
+                text: `The intruders manage to sneak into the building undetected and one by one killed all the guards. They stormed into the lab and destroyed all the research. GenTech is finished.
+                `,
                 gameOver: true,
                 actions: [
                     {
@@ -310,7 +311,7 @@ export function getStory(player) {
         3: [
             {
                 id: 1,
-                text: `You decided to leave work. You are about to take the train home. At the train station, a weird-looking old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
+                text: `You decided to leave work. You are about to take the train home. Outside the train station, a weird-looking old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -324,7 +325,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `Disheartened, the old man walks away. As you carry on walking, suddenly everything turns quiet. You see a shift in the shadows to your right. You feel something is not right.`,
+                text: `Disheartened, the old man walks away. As you enter the station, suddenly everything turns quiet. You see a shift in the shadows to your right. You feel something is not right.`,
                 actions: [
                     {
                         text: "Start running",
@@ -370,7 +371,7 @@ export function getStory(player) {
             },
             {
                 id: 5,
-                text: `As you panic and start to run, you accidentally trip and fall on the floor on the floor. A shadowy figure suddenly jumps at you and shouts "Give me your wallet and keycard" and starts punching you.`,
+                text: `As you panic and start to run, you accidentally trip and fall on the floor. A shadowy figure suddenly jumps at you and shouts "Give me your wallet and keycard" and starts punching you.`,
                 enemy: enemies.thief,
                 fadeImage: true,
                 actions: [
@@ -388,7 +389,7 @@ export function getStory(player) {
             },
             {
                 id: 6,
-                text: "You walk away from the alleway and escape the danger that's lurking in the shadows. What do you do next?",
+                text: "You walk away from the train station and escape the danger that's lurking in the shadows. What do you do next?",
                 actions: [
                     {
                         text: "Walk home",
@@ -418,7 +419,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `The old man takes a liking at you and gives you a ${items.card.name} with an address on it. He tells you that GenTech is in danger and you can find answers in this place.`,
+                text: `You thank the old man for the warning. He a liking at you and gives you a ${items.card.name} with an address on it. He tells you that GenTech is in danger and you can find answers in this place.`,
                 actions: [
                     {
                         text: "Ignore it",
@@ -495,7 +496,8 @@ export function getStory(player) {
             },
             {
                 id: 13,
-                text: `You take the ${items.card.name} and you decide to go to that address to find out what is going on and who wants to attack GenTech and why.`,
+                text: `You decide to take the ${items.card.name} and go to that address tonight to find out what is going on and who wants to attack GenTech and why.
+                `,
                 nextRoom: 4,
                 actions: [
                     {
@@ -510,7 +512,7 @@ export function getStory(player) {
         4: [
             {
                 id: 1,
-                text: `You arrive at the location shown in the card. It's a nightclub for enhanced individuals. This part of town is very dodgy. What shall you do with the card?`,
+                text: `You arrive at the location shown in the card. It's a nightclub for enhanced individuals. This part of town is quite dangerous. I don't know why someone would help me at a place like this. What shall you do with the card?`,
                 actions: [
                     {
                         text: "Keep it",
@@ -525,7 +527,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `You get to the entrance. The bouncer looks at you and says "I've never seen you again in here. You don't look enhanced. Are you a member?".`,
+                text: `You get to the entrance. The bouncer looks at you suspiciously and says "I've never seen you again in here. You don't look enhanced. Are you a member?".`,
                 actions: [
                     {
                         text: "Yes",
@@ -539,7 +541,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `"Ok then, follow me" the bouncer says. He takes you to the back entrance of the nightclub. Another person looks at you suspiciously and asks for the member's card.`,
+                text: `"Huh, OK then, follow me" the bouncer says. He takes you to the back entrance of the nightclub. Another person appears in front of you and asks for the member's card.`,
                 requiredItem: items.card,
                 actions: [
                     {
@@ -554,7 +556,8 @@ export function getStory(player) {
             },
             {
                 id: 4,
-                text: `"This is a member's only club. You do not belong here. Are you one of them?" the bouncer shouts. He then grabs you with his bionic arm and stabs you. `,
+                text: `"This is a member's only club. You do not belong here. Are you one of them?" the bouncer shouts. He then grabs you with his bionic arm and stabs you with his knife. 
+                `,
                 gameOver: true,
                 actions: [
                     {
@@ -589,7 +592,7 @@ export function getStory(player) {
                     },
                     {
                         text: "I came for a drink",
-                        response: "You don't seem the kind of guy who would hang out at a place like this. So tell me, what are you really doing here?"
+                        response: `"You don't seem the kind of guy who would hang out at a place like this. So tell me, what are you really doing here?" Samantha says with a smile on her face.`
                     }
                 ]
             },
