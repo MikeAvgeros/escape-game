@@ -13,12 +13,14 @@ const weapons = {
 
 const enemyImg = {
     intruder: "./assets/img/intruder.jpg",
-    thief: "./assets/img/thief.jpg"
+    thief: "./assets/img/thief.jpg",
+    gangmember: "./assets/img/gangmember.jpg"
 }
 
 const enemies = {
     intruder: new Character("Intruder", 80, 40, 20, enemyImg.intruder),
-    thief: new Character("Thief", 70, 40, 20, enemyImg.thief)
+    thief: new Character("Thief", 70, 40, 20, enemyImg.thief),
+    gangmember: new Character("Gang Member", 70, 40, 20, enemyImg.gangmember)
 };
 
 export function getStory(player) {
@@ -431,7 +433,7 @@ export function getStory(player) {
             },
             {
                 id: 9,
-                text: `You attack the intruder. He seems wounded but he is still standing. He stands up and attacks you again.`,
+                text: `You attack the thief. He seems wounded but he is still standing. He stands up and attacks you again.`,
                 enemy: enemies.thief,
                 actions: [
                     {
@@ -493,7 +495,7 @@ export function getStory(player) {
             },
             {
                 id: 13,
-                text: `You take the ${items.card} and you decide to go to that address to find out what is going on and who wants to attack GenTech and why.`,
+                text: `You take the ${items.card.name} and you decide to go to that address to find out what is going on and who wants to attack GenTech and why.`,
                 nextRoom: 4,
                 actions: [
                     {
@@ -673,33 +675,61 @@ export function getStory(player) {
                         nextScene: 6
                     }
                 ]
-
             }
         ],
         5: [
             {
                 id: 1,
-                text: "You have found their hideout. A scrappy old junkyard full of broken bio hacking tools and machinery. As you approach carefully, you hear someone coming your way.",
+                text: "You have found their hideout. A scrappy old junkyard full of broken bio engineering tools and machinery. As you approach carefully, you hear someone coming your way.",
                 actions: [
                     {
                         text: "Hide",
                         nextScene: 2
                     },
                     {
-                        text: "Show",
+                        text: "Show up",
                         nextScene: 3
                     }
                 ]
             },
             {
                 id: 2,
-                text: "You decide to hide behind some "
+                text: "You decide to hide behind some metal junk. "
             },
             {
                 id: 3,
-                text: `A gang member finds you. "What are you doing here" he says`
-            }
-
+                text: `A gang member finds you. "Who are you and what are you doing here?" she says and starts attacking you.`,
+                enemy: enemies.gangmember,
+                actions: [
+                    {
+                        text: "Attack her",
+                        attackEnemy: enemies.gangmember,
+                        nextScene: 9
+                    },
+                    {
+                        text: "I surrender",
+                        nextScene: 7
+                    }
+                ]
+            },
+            {
+                id: 9,
+                text: `You attack the gang member. She seems wounded but she is still standing. She stands up and attacks you again.`,
+                enemy: enemies.gangmember,
+                actions: [
+                    {
+                        text: "Attack again",
+                        attackEnemy: enemies.gangmember,
+                        nextScene: 9,
+                        nextSceneAfterKill: 10
+                    },
+                    {
+                        text: "Run away",
+                        escapedEnemy: true,
+                        nextScene: 7
+                    }
+                ]
+            },
         ]
     };
 }
