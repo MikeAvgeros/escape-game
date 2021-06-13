@@ -281,11 +281,26 @@ export function getStory(player) {
                     {
                         text: "Use the spray",
                         weapon: weapons.spray,
-                        nextRoom: 3
+                        nextScene: 16
                     },
                     {
                         text: "Don't use the spray",
+                        nextScene: 16
+                    }
+                ]
+            },
+            {
+                id: 16,
+                text: `Would you like to continue wearing the ${items.vest.name} or leave it?`,
+                actions: [
+                    {
+                        text: "Keep it",
                         nextRoom: 3
+                    },
+                    {
+                        text: "Leave it",
+                        nextRoom: 3,
+                        removedItem: items.vest
                     }
                 ]
             }

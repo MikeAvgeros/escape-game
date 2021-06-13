@@ -290,6 +290,16 @@ function handleActionClicks() {
                             fadeOutButtons();
                             changeRoom();
                         break;
+                        case (actions[i].hasOwnProperty("removedItem")):
+                            flashIcon(inventoryInfo);
+                            inventory = inventory.filter((item) => {
+                                return item.name !== actions[i].removedItem.name;
+                            });
+                            roomId = actions[i].nextRoom;
+                            finishedTyping = false;
+                            fadeOutButtons();
+                            changeRoom();
+                        break;
                         default:
                             roomId = actions[i].nextRoom;
                             finishedTyping = false;
