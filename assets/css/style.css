@@ -4,7 +4,6 @@
     --black:  #010101;
     --red: #fd0130;
     --yellow: #ffee08; 
-    --pink: #ff2a6d;
     --cyan: #02D7F2;
     --ff-primary: 'Tomorrow', sans-serif;
     --ff-secondary: 'Orbitron', sans-serif;
@@ -545,7 +544,7 @@ body {
 @media (max-width: 1024px) {
     #game-wrapper {
         max-width: 95%;
-        grid-template-rows: 10% 7.5% 35% 20% 7.5% 10% 10%;
+        grid-template-rows: 7.5% 7.5% 40% 20% 7.5% 10% 7.5%;
         grid-template-columns: 25% 30% 5% 40%;
         grid-template-areas: 
         "...... ...... ...... ......"
@@ -555,6 +554,10 @@ body {
         ".....  .....  ...... ......"
         "footer footer footer footer"
         "...... ...... ...... ......";
+    }
+
+    #room-description p {
+        padding: .75rem;
     }
 
     #btns {
