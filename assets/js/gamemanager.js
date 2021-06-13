@@ -88,7 +88,7 @@ function loadScene() {
             finishedTyping = true;
             clearInterval(typeWriter);
         }
-    }, 25);
+    }, 50);
     actions = currentStory.actions;
     if (currentStory.hasOwnProperty("enemy")) {
         currentStory.enemy.showImage();

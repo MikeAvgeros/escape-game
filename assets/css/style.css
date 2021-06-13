@@ -120,7 +120,7 @@ body {
 #room-name h2 {
     place-self: center center;
     color: var(--cyan);
-    font-size: clamp(1rem, 1rem + .5vw, 1.75rem); 
+    font-size: clamp(1rem, 1rem + .75vw, 1.75rem); 
     letter-spacing: 1px;
 }
 
@@ -260,7 +260,7 @@ body {
     min-height: 75%;
     min-width: 60px;
     margin-left: 1rem;
-    font-size: clamp(1.25rem, 1rem + 1vw, 2rem); 
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem); 
     letter-spacing: 1px;
     font-weight: bolder;
     border: 2.5px solid var(--yellow);
@@ -283,7 +283,7 @@ body {
     min-height: 75%;
     min-width: 60px;
     color: var(--cyan);
-    font-size: clamp(1.25rem, 1rem + 1vw, 2rem);  
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);  
     border: 2.5px solid var(--yellow);
     -webkit-clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
             clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
