@@ -365,7 +365,7 @@ function flashIcon(icon) {
 // starts the game. sets roomid and storyid to 1, which is the starting point
 
 function startGame() {
-    roomId = 3;
+    roomId = 1;
     storyId = 1;
     anotherParagraph.setAttribute("id", "enemy-stats");
     textContainer.appendChild(paragraph);
