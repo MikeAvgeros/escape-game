@@ -17,7 +17,7 @@ const enemyImg = {
 }
 
 const enemies = {
-    intruder: new Character("Intruder", 70, 40, 20, enemyImg.intruder),
+    intruder: new Character("Intruder", 80, 40, 20, enemyImg.intruder),
     thief: new Character("Thief", 70, 40, 20, enemyImg.thief)
 };
 
@@ -293,7 +293,7 @@ export function getStory(player) {
         3: [
             {
                 id: 1,
-                text: `You decided to leave work. You are about to take the bus home. At the bus stop, a weird-looking old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
+                text: `You decided to leave work. You are about to take the train home. At the train station, a weird-looking old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
                 actions: [
                     {
                         text: "Ignore him",
