@@ -527,7 +527,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `You get to the entrance. The bouncer looks at you suspiciously and says "I've never seen you again in here. You don't look enhanced. Are you a member?".`,
+                text: `You get to the entrance. The bouncer looks at you suspiciously and says "Hmm, I've never seen you in here before. You don't look enhanced. Are you a member?".`,
                 actions: [
                     {
                         text: "Yes",
@@ -556,7 +556,7 @@ export function getStory(player) {
             },
             {
                 id: 4,
-                text: `"This is a member's only club. You do not belong here. Are you one of them?" the bouncer shouts. He then grabs you with his bionic arm and stabs you with his knife. 
+                text: `"This is a member's only club. You do not belong here. Are you one of them?" the bouncer shouts. He then grabs you with his bionic arm and throws you out. 
                             `,
                 gameOver: true,
                 actions: [
@@ -648,7 +648,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Stay in the club",
-                        nextScene: 7
+                        response: "There's no point staying in the club now that I have found what I came here for."
                     }
                 ]
             },
