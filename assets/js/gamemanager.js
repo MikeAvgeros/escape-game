@@ -125,11 +125,14 @@ function loadScene() {
                 break;
             }
         break;
+        case (currentStory.hasOwnProperty("nextRoom")):
+            displayNextRoom();
+        break;
         case (currentStory.hasOwnProperty("gameOver")):
             displayGameOver();
         break;
-        case (currentStory.hasOwnProperty("nextRoom")):
-            displayNextRoom();
+        case (currentStory.hasOwnProperty("toBeContinued")):
+            displayToBeContinued();
         break;
         default:
             displayActions();
@@ -169,6 +172,15 @@ function displayGameOver() {
     } else {
         finishedTyping = false;
         gameOver();
+    }
+}
+
+function displayToBeContinued() {
+    if(!finishedTyping) {
+        setTimeout(displayGameOver, 600); 
+    } else {
+        finishedTyping = false;
+        toBeContinued();
     }
 }
 
@@ -449,6 +461,26 @@ function gameOver() {
     modal.innerHTML = `
     <h1>GAME OVER</h1> 
     <p>Press New Game to restart</p>
+    <div id="new-game">
+        <button id="restart" aria-label="Restart the game">New Game</button>
+    </div>
+    `;
+    newGameButton();
+}
+
+//handles the tobecontinued popup
+
+function toBeContinued() {
+    if (!modal.classList.contains("open")) {
+        modal.classList.add("open");
+    }
+    if (!overlay.classList.contains("open")) {
+        overlay.classList.add("open");
+    }
+    modal.innerHTML = `
+    <h1>TO BE CONTINUED...</h1> 
+    <p>Press New Game to play again</p>
+    <p>You can contact the developer for new story suggestions.</p>
     <div id="new-game">
         <button id="restart" aria-label="Restart the game">New Game</button>
     </div>

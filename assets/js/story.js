@@ -311,7 +311,7 @@ export function getStory(player) {
         3: [
             {
                 id: 1,
-                text: `You decided to leave work. You are about to take the train home. Outside the train station, a weird-looking old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
+                text: `You decide to leave your work. You are about to take the train home. Outside the train station, a weird-looking old man, who appears to be enhanced, approaches you and asks if you can give him some money.`,
                 actions: [
                     {
                         text: "Ignore him",
@@ -684,7 +684,7 @@ export function getStory(player) {
         5: [
             {
                 id: 1,
-                text: "You have found their hideout. A scrappy old junkyard full of broken bio engineering tools and machinery. As you approach carefully, you hear someone coming your way.",
+                text: "You have successfully found their hideout. A scrappy old junkyard full of broken bio engineering tools and machinery. As you approach carefully, you hear someone coming your way.",
                 actions: [
                     {
                         text: "Hide",
@@ -698,17 +698,27 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: "You decide to hide behind some metal junk. "
+                text: "You decide to hide behind some metal planks. The unsuspecting gang member walks past you. You continue to explore their hideout and you find the control room.",
+                actions: [
+                    {
+                        text: "Go in",
+                        nextScene: 4
+                    },
+                    {
+                        text: "Go back",
+                        reponse: "As you try to leave, you hear more gang members coming your way. The only way to escape is to hide in their control room."
+                    }
+                ]
             },
             {
                 id: 3,
-                text: `A gang member finds you. "Who are you and what are you doing here?" she says and starts attacking you.`,
+                text: `The gang member finds you. "Who are you and what are you doing here?" she says and starts attacking you.`,
                 enemy: enemies.gangmember,
                 actions: [
                     {
                         text: "Attack her",
                         attackEnemy: enemies.gangmember,
-                        nextScene: 9
+                        nextScene: 8
                     },
                     {
                         text: "I surrender",
@@ -717,23 +727,93 @@ export function getStory(player) {
                 ]
             },
             {
-                id: 9,
+                id: 4,
+                text: "You enter the control room. Inside, you find information on how and when they plan to attack GenTech. It appears they have hacked into GenTech's system and stolen our data. You unplug the hard drive from the computer and take it with you as proof.",
+                actions: [
+                    {
+                        text: "Escape",
+                        nextScene: 9
+                    },
+                    {
+                        text:"Investigate more",
+                        nextScene: 11
+                    }
+                ]
+            },
+            {
+                id: 7,
+                text: `You have surrendered to the gang. They start questioning you and once they realise you are working for GenTech, they decide to kill you.
+                `,
+                gameOver: true,
+                actions: [
+                    {
+                        text: ""
+                    },
+                    {
+                        text:""
+                    }
+                ]
+            },
+            {
+                id: 8,
                 text: `You attack the gang member. She seems wounded but she is still standing. She stands up and attacks you again.`,
                 enemy: enemies.gangmember,
                 actions: [
                     {
                         text: "Attack again",
                         attackEnemy: enemies.gangmember,
-                        nextScene: 9,
+                        nextScene: 8,
                         nextSceneAfterKill: 10
                     },
                     {
                         text: "Run away",
                         escapedEnemy: true,
-                        nextScene: 7
+                        nextScene: 9
                     }
                 ]
             },
+            {
+                id: 9,
+                text: `As you try to escape, you get found and apprehended. "We were expecting you, ${player.name}", a familiar voice says. It's Samantha from the night club. "You fell right into my trap. We can't have you going around asking questions".
+                `,
+                toBeContinue: true,
+                actions: [
+                    {
+                        text: ""
+                    },
+                    {
+                        text:""
+                    }
+                ]
+            },
+            {
+                id: 10,
+                text: "You managed to disable the gang member and tie her with some chains you found on the ground. You put a tape over her mouth to avoid signaling others. You continue to explore their hideout and you find the control room.",
+                actions: [
+                    {
+                        text: "Go in",
+                        nextScene: 4
+                    },
+                    {
+                        text: "Go back",
+                        reponse: "As you try to leave, you hear more gang members coming your way. The only way to escape is to hide in their control room."
+                    }
+                ]
+            },
+            {
+                id: 11,
+                text: `As you continue your investigation, you get found and apprehended. "We were expecting you, ${player.name}", a familiar voice says. It's Samantha from the night club. "You fell right into my trap. We can't have you going around asking questions".
+                `,
+                toBeContinue: true,
+                actions: [
+                    {
+                        text: ""
+                    },
+                    {
+                        text:""
+                    }
+                ]
+            }
         ]
     };
 }
