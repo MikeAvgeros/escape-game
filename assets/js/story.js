@@ -129,7 +129,7 @@ export function getStory(player) {
             {
                 id: 5,
                 text: `As you are inspecting the room, an intruder appears, takes out his gun and fires 2 bullets at you.
-                `,
+                            `,
                 requiredItem: items.vest,
                 requiredItemScene: 14,
                 enemy: enemies.intruder,
@@ -220,7 +220,7 @@ export function getStory(player) {
             {
                 id: 11,
                 text: `The intruders manage to sneak into the building undetected and one by one killed all the guards. They stormed into the lab and destroyed all the research. GenTech is finished.
-                `,
+                            `,
                 gameOver: true,
                 actions: [
                     {
@@ -497,7 +497,7 @@ export function getStory(player) {
             {
                 id: 13,
                 text: `You decide to take the ${items.card.name} and go to that address tonight to find out what is going on and who wants to attack GenTech and why.
-                `,
+                            `,
                 nextRoom: 4,
                 actions: [
                     {
@@ -512,7 +512,7 @@ export function getStory(player) {
         4: [
             {
                 id: 1,
-                text: `You arrive at the location shown in the card. It's a nightclub for enhanced individuals. This part of town is quite dangerous. I don't know why someone would help me at a place like this. What shall you do with the card?`,
+                text: `You arrive at the location shown in the card. It's a night club for enhanced individuals. This part of town is quite dangerous. I don't know why someone would help me at a place like this. What shall you do with the card?`,
                 actions: [
                     {
                         text: "Keep it",
@@ -541,7 +541,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `"Huh, OK then, follow me" the bouncer says. He takes you to the back entrance of the nightclub. Another person appears in front of you and asks for the member's card.`,
+                text: `"Huh, OK then, follow me" the bouncer says. He takes you to the back entrance of the night club. Another person appears in front of you and asks for your ${items.card.name}.`,
                 requiredItem: items.card,
                 actions: [
                     {
@@ -557,7 +557,7 @@ export function getStory(player) {
             {
                 id: 4,
                 text: `"This is a member's only club. You do not belong here. Are you one of them?" the bouncer shouts. He then grabs you with his bionic arm and stabs you with his knife. 
-                `,
+                            `,
                 gameOver: true,
                 actions: [
                     {
@@ -570,7 +570,7 @@ export function getStory(player) {
             },
             {
                 id: 5,
-                text: `You enter the nightclub. You notice it is filled with enhanced individuals, a lot of them wanted criminals. At the bar, you see a familiar face. It's your neighbour, Samantha. "She's strange but she may have some info".`,
+                text: `You show the card and enter the night club. You notice it is filled with enhanced individuals, a lot of them wanted criminals. At the bar, you see a familiar face. It's your neighbour, Samantha. "She's strange but she may have some info".`,
                 actions: [
                     {
                         text: "Say hi",
@@ -592,7 +592,7 @@ export function getStory(player) {
                     },
                     {
                         text: "I came for a drink",
-                        response: `"You don't seem the kind of guy who would hang out at a place like this. So tell me, what are you really doing here?" Samantha says with a smile on her face.`
+                        response: `You don't seem the kind of guy who would hang out at a place like this. So tell me, what are you really doing here?" Samantha says with a smile on her face.`
                     }
                 ]
             },
@@ -698,7 +698,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: "You decide to hide behind some metal planks. The unsuspecting gang member walks past you. You continue to explore their hideout and you find the control room.",
+                text: "You decide to hide behind some metal planks. The unsuspecting gang member walks past you. You continue to explore their hideout and you find a control room full of computer and telecommunications equipment.",
                 actions: [
                     {
                         text: "Go in",
@@ -706,7 +706,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Go back",
-                        reponse: "As you try to leave, you hear more gang members coming your way. The only way to escape is to hide in their control room."
+                        response: "As you try to leave, you hear more gang members coming your way. The only way to escape is to hide in their control room."
                     }
                 ]
             },
@@ -743,7 +743,7 @@ export function getStory(player) {
             {
                 id: 7,
                 text: `You have surrendered to the gang. They start questioning you and once they realise you are working for GenTech, they decide to kill you.
-                `,
+                            `,
                 gameOver: true,
                 actions: [
                     {
@@ -775,8 +775,8 @@ export function getStory(player) {
             {
                 id: 9,
                 text: `As you try to escape, you get found and apprehended. "We were expecting you, ${player.name}", a familiar voice says. It's Samantha from the night club. "You fell right into my trap. We can't have you going around asking questions".
-                `,
-                toBeContinue: true,
+                                `,
+                toBeContinued: true,
                 actions: [
                     {
                         text: ""
@@ -788,7 +788,7 @@ export function getStory(player) {
             },
             {
                 id: 10,
-                text: "You managed to disable the gang member and tie her with some chains you found on the ground. You put a tape over her mouth to avoid signaling others. You continue to explore their hideout and you find the control room.",
+                text: "You managed to disable the gang member and tie her with some chains you found on the ground. You put a tape over her mouth to avoid signaling others. You continue to explore their hideout and you find a control room full of computer and telecommunications equipment.",
                 actions: [
                     {
                         text: "Go in",
@@ -796,15 +796,15 @@ export function getStory(player) {
                     },
                     {
                         text: "Go back",
-                        reponse: "As you try to leave, you hear more gang members coming your way. The only way to escape is to hide in their control room."
+                        response: "As you try to leave, you hear more gang members coming your way. The only way to escape is to hide in their control room."
                     }
                 ]
             },
             {
                 id: 11,
                 text: `As you continue your investigation, you get found and apprehended. "We were expecting you, ${player.name}", a familiar voice says. It's Samantha from the night club. "You fell right into my trap. We can't have you going around asking questions".
-                `,
-                toBeContinue: true,
+                                `,
+                toBeContinued: true,
                 actions: [
                     {
                         text: ""

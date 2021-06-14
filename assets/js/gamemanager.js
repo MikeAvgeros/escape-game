@@ -177,7 +177,7 @@ function displayGameOver() {
 
 function displayToBeContinued() {
     if(!finishedTyping) {
-        setTimeout(displayGameOver, 600); 
+        setTimeout(displayToBeContinued, 600); 
     } else {
         finishedTyping = false;
         toBeContinued();
@@ -291,7 +291,7 @@ function handleActionClicks() {
                     typeWriter = setInterval(() => {
                         paragraph.textContent += actions[i].response.charAt(c++);
                         finishedTyping = false;
-                        if (c > currentStory.text.length) {
+                        if (c > actions[i].response.length) {
                             finishedTyping = true;
                             clearInterval(typeWriter);
                         }
