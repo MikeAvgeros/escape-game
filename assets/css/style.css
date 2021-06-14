@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Tomorrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tomorrow&display=swap');
 
 :root {
     --black:  #010101;
     --red: #fd0130;
     --yellow: #ffee08; 
     --cyan: #02D7F2;
-    --ff-primary: 'Tomorrow', sans-serif;
-    --ff-secondary: 'Orbitron', sans-serif;
+    --font: 'Tomorrow', sans-serif;
     --width: 100%;
 }
 
@@ -22,7 +21,7 @@ body {
     width: 100%;
     display: grid;
     background-color: var(--black);
-    font-family: var(--ff-primary);
+    font-family: var(--font);
 }
 
 #game-wrapper {
@@ -157,7 +156,7 @@ body {
     place-self: end center;
     color: var(--red);
     text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);;
-    font-size: clamp(.9rem, .85rem + .25vw, 1.2rem); 
+    font-size: clamp(.9rem, .85rem + .25vw, 1.25rem); 
     letter-spacing: 1px;
 }
 
@@ -330,7 +329,7 @@ body {
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 2rem;
-    font-size: clamp(1rem, .8rem + .25vw, 1.25rem);
+    font-size: clamp(.95rem, .8rem + .5vw, 1.1rem);
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     letter-spacing: 1px;
@@ -342,7 +341,7 @@ body {
 
 #modal ol li {
     color: var(--cyan);
-    font-size: 1.25rem;
+    font-size: clamp(.95rem, .8rem + .3vw, 1.2rem);
     padding-top: 1rem;
     padding-bottom: 1.5rem;
 }
@@ -356,7 +355,7 @@ body {
 }
 
 #my-name label {
-    font-size: 1rem;
+    font-size: clamp(.95rem, .8rem + .5vw, 1.1rem);
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     letter-spacing: 1px;
@@ -366,12 +365,12 @@ body {
     background: none;
     border: 2.5px solid var(--yellow);
     color: var(--cyan);
-    font-size: 1rem;
+    font-size: clamp(.95rem, .8rem + .5vw, 1.1rem);
     padding-left: .25rem;
 }
 
 .contact-input label {
-    font-size: 1rem;
+    font-size: clamp(.95rem, .8rem + .5vw, 1.1rem);
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     letter-spacing: 1px;
@@ -389,7 +388,7 @@ body {
     background: none;
     border: 2.5px solid var(--yellow);
     color: var(--cyan);
-    font-size: 1rem;
+    font-size: clamp(.95rem, .8rem + .5vw, 1.1rem);
     height: 125%; 
     padding-left: .25rem;
 }
@@ -410,7 +409,7 @@ body {
     justify-self: center;
     place-content: center center;
     border: 2.5px solid var(--yellow);
-    font-size: 1rem;
+    font-size: clamp(.95rem, .8rem + .5vw, 1.1rem);
     background: none;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -582,10 +581,6 @@ body {
         "btns   btns"
         "footer footer";
     } 
-
-    #modal ol li {
-        font-size: 1rem;
-    }
 
     #room-description {
         border-top: none;
