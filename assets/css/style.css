@@ -177,7 +177,7 @@ body {
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     min-height: 65%;
-    width: 120px;
+    width: 7.5rem;
     align-self: center;
     letter-spacing: 1px;
     font-size: clamp(.9rem, .8rem + .25vw, 1.25rem); 
@@ -257,7 +257,7 @@ body {
     background: none;
     cursor: pointer;
     min-height: 75%;
-    min-width: 60px;
+    min-width: 3.75rem;
     margin-left: 1rem;
     font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem); 
     letter-spacing: 1px;
@@ -280,7 +280,7 @@ body {
     align-self: center;
     margin-left: 2rem;
     min-height: 75%;
-    min-width: 60px;
+    min-width: 3.75rem;
     color: var(--cyan);
     font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);  
     border: 2.5px solid var(--yellow);
@@ -677,5 +677,16 @@ body {
 
     #close-btn {
         transform: translateX(15vw) translateY(1vh);
+    }
+}
+
+@media (min-width: 1920px) {
+    #game-wrapper {
+        width: 70%;
+        max-width: 75rem;
+    }
+
+    :root {
+        font-size: 18px;
     }
 }
