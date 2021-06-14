@@ -157,7 +157,7 @@ body {
     place-self: end center;
     color: var(--red);
     text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);;
-    font-size: 1rem;
+    font-size: clamp(.9rem, .85rem + .25vw, 1.2rem); 
     letter-spacing: 1px;
 }
 
@@ -593,10 +593,6 @@ body {
 
     #room-description p {
         padding: .5rem;
-    }
-
-    #room-description #enemy-stats {
-        font-size: .9rem;
     }
 
     #btns {
