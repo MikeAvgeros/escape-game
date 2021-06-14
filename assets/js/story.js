@@ -325,7 +325,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `Disheartened, the old man walks away. As you enter the station, suddenly everything turns quiet. You see a shift in the shadows to your right. You feel something is not right.`,
+                text: `Disheartened, the old man walks away as he whispers "You deserve what's coming". As you enter the station, suddenly everything turns quiet. You see a shift in the shadows to your right. You feel something is not right.`,
                 actions: [
                     {
                         text: "Start running",
