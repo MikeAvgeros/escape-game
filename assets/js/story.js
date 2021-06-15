@@ -598,7 +598,7 @@ export function getStory(player) {
             },
             {
                 id: 7,
-                text: `You go around the club and you ask if anyone knows about the anti-enhancement protests and an impeding attack at GenTech. A strange looking guy approaches you and asks "Who are you? What do you know about GenTech?"`,
+                text: `You go around the club and you ask if anyone knows about the anti-enhancement protesters and an impeding attack at GenTech. A strange looking guy approaches you and asks "Who are you? What do you know about GenTech?"`,
                 actions: [
                     {
                         text: "I work there",
@@ -654,15 +654,15 @@ export function getStory(player) {
             },
             {
                 id: 11,
-                text: "Hmm, so you are GenTech's lackey, huh? All I know is that there's a storm coming. A shadow organization wants to take down GenTech. They fear the future. My wife would have lost her life if it wasn't for GenTech. I'll give you the address of their hideout.",
+                text: "Hmm, so you are GenTech's lackey, huh? All I know is that there's a storm coming. A shadow organization wants to take down GenTech. They fear the future. My wife would have lost her life if it wasn't for GenTech. I know they like to hang out at their little hideout near the river. I can give you an address",
                 actions: [
                     {
                         text: "Find the hideout",
                         nextRoom: 5
                     },
                     {
-                        text: "Find Samantha",
-                        nextScene: 6
+                        text: "Stay in the club",
+                        response: "There's no point staying in the club now that I have found what I came here for."
                     }
                 ]
             },
@@ -675,8 +675,22 @@ export function getStory(player) {
                         nextScene: 11
                     },
                     {
-                        text: "Find Samantha",
-                        nextScene: 6
+                        text: "Evade his question",
+                        nextScene: 13
+                    }
+                ]
+            },
+            {
+                id: 13,
+                text: "Ok, fair enough, you don't have to tell me anything. I don't care what your business is with them. Truth is, I never liked them. I know they like to hang out at their little hideout near the river. I can give you an address.",
+                actions: [
+                    {
+                        text: "Find the hideout",
+                        nextRoom: 5
+                    },
+                    {
+                        text: "Stay in the club",
+                        response: "There's no point staying in the club now that I have found what I came here for."
                     }
                 ]
             }
@@ -684,7 +698,7 @@ export function getStory(player) {
         5: [
             {
                 id: 1,
-                text: "You have successfully found their hideout. A scrappy old junkyard full of broken bio engineering tools and machinery. As you approach carefully, you hear someone coming your way.",
+                text: "You have successfully found the protesters' hideout. A scrappy old junkyard full of broken bio engineering tools and machinery. As you approach carefully, you hear someone coming your way.",
                 actions: [
                     {
                         text: "Hide",
