@@ -558,7 +558,7 @@ inventoryInfo.addEventListener("click", () => {
     } else {
         list.innerHTML = 
         `
-        <p>There are no items in the list</p>
+        <p>No items in your list</p>
         `;
     }
     modal.innerHTML = 
