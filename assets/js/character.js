@@ -42,9 +42,11 @@ class Player extends Character {
         const modal = document.getElementById("modal");
         const overlay = document.getElementById("overlay");
         modal.innerHTML = `
-        <div id="heading">
-            <h1>Player Stats</h1>
+        <div>
             <span id="close-btn">&times;</span>
+        </div>
+        <div>
+            <h1>Player Stats</h1>
         </div>
         <br>
         <p>Player Name: ${this.name}</p>

@@ -29,7 +29,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60rem;
+    width: 61.25rem;
     max-width: 100%;
     min-height: 100%;
     max-height: 1080px;
@@ -318,12 +318,15 @@ body {
 
 #modal h1 {
     text-align: center;
-    padding-top: 2rem;
     padding-bottom: 1rem;
     font-size: clamp(1.5rem, 1rem + 1vw, 1.8rem);
     color: var(--red);
     text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
     letter-spacing: 2px;
+}
+
+#heading {
+    padding-top: 2rem;
 }
 
 #modal p {
@@ -423,17 +426,15 @@ body {
     letter-spacing: 1px;
 }
 
-#heading {
-    display: grid;
-    grid-auto-flow: column;
-    width: 100%;
-}
-
 #close-btn {
     cursor: pointer;
     color: var(--yellow);
     font-size: 2rem;
-    transform: translateX(calc(5rem + 5vw)) translateY(1vh);
+    display: grid;
+    justify-self: end;
+    text-align: end;
+    padding-right: 1rem;
+    transform: translateX(calc(5rem + 5vw));
 }
 
 #start-game:hover,

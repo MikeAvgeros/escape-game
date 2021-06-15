@@ -498,9 +498,11 @@ contact.addEventListener("click", () => {
         overlay.classList.add("open");
     }
     modal.innerHTML = `
-    <div id="heading">
+    <div>
+        <span id="close-btn" aria-label="Close modal">&times;</span>
+    </div>
+    <div>
         <h1>Contact Us</h1>
-        <span id="close-btn" aria-label="Close modal" >&times;</span>
     </div>
     <form id="contact-form" onsubmit="return sendMail(this);" method="POST">
         <div class="contact-input">
@@ -556,14 +558,16 @@ inventoryInfo.addEventListener("click", () => {
     } else {
         list.innerHTML = 
         `
-        <p>There are no items in your list</p>
+        <p>There are no items in the list</p>
         `;
     }
     modal.innerHTML = 
     `
-    <div id="heading">
-        <h1>Items List</h1>
+    <div>
         <span id="close-btn" aria-label="Close modal">&times;</span>
+    </div>
+    <div>
+        <h1>Items List</h1>
     </div>
     `;
     modal.appendChild(list);
