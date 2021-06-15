@@ -29,10 +29,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 61.25rem;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 1080px;
+    width: 100%;
+    max-width: 67.5rem;
+    height: 100%;
+    max-height: 67.5rem;
     overflow: hidden;
     display: grid;
     grid-template-rows: 7.5% 7.5% 40% 22.5% 7.5% 10% 5%;
@@ -177,7 +177,7 @@ body {
     cursor: pointer;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
-    min-height: 65%;
+    height: 65%;
     width: 7.5rem;
     align-self: center;
     letter-spacing: 1px;
@@ -257,7 +257,7 @@ body {
     align-self: center;
     background: none;
     cursor: pointer;
-    min-height: 75%;
+    height: 75%;
     min-width: 3.75rem;
     margin-left: 1rem;
     font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem); 
@@ -280,7 +280,7 @@ body {
     place-content: center center;
     align-self: center;
     margin-left: 2rem;
-    min-height: 75%;
+    height: 75%;
     min-width: 3.75rem;
     color: var(--cyan);
     font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);  
@@ -543,7 +543,6 @@ body {
 
 @media (max-width: 1024px) {
     #game-wrapper {
-        max-width: 95%;
         grid-template-rows: 7.5% 7.5% 40% 20% 7.5% 10% 7.5%;
         grid-template-columns: 25% 30% 5% 40%;
         grid-template-areas: 
@@ -565,7 +564,7 @@ body {
     }
 
     #btns .action-button {
-        min-height: 70%;
+        height: 70%;
     }
 }
 
@@ -598,15 +597,15 @@ body {
     }
 
     #btns .action-button {
-        min-height: 75%;
+        height: 75%;
     }
 
     #contact {
-        min-height: 75%;
+        height: 75%;
     }
 
     #socials a {
-        min-height: 75%;
+        height: 75%;
     }
 
     #btns .action-button:hover, #btns .action-button:focus,
