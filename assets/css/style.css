@@ -555,6 +555,8 @@ body {
 
 #container-404 a {
     width: 50%;
+    display: grid;
+    justify-self: center;
     text-decoration: none;
     border: 2.5px solid var(--yellow);
     margin-top: 1rem;
