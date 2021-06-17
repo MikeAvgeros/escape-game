@@ -1,12 +1,11 @@
 /* jshint esversion: 8 */
 
 class Character {
-    constructor(name, health, attack, defense, img) {
+    constructor(name, health, attack, defense) {
         this.name = name;
         this.health = health;
         this.attack = attack;
         this.defense = defense;
-        this.img = img;
         this.isDead = false;
     }
     takeDamage(amount) {
@@ -20,6 +19,13 @@ class Character {
         if (this.health <= 0) {
             this.isDead = true;
         }
+    }
+}
+
+class Enemy extends Character {
+    constructor(name, health, attack, defense, img, takeDamage, checkIsDead) {
+        super(name, health, attack, defense, takeDamage, checkIsDead);
+        this.img = img;
     }
     showImage() {
         const imgContainer = document.getElementById("room-img");

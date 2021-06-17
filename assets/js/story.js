@@ -18,9 +18,9 @@ const enemyImg = {
 }
 
 const enemies = {
-    intruder: new Character("Intruder", 80, 40, 20, enemyImg.intruder),
-    thief: new Character("Thief", 70, 40, 20, enemyImg.thief),
-    gangmember: new Character("Gang Member", 70, 40, 20, enemyImg.gangmember)
+    intruder: new Enemy("Intruder", 80, 40, 20, enemyImg.intruder),
+    thief: new Enemy("Thief", 70, 40, 20, enemyImg.thief),
+    gangmember: new Enemy("Gang Member", 70, 40, 20, enemyImg.gangmember)
 };
 
 export function getStory(player) {
