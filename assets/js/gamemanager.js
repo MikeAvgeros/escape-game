@@ -8,7 +8,9 @@ import {player, getStory} from './story.js';
 
 const textContainer = document.getElementById("room-description");
 const paragraph = document.createElement("p");
+const textContainerChild = document.createElement("div");
 const anotherParagraph = document.createElement("p");
+const revealBtn = document.createElement("button");
 const buttons = document.getElementsByClassName("action-button");
 const roomImage = document.getElementById("room-img");
 const roomName = document.getElementById("room-name");
@@ -89,6 +91,14 @@ function loadScene() {
             clearInterval(typeWriter);
         }
     }, 50);
+    revealBtn.addEventListener("click", () => {
+        if (!finishedTyping) {
+            finishedTyping = true;
+            clearInterval(typeWriter);
+        }
+        paragraph.textContent = "";
+        paragraph.textContent = currentStory.text;
+    }, {once: true});
     actions = currentStory.actions;
     if (currentStory.hasOwnProperty("enemy")) {
         currentStory.enemy.showImage();
@@ -393,9 +403,14 @@ function flashIcon(icon) {
 function startGame() {
     roomId = 1;
     storyId = 1;
+    textContainerChild.setAttribute("id", "bottom-container");
     anotherParagraph.setAttribute("id", "enemy-stats");
+    revealBtn.setAttribute("id", "reveal-button");
     textContainer.appendChild(paragraph);
-    textContainer.appendChild(anotherParagraph);
+    textContainer.appendChild(textContainerChild);
+    textContainerChild.appendChild(anotherParagraph);
+    textContainerChild.appendChild(revealBtn);
+    revealBtn.textContent = "Reveal Text";
     loadScene();
     handleActionClicks(); 
     fadeImage();
