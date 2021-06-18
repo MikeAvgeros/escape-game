@@ -3,8 +3,8 @@
 export const player = new Player("", 100, 50, 30);
 
 const items = {
-    vest: new Item("bulletproof vest"),
-    card: new Item("membership card")
+    vest: new Item("Bulletproof Vest"),
+    card: new Item("Membership Card")
 };
 
 const weapons = {
@@ -247,7 +247,7 @@ export function getStory(player) {
             },
             {
                 id: 13,
-                text: `You are thinking of wearing a ${items.vest.name} in case you get attacked. However, there is only one available and you do not want to leave your colleague unprotected. What do you want to do?`,
+                text: `You are thinking of wearing a ${items.vest.name.toLowerCase()} in case you get attacked. However, there is only one available and you do not want to leave your colleague unprotected. What do you want to do?`,
                 actions: [
                     {
                         text: "Wear it",
@@ -294,7 +294,7 @@ export function getStory(player) {
             },
             {
                 id: 16,
-                text: `Would you like to continue wearing the ${items.vest.name} or leave it?`,
+                text: `Would you like to continue wearing the ${items.vest.name.toLowerCase()} or leave it?`,
                 actions: [
                     {
                         text: "Keep it",
@@ -419,7 +419,7 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `You thank the old man for the warning. He a liking at you and gives you a ${items.card.name} with an address on it. He tells you that GenTech is in danger and you can find answers in this place.`,
+                text: `You thank the old man for the warning. He takes a liking at you and gives you a ${items.card.name.toLowerCase()} with an address on it. He tells you that GenTech is in danger and you can find answers in this place.`,
                 actions: [
                     {
                         text: "Ignore it",
@@ -466,7 +466,7 @@ export function getStory(player) {
             },
             {
                 id: 11,
-                text: `You managed to find the old man. You ask him for answers. He looks at you with a cold stare and gives you a ${items.card.name} with an address on it. He tells you that GenTech is in danger and you can find answers in this location.`,
+                text: `You managed to find the old man. You ask him for answers. He looks at you with a cold stare and gives you a ${items.card.name.toLowerCase()} with an address on it. He tells you that GenTech is in danger and you can find answers in this location.`,
                 actions: [
                     {
                         text: "Ignore it",
@@ -481,7 +481,7 @@ export function getStory(player) {
             },
             {
                 id: 12,
-                text: `You managed to escape the attacker. As you walk, the old man appears in front of you again. You ask him for answers and he gives you ${items.card.name}. He tells you that your company is in danger and you can find answers in this place.`,
+                text: `You managed to escape the attacker. As you walk, the old man appears in front of you again. You ask him for answers and he gives you ${items.card.name.toLowerCase()}. He tells you that your company is in danger and you can find answers in this place.`,
                 actions: [
                     {
                         text: "Ignore it",
@@ -496,7 +496,7 @@ export function getStory(player) {
             },
             {
                 id: 13,
-                text: `You decide to take the ${items.card.name} and go to that address tonight to find out what is going on and who wants to attack GenTech and why.
+                text: `You decide to take the ${items.card.name.toLowerCase()} and go to that address tonight to find out what is going on and who wants to attack GenTech and why.
                             `,
                 nextRoom: 4,
                 actions: [
@@ -541,7 +541,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `"Huh, OK then, follow me" the bouncer says. He takes you to the back entrance of the night club. Another person appears in front of you and asks for your ${items.card.name}.`,
+                text: `"Huh, OK then, follow me" the bouncer says. He takes you to the back entrance of the night club. Another person appears in front of you and asks for your ${items.card.name.toLowerCase()}.`,
                 requiredItem: items.card,
                 actions: [
                     {

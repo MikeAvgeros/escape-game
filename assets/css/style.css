@@ -548,7 +548,7 @@ body {
 
 #container-404 p {
     text-shadow: 0 0 .1rem var(--yellow), 0 0 .1rem var(--yellow);
-    font-size: clamp(.85rem, .8rem + .25vw, 1.25rem); 
+    font-size: clamp(.85rem, .8rem + .35vw, 1.25rem); 
     letter-spacing: 1px;
     padding-bottom: 1rem;
 }

@@ -175,6 +175,8 @@ function displayGameOver() {
     }
 }
 
+// displays the to be continued popup
+
 function displayToBeContinued() {
     if(!finishedTyping) {
         setTimeout(displayToBeContinued, 600); 
@@ -551,7 +553,7 @@ inventoryInfo.addEventListener("click", () => {
     let list = document.createElement("ol");
     let listItems = "";
     for (let item of inventory) {
-        listItems += `<li>${item.name.charAt(0).toUpperCase() + item.name.slice(1)}</li>`;
+        listItems += `<li>${item.name}</li>`;
     }
     if (inventory.length > 0) {
         list.innerHTML = listItems;
