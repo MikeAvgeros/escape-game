@@ -308,6 +308,14 @@ function handleActionClicks() {
                             clearInterval(typeWriter);
                         }
                     }, 50);
+                    revealBtn.addEventListener("click", () => {
+                        if (!finishedTyping) {
+                            finishedTyping = true;
+                            clearInterval(typeWriter);
+                        }
+                        paragraph.textContent = "";
+                        paragraph.textContent = actions[i].response;
+                    }, {once: true});
                 break;
                 case (actions[i].hasOwnProperty("nextRoom")):
                     switch (true) {
