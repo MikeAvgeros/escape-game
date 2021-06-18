@@ -161,7 +161,7 @@ body {
     display: grid;
     place-self: end start;
     color: var(--red);
-    text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);;
+    text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
     font-size: clamp(.9rem, .85rem + .25vw, 1.25rem); 
     letter-spacing: 1px;
 }
@@ -280,10 +280,9 @@ body {
     align-self: center;
     background: none;
     cursor: pointer;
-    height: 75%;
-    min-width: 3.75rem;
+    padding: .6rem .9rem;
     margin-left: 1rem;
-    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem); 
+    font-size: clamp(1.35rem, 1rem + 1vw, 1.75rem); 
     letter-spacing: 1px;
     font-weight: bolder;
     border: 2.5px solid var(--yellow);
@@ -293,8 +292,8 @@ body {
 }
 
 #socials {
-    display: grid;grid-auto-flow: column;
-    
+    display: grid;
+    grid-auto-flow: column;
     margin-right: 1rem;
 }
 
@@ -303,10 +302,9 @@ body {
     place-content: center center;
     align-self: center;
     margin-left: 2rem;
-    height: 75%;
-    min-width: 3.75rem;
+    padding: .6rem .9rem;
     color: var(--cyan);
-    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);  
+    font-size: clamp(1.35rem, 1rem + 1vw, 1.75rem);  
     border: 2.5px solid var(--yellow);
     -webkit-clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
             clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
@@ -334,9 +332,10 @@ body {
     width: 40rem;
     max-width: 80%;
     height: auto;
+    padding: 1rem 2rem;
     overflow: hidden;
     display: grid; 
-    place-content: start center;
+    place-content: center center;
 }
 
 #modal h1 {
@@ -439,7 +438,7 @@ body {
     background: none;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    padding: .75rem;
+    padding: .6rem .9rem;
     cursor: pointer;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
@@ -669,14 +668,6 @@ body {
     }
 
     #btns .action-button {
-        height: 75%;
-    }
-
-    #contact {
-        height: 75%;
-    }
-
-    #socials a {
         height: 75%;
     }
 
