@@ -332,7 +332,7 @@ body {
     width: 40rem;
     max-width: 80%;
     height: auto;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     overflow: hidden;
     display: grid; 
     place-content: center center;
