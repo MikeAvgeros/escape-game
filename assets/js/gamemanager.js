@@ -549,8 +549,8 @@ contact.addEventListener("click", () => {
         overlay.classList.add("open");
     }
     modal.innerHTML = `
-    <div>
-        <span id="close-btn" aria-label="Close modal">&times;</span>
+    <div id="close-btn">
+        <span aria-label="Close modal">&times;</span>
     </div>
     <div>
         <h1>Contact Us</h1>
@@ -614,8 +614,8 @@ inventoryInfo.addEventListener("click", () => {
     }
     modal.innerHTML = 
     `
-    <div>
-        <span id="close-btn" aria-label="Close modal">&times;</span>
+    <div id="close-btn">
+        <span aria-label="Close modal">&times;</span>
     </div>
     <div>
         <h1>Items List</h1>

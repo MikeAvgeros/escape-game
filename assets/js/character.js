@@ -48,8 +48,8 @@ class Player extends Character {
         const modal = document.getElementById("modal");
         const overlay = document.getElementById("overlay");
         modal.innerHTML = `
-        <div>
-            <span id="close-btn">&times;</span>
+        <div id="close-btn">
+            <span aria-label="Close modal">&times;</span>
         </div>
         <div>
             <h1>Player Stats</h1>

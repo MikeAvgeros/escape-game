@@ -443,6 +443,10 @@ body {
     letter-spacing: 1px;
 }
 
+#contact-btn {
+    margin-top: 2.5rem;
+}
+
 #close-btn {
     cursor: pointer;
     color: var(--yellow);
