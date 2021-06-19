@@ -11,11 +11,6 @@ You can view the live site [here](https://mikeavgeros.github.io/escape-game/)
   - [Structure & Skeleton](#structure--skeleton)
   - [Surface](#surface)
 - [Technologies Used](#technologies-used)
-- [Resources](#resources)
-- [Implementation](#implementation)
-  - [HTML](#html)
-  - [CSS](#css)
-  - [Javascript](#javascript)
 - [Testing](#testing)
   - [User Stories](#user-stories)
   - [Browser Compatibility](#browser-compatibility)
@@ -38,23 +33,23 @@ I chose this type of game as it showcases a lot of object-oriented design patter
 
 - **User Stories**
 
-	- As a User, I want to be presented with a well-structured game, where I can easily find all the information that I need.
+    - As a User, I want to be presented with a well-structured game, where I can easily find all the information that I need.
 
-  - As a User, I want to be able to easily view information on how to play the game.
+    - As a User, I want to be able to easily view information on how to play the game.
 
-  - As a User, I want to be able to name my character similar to RPG games.
+    - As a User, I want to be able to name my character similar to RPG games.
 
-  - As a User, I want to be able to understand and enjoy the presented story.
+    - As a User, I want to be able to understand and enjoy the presented story.
 
-  - As a User, I want the displayed images to convey the emotion and aesthetic of the story.
+    - As a User, I want the displayed images to convey the emotion and aesthetic of the story.
 
-  - As a User, I want to be able to view my character's stats and inventory.
+    - As a User, I want to be able to view my character's stats and inventory.
 
-  - As a User, I want to be able to update my character's stats and use weapons to help me beat the enemies.
+    - As a User, I want to be able to update my character's stats and use weapons to help me beat the enemies.
 
-  - As a User, I want the UI to be consistent throughout the game, so it will be visually appealing and easy to play.
+    - As a User, I want the UI to be consistent throughout the game, so it will be visually appealing and easy to play.
 
-  - As a User, I want a way to visualise how I am doing in the game, and how many more rooms are left till my character escapes.
+    - As a User, I want my actions to show different results to make the game more interactive and fun to play again and again.
 
 ## Scope Plane
 
@@ -64,33 +59,35 @@ This project is developed as a Minimal Viable Product to with a short story and 
 
 	- Players can name their character.
 
-  - Players can view their character's stats and inventory.
+    - Players can view their character's stats and inventory.
 
-  - Images of each level and enemy are displayed on screen for increased realism.
+    - Images of each level and enemy are displayed on screen for increased realism.
 
-  - Players can view a live displayer of their health in the form of a health bar to check if they are about to die.
+    - Players can view a live displayer of their health in the form of a health bar to check if they are about to die.
 
-  - Players can view the remaining health points of each enemy so that they know if they can beat them.
+    - Players can view the remaining health points of each enemy so that they know if they can beat them.
 
-  - Players can contact the developer with questions and story suggestions as well as view their social media and github accounts.
+    - Players can contact the developer with questions and story suggestions as well as view their social media and github accounts.
 
-  - Animations are added when displaying the text and buttons.
+    - Animations are added when displaying the text and buttons.
 
-  - Players can choose to skip the text animation in order to play faster.
+    - Players can choose to skip the text animation in order to play faster.
 
-  - Players can choose to view a tutorial which explains the functionality of the game or start playing right away.
+    - Players can choose to view a tutorial which explains the functionality of the game or start playing right away.
 
-  - A video plays on a loop in the background which adds more movement and realism to the game.
+    - A video plays on a loop in the background which adds more movement and realism to the game.
 
 - **Future Features**
 
-	- I would like to complete the story and present players with more than 2 options each time in order to create a more complex narrative with different endings.
+    - I would like to complete the story and present players with more than 2 options each time in order to create a more complex narrative with different endings.
 
-  - Since the functionality to pick weapons which update the player's stats exists, I would like to create more weapons and special items 
+    - I would like to use session storage to save the state of the game so that you do not start from the beginning. This was not currently implemented due to time constraints and because the story is short.
 
-  - I would like to add icons next to the items in the inventory similar to RPG games.
+    - Since the functionality to pick weapons which update the player's stats exists, I would like to create more weapons and special items for the player.
 
-  - Add the entire story, levels, items and characters into a JSON file, which can be replaced so that anyone can mod the game and add their own story, characters and items.
+    - I would like to add icons next to the items in the inventory similar to RPG games.
+
+    - Add the entire story, levels, items and characters into a JSON file, which can be replaced so that anyone can mod the game and add their own story, characters and items.
 
 ## Structure & Skeleton
 
@@ -194,6 +191,32 @@ I have designed the structure and layout of my game based on CSS grid system. I 
 
 ## User Stories
 
+- As a User, I want to be presented with a well-structured game, where I can easily find all the information that I need.
+
+    - As a User, I want to be able to easily view information on how to play the game.
+        - This was achieved by starting the game with a tutorial scene thoroughly explaining the functionality of the game.
+
+    - As a User, I want to be able to name my character similar to RPG games.
+        - The game allows the player to name his character before starting the game. In addition to that the story calls the character by his chosen name, which adds to the quality of the game.
+
+    - As a User, I want to be able to understand and enjoy the presented story.
+        - The story is carefully structured and tested. Each option displays a different outcome. Some option may lead to a gameover so there's the added tension of choosing the right action.
+
+    - As a User, I want the displayed images to convey the emotion and aesthetic of the story.
+        - Images for both the scene and the enemies are displayed on screen together with a name. This adds more realism to the game and makes the players more engaged.
+
+    - As a User, I want to be able to view my character's stats and inventory.
+        - Players can view their character's name and stats by clicking on the info icon. The tutorial scene explains that functionality.
+
+    - As a User, I want to be able to update my character's stats and use weapons to help me beat the enemies.
+        - The code currently has functionality to updates the player's stats although since the story is short, we do not have many weapons. The only case in the current game of a special item updating the character's stats is when you use the special spray to update your health.
+
+    - As a User, I want the UI to be consistent throughout the game, so it will be visually appealing and easy to play.
+        - The UI is consinstent with the cybepunk vibe of the game. The UI is consistent across multiple screen sizes and devices. The UI has been thoroughly tested and does not have any glitches or bugs.
+
+    - As a User, I want my actions to show different results to make the game more interactive and fun to play again and again.
+        - Each choice in the game leads to a different outcome. Some choices may lead players to play more or less chapters which creates an excitement for players when they play the game for a second time and see an entire new scene which they never played before.
+
 ## Browser Compatibility
 
 -   The website is compatible with most modern web browsers. For the best viewing experience, I recommend using Chrome, Firefox, Edge or Safari. 
@@ -210,7 +233,7 @@ Since I haven't used Bootstrap, I have been constantly testing how responsive my
 
     -   This has helped me adjust the values on my font size variables so that my fonts are responsive and work well with all screen sizes.
 
-    -   This has helped me adjust the grid column parameters in my work, reviews and services sections so that all the nested elements respond and adapt to the screen size of the viewport.
+    -   This has helped me adjust the grid column and row parameters so that all the nested elements respond and adapt to the screen size of the viewport.
 
     -   This has helped me adjust the width and height of all my images.
 
@@ -226,7 +249,7 @@ Since I haven't used Bootstrap, I have been constantly testing how responsive my
 
 -   ### Am I Responsive?
 
-    -   During the testing phase, I ran further tests on my site's responsiveness using the Am I Responsive website. This has helped me identify some size-related inconsistencies that were not so visible with the Google Development Tools.
+    -   During the testing phase, I ran further tests on my site's responsiveness using the Am I Responsive website. This has helped me identify some size-related inconsistencies that were not so visible with Google Development Tools.
 
 -   ### Techsini Multi Device Mockup Generator
 
