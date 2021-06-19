@@ -190,32 +190,87 @@ I have designed the structure and layout of my game based on CSS grid system. I 
 13. [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/)
     -   WAVE Accessibility Evaluation Tool was used to help me make my content more accessible to Users with disabilities.
 
-
-# Resources
-
-# Implementation
-
-## HTML
-
-## CSS
-
-## JavaScript
-
 # Testing
 
 ## User Stories
 
 ## Browser Compatibility
 
+-   The website is compatible with most modern web browsers. For the best viewing experience, I recommend using Chrome, Firefox, Edge or Safari. 
+
+-   The worst viewing experience is on Internet Explorer. I decided to not include any vendor prefixes for IE or make any changes to my code as IE is no longer supported. 
+
 ## Responsiveness
+
+Since I haven't used Bootstrap, I have been constantly testing how responsive my website is by using [Google Development Tools](https://developers.google.com/web/tools), [Am I Responsive](http://ami.responsivedesign.is/) and [Techsini Multi Device Mockup Generator](https://techsini.com/multi-mockup/index.php)
+
+-   ### Google Development Tools
+
+    Throughout the development process, I have been consistently testing that all my pages work well on different screen sizes and devices. 
+
+    -   This has helped me adjust the values on my font size variables so that my fonts are responsive and work well with all screen sizes.
+
+    -   This has helped me adjust the grid column parameters in my work, reviews and services sections so that all the nested elements respond and adapt to the screen size of the viewport.
+
+    -   This has helped me adjust the width and height of all my images.
+
+    -   This has helped me adjust the width and height of my buttons as their size is responsive depending on the screen width.
+
+    -   Overall, most of the elements on the website are responsive based on the screen size so being able to view how the site adapts depending on the screen has helped me make suitable decisions, which have improved the UX of the site.
+
+    -   During the testing phase, I have used Lighthouse to generate reports for both Desktop and Mobile. The reports showed better practices and syntantical fixes on my HTML and CSS, which in turn helped boost the performance, accessibility and UX of the site. You can view the final results below.
+
+        -   [Desktop](https://www.dropbox.com/s/1kfc7x9ooq3h8bx/Lighthouse_DesktopTest.png?raw=1)
+
+        -   [Mobile](https://www.dropbox.com/s/6o8wcft348t2lzn/Lighthouse_MobileTest.png?raw=1)
+
+-   ### Am I Responsive?
+
+    -   During the testing phase, I ran further tests on my site's responsiveness using the Am I Responsive website. This has helped me identify some size-related inconsistencies that were not so visible with the Google Development Tools.
+
+-   ### Techsini Multi Device Mockup Generator
+
+    -   During my testing phase, I also ran further tests on my site's responsiveness using the Multi Device Website Mockup Generator on Techsini. I then compared my findings with the mockups from Am I Responsive. 
+    
+    -   I have also used their screenshot functionality to import a mockup of my site onto this README.
 
 ## Form Validation
 
+-   I made sure to validate my forms and ran suitable tests using different input scenarios. I can confirm that all of them behaved as expected. 
+
+-   I have tested that my required input attributes behaved as expected and warned users to fill the required fields.
+
+-   I have tested that the submitted form is being sent to my email address containing all the information added by the user.
+
 ## HTML Validation
+
+The [W3C Markup Validator](https://validator.w3.org/#validate_by_upload) was used to validate every page of the website to ensure there were no syntax errors in my HTML. It passed the validation without any errors.
+
+-   [HTML Validation Results](https://www.dropbox.com/s/6kc3h5fgvi6n6sp/HTML%20Validation%20Test.png?raw=1)
 
 ## CSS Validation
 
-# Future Features
+The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_upload) was used to validate every page of the website to ensure there were no syntax errors in my CSS. It passed the validation without any errors.
+
+-   [CSS Validation Results](https://www.dropbox.com/s/ckk56nbksjec56b/CSS%20Validation%20Test.png?raw=1)
+
+## Javascript Validation
+
+[JS Hint](https://jshint.com/) was used to validate all my Javascript scripts. All scripts passed the tests without any errors.
+
+## Accessibility
+
+The [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) was used to test the accessibility of my website. It identified missing ARIA-related attributes (especially in my navigation menu icon) that helped me improve the accessibility of the site for Users with disabilities. The final results, which you can view below indicate 1 error with my navigation manu label, which I couldn't fix.
+
+-   [WAVE Results](https://www.dropbox.com/s/ugi4zh5u1hc1t13/WAVE%20Accessibility%20Evaluation%20Test.png?raw)
+
+## Further Testing
+
+-   The website was viewed and tested on a variety of devices such as Desktop, Laptop, iPad, and a variety of Android and iOs mobile phones.
+
+-   A large amount of testing was done to ensure that all pages were linking correctly including the site's navigation menu.
+
+-   Friends, family members and other Code Institute students were asked to review the site and documentation to point out any bugs, typos and/or user experience issues.
 
 # Deployment
 
