@@ -337,7 +337,7 @@ body {
 #modal h1 {
     text-align: center;
     padding-bottom: 1rem;
-    font-size: clamp(1.55rem, 1rem + 1vw, 2rem);
+    font-size: clamp(1.55rem, 1rem + 1vw, 1.85rem);
     color: var(--red);
     text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
     letter-spacing: 2px;

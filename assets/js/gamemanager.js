@@ -485,6 +485,7 @@ function newGameButton() {
         if (!finishedTyping) {
             clearInterval(typeWriter);
             paragraph.textContent = "";
+            anotherParagraph.textContent = "";
         } 
         player.health = 100;
         calculateHealthWidth();

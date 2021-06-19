@@ -183,18 +183,21 @@ I have designed the structure and layout of my game based on the CSS grid system
     -   Chrome DevTools helped me debug issues that I've had during development. In addition, by using the inspection mode I could see how responsive my site was.
 
 9. [W3C Validation Services](https://validator.w3.org/)
-    -   W3C Validation Services were used to help me check if my HTML and CSS adheres to the standards. More details in the Testing section.
+    -   W3C Validation Services were used to help me check if my HTML and CSS code has any errors and it adheres to the standards. More details in the Testing section.
 
-10. [Am I Responsive](http://ami.responsivedesign.is/)
+10. [JS Hint](https://jshint.com/)
+    -   JS Hint used to help me check if my Javascript code has any errors and it adheres to the standards. More details in the Testing section.
+
+11. [Am I Responsive](http://ami.responsivedesign.is/)
     -   Am I Responsive was used during my testing phase to check the responsiveness of my site.
 
-11. [Techsini Multi Device Mockup Generator](https://techsini.com/multi-mockup/index.php)
+12. [Techsini Multi Device Mockup Generator](https://techsini.com/multi-mockup/index.php)
     -   Techsini Multi Device Mockup Generator was used during my testing phase to check the responsiveness of my site.
 
-12. [CSS Minifier](https://cssminifier.com/)
+13. [CSS Minifier](https://cssminifier.com/)
     -   CSS Minifier was used to minify my CSS file in order to improve loading speed and performance.
 
-13. [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/)
+14. [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/)
     -   WAVE Accessibility Evaluation Tool was used to help me make my content more accessible to Users with disabilities.
 
 # Testing
