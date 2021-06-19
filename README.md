@@ -13,6 +13,8 @@ You can view the live site [here](https://mikeavgeros.github.io/escape-game/)
   - [Structure & Skeleton](#structure--skeleton)
   - [Surface](#surface)
 - [Technologies Used](#technologies-used)
+  - [Languages](#languages)
+  - [Resources](#resources)   
 - [Testing](#testing)
   - [User Stories](#user-stories)
   - [Browser Compatibility](#browser-compatibility)
@@ -148,7 +150,7 @@ I have designed the structure and layout of my game based on CSS grid system. I 
 
 -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-## Libraries, Tools & Resources
+## Resources
 
 1. [VS Code](https://code.visualstudio.com/)
     -   VS Code was my IDE of choice for writing the HTML, CSS and JavaScript code.
@@ -333,6 +335,26 @@ The Github repository was cloned and stored locally on my machine using the foll
 
 
 # Credits
+
+## Images
+
+I have used the following images from [Unsplash](https://unsplash.com/).
+
+-   [Alexander Popov](https://unsplash.com/photos/3InMDrsuYrk)
+
+-   [Alexander Popov](https://unsplash.com/photos/SLXreEd0Yu4)
+
+-   [Lorenzo Herrera](https://unsplash.com/photos/p0j-mE6mGo4)
+
+-   [Victor Rodriguez](https://unsplash.com/photos/UrfpprfDB0k)
+
+-   [Taton Moïse](https://unsplash.com/photos/EhOCnW4wnuQ)
+
+-   [Some Tale](https://unsplash.com/photos/m7K6cmWX4to)
+
+-   [Recep Tiryaki](https://unsplash.com/photos/ToeuFHochZo)
+
+-   [Valery Sysoev](https://unsplash.com/photos/2UPcVeOXOxc)
 
 # Acknowledgements
 
