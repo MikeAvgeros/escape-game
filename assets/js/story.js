@@ -164,7 +164,7 @@ export function getStory(player) {
             {
                 id: 5,
                 text: `As you are inspecting the room, an intruder appears, takes out his gun and fires 2 bullets at you.
-                            `,
+                `,
                 requiredItem: items.vest,
                 requiredItemScene: 14,
                 enemy: enemies.intruder,
@@ -255,7 +255,7 @@ export function getStory(player) {
             {
                 id: 11,
                 text: `The intruders manage to sneak into the building undetected and one by one killed all the guards. They stormed into the lab and destroyed all the research. GenTech is finished.
-                            `,
+                `,
                 gameOver: true,
                 actions: [
                     {
@@ -532,7 +532,7 @@ export function getStory(player) {
             {
                 id: 13,
                 text: `You decide to take the ${items.card.name.toLowerCase()} and go to that address tonight to find out what is going on and who wants to attack GenTech and why.
-                            `,
+                `,
                 nextScene: 4,
                 actions: [
                     {
@@ -592,7 +592,7 @@ export function getStory(player) {
             {
                 id: 4,
                 text: `"This is a member's only club. You do not belong here. Are you one of them?" the bouncer shouts. He then grabs you with his bionic arm and throws you out. 
-                            `,
+                `,
                 gameOver: true,
                 actions: [
                     {
@@ -792,7 +792,7 @@ export function getStory(player) {
             {
                 id: 7,
                 text: `You have surrendered to the gang. They start questioning you and once they realise you are working for GenTech, they decide to kill you.
-                            `,
+                `,
                 gameOver: true,
                 actions: [
                     {
@@ -824,7 +824,7 @@ export function getStory(player) {
             {
                 id: 9,
                 text: `As you try to escape, you get found and apprehended. They start questioning you and once they realise you are working for GenTech, they decide to kill you.
-                                `,
+                `,
                 gameOver: true,
                 actions: [
                     {
@@ -852,7 +852,7 @@ export function getStory(player) {
             {
                 id: 11,
                 text: `As you continue your investigation, you get found and apprehended. One of the protester's says "We can't have you going around asking questions."
-                                `,
+                `,
                 toBeContinued: true,
                 actions: [
                     {

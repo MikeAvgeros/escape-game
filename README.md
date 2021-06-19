@@ -1,4 +1,4 @@
-![Multi Device Website Mockup](documentation/design/mockup.png)
+![Multi Device Website Mockup](documentation/mockup/mockup.png)
 
 # Cyber Escape
 This is an interactive game I created for Milestone Project 2 as part of the Code Institute's Full Stack Software Development course. I developed this project using HTML, CSS and JavaScript as the core technologies as well concepts and design techniques learnt in the Interactive Frontend module of the course.
@@ -272,14 +272,6 @@ Since I haven't used Bootstrap, I have been constantly testing how responsive my
     
     -   I have also used their screenshot functionality to import a mockup of my site onto this README.
 
-## Form Validation
-
--   I made sure to validate my forms and ran suitable tests using different input scenarios. I can confirm that all of them behaved as expected. 
-
--   I have tested that my required input attributes behaved as expected and warned users to fill the required fields.
-
--   I have tested that the submitted form is being sent to my email address containing all the information added by the user.
-
 ## HTML Validation
 
 The [W3C Markup Validator](https://validator.w3.org/#validate_by_upload) was used to validate every page of the website to ensure there were no syntax errors in my HTML. It passed the validation without any errors.
@@ -327,6 +319,23 @@ You can view all the tests below.
 The [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) was used to test the accessibility of my website. It identified missing ARIA-related attributes (especially in my navigation menu icon) that helped me improve the accessibility of the site for Users with disabilities. The final results, which you can view below indicate 1 error with my navigation manu label, which I couldn't fix.
 
 ![WAVE Results](documentation/testing/wave-evaluation.png)
+
+## Form Validation
+
+-   I made sure to validate my forms and ran suitable tests using different input scenarios. I can confirm that all of them behaved as expected. 
+
+-   I have tested that my required input attributes behaved as expected and warned users to fill the required fields.
+
+-   I have tested that the submitted form is being sent to my email address containing all the information added by the user.
+
+You can view screenshots of the tests below.
+
+![Name Input Validation](documentation/testing/name-input-validation.png)
+![Email Input Validation](documentation/testing/email-input-validation.png)
+![Textarea Input Validation](documentation/testing/textarea-input-validation.png)
+![Submit Email](documentation/testing/email-submit.png)
+![Email Success Popup](documentation/testing/emailsuccessful-popup.png)
+![Email Received](documentation/testing/email-received.png)
 
 ## Further Testing
 
