@@ -14,7 +14,7 @@ You can view the live site [here](https://mikeavgeros.github.io/escape-game/)
   - [Surface](#surface)
 - [Technologies Used](#technologies-used)
   - [Languages](#languages)
-  - [Resources](#resources)   
+  - [Tools & Resources](#tools--resources)   
 - [Testing](#testing)
   - [User Stories](#user-stories)
   - [Browser Compatibility](#browser-compatibility)
@@ -29,13 +29,13 @@ You can view the live site [here](https://mikeavgeros.github.io/escape-game/)
 
 # User Experience Design - UX
 
-## Strategy Plane
+## Strategy
 
 My Milestone Project 2 from the Code Institute is a modern twist of the classic text-based choose your own adventure game. The story of the game will be displayed via the use of text and images. To progress through the levels and finish the game, players will have to choose the right action presented to them in the form of buttons. In order to make the game more interesting, players will have to fight enemies, pick items and weapons along their journey. They will also be able to view their stats and inventory at any point during gameplay.
 
 I chose this type of game as it showcases a lot of object-oriented design patterns, primarily the use of classes and inheritance as well as being heavily interactive and data driven.
 
-- **User Stories**
+- ### User Stories
 
     - As a User, I want to be presented with a well-structured game, where I can easily find all the information that I need.
 
@@ -55,11 +55,11 @@ I chose this type of game as it showcases a lot of object-oriented design patter
 
     - As a User, I want my actions to show different results to make the game more interactive and fun to play again and again.
 
-## Scope Plane
+## Scope
 
 This project is developed as a Minimal Viable Product to with a short story and minimal features to showcase the style and concept. There will be room for future improvements and releases incorporating additional content and features.
 
-- **Current Features**
+- ### Current Features
 
 	- Players can name their character.
 
@@ -81,7 +81,7 @@ This project is developed as a Minimal Viable Product to with a short story and 
 
     - A video plays on a loop in the background which adds more movement and realism to the game.
 
-- **Future Features**
+- ### Future Features
 
     - I would like to complete the story and present players with more than 2 options each time in order to create a more complex narrative with different endings.
 
@@ -95,11 +95,17 @@ This project is developed as a Minimal Viable Product to with a short story and 
 
 ## Structure & Skeleton
 
-I have designed the structure and layout of my game based on CSS grid system. I have created low fidelity wireframes for desktop and mobile using Miro in order to showcase the layout. You can view the low fidelity wireframes below.
+I have designed the structure and layout of my game based on the CSS grid system. I have created low fidelity wireframes for desktop and mobile using Miro in order to guide me in designing the game. The design and layout of the game has evolved from the original Miro wireframes. You can view the original low fidelity wireframes below.
 
--  **Wireframes**
+-  ### Wireframes
  
-	- All wireframes for desktop and mobile screens can be visualize in the following link - [view](https://miro.com/app/board/o9J_lG5rLBo=/)
+	**Desktop**
+    
+    ![Desktop](documentation/wireframes/wireframe-desktop.png)
+
+    **Mobile**
+
+    ![Desktop](documentation/wireframes/wireframe-mobile.png)
 
 ## Surface
 
@@ -150,7 +156,7 @@ I have designed the structure and layout of my game based on CSS grid system. I 
 
 -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-## Resources
+## Tools & Resources
 
 1. [VS Code](https://code.visualstudio.com/)
     -   VS Code was my IDE of choice for writing the HTML, CSS and JavaScript code.
@@ -246,10 +252,12 @@ Since I haven't used Bootstrap, I have been constantly testing how responsive my
     -   Overall, most of the elements on the website are responsive based on the screen size so being able to view how the site adapts depending on the screen has helped me make suitable decisions, which have improved the UX of the site.
 
     -   During the testing phase, I have used Lighthouse to generate reports for both Desktop and Mobile. The reports showed better practices and syntantical fixes on my HTML and CSS, which in turn helped boost the performance, accessibility and UX of the site. You can view the final results below.
+        
+        **Desktop**
+        ![Desktop](documentation/testing/lighthouse-desktop.png)
 
-        -   [Desktop](https://www.dropbox.com/s/1kfc7x9ooq3h8bx/Lighthouse_DesktopTest.png?raw=1)
-
-        -   [Mobile](https://www.dropbox.com/s/6o8wcft348t2lzn/Lighthouse_MobileTest.png?raw=1)
+        **Mobile**
+        ![Mobile](documentation/testing/lighthouse-mobile.png)
 
 -   ### Am I Responsive?
 
@@ -273,23 +281,49 @@ Since I haven't used Bootstrap, I have been constantly testing how responsive my
 
 The [W3C Markup Validator](https://validator.w3.org/#validate_by_upload) was used to validate every page of the website to ensure there were no syntax errors in my HTML. It passed the validation without any errors.
 
--   [HTML Validation Results](https://www.dropbox.com/s/6kc3h5fgvi6n6sp/HTML%20Validation%20Test.png?raw=1)
+![HTML Validation Results](documentation/testing/validator-html.png)
 
 ## CSS Validation
 
 The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_upload) was used to validate every page of the website to ensure there were no syntax errors in my CSS. It passed the validation without any errors.
 
--   [CSS Validation Results](https://www.dropbox.com/s/ckk56nbksjec56b/CSS%20Validation%20Test.png?raw=1)
+![CSS Validation Results](documentation/testing/validator-css.png)
 
 ## Javascript Validation
 
-[JS Hint](https://jshint.com/) was used to validate all my Javascript scripts. All scripts passed the tests without any errors.
+[JS Hint](https://jshint.com/) was used to validate all my Javascript scripts. All scripts passed the tests without any errors. The main warning was about unused variables which were the class declarations.
+
+You can view all the tests below.
+
+**gamemanager.js**
+
+![GameManager Script JS Hint](documentation/testing/gamemanager-script-jshint.png)
+
+**story.js**
+
+![GameManager Script JS Hint](documentation/testing/story-script-jshint.png)
+
+**email.js**
+
+![GameManager Script JS Hint](documentation/testing/email-script-jshint.png)
+
+**character.js**
+
+![GameManager Script JS Hint](documentation/testing/character-script-jshint.png)
+
+**scene.js**
+
+![GameManager Script JS Hint](documentation/testing/scene-script-jshint.png)
+
+**item.js**
+
+![GameManager Script JS Hint](documentation/testing/item-script-jshint.png)
 
 ## Accessibility
 
 The [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) was used to test the accessibility of my website. It identified missing ARIA-related attributes (especially in my navigation menu icon) that helped me improve the accessibility of the site for Users with disabilities. The final results, which you can view below indicate 1 error with my navigation manu label, which I couldn't fix.
 
--   [WAVE Results](https://www.dropbox.com/s/ugi4zh5u1hc1t13/WAVE%20Accessibility%20Evaluation%20Test.png?raw)
+![WAVE Results](documentation/testing/wave-evaluation.png)
 
 ## Further Testing
 
@@ -332,7 +366,6 @@ The Github repository was cloned and stored locally on my machine using the foll
 2.  I opened [SourceTree](https://www.sourcetreeapp.com/), opened a new tab and clicked on the Clone icon. I pasted the HTTPS link and added a local directory in my machine.
 
 3.  I opened [VS Code](https://code.visualstudio.com/), clicked on File/Open File and navigated to the local directory I had cloned my Github repository.
-
 
 # Credits
 
