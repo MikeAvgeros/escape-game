@@ -268,9 +268,9 @@ Since I haven't used Bootstrap, I have been constantly testing how responsive my
 
 -   ### Techsini Multi Device Mockup Generator
 
-    -   During my testing phase, I also ran further tests on my site's responsiveness using the Multi Device Website Mockup Generator on Techsini. I then compared my findings with the mockups from Am I Responsive. 
+    -   During my testing phase, I also ran further tests on my site's responsiveness using the Multi Device Website Mockup Generator on Techsini. I then compared my findings with the mockups from Am I Responsive. You can view the mockup below.
     
-    -   I have also used their screenshot functionality to import a mockup of my site onto this README.
+![Multi Device Website Mockup](documentation/mockup/mockup.png)
 
 ## HTML Validation
 
@@ -373,7 +373,7 @@ The project was deployed to GitHub Pages using the following steps.
 
 The Github repository was cloned and stored locally on my machine using the following steps. 
 
-1.  I cloned my [Github Repository](https://github.com/MikeAvgeros/escape-gamer) using HTTPS, under "Clone with HTTPS", and copied the link.
+1.  I cloned my [Github Repository](https://github.com/MikeAvgeros/escape-game) using HTTPS, under "Clone with HTTPS", and copied the link.
 
 2.  I opened [SourceTree](https://www.sourcetreeapp.com/), opened a new tab and clicked on the Clone icon. I pasted the HTTPS link and added a local directory in my machine.
 
