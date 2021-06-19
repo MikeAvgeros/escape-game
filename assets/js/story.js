@@ -626,7 +626,7 @@ export function getStory(player) {
             },
             {
                 id: 9,
-                text: "His name is Jack. He runs an auto-repair shop for mechs. Be careful though, he doesn't trust GenTech so do not tell him you work there.",
+                text: "His name is Jack. He runs an auto-repair shop for mechs. Be careful though, he doesn't trust GenTech so do not tell him you work there. He might end up killing you.",
                 actions: [
                     {
                         text: "Where is he?",
