@@ -569,7 +569,7 @@ contact.addEventListener("click", () => {
             <textarea name="message" id="message" rows="6" placeholder="Enter your message" required></textarea>
         </div>
         <div>
-            <button id="contact-btn" type="submit" aria-label="Submit the contact form">Submit</button>
+            <input id="contact-btn" type="submit" aria-label="Submit the contact form">Submit</input>
         </div>
     </form>
     `;
