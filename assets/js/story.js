@@ -4,10 +4,7 @@
 
 export const player = new Player("", 100, 50, 30);
 
-/**
- * the scenes are basically the chapters of the story. 
- * They take a name, which displays at the top, an image and an id, which is used for when you change a scene.
-*/
+// sets the image paths for the scenes, which in turn display the image
 
 const sceneImg = {
     1: "./assets/img/tutorial.jpg",
@@ -16,6 +13,11 @@ const sceneImg = {
     4: "./assets/img/nightclub.jpg",
     5: "./assets/img/hideout.jpg"
 };
+
+/**
+ * the scenes are basically the chapters of the story. 
+ * They take a name, which displays at the top, an image and an id, which is used for when you change a scene.
+*/
 
 export const scenes = {
     1: new Scene("Tutorial", sceneImg[1], 1),
@@ -38,7 +40,7 @@ const weapons = {
     spray: new Weapon("bio healing spray", 30, 0, 0)
 };
 
-// sets the image paths for the enemies
+// sets the image paths for the enemies, which in turn display the image
 
 const enemyImg = {
     intruder: "./assets/img/intruder.jpg",

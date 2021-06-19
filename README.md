@@ -1,3 +1,5 @@
+![Multi Device Website Mockup](documentation/design/mockup.png)
+
 # Cyber Escape
 This is an interactive game I created for Milestone Project 2 as part of the Code Institute's Full Stack Software Development course. I developed this project using HTML, CSS and JavaScript as the core technologies as well concepts and design techniques learnt in the Interactive Frontend module of the course.
 
@@ -333,3 +335,9 @@ The Github repository was cloned and stored locally on my machine using the foll
 # Credits
 
 # Acknowledgements
+
+-   I would like to thank my mentor, [Narender Singh](https://linkedin.com/in/nar3nd3r) for his support, guidance and design ideas.
+
+-   I would like to thank the [Code Institute](https://codeinstitute.net/) for the well-thought-out curriculum and their amazing and super informative and helpful Slack community!
+
+-   I would like to thank the Coding Novas group and everyone at the Full Stack Developers WhatsApp group for their helpful input during my testing phase.
