@@ -180,7 +180,7 @@ I have designed the structure and layout of my game based on the CSS grid system
     -   Miro was used to create the [wireframes](https://miro.com/app/board/o9J_lG5rLBo=/) during the design and prototyping process.
 
 8. [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)
-    -   Chrome DevTools helped me debug issues that I've had during development. In addition, by using the inspection mode I could see how responsive my site was.
+    -   Chrome DevTools helped me debug issues that I've had during development. In addition, by using the inspection mode I could see how responsive my game was.
 
 9. [W3C Validation Services](https://validator.w3.org/)
     -   W3C Validation Services were used to help me check if my HTML and CSS code has any errors and it adheres to the standards. More details in the Testing section.
@@ -189,7 +189,7 @@ I have designed the structure and layout of my game based on the CSS grid system
     -   JS Hint used to help me check if my Javascript code has any errors and it adheres to the standards. More details in the Testing section.
 
 11. [Am I Responsive](http://ami.responsivedesign.is/)
-    -   Am I Responsive was used during my testing phase to check the responsiveness of my site.
+    -   Am I Responsive was used during my testing phase to check the responsiveness of my game.
 
 12. [Techsini Multi Device Mockup Generator](https://techsini.com/multi-mockup/index.php)
     -   Techsini Multi Device Mockup Generator was used during my testing phase to check the responsiveness of my site.
@@ -198,7 +198,10 @@ I have designed the structure and layout of my game based on the CSS grid system
     -   CSS Minifier was used to minify my CSS file in order to improve loading speed and performance.
 
 14. [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/)
-    -   WAVE Accessibility Evaluation Tool was used to help me make my content more accessible to Users with disabilities.
+    -   WAVE Accessibility Evaluation Tool was used to help me make my content more accessible to users with disabilities.
+
+15. [Email JS](https://www.emailjs.com/)
+    -   Email JS was used to enable users to send emails to the developer.
 
 # Testing
 
@@ -232,7 +235,7 @@ I have designed the structure and layout of my game based on the CSS grid system
 
 ## Browser Compatibility
 
--   The website is compatible with most modern web browsers. For the best viewing experience, I recommend using Chrome, Firefox, Edge or Safari. 
+-   The game is compatible with most modern web browsers. For the best viewing experience, I recommend using Chrome, Firefox, Edge or Safari. 
 
 -   The worst viewing experience is on Internet Explorer. I decided to not include any vendor prefixes for IE or make any changes to my code as IE is no longer supported. 
 
@@ -242,9 +245,9 @@ Since I haven't used Bootstrap, I have been constantly testing how responsive my
 
 -   ### Google Development Tools
 
-    Throughout the development process, I have been consistently testing that all my pages work well on different screen sizes and devices. 
+    Throughout the development process, I have been consistently testing that my game and all the popups work well on different screen sizes and devices. 
 
-    -   This has helped me adjust the values on my font size variables so that my fonts are responsive and work well with all screen sizes.
+    -   This has helped me adjust the values on my font sizes so that my fonts are responsive and work well with all screen sizes.
 
     -   This has helped me adjust the grid column and row parameters so that all the nested elements respond and adapt to the screen size of the viewport.
 
@@ -252,9 +255,9 @@ Since I haven't used Bootstrap, I have been constantly testing how responsive my
 
     -   This has helped me adjust the width and height of my buttons as their size is responsive depending on the screen width.
 
-    -   Overall, most of the elements on the website are responsive based on the screen size so being able to view how the site adapts depending on the screen has helped me make suitable decisions, which have improved the UX of the site.
+    -   Overall, most of the elements on the website are responsive based on the screen size so being able to view how the game adapts depending on the screen has helped me make suitable decisions, which have improved the UX of the game.
 
-    -   During the testing phase, I have used Lighthouse to generate reports for both Desktop and Mobile. The reports showed better practices and syntantical fixes on my HTML and CSS, which in turn helped boost the performance, accessibility and UX of the site. You can view the final results below.
+    -   During the testing phase, I have used Lighthouse to generate reports for both Desktop and Mobile. The reports showed better practices and syntantical fixes on my HTML and CSS, which in turn helped boost the performance, accessibility and UX of the game. You can view the final results below.
         
         **Desktop**
         ![Desktop](documentation/testing/lighthouse-desktop.png)
@@ -316,7 +319,7 @@ You can view all the tests below.
 
 ## Accessibility
 
-The [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) was used to test the accessibility of my website. It identified missing ARIA-related attributes (especially in my navigation menu icon) that helped me improve the accessibility of the site for Users with disabilities. The final results, which you can view below indicate 1 error with my navigation manu label, which I couldn't fix.
+The [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) was used to test the accessibility of my website. It identified missing ARIA-related attributes (especially in my navigation menu icon) that helped me improve the accessibility of the site for Users with disabilities. The final results, which you can view below indicate no errors.
 
 ![WAVE Results](documentation/testing/wave-evaluation.png)
 
@@ -341,7 +344,11 @@ You can view screenshots of the tests below.
 
 -   The website was viewed and tested on a variety of devices such as Desktop, Laptop, iPad, and a variety of Android and iOs mobile phones.
 
--   A large amount of testing was done to ensure that all pages were linking correctly including the site's navigation menu.
+-   A large amount of testing was done to ensure that all pages were linking correctly. 
+
+-   All action buttons were carefully tested to ensure they were linking to the correct node or scene.
+
+-   The story branches were carefully tested to ensure they don't create a loop.
 
 -   Friends, family members and other Code Institute students were asked to review the site and documentation to point out any bugs, typos and/or user experience issues.
 
