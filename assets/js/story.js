@@ -1,27 +1,60 @@
 /* jshint esversion: 8 */
 
+// instantiates the player
+
 export const player = new Player("", 100, 50, 30);
+
+/**
+ * the scenes are basically the chapters of the story. 
+ * They take a name, which displays at the top, an image and an id, which is used for when you change a scene.
+*/
+
+const sceneImg = {
+    1: "./assets/img/tutorial.jpg",
+    2: "./assets/img/biotech.jpg",
+    3: "./assets/img/trainstation.jpg",
+    4: "./assets/img/nightclub.jpg",
+    5: "./assets/img/hideout.jpg"
+};
+
+export const scenes = {
+    1: new Scene("Tutorial", sceneImg[1], 1),
+    2: new Scene("GenTech HQ", sceneImg[2], 2),
+    3: new Scene("Train Station", sceneImg[3], 3),
+    4: new Scene("Night Club", sceneImg[4], 4),
+    5: new Scene("Hideout", sceneImg[5], 5)
+};
+
+// instantiates all the items the player will encounter in the story
 
 const items = {
     vest: new Item("Bulletproof Vest"),
     card: new Item("Membership Card")
 };
 
+// instantiates all the weapons the player will encounter in the story
+
 const weapons = {
     spray: new Weapon("bio healing spray", 30, 0, 0)
-}
+};
+
+// sets the image paths for the enemies
 
 const enemyImg = {
     intruder: "./assets/img/intruder.jpg",
     thief: "./assets/img/thief.jpg",
     protester: "./assets/img/protester.jpg"
-}
+};
+
+// instantiates all the enemies the player will encounter in the story
 
 const enemies = {
     intruder: new Enemy("Intruder", 80, 40, 20, enemyImg.intruder),
     thief: new Enemy("Thief", 70, 40, 20, enemyImg.thief),
     protester: new Enemy("Protester", 70, 40, 20, enemyImg.protester)
 };
+
+// exports the entire story of the game
 
 export function getStory(player) {
     return {
@@ -32,11 +65,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Play game",
-                        nextRoom: 2
+                        nextScene: 2
                     },
                     {
                         text: "Learn more",
-                        nextScene: 2
+                        nextNode: 2
                     }
                 ]
             },
@@ -46,11 +79,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Play game",
-                        nextRoom: 2
+                        nextScene: 2
                     },
                     {
                         text: "Learn more",
-                        nextScene: 3
+                        nextNode: 3
                     }
                 ]
             },
@@ -60,11 +93,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Play game",
-                        nextRoom: 2
+                        nextScene: 2
                     },
                     {
                         text: "Repeat tutorial",
-                        nextScene: 1
+                        nextNode: 1
                     }
                 ]
             }
@@ -76,7 +109,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Continue story",
-                        nextScene: 2
+                        nextNode: 2
                     },
                     {
                         text: "Quit game",
@@ -90,11 +123,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go home",
-                        nextRoom: 3
+                        nextScene: 3
                     },
                     {
                         text: "Stay at work",
-                        nextScene: 3
+                        nextNode: 3
                     }
                 ]
             },
@@ -104,11 +137,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Investigate",
-                        nextScene: 13
+                        nextNode: 13
                     },
                     {
                         text: "Remain at your desk",
-                        nextScene: 11
+                        nextNode: 11
                     }
                 ]
             },
@@ -118,11 +151,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Investigate",
-                        nextScene: 5
+                        nextNode: 5
                     },
                     {
                         text: "Return to your post",
-                        nextScene: 7
+                        nextNode: 7
                     }
                 ]
             },
@@ -149,11 +182,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Call for help",
-                        nextScene: 12
+                        nextNode: 12
                     },
                     {
                         text: "Stay silent",
-                        nextScene: 11
+                        nextNode: 11
                     }
                 ]
             },
@@ -163,11 +196,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "We have an intruder",
-                        nextScene: 8
+                        nextNode: 8
                     },
                     {
                         text: "Everything is fine",
-                        nextScene: 11
+                        nextNode: 11
                     }
                 ]
             },
@@ -177,7 +210,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go home",
-                        nextRoom: 3
+                        nextScene: 3
                     },
                     {
                         text: "Stay at work",
@@ -193,13 +226,13 @@ export function getStory(player) {
                     {
                         text: "Attack again",
                         attackEnemy: enemies.intruder,
-                        nextScene: 9,
-                        nextSceneAfterKill: 10
+                        nextNode: 9,
+                        nextNodeAfterKill: 10
                     },
                     {
                         text: "Run away",
                         escapedEnemy: true,
-                        nextScene: 7
+                        nextNode: 7
                     }
                 ]
             },
@@ -209,7 +242,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go home",
-                        nextScene: 15
+                        nextNode: 15
                     },
                     {
                         text: "Stay at work",
@@ -237,11 +270,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "We have an intruder",
-                        nextScene: 8
+                        nextNode: 8
                     },
                     {
                         text: "Everything is fine",
-                        nextScene: 11
+                        nextNode: 11
                     }
                 ]
             },
@@ -252,11 +285,11 @@ export function getStory(player) {
                     {
                         text: "Wear it",
                         item: items.vest,
-                        nextScene: 4
+                        nextNode: 4
                     },
                     {
                         text: "Leave it",
-                        nextScene: 4
+                        nextNode: 4
                     }
                 ]
             },
@@ -268,12 +301,12 @@ export function getStory(player) {
                     {
                         text: "Attack him",
                         attackEnemy: enemies.intruder,
-                        nextScene: 9,
-                        nextSceneAfterKill: 10
+                        nextNode: 9,
+                        nextNodeAfterKill: 10
                     },
                     {
                         text: "Do what he says",
-                        nextScene: 6
+                        nextNode: 6
                     }
                 ]
             },
@@ -284,11 +317,11 @@ export function getStory(player) {
                     {
                         text: "Use the spray",
                         weapon: weapons.spray,
-                        nextScene: 16
+                        nextNode: 16
                     },
                     {
                         text: "Don't use the spray",
-                        nextScene: 16
+                        nextNode: 16
                     }
                 ]
             },
@@ -298,11 +331,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Keep it",
-                        nextRoom: 3
+                        nextScene: 3
                     },
                     {
                         text: "Leave it",
-                        nextRoom: 3,
+                        nextScene: 3,
                         removedItem: items.vest
                     }
                 ]
@@ -315,11 +348,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore him",
-                        nextScene: 2
+                        nextNode: 2
                     },
                     {
                         text: "Give him money",
-                        nextScene: 3
+                        nextNode: 3
                     }
                 ]
             },
@@ -329,11 +362,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Start running",
-                        nextScene: 5
+                        nextNode: 5
                     },
                     {
                         text: "Look to your right",
-                        nextScene: 4
+                        nextNode: 4
                     }
                 ]
             },
@@ -343,11 +376,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Ignore him",
-                        nextScene: 2
+                        nextNode: 2
                     },
                     {
                         text: "Turn back",
-                        nextScene: 6
+                        nextNode: 6
                     }
                 ]
             },
@@ -360,12 +393,12 @@ export function getStory(player) {
                     {
                         text: "Attack him",
                         attackEnemy: enemies.thief,
-                        nextScene: 9,
-                        nextSceneAfterKill: 10
+                        nextNode: 9,
+                        nextNodeAfterKill: 10
                     },
                     {
                         text: "Do what he says",
-                        nextScene: 7
+                        nextNode: 7
                     }
                 ]
             },
@@ -378,12 +411,12 @@ export function getStory(player) {
                     {
                         text: "Attack him",
                         attackEnemy: enemies.thief,
-                        nextScene: 9
+                        nextNode: 9
                     },
                     {
                         text: "Do what he says",
                         escapedEnemy: true,
-                        nextScene: 7
+                        nextNode: 7
                     }
                 ]
             },
@@ -397,7 +430,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Thank the old man",
-                        nextScene: 8
+                        nextNode: 8
                     }
                 ]
             },
@@ -409,11 +442,11 @@ export function getStory(player) {
                     {
                         text: "Follow the thief",
                         escapedEnemy: true,
-                        nextRoom: 5
+                        nextScene: 5
                     },
                     {
                         text: "Find the old man",
-                        nextScene: 11
+                        nextNode: 11
                     }
                 ]
             },
@@ -428,7 +461,7 @@ export function getStory(player) {
                     {
                         text: "Take the card",
                         item: items.card,
-                        nextScene: 13
+                        nextNode: 13
                     }
                 ]
             },
@@ -440,13 +473,13 @@ export function getStory(player) {
                     {
                         text: "Attack again",
                         attackEnemy: enemies.thief,
-                        nextScene: 9,
-                        nextSceneAfterKill: 10
+                        nextNode: 9,
+                        nextNodeAfterKill: 10
                     },
                     {
                         text: "Run away",
                         escapedEnemy: true,
-                        nextScene: 12
+                        nextNode: 12
                     }
                 ]
             },
@@ -460,7 +493,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Find the old man",
-                        nextScene: 11
+                        nextNode: 11
                     }
                 ]
             },
@@ -475,13 +508,13 @@ export function getStory(player) {
                     {
                         text: "Take the card",
                         item: items.card,
-                        nextScene: 13
+                        nextNode: 13
                     }
                 ]
             },
             {
                 id: 12,
-                text: `You managed to escape the attacker. As you walk, the old man appears in front of you again. You ask him for answers and he gives you ${items.card.name.toLowerCase()}. He tells you that your company is in danger and you can find answers in this place.`,
+                text: `You managed to escape the attacker. As you walk away from the train station, the old man appears in front of you again. You ask him for answers and he gives you a ${items.card.name.toLowerCase()}. He tells you that your company is in danger and you can find answers if you go to this place.`,
                 actions: [
                     {
                         text: "Ignore it",
@@ -490,7 +523,7 @@ export function getStory(player) {
                     {
                         text: "Take the card",
                         item: items.card,
-                        nextScene: 13
+                        nextNode: 13
                     }
                 ]
             },
@@ -498,7 +531,7 @@ export function getStory(player) {
                 id: 13,
                 text: `You decide to take the ${items.card.name.toLowerCase()} and go to that address tonight to find out what is going on and who wants to attack GenTech and why.
                             `,
-                nextRoom: 4,
+                nextScene: 4,
                 actions: [
                     {
                         text: ""
@@ -516,11 +549,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Keep it",
-                        nextScene: 2
+                        nextNode: 2
                     },
                     {
                         text: "Throw it",
-                        nextScene: 2,
+                        nextNode: 2,
                         removedItem: items.card
                     }
                 ]
@@ -531,11 +564,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Yes",
-                        nextScene: 3
+                        nextNode: 3
                     },
                     {
                         text: "No",
-                        nextScene: 4
+                        nextNode: 4
                     }
                 ]
             },
@@ -546,11 +579,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Show the card",
-                        nextScene: 5
+                        nextNode: 5
                     },
                     {
                         text:"I don't have it",
-                        nextScene: 4
+                        nextNode: 4
                     }
                 ]
             },
@@ -574,11 +607,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Say hi",
-                        nextScene: 6
+                        nextNode: 6
                     },
                     {
                         text: "Look for info",
-                        nextScene: 7
+                        nextNode: 7
                     }
                 ]
             },
@@ -588,7 +621,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "I need info",
-                        nextScene: 8
+                        nextNode: 8
                     },
                     {
                         text: "I came for a drink",
@@ -602,11 +635,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "I work there",
-                        nextScene: 11
+                        nextNode: 11
                     },
                     {
                         text: "Who are you?",
-                        nextScene: 12
+                        nextNode: 12
                     }
                 ]
             },
@@ -616,11 +649,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Who is it?",
-                        nextScene: 9
+                        nextNode: 9
                     },
                     {
                         text: "Walk away",
-                        nextScene: 7
+                        nextNode: 7
                     }
                 ]
             },
@@ -630,11 +663,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Where is he?",
-                        nextScene: 10
+                        nextNode: 10
                     },
                     {
                         text: "Walk away",
-                        nextScene: 7
+                        nextNode: 7
                     }
                 ]
             },
@@ -644,11 +677,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Find Jack",
-                        nextRoom: 5
+                        nextScene: 5
                     },
                     {
                         text: "Stay in the club",
-                        response: "There's no point staying in the club now that I have found what I came here for."
+                        response: `${player.name}'s inner voice: "There's no point staying in the club now that I have found what I came here for."`
                     }
                 ]
             },
@@ -658,11 +691,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Find the hideout",
-                        nextRoom: 5
+                        nextScene: 5
                     },
                     {
                         text: "Stay in the club",
-                        response: "There's no point staying in the club now that I have found what I came here for."
+                        response: `${player.name}'s inner voice: "There's no point staying in the club now that I have found what I came here for."`
                     }
                 ]
             },
@@ -672,11 +705,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "I work there",
-                        nextScene: 11
+                        nextNode: 11
                     },
                     {
                         text: "Evade his question",
-                        nextScene: 13
+                        nextNode: 13
                     }
                 ]
             },
@@ -686,11 +719,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Find the hideout",
-                        nextRoom: 5
+                        nextScene: 5
                     },
                     {
                         text: "Stay in the club",
-                        response: "There's no point staying in the club now that I have found what I came here for."
+                        response: `${player.name}'s inner voice: "There's no point staying in the club now that I have found what I came here for."`
                     }
                 ]
             }
@@ -702,11 +735,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Hide",
-                        nextScene: 2
+                        nextNode: 2
                     },
                     {
                         text: "Show up",
-                        nextScene: 3
+                        nextNode: 3
                     }
                 ]
             },
@@ -716,7 +749,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go in",
-                        nextScene: 4
+                        nextNode: 4
                     },
                     {
                         text: "Go back",
@@ -732,11 +765,11 @@ export function getStory(player) {
                     {
                         text: "Attack her",
                         attackEnemy: enemies.protester,
-                        nextScene: 8
+                        nextNode: 8
                     },
                     {
                         text: "I surrender",
-                        nextScene: 7
+                        nextNode: 7
                     }
                 ]
             },
@@ -746,11 +779,11 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Escape",
-                        nextScene: 9
+                        nextNode: 9
                     },
                     {
                         text:"Investigate more",
-                        nextScene: 11
+                        nextNode: 11
                     }
                 ]
             },
@@ -776,13 +809,13 @@ export function getStory(player) {
                     {
                         text: "Attack again",
                         attackEnemy: enemies.protester,
-                        nextScene: 8,
-                        nextSceneAfterKill: 10
+                        nextNode: 8,
+                        nextNodeAfterKill: 10
                     },
                     {
                         text: "Run away",
                         escapedEnemy: true,
-                        nextScene: 9
+                        nextNode: 9
                     }
                 ]
             },
@@ -790,7 +823,7 @@ export function getStory(player) {
                 id: 9,
                 text: `As you try to escape, you get found and apprehended. They start questioning you and once they realise you are working for GenTech, they decide to kill you.
                                 `,
-                toBeContinued: true,
+                gameOver: true,
                 actions: [
                     {
                         text: ""
@@ -806,7 +839,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Go in",
-                        nextScene: 4
+                        nextNode: 4
                     },
                     {
                         text: "Go back",
@@ -816,7 +849,7 @@ export function getStory(player) {
             },
             {
                 id: 11,
-                text: `As you continue your investigation, you get found and apprehended. "We were expecting you, ${player.name}", a familiar voice says. It's Samantha from the night club. "You fell right into my trap. We can't have you going around asking questions".
+                text: `As you continue your investigation, you get found and apprehended. One of the protester's says "We can't have you going around asking questions."
                                 `,
                 toBeContinued: true,
                 actions: [

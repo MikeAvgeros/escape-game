@@ -2,7 +2,7 @@
 
 // importing the function getStory and variable player from story.js 
 
-import {player, getStory} from './story.js';
+import {player, scenes, getStory} from './story.js';
 
 // all my global variables
 
@@ -25,10 +25,10 @@ const inventoryInfo = document.getElementById("inventory-info");
 const root = document.documentElement;
 const maxHealth = player.health;
 
-let roomId;
-let storyId;
-let currentRoom;
-let currentStory;
+let sceneId;
+let nodeId;
+let currentScene;
+let currentSceneNode;
 let actions;
 let finishedTyping = false;
 let typeWriter;
@@ -36,27 +36,6 @@ let onClick = [];
 let inventory = [];
 let healthBarWidth;
 let story;
-
-/**
- * the rooms are basically the chapters of the story. 
- * They take a name, which displays at the top, an image and an id, which is used for when you change a room.
-*/
-
-const roomImg = {
-    1: "./assets/img/tutorial.jpg",
-    2: "./assets/img/biotech.jpg",
-    3: "./assets/img/trainstation.jpg",
-    4: "./assets/img/nightclub.jpg",
-    5: "./assets/img/hideout.jpg"
-};
-
-const rooms = {
-    1: new Room("Tutorial", roomImg[1], 1),
-    2: new Room("GenTech HQ", roomImg[2], 2),
-    3: new Room("Train Station", roomImg[3], 3),
-    4: new Room("Night Club", roomImg[4], 4),
-    5: new Room("Hideout", roomImg[5], 5)
-};
 
 // changes the width property of the red background on the health bar
 
@@ -71,6 +50,15 @@ function calculateHealthWidth() {
 */
 
 function loadScene() {
+    removeExistingContent();
+    setCurrentScene();
+    showText();
+    checkSceneProperties();
+}
+
+// removes text content from the paragraph of the text container and the buttons
+
+function removeExistingContent() {
     paragraph.textContent = "";
     setTimeout(() => {
         for (let i = 0; i < buttons.length; i++) {
@@ -78,15 +66,29 @@ function loadScene() {
             buttons[i].style.pointerEvents = "none";
         }
     }, 500);
-    currentRoom = rooms[roomId];
-    currentRoom.showName();
-    currentRoom.showImage();
-    currentStory = story[currentRoom.id].find(currentStory => currentStory.id === storyId);
+}
+
+/**
+ * sets the current scene from the story based on the variable sceneId 
+ * sets the current actions from the story based on the actions property of the current scene
+*/
+
+function setCurrentScene() {
+    currentScene = scenes[sceneId];
+    currentScene.showName();
+    currentScene.showImage();
+    currentSceneNode = story[currentScene.id].find(currentSceneNode => currentSceneNode.id === nodeId);
+    actions = currentSceneNode.actions;
+}
+
+// displays the text and reveal button on the text container
+
+function showText() {
     let c = 0;
     typeWriter = setInterval(() => {
-        paragraph.textContent += currentStory.text.charAt(c++);
+        paragraph.textContent += currentSceneNode.text.charAt(c++);
         finishedTyping = false;
-        if (c > currentStory.text.length) {
+        if (c > currentSceneNode.text.length) {
             finishedTyping = true;
             clearInterval(typeWriter);
         }
@@ -97,51 +99,55 @@ function loadScene() {
             clearInterval(typeWriter);
         }
         paragraph.textContent = "";
-        paragraph.textContent = currentStory.text;
+        paragraph.textContent = currentSceneNode.text;
     }, {once: true});
-    actions = currentStory.actions;
-    if (currentStory.hasOwnProperty("enemy")) {
-        currentStory.enemy.showImage();
-        currentStory.enemy.showName();
-        currentStory.enemy.showHealth(anotherParagraph);
-        player.takeDamage(currentStory.enemy.attack);
+}
+
+// checks the properties of the current scene from the story and calls relevant functions
+
+function checkSceneProperties() {
+    if (currentSceneNode.hasOwnProperty("enemy")) {
+        currentSceneNode.enemy.showImage();
+        currentSceneNode.enemy.showName();
+        currentSceneNode.enemy.showHealth(anotherParagraph);
+        player.takeDamage(currentSceneNode.enemy.attack);
         displayDamage();
         player.checkIsDead();
         if (player.isDead) {
             displayGameOver();
         }
     }
-    if (currentStory.hasOwnProperty("fadeImage")) {
+    if (currentSceneNode.hasOwnProperty("fadeImage")) {
         fadeImage();
     }
     switch (true) {
-        case (currentStory.hasOwnProperty("requiredItem")):
+        case (currentSceneNode.hasOwnProperty("requiredItem")):
             switch (true) {
-                case (!currentStory.hasOwnProperty("requiredItemScene")):
-                    if (!inventory.includes(currentStory.requiredItem)) {
+                case (!currentSceneNode.hasOwnProperty("requiredItemScene")):
+                    if (!inventory.includes(currentSceneNode.requiredItem)) {
                         player.health = 0;
                         displayGameOver(); 
                     } else {
                         displayActions();
                     }
                 break;
-                case (currentStory.hasOwnProperty("requiredItemScene")):
-                    if (!inventory.includes(currentStory.requiredItem)) {
+                case (currentSceneNode.hasOwnProperty("requiredItemScene")):
+                    if (!inventory.includes(currentSceneNode.requiredItem)) {
                         player.health = 0;
                         displayGameOver();
                     } else {
-                        displayNextScene();
+                        displayNextNode();
                     }
                 break;
             }
         break;
-        case (currentStory.hasOwnProperty("nextRoom")):
-            displayNextRoom();
+        case (currentSceneNode.hasOwnProperty("nextScene")):
+            displaynextNode();
         break;
-        case (currentStory.hasOwnProperty("gameOver")):
+        case (currentSceneNode.hasOwnProperty("gameOver")):
             displayGameOver();
         break;
-        case (currentStory.hasOwnProperty("toBeContinued")):
+        case (currentSceneNode.hasOwnProperty("toBeContinued")):
             displayToBeContinued();
         break;
         default:
@@ -155,11 +161,26 @@ function displayActions() {
     if(!finishedTyping) {
        setTimeout(displayActions, 100); 
     } else {
+        initButtons();
         fadeInButtons();
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].innerText = actions[i].text;
-            buttons[i].style.pointerEvents = "auto";
-        }
+    }
+}
+
+// initializes the buttons with text and enables pointer click events
+
+function initButtons() {
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].innerText = actions[i].text;
+        buttons[i].style.pointerEvents = "auto";
+    }
+}
+
+// fades in the buttons
+
+function fadeInButtons() {
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("fadeout");
+        buttons[i].classList.add("fadein");
     }
 }
 
@@ -198,25 +219,25 @@ function displayToBeContinued() {
 
 // displays the next scene in the story.js file
 
-function displayNextScene() {
+function displayNextNode() {
     if(!finishedTyping) {
-        setTimeout(displayNextScene, 100); 
+        setTimeout(displayNextNode, 100); 
     } else {
         fadeOutButtons();
-        storyId = currentStory.requiredItemScene;
+        nodeId = currentSceneNode.requiredItemScene;
         finishedTyping = false;
-        loadScene(roomId, storyId);
+        loadScene(sceneId, nodeId);
     }
 }
 
 //displays the room in the story.js file
 
-function displayNextRoom() {
+function displaynextNode() {
     if(!finishedTyping) {
-        setTimeout(displayNextRoom, 100); 
+        setTimeout(displaynextNode, 100); 
     } else {
         fadeOutButtons();
-        roomId = currentStory.nextRoom;
+        sceneId = currentSceneNode.nextScene;
         finishedTyping = false;
         changeRoom();
     }
@@ -235,23 +256,23 @@ function handleActionClicks() {
                 clearInterval(typeWriter);
             } 
             switch (true) {
-                case (actions[i].hasOwnProperty("nextScene")):
+                case (actions[i].hasOwnProperty("nextNode")):
                     switch (true) {
                         case (actions[i].hasOwnProperty("item")):
                             inventory.push(actions[i].item);
                             flashIcon(inventoryInfo);
-                            storyId = actions[i].nextScene;
+                            nodeId = actions[i].nextNode;
                             finishedTyping = false;
                             fadeOutButtons();
-                            loadScene(roomId, storyId);
+                            loadScene(sceneId, nodeId);
                         break;
                         case (actions[i].hasOwnProperty("weapon")):
                             actions[i].weapon.updateStats(player);
                             calculateHealthWidth();
-                            storyId = actions[i].nextScene;
+                            nodeId = actions[i].nextNode;
                             finishedTyping = false;
                             fadeOutButtons();
-                            loadScene(roomId, storyId);
+                            loadScene(sceneId, nodeId);
                         break;
                         case (actions[i].hasOwnProperty("attackEnemy")):
                             actions[i].attackEnemy.takeDamage(player.attack);
@@ -259,42 +280,42 @@ function handleActionClicks() {
                             actions[i].attackEnemy.checkIsDead();
                             if (actions[i].attackEnemy.isDead) {
                                 anotherParagraph.textContent = "";
-                                storyId = actions[i].nextSceneAfterKill;
+                                nodeId = actions[i].nextNodeAfterKill;
                                 finishedTyping = false;
                                 fadeOutButtons();
                                 fadeImage();
-                                loadScene(roomId, storyId);
+                                loadScene(sceneId, nodeId);
                             }
                             else {
-                                storyId = actions[i].nextScene;
+                                nodeId = actions[i].nextNode;
                                 finishedTyping = false;
                                 fadeOutButtons();
-                                loadScene(roomId, storyId);
+                                loadScene(sceneId, nodeId);
                             }
                         break;
                         case (actions[i].hasOwnProperty("escapedEnemy")):
                             anotherParagraph.textContent = "";
-                            storyId = actions[i].nextScene;
+                            nodeId = actions[i].nextNode;
                             finishedTyping = false;
                             fadeOutButtons();
                             fadeImage();
-                            loadScene(roomId, storyId);
+                            loadScene(sceneId, nodeId);
                         break;
                         case (actions[i].hasOwnProperty("removedItem")):
                             flashIcon(inventoryInfo);
                             inventory = inventory.filter((item) => {
                                 return item.name !== actions[i].removedItem.name;
                             });
-                            storyId = actions[i].nextScene;
+                            nodeId = actions[i].nextNode;
                             finishedTyping = false;
                             fadeOutButtons();
-                            loadScene(roomId, storyId);
+                            loadScene(sceneId, nodeId);
                         break;
                         default:
-                            storyId = actions[i].nextScene;
+                            nodeId = actions[i].nextNode;
                             finishedTyping = false;
                             fadeOutButtons();
-                            loadScene(roomId, storyId);
+                            loadScene(sceneId, nodeId);
                     }
                 break;
                 case(actions[i].hasOwnProperty("response")):
@@ -317,19 +338,19 @@ function handleActionClicks() {
                         paragraph.textContent = actions[i].response;
                     }, {once: true});
                 break;
-                case (actions[i].hasOwnProperty("nextRoom")):
+                case (actions[i].hasOwnProperty("nextScene")):
                     switch (true) {
                         case (actions[i].hasOwnProperty("weapon")):
                             actions[i].weapon.updateStats(player);
                             calculateHealthWidth();
-                            roomId = actions[i].nextRoom;
+                            sceneId = actions[i].nextScene;
                             finishedTyping = false;
                             fadeOutButtons();
                             changeRoom();
                         break;
                         case(actions[i].hasOwnProperty("escapedEnemy")):
                             anotherParagraph.textContent = "";
-                            roomId = actions[i].nextRoom;
+                            sceneId = actions[i].nextScene;
                             finishedTyping = false;
                             fadeOutButtons();
                             changeRoom();
@@ -339,13 +360,13 @@ function handleActionClicks() {
                             inventory = inventory.filter((item) => {
                                 return item.name !== actions[i].removedItem.name;
                             });
-                            roomId = actions[i].nextRoom;
+                            sceneId = actions[i].nextScene;
                             finishedTyping = false;
                             fadeOutButtons();
                             changeRoom();
                         break;
                         default:
-                            roomId = actions[i].nextRoom;
+                            sceneId = actions[i].nextScene;
                             finishedTyping = false;
                             fadeOutButtons();
                             changeRoom();
@@ -358,10 +379,10 @@ function handleActionClicks() {
                     }, 50); 
                 break;
                 default:
-                    storyId = actions[i].nextScene;
+                    nodeId = actions[i].nextNode;
                     finishedTyping = false;
                     fadeOutButtons();
-                    loadScene(roomId, storyId);
+                    loadScene(sceneId, nodeId);
             }
         };
         buttons[i].addEventListener("click", onClick[i]);
@@ -374,15 +395,6 @@ function fadeOutButtons() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("fadein");
         buttons[i].classList.add("fadeout");
-    }
-}
-
-// fades in the buttons
-
-function fadeInButtons() {
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove("fadeout");
-        buttons[i].classList.add("fadein");
     }
 }
 
@@ -406,11 +418,20 @@ function flashIcon(icon) {
     }, 1000);
 }
 
-// starts the game. sets roomid and storyid to 1, which is the starting point
+// starts the game. sets sceneId and nodeId to 1, which is the starting point
 
 function startGame() {
-    roomId = 1;
-    storyId = 1;
+    sceneId = 1;
+    nodeId = 1;
+    populateTextContainer();
+    loadScene();
+    handleActionClicks(); 
+    fadeImage();
+}
+
+// creates all the relevant html elements for the text and adds suitable ids for styling
+
+function populateTextContainer() {
     textContainerChild.setAttribute("id", "bottom-container");
     anotherParagraph.setAttribute("id", "enemy-stats");
     revealBtn.setAttribute("id", "reveal-button");
@@ -419,16 +440,13 @@ function startGame() {
     textContainerChild.appendChild(anotherParagraph);
     textContainerChild.appendChild(revealBtn);
     revealBtn.textContent = "Reveal Text";
-    loadScene();
-    handleActionClicks(); 
-    fadeImage();
 }
 
 //changes room. sets story id to 1 so that you start at the beginning of the room
 
 function changeRoom() {
     setTimeout(() => {
-        storyId = 1;
+        nodeId = 1;
         loadScene();
         fadeImage();
     }, 250);
@@ -484,8 +502,12 @@ function gameOver() {
         overlay.classList.add("open");
     }
     modal.innerHTML = `
-    <h1>GAME OVER</h1> 
-    <p>Press New Game to restart</p>
+    <div id="heading">
+        <h1>GAME OVER</h1> 
+    </div>
+    <div>
+        <p>Press New Game to restart</p>
+    </div>
     <div id="new-game">
         <button id="restart" aria-label="Restart the game">New Game</button>
     </div>
@@ -503,8 +525,12 @@ function toBeContinued() {
         overlay.classList.add("open");
     }
     modal.innerHTML = `
-    <h1>TO BE CONTINUED...</h1> 
-    <p>Press New Game to play again</p>
+    <div id="heading">
+        <h1>TO BE CONTINUED...</h1> 
+    </div>
+    <div>
+        <p>Press New Game to play again</p>
+    </div>
     <div id="new-game">
         <button id="restart" aria-label="Restart the game">New Game</button>
     </div>

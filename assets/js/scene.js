@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 
-class Room {
+class Scene {
     constructor(name, img, id) {
         this.name = name;
         this.img = img;

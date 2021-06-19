@@ -60,12 +60,20 @@ class Player extends Character {
         <p>Attack Points: ${this.attack}</p>
         <p>Defense Points: ${this.defense}</p>
         `;
-        modal.classList.add("open");
-        overlay.classList.add("open");
+        if (!modal.classList.contains("open")) {
+            modal.classList.add("open");
+        }
+        if (!overlay.classList.contains("open")) {
+            overlay.classList.add("open");
+        }
         const closeContact = document.getElementById("close-btn");
         closeContact.addEventListener("click", () => {
-            modal.classList.remove("open");
-            overlay.classList.remove("open");
+            if (modal.classList.contains("open")) {
+                modal.classList.remove("open");
+            } 
+            if (overlay.classList.contains("open")) {
+                overlay.classList.remove("open");
+            } 
         });
     }
 }
