@@ -6,14 +6,14 @@ import {player, scenes, getStory} from './story.js';
 
 // all my global variables
 
-const textContainer = document.getElementById("room-description");
+const textContainer = document.getElementById("scene-text");
 const paragraph = document.createElement("p");
 const textContainerChild = document.createElement("div");
 const anotherParagraph = document.createElement("p");
 const revealBtn = document.createElement("button");
 const buttons = document.getElementsByClassName("action-button");
-const roomImage = document.getElementById("room-img");
-const roomName = document.getElementById("room-name");
+const roomImage = document.getElementById("scene-img");
+const roomName = document.getElementById("scene-name");
 const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 const form = document.getElementById("form");

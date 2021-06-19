@@ -28,11 +28,11 @@ class Enemy extends Character {
         this.img = img;
     }
     showImage() {
-        const imgContainer = document.getElementById("room-img");
+        const imgContainer = document.getElementById("scene-img");
         imgContainer.style.background = `url(${this.img}) no-repeat center center/cover`;
     }
     showName() {
-        const nameContainer = document.getElementById("room-name");
+        const nameContainer = document.getElementById("scene-name");
         nameContainer.innerHTML = `<h2>${this.name}</h2>`;
     }
     showHealth(paragraph) {

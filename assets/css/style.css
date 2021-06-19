@@ -39,7 +39,7 @@ body {
     grid-template-columns: 25% 30% 5% 40%;
     grid-template-areas: 
     "...... ...... ...... ......"
-    "rname  stats  ......  ....."
+    "name   stats  ......  ....."
     "image  image  ......   text"
     "image  image  ......   btns"
     ".....  .....  ...... ......"
@@ -56,9 +56,9 @@ body {
     min-height: 100%;
 }
 
-#room-name {
+#scene-name {
     display: grid;
-    grid-area: rname;
+    grid-area: name;
     border: 2.5px solid var(--yellow);
     box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
     border-bottom: none;
@@ -117,26 +117,26 @@ body {
     color: var(--cyan);
 }
 
-#room-name h2 {
+#scene-name h2 {
     place-self: center center;
     color: var(--cyan);
     font-size: clamp(1rem, 1rem + .75vw, 1.75rem); 
     letter-spacing: 1px;
 }
 
-#room-img {
+#scene-img {
     grid-area: image;
     display: grid;
     border: 2.5px solid var(--yellow);
     box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 .5rem 0 var(--yellow);
 }
 
-#room-img.fade, #room-name.fade {
+#scene-img.fade, #scene-name.fade {
     -webkit-animation: fade-effect 1s forwards ease-in-out;
             animation: fade-effect 1s forwards ease-in-out;
 }
 
-#room-description {
+#scene-text {
     grid-area: text;
     display: grid;
     border: 2.5px solid var(--yellow);
@@ -144,7 +144,7 @@ body {
     overflow: hidden;
 }
 
-#room-description p {
+#scene-text p {
     padding: 1rem;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
@@ -618,7 +618,7 @@ body {
         grid-template-columns: 25% 30% 5% 40%;
         grid-template-areas: 
         "...... ...... ...... ......"
-        "rname  stats  ......  ....."
+        "name   stats  ......  ....."
         "image  image  ......   text"
         "image  image  ......   btns"
         ".....  .....  ...... ......"
@@ -626,7 +626,7 @@ body {
         "...... ...... ...... ......";
     }
 
-    #room-description p, #reveal-button {
+    #scene-text p, #reveal-button {
         padding: .75rem;
     }
 }
@@ -638,18 +638,18 @@ body {
         grid-template-rows: 7.5% 40% 34.5% 10% 8%;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
-        "rname  stats"
+        "name   stats"
         "image  image"
         "text   text"
         "btns   btns"
         "footer footer";
     } 
 
-    #room-description {
+    #scene-text {
         border-top: none;
     }
 
-    #room-description p {
+    #scene-text p {
         padding: .5rem;
     }
 
@@ -749,7 +749,7 @@ body {
 @media (min-width: 1920px) {
     #game-wrapper {
         width: 70%;
-        max-width: 75rem;
+        max-width: 80rem;
     }
 
     :root {
