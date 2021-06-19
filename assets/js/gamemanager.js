@@ -505,7 +505,6 @@ function toBeContinued() {
     modal.innerHTML = `
     <h1>TO BE CONTINUED...</h1> 
     <p>Press New Game to play again</p>
-    <p>You can contact the developer for new story suggestions.</p>
     <div id="new-game">
         <button id="restart" aria-label="Restart the game">New Game</button>
     </div>

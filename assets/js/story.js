@@ -14,13 +14,13 @@ const weapons = {
 const enemyImg = {
     intruder: "./assets/img/intruder.jpg",
     thief: "./assets/img/thief.jpg",
-    gangmember: "./assets/img/gangmember.jpg"
+    protester: "./assets/img/protester.jpg"
 }
 
 const enemies = {
     intruder: new Enemy("Intruder", 80, 40, 20, enemyImg.intruder),
     thief: new Enemy("Thief", 70, 40, 20, enemyImg.thief),
-    gangmember: new Enemy("Gang Member", 70, 40, 20, enemyImg.gangmember)
+    protester: new Enemy("Protester", 70, 40, 20, enemyImg.protester)
 };
 
 export function getStory(player) {
@@ -640,7 +640,7 @@ export function getStory(player) {
             },
             {
                 id: 10,
-                text: "He likes to play hide and seek in his little hideout with his gang. When you get there, just tell him Samantha sent you his way. He trusts me. Or at least I think he does.",
+                text: "He likes to play hide and seek in his little hideout with his gang when they are not in the street protesting. When you get there, just tell him Samantha sent you his way. He trusts me. Or at least I think he does.",
                 actions: [
                     {
                         text: "Find Jack",
@@ -698,7 +698,7 @@ export function getStory(player) {
         5: [
             {
                 id: 1,
-                text: "You have successfully found the protesters' hideout. A scrappy old junkyard full of broken bio engineering tools and machinery. As you approach carefully, you hear someone coming your way.",
+                text: "You have successfully found the protesters' hideout. A scrappy old junkyard full of broken bio engineering tools and machinery. As you approach carefully, you hear someone coming your way. It's one of the protesters.",
                 actions: [
                     {
                         text: "Hide",
@@ -712,7 +712,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: "You decide to hide behind some metal planks. The unsuspecting gang member walks past you. You continue to explore their hideout and you find a control room full of computer and telecommunications equipment.",
+                text: "You decide to hide behind some metal planks. The unsuspecting protester walks past you. You continue to explore their hideout and you find a control room full of computer and telecommunications equipment.",
                 actions: [
                     {
                         text: "Go in",
@@ -720,18 +720,18 @@ export function getStory(player) {
                     },
                     {
                         text: "Go back",
-                        response: "As you try to leave, you hear more gang members coming your way. The only way to escape is to hide in their control room."
+                        response: "As you try to leave, you hear more people coming your way. The only way to escape is to hide in their control room."
                     }
                 ]
             },
             {
                 id: 3,
-                text: `The gang member finds you. "Who are you and what are you doing here?" she says and starts attacking you.`,
-                enemy: enemies.gangmember,
+                text: `The protester finds you. "Who are you and what are you doing here?" she says and starts attacking you.`,
+                enemy: enemies.protester,
                 actions: [
                     {
                         text: "Attack her",
-                        attackEnemy: enemies.gangmember,
+                        attackEnemy: enemies.protester,
                         nextScene: 8
                     },
                     {
@@ -770,12 +770,12 @@ export function getStory(player) {
             },
             {
                 id: 8,
-                text: `You attack the gang member. She seems wounded but she is still standing. She stands up and attacks you again.`,
-                enemy: enemies.gangmember,
+                text: `You attack the protester. She seems wounded but she is still standing. She stands up and attacks you again.`,
+                enemy: enemies.protester,
                 actions: [
                     {
                         text: "Attack again",
-                        attackEnemy: enemies.gangmember,
+                        attackEnemy: enemies.protester,
                         nextScene: 8,
                         nextSceneAfterKill: 10
                     },
@@ -788,7 +788,7 @@ export function getStory(player) {
             },
             {
                 id: 9,
-                text: `As you try to escape, you get found and apprehended. "We were expecting you, ${player.name}", a familiar voice says. It's Samantha from the night club. "You fell right into my trap. We can't have you going around asking questions".
+                text: `As you try to escape, you get found and apprehended. They start questioning you and once they realise you are working for GenTech, they decide to kill you.
                                 `,
                 toBeContinued: true,
                 actions: [
@@ -802,7 +802,7 @@ export function getStory(player) {
             },
             {
                 id: 10,
-                text: "You managed to disable the gang member and tie her with some chains you found on the ground. You put a tape over her mouth to avoid signaling others. You continue to explore their hideout and you find a control room full of computer and telecommunications equipment.",
+                text: "You managed to disable the protester and tie her with some chains you found on the ground. You put a tape over her mouth to avoid signaling others. You continue to explore their hideout and you find a control room full of computer and telecommunications equipment.",
                 actions: [
                     {
                         text: "Go in",
@@ -810,7 +810,7 @@ export function getStory(player) {
                     },
                     {
                         text: "Go back",
-                        response: "As you try to leave, you hear more gang members coming your way. The only way to escape is to hide in their control room."
+                        response: "As you try to leave, you hear more protesters coming your way. The only way to escape is to hide in their control room."
                     }
                 ]
             },

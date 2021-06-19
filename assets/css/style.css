@@ -171,17 +171,16 @@ body {
     place-self: end end;
     place-content: center center;
     background: none;
+    border: 2.5px solid var(--yellow);
+    box-shadow: inset 0 0 .5rem 0 var(--yellow), 0 0 1rem 0 var(--yellow);
+    border-right: none;
+    border-bottom: none;
     cursor: pointer;
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
-    padding: 1rem;
+    padding: .8rem;
     letter-spacing: 1px;
     font-size: clamp(.9rem, .8rem + .25vw, 1.25rem); 
-}
-
-#reveal-button:hover {
-    color: var(--red);
-    text-shadow: 0 0 .1rem var(--red), 0 0 .1rem var(--red);
 }
 
 #btns {
@@ -261,10 +260,6 @@ body {
     100% {color: inherit;}
 }
 
-#btns .action-button:hover {
-    background: var(--red);
-}
-
 #footer {
     grid-area: footer;
     display: flex;
@@ -282,7 +277,7 @@ body {
     cursor: pointer;
     padding: .6rem .9rem;
     margin-left: 1rem;
-    font-size: clamp(1.35rem, 1rem + 1vw, 1.75rem); 
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem); 
     letter-spacing: 1px;
     font-weight: bolder;
     border: 2.5px solid var(--yellow);
@@ -304,14 +299,15 @@ body {
     margin-left: 2rem;
     padding: .6rem .9rem;
     color: var(--cyan);
-    font-size: clamp(1.35rem, 1rem + 1vw, 1.75rem);  
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);  
     border: 2.5px solid var(--yellow);
     -webkit-clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
             clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0 75%, 0 0);
 }
 
+#btns .action-button:hover, #reveal-button:hover,
 #contact:hover, #footer a:hover {
-    background-color: var(--red);
+    background: var(--red);
 }
 
 #contact:active, #footer a:active {
@@ -633,17 +629,13 @@ body {
     #room-description p, #reveal-button {
         padding: .75rem;
     }
-
-    #btns .action-button {
-        height: 70%;
-    }
 }
 
 @media (max-width: 840px) {
     #game-wrapper {
         max-width: 55%;
         height: 100%;
-        grid-template-rows: 7.5% 40% 30.5% 11.5% 10.5%;
+        grid-template-rows: 7.5% 40% 34.5% 10% 8%;
         grid-template-columns: 40% 60%;
         grid-template-areas: 
         "rname  stats"
@@ -657,7 +649,7 @@ body {
         border-top: none;
     }
 
-    #room-description p, #reveal-button {
+    #room-description p {
         padding: .5rem;
     }
 
@@ -676,12 +668,21 @@ body {
     #restart:hover, #restart:focus,
     #contact-btn:hover, #contact-btn:focus,
     #contact:hover, #contact:focus,
-    #footer a:hover, #footer a:focus {
+    #footer a:hover, #footer a:focus,
+    #reveal-button:hover, #reveal-button:focus {
         background: none;
     }
 
     #footer {
         justify-content: space-evenly;
+    }
+
+    #contact {
+        padding: .4rem .7rem;
+    }
+
+    #socials a {
+        padding: .4rem .7rem;
     }
 }
 
@@ -730,16 +731,18 @@ body {
         width: 75%;
     }
 
-    #socials a {
-        margin-left: 1rem;
-    }
-
     #contact-form {
         width: 135%;
     }
 
     #close-btn {
         transform: translateX(15vw) translateY(1vh);
+    }
+}
+
+@media (max-width: 345px) {
+    #reveal-button {
+        padding: .45rem;
     }
 }
 
