@@ -103,7 +103,7 @@ function showText() {
     }, {once: true});
 }
 
-// checks the properties of the current scene from the story and calls relevant functions
+// checks the properties of the current scene from the story.js file and calls relevant functions
 
 function checkSceneProperties() {
     if (currentSceneNode.hasOwnProperty("enemy")) {
@@ -239,154 +239,160 @@ function displaynextNode() {
         fadeOutButtons();
         sceneId = currentSceneNode.nextScene;
         finishedTyping = false;
-        changeRoom();
+        changeScene();
     }
 }
 
 /**
  * Registers the player's choice and displays a result depending on the properties of that action in my story.js file. 
- * That is being achieved using a large switch statement which checks the properties for keywords.
+ * That is being achieved using a large switch statement from the checkActionProperties function which checks the properties for keywords.
 */
 
 function handleActionClicks() {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].removeEventListener("click", onClick[i]);
-        onClick[i] = () => {
-            if (!finishedTyping) {
-                clearInterval(typeWriter);
-            } 
-            switch (true) {
-                case (actions[i].hasOwnProperty("nextNode")):
-                    switch (true) {
-                        case (actions[i].hasOwnProperty("item")):
-                            inventory.push(actions[i].item);
-                            flashIcon(inventoryInfo);
-                            nodeId = actions[i].nextNode;
-                            finishedTyping = false;
-                            fadeOutButtons();
-                            loadScene(sceneId, nodeId);
-                        break;
-                        case (actions[i].hasOwnProperty("weapon")):
-                            actions[i].weapon.updateStats(player);
-                            calculateHealthWidth();
-                            nodeId = actions[i].nextNode;
-                            finishedTyping = false;
-                            fadeOutButtons();
-                            loadScene(sceneId, nodeId);
-                        break;
-                        case (actions[i].hasOwnProperty("attackEnemy")):
-                            actions[i].attackEnemy.takeDamage(player.attack);
-                            actions[i].attackEnemy.showHealth(anotherParagraph);
-                            actions[i].attackEnemy.checkIsDead();
-                            if (actions[i].attackEnemy.isDead) {
-                                anotherParagraph.textContent = "";
-                                nodeId = actions[i].nextNodeAfterKill;
-                                finishedTyping = false;
-                                fadeOutButtons();
-                                fadeImage();
-                                loadScene(sceneId, nodeId);
-                            }
-                            else {
-                                nodeId = actions[i].nextNode;
-                                finishedTyping = false;
-                                fadeOutButtons();
-                                loadScene(sceneId, nodeId);
-                            }
-                        break;
-                        case (actions[i].hasOwnProperty("escapedEnemy")):
+        checkActionProperties(i);
+        buttons[i].addEventListener("click", onClick[i]);
+    }
+}
+
+// checks the properties of the clicked action from the story.js file and calls relevant functions
+
+function checkActionProperties(i) {
+    onClick[i] = () => {
+        if (!finishedTyping) {
+            clearInterval(typeWriter);
+        } 
+        switch (true) {
+            case (actions[i].hasOwnProperty("nextNode")):
+                switch (true) {
+                    case (actions[i].hasOwnProperty("item")):
+                        inventory.push(actions[i].item);
+                        flashIcon(inventoryInfo);
+                        nodeId = actions[i].nextNode;
+                        finishedTyping = false;
+                        fadeOutButtons();
+                        loadScene(sceneId, nodeId);
+                    break;
+                    case (actions[i].hasOwnProperty("weapon")):
+                        actions[i].weapon.updateStats(player);
+                        calculateHealthWidth();
+                        nodeId = actions[i].nextNode;
+                        finishedTyping = false;
+                        fadeOutButtons();
+                        loadScene(sceneId, nodeId);
+                    break;
+                    case (actions[i].hasOwnProperty("attackEnemy")):
+                        actions[i].attackEnemy.takeDamage(player.attack);
+                        actions[i].attackEnemy.showHealth(anotherParagraph);
+                        actions[i].attackEnemy.checkIsDead();
+                        if (actions[i].attackEnemy.isDead) {
                             anotherParagraph.textContent = "";
-                            nodeId = actions[i].nextNode;
+                            nodeId = actions[i].nextNodeAfterKill;
                             finishedTyping = false;
                             fadeOutButtons();
                             fadeImage();
                             loadScene(sceneId, nodeId);
-                        break;
-                        case (actions[i].hasOwnProperty("removedItem")):
-                            flashIcon(inventoryInfo);
-                            inventory = inventory.filter((item) => {
-                                return item.name !== actions[i].removedItem.name;
-                            });
+                        }
+                        else {
                             nodeId = actions[i].nextNode;
                             finishedTyping = false;
                             fadeOutButtons();
                             loadScene(sceneId, nodeId);
-                        break;
-                        default:
-                            nodeId = actions[i].nextNode;
-                            finishedTyping = false;
-                            fadeOutButtons();
-                            loadScene(sceneId, nodeId);
-                    }
-                break;
-                case(actions[i].hasOwnProperty("response")):
-                    paragraph.textContent = "";
-                    let c = 0;
-                    typeWriter = setInterval(() => {
-                        paragraph.textContent += actions[i].response.charAt(c++);
+                        }
+                    break;
+                    case (actions[i].hasOwnProperty("escapedEnemy")):
+                        anotherParagraph.textContent = "";
+                        nodeId = actions[i].nextNode;
                         finishedTyping = false;
-                        if (c > actions[i].response.length) {
-                            finishedTyping = true;
-                            clearInterval(typeWriter);
-                        }
-                    }, 50);
-                    revealBtn.addEventListener("click", () => {
-                        if (!finishedTyping) {
-                            finishedTyping = true;
-                            clearInterval(typeWriter);
-                        }
-                        paragraph.textContent = "";
-                        paragraph.textContent = actions[i].response;
-                    }, {once: true});
-                break;
-                case (actions[i].hasOwnProperty("nextScene")):
-                    switch (true) {
-                        case (actions[i].hasOwnProperty("weapon")):
-                            actions[i].weapon.updateStats(player);
-                            calculateHealthWidth();
-                            sceneId = actions[i].nextScene;
-                            finishedTyping = false;
-                            fadeOutButtons();
-                            changeRoom();
-                        break;
-                        case(actions[i].hasOwnProperty("escapedEnemy")):
-                            anotherParagraph.textContent = "";
-                            sceneId = actions[i].nextScene;
-                            finishedTyping = false;
-                            fadeOutButtons();
-                            changeRoom();
-                        break;
-                        case (actions[i].hasOwnProperty("removedItem")):
-                            flashIcon(inventoryInfo);
-                            inventory = inventory.filter((item) => {
-                                return item.name !== actions[i].removedItem.name;
-                            });
-                            sceneId = actions[i].nextScene;
-                            finishedTyping = false;
-                            fadeOutButtons();
-                            changeRoom();
-                        break;
-                        default:
-                            sceneId = actions[i].nextScene;
-                            finishedTyping = false;
-                            fadeOutButtons();
-                            changeRoom();
-                    } 
-                break;
-                case (actions[i].hasOwnProperty("reload")):
+                        fadeOutButtons();
+                        fadeImage();
+                        loadScene(sceneId, nodeId);
+                    break;
+                    case (actions[i].hasOwnProperty("removedItem")):
+                        flashIcon(inventoryInfo);
+                        inventory = inventory.filter((item) => {
+                            return item.name !== actions[i].removedItem.name;
+                        });
+                        nodeId = actions[i].nextNode;
+                        finishedTyping = false;
+                        fadeOutButtons();
+                        loadScene(sceneId, nodeId);
+                    break;
+                    default:
+                        nodeId = actions[i].nextNode;
+                        finishedTyping = false;
+                        fadeOutButtons();
+                        loadScene(sceneId, nodeId);
+                }
+            break;
+            case(actions[i].hasOwnProperty("response")):
+                paragraph.textContent = "";
+                let c = 0;
+                typeWriter = setInterval(() => {
+                    paragraph.textContent += actions[i].response.charAt(c++);
                     finishedTyping = false;
-                    setTimeout(() => {
-                        location.reload();
-                    }, 50); 
-                break;
-                default:
-                    nodeId = actions[i].nextNode;
-                    finishedTyping = false;
-                    fadeOutButtons();
-                    loadScene(sceneId, nodeId);
-            }
-        };
-        buttons[i].addEventListener("click", onClick[i]);
-    }
+                    if (c > actions[i].response.length) {
+                        finishedTyping = true;
+                        clearInterval(typeWriter);
+                    }
+                }, 50);
+                revealBtn.addEventListener("click", () => {
+                    if (!finishedTyping) {
+                        finishedTyping = true;
+                        clearInterval(typeWriter);
+                    }
+                    paragraph.textContent = "";
+                    paragraph.textContent = actions[i].response;
+                }, {once: true});
+            break;
+            case (actions[i].hasOwnProperty("nextScene")):
+                switch (true) {
+                    case (actions[i].hasOwnProperty("weapon")):
+                        actions[i].weapon.updateStats(player);
+                        calculateHealthWidth();
+                        sceneId = actions[i].nextScene;
+                        finishedTyping = false;
+                        fadeOutButtons();
+                        changeScene();
+                    break;
+                    case(actions[i].hasOwnProperty("escapedEnemy")):
+                        anotherParagraph.textContent = "";
+                        sceneId = actions[i].nextScene;
+                        finishedTyping = false;
+                        fadeOutButtons();
+                        changeScene();
+                    break;
+                    case (actions[i].hasOwnProperty("removedItem")):
+                        flashIcon(inventoryInfo);
+                        inventory = inventory.filter((item) => {
+                            return item.name !== actions[i].removedItem.name;
+                        });
+                        sceneId = actions[i].nextScene;
+                        finishedTyping = false;
+                        fadeOutButtons();
+                        changeScene();
+                    break;
+                    default:
+                        sceneId = actions[i].nextScene;
+                        finishedTyping = false;
+                        fadeOutButtons();
+                        changeScene();
+                } 
+            break;
+            case (actions[i].hasOwnProperty("reload")):
+                finishedTyping = false;
+                setTimeout(() => {
+                    location.reload();
+                }, 50); 
+            break;
+            default:
+                nodeId = actions[i].nextNode;
+                finishedTyping = false;
+                fadeOutButtons();
+                loadScene(sceneId, nodeId);
+        }
+    };
 }
 
 // fades out the buttons
@@ -444,7 +450,7 @@ function populateTextContainer() {
 
 //changes room. sets story id to 1 so that you start at the beginning of the room
 
-function changeRoom() {
+function changeScene() {
     setTimeout(() => {
         nodeId = 1;
         loadScene();
