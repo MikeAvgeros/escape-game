@@ -493,6 +493,7 @@ function newGameButton() {
         } 
         player.health = 100;
         calculateHealthWidth();
+        inventory = [];
         startGame();
     });
 }
