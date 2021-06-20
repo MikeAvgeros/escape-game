@@ -163,10 +163,10 @@ I have designed the structure and layout of my game based on the CSS grid system
     -   VS Code was my IDE of choice for writing the HTML, CSS and JavaScript code.
 
 2. [Google Fonts](https://fonts.google.com/)
-    -   Google Fonts was used to import my fonts of choice into CSS for use throughout the website.
+    -   Google Fonts was used to import my fonts of choice into CSS for use throughout the game.
 
 3. [Font Awesome](https://fontawesome.com/)
-    -   Font Awesome was used to add icons to the website for aesthetic and UX purposes.
+    -   Font Awesome was used to add icons to the game for aesthetic and UX purposes.
     
 4. [Git](https://git-scm.com/)
     -   Git was used to help me manage and keep track of my source code history.
@@ -181,19 +181,19 @@ I have designed the structure and layout of my game based on the CSS grid system
     -   Miro was used to create the [wireframes](https://miro.com/app/board/o9J_lG5rLBo=/) during the design and prototyping process.
 
 8. [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)
-    -   Chrome DevTools helped me debug issues that I've had during development. In addition, by using the inspection mode I could see how responsive my game was.
+    -   Chrome DevTools helped me debug issues that I've had during development. In addition to that, by using the inspection mode, I could see how responsive my game was.
 
 9. [W3C Validation Services](https://validator.w3.org/)
-    -   W3C Validation Services were used to help me check if my HTML and CSS code has any errors and it adheres to the standards. More details in the Testing section.
+    -   W3C Validation Services were used to help me check if my HTML and CSS code has any errors and that it adheres to the web standards. More details in the Testing section.
 
 10. [JS Hint](https://jshint.com/)
-    -   JS Hint used to help me check if my Javascript code has any errors and it adheres to the standards. More details in the Testing section.
+    -   JS Hint used to help me check if my Javascript code has any errors and that it adheres to the web standards. More details in the Testing section.
 
 11. [Am I Responsive](http://ami.responsivedesign.is/)
-    -   Am I Responsive was used during my testing phase to check the responsiveness of my game.
+    -   Am I Responsive was used during my testing phase to check the responsiveness and look of my game.
 
 12. [Techsini Multi Device Mockup Generator](https://techsini.com/multi-mockup/index.php)
-    -   Techsini Multi Device Mockup Generator was used during my testing phase to check the responsiveness of my site.
+    -   Techsini Multi Device Mockup Generator was used during my testing phase to check the responsiveness and look of my game.
 
 13. [CSS Minifier](https://cssminifier.com/)
     -   CSS Minifier was used to minify my CSS file in order to improve loading speed and performance.
@@ -278,19 +278,19 @@ Since I haven't used Bootstrap, I have been constantly testing how responsive my
 
 ## HTML Validation
 
-The [W3C Markup Validator](https://validator.w3.org/#validate_by_upload) was used to validate every page of the website to ensure there were no syntax errors in my HTML. It passed the validation without any errors.
+The [W3C Markup Validator](https://validator.w3.org/#validate_by_upload) was used to validate my HTML code to ensure there were no syntax or semantic errors. It passed the validation without any errors.
 
 ![HTML Validation Results](documentation/testing/validator-html.png)
 
 ## CSS Validation
 
-The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_upload) was used to validate every page of the website to ensure there were no syntax errors in my CSS. It passed the validation without any errors.
+The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_upload) was used to validate my CSS code to ensure there were no syntax or semantic errors. It passed the validation without any errors.
 
 ![CSS Validation Results](documentation/testing/validator-css.png)
 
 ## Javascript Validation
 
-[JS Hint](https://jshint.com/) was used to validate all my Javascript scripts. All scripts passed the tests without any errors. The main warning was about unused variables which were the class declarations.
+[JS Hint](https://jshint.com/) was used to validate all my Javascript scripts. All scripts passed the tests without any errors. The main warnings were about unused variables in some scripts, which were the class declarations and the exported instances of the classes.
 
 You can view all the tests below.
 
