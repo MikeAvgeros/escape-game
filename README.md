@@ -204,6 +204,9 @@ I have designed the structure and layout of my game based on the CSS grid system
 15. [Email JS](https://www.emailjs.com/)
     -   Email JS was used to enable users to send emails to the developer.
 
+16. [Autoprefixer CSS](https://autoprefixer.github.io/)
+    -   Autoprefixer CSS was used to help me add suitable vendor prefixes for better cross-browser compatibility.
+
 # Testing
 
 ## User Stories
@@ -343,7 +346,7 @@ You can view screenshots of the tests below.
 
 ## Further Testing
 
--   The website was viewed and tested on a variety of devices such as Desktop, Laptop, iPad, and a variety of Android and iOs mobile phones.
+-   The game was viewed and tested on a variety of devices such as Desktop, Laptop, iPad, and a variety of Android and iOs mobile phones.
 
 -   A large amount of testing was done to ensure that all pages were linking correctly. 
 
@@ -373,7 +376,7 @@ The project was deployed to GitHub Pages using the following steps.
 
 3.  I Scrolled down the Settings page until you locate the "GitHub Pages" Section.
 
-4.  Under "Source", I clicked the dropdown called "None" and select "Master Branch".
+4.  Under "Source", I clicked the dropdown called "None" and select "main".
 
 5.  I scrolled back down through the page to locate the now published [site link](https://mikeavgeros.github.io/escape-game/) in the "GitHub Pages" section.
 
