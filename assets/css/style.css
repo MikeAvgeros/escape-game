@@ -746,7 +746,24 @@ body {
 
 @media (max-width: 345px) {
     #reveal-button {
-        padding: .45rem;
+        padding: .5rem;
+        font-size: .75rem;
+    }
+
+    #scene-text p {
+        font-size: .75rem;
+    }
+
+    #btns .action-button {
+        font-size: .85rem;
+    }
+
+    #contact {
+        padding: .3rem .6rem;
+    }
+
+    #socials a {
+        padding: .3rem .6rem;
     }
 }
 
