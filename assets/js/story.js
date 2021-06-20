@@ -268,7 +268,7 @@ export function getStory(player) {
             },
             {
                 id: 12,
-                text: `Another security guards comes to the rescue. He unties you and says "What is going on? Shall we call for backup?".`,
+                text: `Another security guard comes to the rescue. He unties you and says "What is going on? Shall we call for backup?".`,
                 actions: [
                     {
                         text: "We have an intruder",

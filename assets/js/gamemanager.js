@@ -60,6 +60,7 @@ function loadScene() {
 
 function removeExistingContent() {
     paragraph.textContent = "";
+    anotherParagraph.textContent = "";
     setTimeout(() => {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].innerText = "";
@@ -287,7 +288,6 @@ function checkActionProperties(i) {
                         actions[i].attackEnemy.showHealth(anotherParagraph);
                         actions[i].attackEnemy.checkIsDead();
                         if (actions[i].attackEnemy.isDead) {
-                            anotherParagraph.textContent = "";
                             nodeId = actions[i].nextNodeAfterKill;
                             finishedTyping = false;
                             fadeOutButtons();
@@ -302,7 +302,6 @@ function checkActionProperties(i) {
                         }
                     break;
                     case (actions[i].hasOwnProperty("escapedEnemy")):
-                        anotherParagraph.textContent = "";
                         nodeId = actions[i].nextNode;
                         finishedTyping = false;
                         fadeOutButtons();
@@ -357,7 +356,6 @@ function checkActionProperties(i) {
                         changeScene();
                     break;
                     case(actions[i].hasOwnProperty("escapedEnemy")):
-                        anotherParagraph.textContent = "";
                         sceneId = actions[i].nextScene;
                         finishedTyping = false;
                         fadeOutButtons();
