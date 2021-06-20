@@ -65,7 +65,7 @@ function removeExistingContent() {
             buttons[i].innerText = "";
             buttons[i].style.pointerEvents = "none";
         }
-    }, 500);
+    }, 100);
 }
 
 /**
