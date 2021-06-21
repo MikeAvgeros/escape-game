@@ -347,24 +347,13 @@ body {
     padding-top: 2rem;
 }
 
-#modal p {
+#modal p, #modal ol li {
     text-align: center;
     padding: 1rem 1rem 2rem 1rem;
     font-size: clamp(.95rem, .8rem + .5vw, 1.1rem);
     color: var(--cyan);
     text-shadow: 0 0 .1rem var(--cyan), 0 0 .1rem var(--cyan);
     letter-spacing: 1px;
-}
-
-#modal ol {
-    justify-self: center;
-}
-
-#modal ol li {
-    color: var(--cyan);
-    font-size: clamp(.95rem, .8rem + .3vw, 1.2rem);
-    padding-top: 1rem;
-    padding-bottom: 1.5rem;
 }
 
 #player-name {
@@ -694,15 +683,15 @@ body {
     #game-wrapper {
         max-width: 60%;
     }
+
+    #close-btn {
+        transform: translateX(20vw);
+    }
 }
 
 @media (max-width: 598px) {
     #game-wrapper {
         max-width: 70%;
-    }
-
-    #close-btn {
-        transform: translateX(17.5vw) translateY(1vh);
     }
 }
 
@@ -740,14 +729,17 @@ body {
     }
 
     #close-btn {
-        transform: translateX(15vw) translateY(1vh);
+        transform: translateX(17vw);
     }
 }
 
 @media (max-width: 345px) {
     #reveal-button {
-        padding: .5rem;
         font-size: .75rem;
+    }
+
+    #scene-name h2 {
+        font-size: .95rem;
     }
 
     #scene-text p {

@@ -603,7 +603,7 @@ inventoryInfo.addEventListener("click", () => {
     let list = document.createElement("ol");
     let listItems = "";
     for (let item of inventory) {
-        listItems += `<li>${item.name}</li>`;
+        listItems += `<li>A ${item.name}</li>`;
     }
     if (inventory.length > 0) {
         list.innerHTML = listItems;
