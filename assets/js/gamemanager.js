@@ -42,6 +42,7 @@ let story;
 function calculateHealthWidth() {
     healthBarWidth = (player.health / maxHealth) * 100;
     root.style.setProperty('--width', healthBarWidth + "%");
+    flashIcon(playerHealth);
 }
 
 /**
@@ -191,7 +192,6 @@ function displayDamage() {
     if(!finishedTyping) {
         setTimeout(displayDamage, 100); 
     } else {
-        flashIcon(playerHealth);
         calculateHealthWidth();
     }
 }
@@ -380,9 +380,7 @@ function checkActionProperties(i) {
             break;
             case (actions[i].hasOwnProperty("reload")):
                 finishedTyping = false;
-                setTimeout(() => {
-                    location.reload();
-                }, 100); 
+                reloadGame();
             break;
             default:
                 nodeId = actions[i].nextNode;
@@ -475,29 +473,6 @@ form.addEventListener("submit", (event) => {
     }
 });
 
-// updates the health bar and starts a new game when clicked 
-
-function newGameButton() {
-    const newGame = document.getElementById("restart");
-    newGame.addEventListener("click", () => {
-        if (modal.classList.contains("open")) {
-            modal.classList.remove("open");
-        } 
-        if (overlay.classList.contains("open")) {
-            overlay.classList.remove("open");
-        } 
-        if (!finishedTyping) {
-            clearInterval(typeWriter);
-            paragraph.textContent = "";
-            anotherParagraph.textContent = "";
-        } 
-        player.health = 100;
-        calculateHealthWidth();
-        inventory = [];
-        startGame();
-    });
-}
-
 //handles the gameover popup
 
 function gameOver() {
@@ -542,6 +517,27 @@ function toBeContinued() {
     </div>
     `;
     newGameButton();
+}
+
+function newGameButton() {
+    const newGame = document.getElementById("restart");
+    newGame.addEventListener("click", () => {
+        if (modal.classList.contains("open")) {
+            modal.classList.remove("open");
+        } 
+        if (overlay.classList.contains("open")) {
+            overlay.classList.remove("open");
+        } 
+        reloadGame();
+    });
+}
+
+// Reloads the game
+
+function reloadGame() {
+    setTimeout(() => {
+        location.reload();
+    }, 50); 
 }
 
 // displays the modals and changes the innerHTML to display the contact form
