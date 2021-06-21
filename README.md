@@ -207,6 +207,9 @@ I have designed the structure and layout of my game based on the CSS grid system
 16. [Autoprefixer CSS](https://autoprefixer.github.io/)
     -   Autoprefixer CSS was used to help me add suitable vendor prefixes for better cross-browser compatibility.
 
+16. [Canva](https://www.canva.com/)
+    -   Canva was used to design the favicon of the page.
+
 # Testing
 
 ## User Stories

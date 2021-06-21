@@ -137,13 +137,13 @@ function checkSceneProperties() {
                         player.health = 0;
                         displayGameOver();
                     } else {
-                        displayNextNode();
+                        setTimeout(displayNextNode, 2000);
                     }
                 break;
             }
         break;
         case (currentSceneNode.hasOwnProperty("nextScene")):
-            displaynextNode();
+            setTimeout(displayNextScene, 3000);
         break;
         case (currentSceneNode.hasOwnProperty("gameOver")):
             displayGameOver();
@@ -233,9 +233,9 @@ function displayNextNode() {
 
 //displays the room in the story.js file
 
-function displaynextNode() {
+function displayNextScene() {
     if(!finishedTyping) {
-        setTimeout(displaynextNode, 100); 
+        setTimeout(displayNextScene, 100); 
     } else {
         fadeOutButtons();
         sceneId = currentSceneNode.nextScene;
@@ -501,47 +501,51 @@ function newGameButton() {
 //handles the gameover popup
 
 function gameOver() {
-    if (!modal.classList.contains("open")) {
-        modal.classList.add("open");
-    }
-    if (!overlay.classList.contains("open")) {
-        overlay.classList.add("open");
-    }
-    modal.innerHTML = `
-    <div id="heading">
-        <h1>GAME OVER</h1> 
-    </div>
-    <div>
-        <p>Press New Game to restart</p>
-    </div>
-    <div id="new-game">
-        <button id="restart" aria-label="Restart the game">New Game</button>
-    </div>
-    `;
-    newGameButton();
+    setTimeout(() => {
+        if (!modal.classList.contains("open")) {
+            modal.classList.add("open");
+        }
+        if (!overlay.classList.contains("open")) {
+            overlay.classList.add("open");
+        }
+        modal.innerHTML = `
+        <div id="heading">
+            <h1>GAME OVER</h1> 
+        </div>
+        <div>
+            <p>Press New Game to restart</p>
+        </div>
+        <div id="new-game">
+            <button id="restart" aria-label="Restart the game">New Game</button>
+        </div>
+        `;
+        newGameButton();
+    }, 2000)
 }
 
 //handles the tobecontinued popup
 
 function toBeContinued() {
-    if (!modal.classList.contains("open")) {
-        modal.classList.add("open");
-    }
-    if (!overlay.classList.contains("open")) {
-        overlay.classList.add("open");
-    }
-    modal.innerHTML = `
-    <div id="heading">
-        <h1>TO BE CONTINUED...</h1> 
-    </div>
-    <div>
-        <p>Press New Game to play again</p>
-    </div>
-    <div id="new-game">
-        <button id="restart" aria-label="Restart the game">New Game</button>
-    </div>
-    `;
-    newGameButton();
+    setTimeout(() => {
+        if (!modal.classList.contains("open")) {
+            modal.classList.add("open");
+        }
+        if (!overlay.classList.contains("open")) {
+            overlay.classList.add("open");
+        }
+        modal.innerHTML = `
+        <div id="heading">
+            <h1>TO BE CONTINUED...</h1> 
+        </div>
+        <div>
+            <p>Press New Game to play again</p>
+        </div>
+        <div id="new-game">
+            <button id="restart" aria-label="Restart the game">New Game</button>
+        </div>
+        `;
+        newGameButton();
+    }, 2000)
 }
 
 // displays the modals and changes the innerHTML to display the contact form
