@@ -573,7 +573,7 @@ export function getStory(player) {
             },
             {
                 id: 3,
-                text: `"Huh, OK then, follow me" the bouncer says. He takes you to the back entrance of the night club. Another person appears in front of you and asks for your ${items.card.name.toLowerCase()}.`,
+                text: `"Huh, OK then, follow me" the bouncer says. He takes you to the back entrance of the night club. Another person appears in front of you and asks for your ${items.card.name.toLowerCase()}. "We cannot let you in without one" he says.`,
                 requiredItem: items.card,
                 actions: [
                     {
