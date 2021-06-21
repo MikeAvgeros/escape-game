@@ -349,15 +349,28 @@ You can view screenshots of the tests below.
 
 ## Further Testing
 
--   The game was viewed and tested on a variety of devices such as Desktop, Laptop, iPad, and a variety of Android and iOs mobile phones.
+-   The game was viewed and tested on a variety of devices such as Desktop, Laptop, iPad, and a variety of Android and iOs mobile phones. 
 
--   A large amount of testing was done to ensure that all pages were linking correctly. 
+-   The game was viewed and tested on a variety of browsers.
+    -   Chrome
+    -   Firefox
+    -   Safari
+    -   Opera
+    -   Edge
+
+-   A large amount of testing was done to ensure that all links were working as expected.
 
 -   All action buttons were carefully tested to ensure they were linking to the correct node or scene.
 
 -   The story branches were carefully tested to ensure they don't create a loop.
 
+-   The project was submitted to the [peer-code-review Slack channel](https://code-institute-room.slack.com/archives/CGWQJQKC5/p1624179695306400) for review.
+
 -   Friends, family members and other Code Institute students were asked to review the site and documentation to point out any bugs, typos and/or user experience issues.
+
+## Testing Methodology
+
+Code changes were carefully tested prior to committing and pushing to GitHub. This was in an attempt to prevent faulty or broken code from being pushed to the repository or deployed to the live site. 
 
 # Deployment
 

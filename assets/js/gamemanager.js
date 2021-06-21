@@ -115,7 +115,7 @@ function checkSceneProperties() {
         displayDamage();
         player.checkIsDead();
         if (player.isDead) {
-            displayGameOver();
+            setTimeout(displayGameOver, 3000);
         }
     }
     if (currentSceneNode.hasOwnProperty("fadeImage")) {
@@ -127,7 +127,7 @@ function checkSceneProperties() {
                 case (!currentSceneNode.hasOwnProperty("requiredItemScene")):
                     if (!inventory.includes(currentSceneNode.requiredItem)) {
                         player.health = 0;
-                        displayGameOver(); 
+                        setTimeout(displayGameOver, 3000);
                     } else {
                         displayActions();
                     }
@@ -135,9 +135,9 @@ function checkSceneProperties() {
                 case (currentSceneNode.hasOwnProperty("requiredItemScene")):
                     if (!inventory.includes(currentSceneNode.requiredItem)) {
                         player.health = 0;
-                        displayGameOver();
+                        setTimeout(displayGameOver, 3000);
                     } else {
-                        setTimeout(displayNextNode, 2000);
+                        setTimeout(displayNextNode, 3000);
                     }
                 break;
             }
@@ -146,10 +146,10 @@ function checkSceneProperties() {
             setTimeout(displayNextScene, 3000);
         break;
         case (currentSceneNode.hasOwnProperty("gameOver")):
-            displayGameOver();
+            setTimeout(displayGameOver, 3000);
         break;
         case (currentSceneNode.hasOwnProperty("toBeContinued")):
-            displayToBeContinued();
+            setTimeout(displayToBeContinued, 3000);
         break;
         default:
             displayActions();
@@ -382,7 +382,7 @@ function checkActionProperties(i) {
                 finishedTyping = false;
                 setTimeout(() => {
                     location.reload();
-                }, 50); 
+                }, 100); 
             break;
             default:
                 nodeId = actions[i].nextNode;
@@ -501,51 +501,47 @@ function newGameButton() {
 //handles the gameover popup
 
 function gameOver() {
-    setTimeout(() => {
-        if (!modal.classList.contains("open")) {
-            modal.classList.add("open");
-        }
-        if (!overlay.classList.contains("open")) {
-            overlay.classList.add("open");
-        }
-        modal.innerHTML = `
-        <div id="heading">
-            <h1>GAME OVER</h1> 
-        </div>
-        <div>
-            <p>Press New Game to restart</p>
-        </div>
-        <div id="new-game">
-            <button id="restart" aria-label="Restart the game">New Game</button>
-        </div>
-        `;
-        newGameButton();
-    }, 2000)
+    if (!modal.classList.contains("open")) {
+        modal.classList.add("open");
+    }
+    if (!overlay.classList.contains("open")) {
+        overlay.classList.add("open");
+    }
+    modal.innerHTML = `
+    <div id="heading">
+        <h1>GAME OVER</h1> 
+    </div>
+    <div>
+        <p>Press New Game to restart</p>
+    </div>
+    <div id="new-game">
+        <button id="restart" aria-label="Restart the game">New Game</button>
+    </div>
+    `;
+    newGameButton();
 }
 
 //handles the tobecontinued popup
 
 function toBeContinued() {
-    setTimeout(() => {
-        if (!modal.classList.contains("open")) {
-            modal.classList.add("open");
-        }
-        if (!overlay.classList.contains("open")) {
-            overlay.classList.add("open");
-        }
-        modal.innerHTML = `
-        <div id="heading">
-            <h1>TO BE CONTINUED...</h1> 
-        </div>
-        <div>
-            <p>Press New Game to play again</p>
-        </div>
-        <div id="new-game">
-            <button id="restart" aria-label="Restart the game">New Game</button>
-        </div>
-        `;
-        newGameButton();
-    }, 2000)
+    if (!modal.classList.contains("open")) {
+        modal.classList.add("open");
+    }
+    if (!overlay.classList.contains("open")) {
+        overlay.classList.add("open");
+    }
+    modal.innerHTML = `
+    <div id="heading">
+        <h1>TO BE CONTINUED...</h1> 
+    </div>
+    <div>
+        <p>Press New Game to play again</p>
+    </div>
+    <div id="new-game">
+        <button id="restart" aria-label="Restart the game">New Game</button>
+    </div>
+    `;
+    newGameButton();
 }
 
 // displays the modals and changes the innerHTML to display the contact form
