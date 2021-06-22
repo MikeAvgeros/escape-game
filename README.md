@@ -1,7 +1,7 @@
 ![Multi Device Website Mockup](documentation/mockup/mockup.png)
 
 # Cyber Escape
-This is an interactive game I created for Milestone Project 2 as part of the Code Institute's Full Stack Software Development course. I developed this project using HTML, CSS and JavaScript as the core technologies as well concepts and design techniques learnt in the Interactive Frontend module of the course.
+This is an interactive game I created for Milestone Project 2 as part of the Code Institute's Full Stack Software Development course. I developed this project using HTML, CSS and JavaScript as the core technologies as well as concepts and design techniques learnt in the Interactive Frontend module of the course. 
 
 You can view the live site [here](https://mikeavgeros.github.io/escape-game/)
 
@@ -16,7 +16,7 @@ You can view the live site [here](https://mikeavgeros.github.io/escape-game/)
   - [Languages](#languages)
   - [Tools & Resources](#tools--resources)   
 - [Testing](#testing)
-  - [User Stories](#user-stories)
+  - [User Stories Implementation](#user-stories-implementation)
   - [Browser Compatibility](#browser-compatibility)
   - [Responsiveness](#responsiveness)
   - [HTML Validation](#html-validation)
@@ -212,33 +212,79 @@ I have designed the structure and layout of my game based on the CSS grid system
 
 # Testing
 
-## User Stories
+## User Stories Implementation
 
-- As a User, I want to be presented with a well-structured game, where I can easily find all the information that I need.
+-   **Requirement**
 
-    - As a User, I want to be able to easily view information on how to play the game.
-        - This was achieved by starting the game with a tutorial scene thoroughly explaining the functionality of the game.
+    As a User, I want to be presented with a well-structured game, where I can easily find all the information that I need.
 
-    - As a User, I want to be able to name my character similar to RPG games.
-        - The game allows the player to name his character before starting the game. In addition to that the story calls the character by his chosen name, which adds to the quality of the game.
+-   **Implementation**
 
-    - As a User, I want to be able to understand and enjoy the presented story.
-        - The story is carefully structured and tested. Each option displays a different outcome. Some option may lead to a gameover so there's the added tension of choosing the right action.
+    This was achieved by creating a one-page website with an easy to view layout. All buttons are quickly accessible to the player. Text has large enough font size and colour contrast to be easily read. Relevant icons were used to signify what each button and action is meant to do.
 
-    - As a User, I want the displayed images to convey the emotion and aesthetic of the story.
-        - Images for both the scene and the enemies are displayed on screen together with a name. This adds more realism to the game and makes the players more engaged.
+-   **Requirement**
 
-    - As a User, I want to be able to view my character's stats and inventory.
-        - Players can view their character's name and stats by clicking on the info icon. The tutorial scene explains that functionality.
+    As a User, I want to be able to easily view information on how to play the game.
 
-    - As a User, I want to be able to update my character's stats and use weapons to help me beat the enemies.
-        - The code currently has functionality to updates the player's stats although since the story is short, we do not have many weapons. The only case in the current game of a special item updating the character's stats is when you use the special spray to update your health.
+-   **Implementation**
 
-    - As a User, I want the UI to be consistent throughout the game, so it will be visually appealing and easy to play.
-        - The UI is consinstent with the cybepunk vibe of the game. The UI is consistent across multiple screen sizes and devices. The UI has been thoroughly tested and does not have any glitches or bugs.
+    This was achieved by starting the game with a tutorial scene thoroughly explaining the functionality of the game.
 
-    - As a User, I want my actions to show different results to make the game more interactive and fun to play again and again.
-        - Each choice in the game leads to a different outcome. Some choices may lead players to play more or less chapters which creates an excitement for players when they play the game for a second time and see an entire new scene which they never played before.
+-   **Requirement**
+
+    As a User, I want to be able to name my character similar to RPG games.
+
+-   **Implementation**
+
+    The game allows the player to name his character before starting the game. In addition to that the story calls the character by his chosen name, which adds to the quality of the game.
+
+-   **Requirement**
+
+    As a User, I want to be able to understand and enjoy the presented story.
+
+-   **Implementation**
+
+    The story is carefully structured and tested. Each option displays a different outcome. Some option may lead to a gameover so there's the added tension of choosing the right action.
+
+-   **Requirement**
+
+    As a User, I want the displayed images to convey the emotion and aesthetic of the story.
+
+-   **Implementation**
+
+    Images for both the scene and the enemies are displayed on screen together with a name. This adds more realism to the game and makes the players more engaged.
+
+-   **Requirement**
+
+    As a User, I want to be able to view my character's stats and inventory.
+
+-   **Implementation**
+
+    Players can view their character's name and stats by clicking on the info icon. The tutorial scene explains that functionality.
+
+-   **Requirement**
+
+    As a User, I want to be able to update my character's stats and use weapons to help me beat the enemies.
+
+-   **Implementation**
+
+    The code currently has functionality to updates the player's stats although since the story is short, we do not have many weapons. The only case in the current game of a special item updating the character's stats is when you use the special spray to update your health.
+
+-   **Requirement**
+
+    As a User, I want the UI to be consistent throughout the game, so it will be visually appealing and easy to play.
+
+-   **Implementation**
+
+    The UI is consinstent with the cybepunk vibe of the game. The UI is consistent across multiple screen sizes and devices. The UI has been thoroughly tested and does not have any glitches or bugs.
+
+    **Requirement**
+
+    As a User, I want my actions to show different results to make the game more interactive and fun to play again and again.
+
+-   **Implementation**
+
+    Each choice in the game leads to a different outcome. Some choices may lead players to play more or less chapters which creates an excitement for players when they play the game for a second time and see an entire new scene which they never played before.
 
 ## Browser Compatibility
 
