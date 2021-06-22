@@ -358,7 +358,7 @@ export function getStory(player) {
             },
             {
                 id: 2,
-                text: `Disheartened, the old man walks away as he whispers "You deserve what's coming". As you enter the station, suddenly everything turns quiet. You see a shift in the shadows to your right. You feel something is not right.`,
+                text: `Disheartened, the old man walks away as he whispers "You deserve what's coming. They are after you." As you enter the station, suddenly everything turns quiet. You see a shift in the shadows to your right. You feel something is not right.`,
                 actions: [
                     {
                         text: "Start running",
@@ -489,7 +489,7 @@ export function getStory(player) {
                 actions: [
                     {
                         text: "Walk home",
-                        response: `${player.name}'s inner voice: "I should probably find the old man. He knew something about my attacker and his connection to GenTech."`
+                        response: `${player.name}'s inner voice: "I should probably find the old man. I feel he knows something about my attacker and his connection to GenTech."`
                     },
                     {
                         text: "Find the old man",
