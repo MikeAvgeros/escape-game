@@ -37,12 +37,47 @@ let inventory = [];
 let healthBarWidth;
 let story;
 
-// changes the width property of the red background on the health bar
+/**
+ * set the player's name based on the player's input.
+ * retrieves the story from story.js and assigns it to the story variable including the player's name and starts the game
+ * closes the modal and overlay
+*/
 
-function calculateHealthWidth() {
-    healthBarWidth = (player.health / maxHealth) * 100;
-    root.style.setProperty('--width', healthBarWidth + "%");
-    flashIcon(playerHealth);
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    player.name = myName.value;
+    story = getStory(player);
+    startGame();
+    if (!modal.classList.contains("close")) {
+        modal.classList.add("close");
+    }
+    if (!overlay.classList.contains("close")) {
+        overlay.classList.add("close");
+    }
+});
+
+// starts the game. sets sceneId and nodeId to 1, which is the starting point
+
+function startGame() {
+    sceneId = 1;
+    nodeId = 1;
+    populateTextContainer();
+    loadScene();
+    handleActionClicks(); 
+    fadeImage();
+}
+
+// creates all the relevant html elements for the text and adds suitable ids for styling
+
+function populateTextContainer() {
+    textContainerChild.setAttribute("id", "bottom-container");
+    anotherParagraph.setAttribute("id", "enemy-stats");
+    revealBtn.setAttribute("id", "reveal-button");
+    textContainer.appendChild(paragraph);
+    textContainer.appendChild(textContainerChild);
+    textContainerChild.appendChild(anotherParagraph);
+    textContainerChild.appendChild(revealBtn);
+    revealBtn.textContent = "Reveal Text";
 }
 
 /**
@@ -157,6 +192,16 @@ function checkSceneProperties() {
     }
 }
 
+//displays the player's health points in the health bar
+
+function displayDamage() {
+    if(!finishedTyping) {
+        setTimeout(displayDamage, 100); 
+    } else {
+        calculateHealthWidth();
+    }
+}
+
 //handles showing the buttons with the corresponding actions
 
 function displayActions() {
@@ -186,38 +231,6 @@ function fadeInButtons() {
     }
 }
 
-//displays the player's health points in the health bar
-
-function displayDamage() {
-    if(!finishedTyping) {
-        setTimeout(displayDamage, 100); 
-    } else {
-        calculateHealthWidth();
-    }
-}
-
-// displays the gameover popup
-
-function displayGameOver() {
-    if(!finishedTyping) {
-        setTimeout(displayGameOver, 600); 
-    } else {
-        finishedTyping = false;
-        gameOver();
-    }
-}
-
-// displays the to be continued popup
-
-function displayToBeContinued() {
-    if(!finishedTyping) {
-        setTimeout(displayToBeContinued, 600); 
-    } else {
-        finishedTyping = false;
-        toBeContinued();
-    }
-}
-
 // displays the next scene in the story.js file
 
 function displayNextNode() {
@@ -241,6 +254,28 @@ function displayNextScene() {
         sceneId = currentSceneNode.nextScene;
         finishedTyping = false;
         changeScene();
+    }
+}
+
+// displays the gameover popup
+
+function displayGameOver() {
+    if(!finishedTyping) {
+        setTimeout(displayGameOver, 600); 
+    } else {
+        finishedTyping = false;
+        gameOver();
+    }
+}
+
+// displays the to be continued popup
+
+function displayToBeContinued() {
+    if(!finishedTyping) {
+        setTimeout(displayToBeContinued, 600); 
+    } else {
+        finishedTyping = false;
+        toBeContinued();
     }
 }
 
@@ -411,6 +446,14 @@ function fadeImage() {
     }, 1000);
 }
 
+// changes the width property of the red background on the health bar
+
+function calculateHealthWidth() {
+    healthBarWidth = (player.health / maxHealth) * 100;
+    root.style.setProperty('--width', healthBarWidth + "%");
+    flashIcon(playerHealth);
+}
+
 // creates a flassing effect on the icon
 
 function flashIcon(icon) {
@@ -418,30 +461,6 @@ function flashIcon(icon) {
         setTimeout(() => {
             icon.classList.remove("flash");
     }, 1000);
-}
-
-// starts the game. sets sceneId and nodeId to 1, which is the starting point
-
-function startGame() {
-    sceneId = 1;
-    nodeId = 1;
-    populateTextContainer();
-    loadScene();
-    handleActionClicks(); 
-    fadeImage();
-}
-
-// creates all the relevant html elements for the text and adds suitable ids for styling
-
-function populateTextContainer() {
-    textContainerChild.setAttribute("id", "bottom-container");
-    anotherParagraph.setAttribute("id", "enemy-stats");
-    revealBtn.setAttribute("id", "reveal-button");
-    textContainer.appendChild(paragraph);
-    textContainer.appendChild(textContainerChild);
-    textContainerChild.appendChild(anotherParagraph);
-    textContainerChild.appendChild(revealBtn);
-    revealBtn.textContent = "Reveal Text";
 }
 
 //changes room. sets story id to 1 so that you start at the beginning of the room
@@ -453,25 +472,6 @@ function changeScene() {
         fadeImage();
     }, 250);
 }
-
-/**
- * set the player's name based on the player's input.
- * retrieves the story from story.js and assigns it to the story variable including the player's name and starts the game
- * closes the modal and overlay
-*/
-
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    player.name = myName.value;
-    story = getStory(player);
-    startGame();
-    if (!modal.classList.contains("close")) {
-        modal.classList.add("close");
-    }
-    if (!overlay.classList.contains("close")) {
-        overlay.classList.add("close");
-    }
-});
 
 //handles the gameover popup
 
