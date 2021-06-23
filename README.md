@@ -278,7 +278,7 @@ I have designed the structure and layout of my game based on the CSS grid system
 
     The UI is consinstent with the cybepunk vibe of the game. The UI is consistent across multiple screen sizes and devices. The UI has been thoroughly tested and does not have any glitches or bugs.
 
-    **Requirement**
+-   **Requirement**
 
     As a User, I want my actions to show different results to make the game more interactive and fun to play again and again.
 
